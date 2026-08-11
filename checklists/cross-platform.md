@@ -1,3 +1,596 @@
-# Cross Platform
+# Cross-Platform Release Checklist
 
-Documentation for Cross Platform.
+Use this checklist for a release that targets **both iOS and Android**.
+
+It covers the shared release work that should be completed once, then points to the platform-specific checklists for Apple and Google.
+
+This checklist is intentionally framework-independent. It can be used with Expo, React Native, native iOS, native Android, or another mobile framework.
+
+For framework-specific build and submission steps, use the relevant guide under `frameworks/`.
+
+> **Important:** Store requirements, SDK requirements, signing rules, and submission behavior can change. Verify current platform requirements against the official Apple and Google documentation before every release.
+
+---
+
+## 1. Release scope
+
+Before starting, define exactly what is being released.
+
+- [ ] Release version is identified.
+- [ ] Release branch or commit is identified.
+- [ ] iOS and Android are both included in the intended release.
+- [ ] Any platform-specific differences are known.
+- [ ] Features included in the release are documented.
+- [ ] Features intentionally excluded from the release are known.
+- [ ] Release notes can be traced to the actual changes.
+- [ ] Any required backend or API changes are coordinated with the mobile release.
+
+### Release candidate
+
+- [ ] The exact commit/build configuration used for release is known.
+- [ ] No unreviewed changes are included.
+- [ ] Production configuration is enabled.
+- [ ] Development or staging configuration is not accidentally included.
+
+---
+
+## 2. Application identity
+
+Verify the application identity separately for each platform.
+
+### Shared
+
+- [ ] App name is correct.
+- [ ] Production environment is selected.
+- [ ] App identifiers are documented.
+- [ ] The correct production backend/API is configured.
+- [ ] No development application is referenced accidentally.
+
+### iOS
+
+- [ ] Bundle identifier is correct.
+- [ ] Bundle identifier matches the intended App Store Connect app.
+
+### Android
+
+- [ ] Application ID/package name is correct.
+- [ ] Application ID matches the intended Google Play app.
+
+Do not assume that the iOS bundle identifier and Android application ID must be identical. They are platform-specific identifiers.
+
+---
+
+## 3. Versioning
+
+Maintain a clear relationship between the public app version and each platform's build number.
+
+- [ ] User-facing version is correct.
+- [ ] iOS build number has been increased as required.
+- [ ] Android version code has been increased as required.
+- [ ] The iOS build number is valid for the intended App Store submission.
+- [ ] The Android version code is valid for the intended Play release.
+- [ ] The same source release can be traced to both platform builds.
+- [ ] Release notes match the actual release.
+
+Do not assume the platform build number/version code works the same way as the user-facing version.
+
+---
+
+## 4. Production configuration
+
+Check the configuration used by both platform builds.
+
+- [ ] Production API endpoints are configured.
+- [ ] Production environment variables are present.
+- [ ] Development endpoints are not included.
+- [ ] Staging credentials are not included.
+- [ ] Debug-only behavior is disabled.
+- [ ] Test data is not unintentionally bundled or displayed.
+- [ ] Production feature flags are correct.
+- [ ] Required third-party configuration is present.
+- [ ] Platform-specific configuration has been reviewed.
+
+For Expo, verify the resolved app configuration and build profile rather than checking only the source configuration file.
+
+---
+
+## 5. Signing and credentials
+
+Both platforms must have valid production signing.
+
+- [ ] iOS distribution signing is configured.
+- [ ] Android release signing is configured.
+- [ ] Required App Store Connect credentials are available to the release process.
+- [ ] Required Google Play credentials are available to the release process.
+- [ ] Signing credentials are stored securely.
+- [ ] No private keys or credentials are committed to Git.
+- [ ] CI/CD secrets are protected.
+- [ ] Access is limited to people and systems that need it.
+- [ ] Credential recovery/rotation procedures are known.
+
+### Security boundary
+
+Never:
+
+- [ ] Commit signing credentials.
+- [ ] Put private keys in source code.
+- [ ] Put production secrets in client configuration.
+- [ ] Paste signing credentials into an AI agent.
+- [ ] Give an AI agent unrestricted access to store accounts.
+
+If a credential is exposed:
+
+```text
+Revoke
+  ↓
+Rotate
+  ↓
+Investigate
+  ↓
+Verify
+```
+
+---
+
+## 6. Dependencies and native configuration
+
+- [ ] Dependencies are locked to the intended release versions.
+- [ ] Native dependencies are compatible with both platforms.
+- [ ] Required native configuration is present.
+- [ ] Unused native modules have been reviewed.
+- [ ] Known release-blocking dependency issues are resolved.
+- [ ] Build tooling versions are known.
+- [ ] Any native configuration generated by the framework has been reviewed where relevant.
+- [ ] The release has been built from a clean or reproducible environment where practical.
+
+For Expo and React Native, pay particular attention to native modules, config plugins, permissions, entitlements, and build configuration that can differ between platforms.
+
+---
+
+## 7. Production build
+
+Create the production artifacts for both platforms.
+
+```text
+Source
+  ↓
+Production configuration
+  ↓
+iOS build
++
+Android build
+  ↓
+Artifact verification
+  ↓
+Device testing
+```
+
+- [ ] iOS production artifact has been generated.
+- [ ] Android production artifact has been generated.
+- [ ] Both artifacts come from the intended source release.
+- [ ] Both artifacts use production configuration.
+- [ ] Both artifacts are correctly signed.
+- [ ] Version/build identifiers are correct.
+- [ ] Release artifacts are retained according to the team's release process.
+
+For Expo, EAS Build can produce production builds for both platforms, and EAS Submit can upload valid iOS and Android binaries to the corresponding stores. See the Expo distribution documentation for the current workflow.
+
+Official Expo sources:
+- https://docs.expo.dev/distribution/introduction/
+- https://docs.expo.dev/deploy/build-project/
+- https://docs.expo.dev/submit/introduction/
+
+---
+
+## 8. Cross-platform functional testing
+
+Test the same critical user journeys on both platforms.
+
+### Core flows
+
+- [ ] App launches successfully.
+- [ ] First launch works.
+- [ ] Signup works, if applicable.
+- [ ] Login works.
+- [ ] Logout works.
+- [ ] Account switching works, if applicable.
+- [ ] Primary user journey works end to end.
+- [ ] Important error states work.
+- [ ] Network failures are handled correctly.
+- [ ] Offline behavior is correct where supported.
+- [ ] App restart works.
+- [ ] Background/foreground transitions work.
+- [ ] Upgrade from the previous production version works.
+
+### Test on both
+
+| Area | iOS | Android |
+|---|---|---|
+| Launch | [ ] | [ ] |
+| Login | [ ] | [ ] |
+| Signup | [ ] | [ ] |
+| Core flow | [ ] | [ ] |
+| Logout | [ ] | [ ] |
+| Network failure | [ ] | [ ] |
+| Offline behavior | [ ] | [ ] |
+| Background/foreground | [ ] | [ ] |
+| Upgrade | [ ] | [ ] |
+| Error states | [ ] | [ ] |
+
+---
+
+## 9. Permissions
+
+Review every permission requested by the app.
+
+- [ ] Required permissions are known.
+- [ ] Unnecessary permissions have been removed.
+- [ ] Permission prompts appear at the correct time.
+- [ ] Permission denial is handled.
+- [ ] Permission re-enablement is handled.
+- [ ] The app does not assume permission was granted.
+- [ ] Permission-related flows work on both platforms.
+- [ ] Store declarations match actual app behavior where required.
+
+Test permissions on real devices.
+
+Do not rely only on simulator/emulator behavior.
+
+---
+
+## 10. Deep links
+
+If the app supports deep links:
+
+- [ ] Deep links work on iOS.
+- [ ] Deep links work on Android.
+- [ ] The correct production domains are configured.
+- [ ] Authentication-required links behave correctly.
+- [ ] Invalid links are handled.
+- [ ] Links work when the app is already open.
+- [ ] Links work when the app is in the background.
+- [ ] Links work after the app is fully closed.
+- [ ] Universal Links are verified on iOS where used.
+- [ ] Android App Links are verified on Android where used.
+
+Platform-specific configuration belongs in the relevant framework/platform guides.
+
+---
+
+## 11. Push notifications
+
+If the app uses push notifications:
+
+- [ ] Production notification configuration is correct.
+- [ ] Permission behavior works on both platforms.
+- [ ] Notifications arrive on real devices.
+- [ ] Foreground behavior is correct.
+- [ ] Background behavior is correct.
+- [ ] Notification tap navigation works.
+- [ ] Notification tokens are handled correctly.
+- [ ] Logout/account switching does not leak notifications between users.
+- [ ] Notification behavior after reinstall has been tested where relevant.
+
+Test at least:
+
+```text
+App open
+App backgrounded
+App terminated
+User logged out
+User logged in again
+```
+
+---
+
+## 12. Payments and subscriptions
+
+If the app uses platform billing:
+
+- [ ] iOS products are configured correctly.
+- [ ] Android products are configured correctly.
+- [ ] Product identifiers are mapped correctly.
+- [ ] Prices are correct.
+- [ ] Test purchases have been completed.
+- [ ] Successful purchases unlock the intended entitlement.
+- [ ] Failed purchases do not unlock access incorrectly.
+- [ ] Cancellations are handled.
+- [ ] Expiration is handled.
+- [ ] Restore/recovery flows are handled where applicable.
+- [ ] Backend entitlement state is correct where the product requires server-side validation.
+- [ ] iOS and Android entitlement behavior is consistent.
+
+Do not assume the client is the authoritative source for valuable entitlements.
+
+---
+
+## 13. Privacy and data review
+
+Review the actual production application, not just the intended design.
+
+- [ ] Data collected by the app is documented.
+- [ ] Third-party SDKs have been reviewed.
+- [ ] Analytics collection is understood.
+- [ ] Crash reporting is understood.
+- [ ] Advertising/tracking behavior is understood where applicable.
+- [ ] Location collection is understood where applicable.
+- [ ] Camera/microphone access is understood where applicable.
+- [ ] Privacy policy reflects actual behavior.
+- [ ] Store privacy/data declarations are accurate.
+- [ ] Platform permission declarations match actual use.
+- [ ] Sensitive data is not unnecessarily collected or logged.
+
+For current platform-specific declarations, verify the official Apple and Google requirements before submission.
+
+---
+
+## 14. Store metadata and assets
+
+Prepare both store listings.
+
+### Shared content
+
+- [ ] App name is correct.
+- [ ] Description is accurate.
+- [ ] Release notes are accurate.
+- [ ] Support information is correct.
+- [ ] Website links work.
+- [ ] Marketing claims are supported by the actual app.
+- [ ] Localization is reviewed where used.
+
+### Screenshots and assets
+
+- [ ] iOS screenshots are current.
+- [ ] Android screenshots are current.
+- [ ] Screenshots show the current production UI.
+- [ ] Screenshots do not contain test data.
+- [ ] Screenshots do not show unsupported features.
+- [ ] Required store assets are available.
+- [ ] App icons are correct.
+- [ ] Promotional assets are correct where required.
+
+Do not assume one screenshot set can simply be reused for every store requirement.
+
+---
+
+## 15. Store account readiness
+
+### Apple
+
+- [ ] Correct Apple Developer account is being used.
+- [ ] App Store Connect app record exists.
+- [ ] Required agreements are complete.
+- [ ] Required tax/banking information is complete where applicable.
+- [ ] The submitting user has the required role.
+- [ ] Required app metadata is complete.
+
+Apple's App Store Connect documentation states that an app record must exist before uploading a build, and that required agreements may need to be accepted before creating an app record. citeturn0search10turn0search12
+
+### Google
+
+- [ ] Correct Google Play developer account is being used.
+- [ ] Play Console app exists.
+- [ ] Required account setup is complete.
+- [ ] Required testing requirements are satisfied where applicable.
+- [ ] Required app declarations are complete.
+- [ ] The submitting user has the required permissions.
+
+Use the Android-specific checklist for current Google Play account and testing requirements.
+
+---
+
+## 16. Store testing
+
+Run the final candidate through the platform testing systems.
+
+### iOS
+
+- [ ] Build uploaded to App Store Connect.
+- [ ] Build has finished processing.
+- [ ] TestFlight installation works.
+- [ ] Critical flows work in the TestFlight build.
+- [ ] External testing requirements are satisfied where applicable.
+- [ ] Final build selected for App Review.
+
+### Android
+
+- [ ] Build uploaded to Google Play Console.
+- [ ] Appropriate testing track is configured.
+- [ ] Testers can install the build.
+- [ ] Critical flows work from Google Play.
+- [ ] Required closed testing requirements are satisfied where applicable.
+- [ ] Final release candidate is ready for production.
+
+---
+
+## 17. Submission readiness
+
+Before submitting either platform:
+
+- [ ] Exact production build has been selected.
+- [ ] Version/build numbers are correct.
+- [ ] Store metadata is complete.
+- [ ] Screenshots and assets are current.
+- [ ] Privacy declarations are accurate.
+- [ ] App access instructions are correct if reviewers need them.
+- [ ] Release notes are ready.
+- [ ] Testing is complete.
+- [ ] Known release-blocking issues are resolved.
+- [ ] A human has reviewed the final submission.
+
+### Important
+
+Uploading a binary is not necessarily the same as submitting the app for review or releasing it to production.
+
+For example, EAS Submit uploads iOS builds to App Store Connect/TestFlight and Android builds to Google Play Console. The remaining store submission and rollout steps still depend on the platform workflow. citeturn0search0turn0search2
+
+---
+
+## 18. Final cross-platform comparison
+
+Before release, compare both platforms side by side.
+
+| Release area | iOS | Android |
+|---|---|---|
+| Production config | [ ] | [ ] |
+| Identifier | [ ] | [ ] |
+| Version/build number | [ ] | [ ] |
+| Signing | [ ] | [ ] |
+| Production build | [ ] | [ ] |
+| Core flows tested | [ ] | [ ] |
+| Permissions tested | [ ] | [ ] |
+| Deep links tested | [ ] | [ ] |
+| Push notifications tested | [ ] | [ ] |
+| Payments tested | [ ] | [ ] |
+| Privacy reviewed | [ ] | [ ] |
+| Store metadata | [ ] | [ ] |
+| Screenshots/assets | [ ] | [ ] |
+| Store testing | [ ] | [ ] |
+| Submission ready | [ ] | [ ] |
+| Human approval | [ ] | [ ] |
+
+---
+
+## 19. Release approval
+
+Do not release simply because every checkbox is marked.
+
+Confirm:
+
+- [ ] The exact builds are known.
+- [ ] The release has been tested on both platforms.
+- [ ] Critical platform differences are understood.
+- [ ] No known release-blocking issue remains.
+- [ ] Store information is accurate.
+- [ ] Security and privacy checks are complete.
+- [ ] Signing credentials are protected.
+- [ ] Production monitoring is ready.
+- [ ] A rollback or mitigation plan exists for serious failures.
+- [ ] A human has approved the release.
+
+Use:
+
+```text
+Prepare
+  ↓
+Build
+  ↓
+Verify
+  ↓
+Test
+  ↓
+Submit
+  ↓
+Human approval
+  ↓
+Release
+  ↓
+Monitor
+```
+
+---
+
+# AI-assisted cross-platform audit
+
+AI can help compare the release configuration and identify inconsistencies between iOS and Android.
+
+A useful workflow is:
+
+```text
+Repository
+   ↓
+AI inspects release configuration
+   ↓
+Compare iOS + Android
+   ↓
+Find differences
+   ↓
+Developer verifies findings
+   ↓
+Fix
+   ↓
+Build again
+   ↓
+Test
+   ↓
+Human approval
+```
+
+Useful AI checks include:
+
+- version consistency
+- environment configuration
+- missing production configuration
+- platform-specific permissions
+- deep-link configuration
+- notification configuration
+- dependency differences
+- release metadata
+- obvious store-readiness gaps
+- CI/CD configuration
+
+AI should not independently submit or release production builds without an explicit, reviewed workflow.
+
+Never provide signing keys, store credentials, or production secrets to an AI agent.
+
+Treat AI findings as untrusted until verified.
+
+---
+
+# Final check
+
+The release is ready when:
+
+```text
+iOS build
+   +
+Android build
+   +
+Both tested
+   +
+Store information verified
+   +
+Security checked
+   +
+Privacy checked
+   +
+Human approved
+        ↓
+     Release
+```
+
+If a critical item cannot be verified, stop and investigate rather than assuming it is correct.
+
+---
+
+# Official sources
+
+Use the current official documentation to verify platform-specific requirements:
+
+### Apple
+
+- App Store Connect Help: https://developer.apple.com/help/app-store-connect/
+- Add an app record: https://developer.apple.com/help/app-store-connect/create-an-app-record/add-a-new-app/
+- Submit an app for review: https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/submit-an-app
+
+### Google
+
+- Google Play Console Help: https://support.google.com/googleplay/android-developer/
+- Android Developers: https://developer.android.com/
+- Google Play target API requirements: https://developer.android.com/google/play/requirements/target-sdk
+
+### Expo
+
+- Distribution overview: https://docs.expo.dev/distribution/introduction/
+- Build for app stores: https://docs.expo.dev/deploy/build-project/
+- EAS Submit: https://docs.expo.dev/submit/introduction/
+- Submit to Google Play: https://docs.expo.dev/submit/android/
+- Submit to Apple App Store: https://docs.expo.dev/submit/ios/
+
+### React Native
+
+- Publishing to app stores: https://reactnative.dev/docs/signed-apk-android
+
+**Last verified:** August 11, 2026
+
+Platform requirements and tooling behavior are volatile. Re-check the official sources before each production release.
