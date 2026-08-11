@@ -1,0 +1,3 @@
+# Consumables
+
+Documentation for Consumables.

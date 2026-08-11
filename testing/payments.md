@@ -1,0 +1,3 @@
+# Payments
+
+Documentation for Payments.

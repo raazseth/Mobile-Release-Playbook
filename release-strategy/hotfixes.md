@@ -1,0 +1,3 @@
+# Hotfixes
+
+Documentation for Hotfixes.

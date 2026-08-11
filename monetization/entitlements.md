@@ -1,0 +1,3 @@
+# Entitlements
+
+Documentation for Entitlements.

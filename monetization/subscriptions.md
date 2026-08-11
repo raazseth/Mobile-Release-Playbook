@@ -1,0 +1,3 @@
+# Subscriptions
+
+Documentation for Subscriptions.

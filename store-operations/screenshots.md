@@ -1,0 +1,3 @@
+# Screenshots
+
+Documentation for Screenshots.

@@ -1,0 +1,3 @@
+# Advertising
+
+Documentation for Advertising.
