@@ -51,13 +51,25 @@ Changes currently being developed and not yet included in a published release.
 - First-class Expo documentation.
 - First-class React Native documentation.
 - Community framework extension structure.
+- Expanded `ai/README.md` into a comprehensive architecture index and navigation guide for the entire AI-assisted mobile release engineering subsystem.
+- Expanded `ai/orchestration/` (`agent-workflows.md`, `human-approval.md`, `bounded-autonomy.md`, `subagents.md`, `tool-permissions.md`, `mcp.md`) into comprehensive handbook guides covering multi-agent topologies, human approval gates, autonomy constraints, subagent isolation, tool permission matrices, and Model Context Protocol integrations.
+- Expanded `ai/prompts/` (`debugging.md`, `metadata.md`, `qa.md`, `rejection-analysis.md`, `release-audit.md`, `release-notes.md`) into production-ready prompt templates, input/output schemas, and execution examples.
+- Expanded `ai/security/` (`agent-permissions.md`, `destructive-actions.md`, `prompt-injection.md`, `secret-protection.md`) into security handbook guides covering container sandboxing, non-reversible action gating, prompt injection shielding, and secret masking architecture.
+- Expanded `ai/tools/` (`chatgpt.md`, `claude.md`, `claude-code.md`, `codex.md`, `github-copilot.md`, `github-agents.md`) into comprehensive tool guides detailing privacy baselines, prompt setups, execution limits, and CLI workflows.
+- Expanded `ai/workflows/` (`release-preparation.md`, `release-audit.md`, `ai-qa.md`, `debugging.md`, `metadata-generation.md`, `rejection-analysis.md`, `release-notes.md`) into end-to-end multi-agent workflow specifications with step-by-step procedures and machine-readable schemas.
+- Expanded `integrations/` (`README.md` and 13 domain guides: `analytics`, `app-links`, `attribution`, `background-processing`, `camera`, `crash-reporting`, `deep-links`, `location`, `maps`, `oauth`, `payments`, `push-notifications`, `universal-links`) into comprehensive integration handbooks detailing native permissions, privacy manifests (`PrivacyInfo.xcprivacy`), store review compliance (Guideline 3.1.1, Guideline 4.0, Guideline 5.1.1), Android 14+ Selected Photos, FCM HTTP v1, StoreKit 2, and AASA domain verification.
 - Troubleshooting guides for common release failures.
 - Reusable release checklists and templates.
 - Source verification and documentation governance structure.
 
 ### Changed
 
-- None yet.
+- Validated and updated all documentation across `ai/orchestration/`, `ai/prompts/`, `ai/security/`, `ai/tools/`, and `ai/workflows/` against official 2026 platform requirements, including Google Play Android 16 (API Level 36) target enforcement, Apple App Store Guideline 5.1.1 Privacy Manifest Required Reason APIs, and Model Context Protocol (MCP) stateless request/response header-routing specification.
+- Upgraded `ai/README.md` to 2026 Context Engineering standards and the OWASP GenAI Security Project (2026 Standard), reflecting prompt caching layouts, single-mount variable blocks, XML tag shielding, and the complete 9-module subsystem taxonomy.
+- Upgraded all prompt templates in `ai/prompts/` (`debugging.md`, `metadata.md`, `qa.md`, `rejection-analysis.md`, `release-audit.md`, `release-notes.md`) to 2026 Context Engineering standards, incorporating static prompt caching architecture, single-mount variable blocks, explicit XML tag isolation, and mandatory native reasoning (`<thinking>`) steps.
+- Upgraded all security handbooks in `ai/security/` (`agent-permissions.md`, `destructive-actions.md`, `prompt-injection.md`, `secret-protection.md`) to align with the OWASP GenAI Security Project (2026 Standard), establishing explicit mitigations for LLM01 Prompt Injection, LLM02 Sensitive Information Disclosure, LLM05 Improper Output Handling, and LLM06 Excessive Agency.
+- Upgraded all tool integration guides in `ai/tools/` (`chatgpt.md`, `claude.md`, `claude-code.md`, `codex.md`, `github-copilot.md`, `github-agents.md`) to 2026 Context Engineering standards, incorporating system prompt caching layouts, XML tag prompt shielding, and OWASP GenAI security guardrails.
+- Upgraded all workflow specifications in `ai/workflows/` (`release-preparation.md`, `release-audit.md`, `ai-qa.md`, `debugging.md`, `metadata-generation.md`, `rejection-analysis.md`, `release-notes.md`) to 2026 Context Engineering standards, incorporating static system prompt caching, single-mount XML tags, step-by-step reasoning steps, and machine-readable YAML reports.
 
 ### Deprecated
 
