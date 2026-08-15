@@ -104,7 +104,7 @@ In App Store Connect under **App Review Information**:
 
 - [Rejection Handling Handbook](rejection-handling.md) - Rejection triage.
 - [Resubmission Handbook](resubmission.md) - Resubmitting builds.
-- [Release Preparation Workflow](../../ai/workflows/release-preparation.md) - Pre-release checks.
+- [Release Preparation Workflow](../ai/workflows/release-preparation.md) - Pre-release checks.
 
 ---
 

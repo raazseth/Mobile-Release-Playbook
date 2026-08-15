@@ -7,7 +7,7 @@ Engineered in alignment with **2026 platform specifications**, it specifies how 
 This guide is **not**:
 
 - an authorization mechanism to use raw HTML elements in playbook markdown files
-- a substitute for following [CLAUDE.md](../../.claude/CLAUDE.md) structural standards
+- a substitute for following [CLAUDE.md](../.claude/CLAUDE.md) structural standards
 - a guide to omitting framing descriptions or "This guide is not" sections
 
 ---
@@ -55,7 +55,7 @@ Every domain handbook in this repository MUST follow a standardized 5-part secti
 
 # 4. Official Sources
 
-- Repository Instructions: [../../.claude/CLAUDE.md](../../.claude/CLAUDE.md)
+- Repository Instructions: [../../.claude/CLAUDE.md](../.claude/CLAUDE.md)
 
 ---
 

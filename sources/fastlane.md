@@ -53,7 +53,7 @@ This guide is **not**:
 
 - [Expo Documentation Registry](expo.md) - Expo sources.
 - [Tooling Documentation Registry](tooling.md) - CI/CD tooling.
-- [Cross-Platform Publishing Handbook](../../publishing/cross-platform/README.md) - Publishing workflows.
+- [Cross-Platform Publishing Handbook](../publishing/cross-platform/README.md) - Publishing workflows.
 
 ---
 

@@ -84,7 +84,7 @@ Automated toolchains (Fastlane, EAS Submit, GitHub Actions) MUST operate under s
 
 - [App Store Connect Handbook](app-store-connect.md) - API key management.
 - [Google Play Console Handbook](google-play-console.md) - Service account keys.
-- [Agent Permissions](../../ai/security/agent-permissions.md) - AI agent sandboxing.
+- [Agent Permissions](../ai/security/agent-permissions.md) - AI agent sandboxing.
 
 ---
 

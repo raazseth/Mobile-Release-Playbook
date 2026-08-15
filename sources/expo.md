@@ -58,7 +58,7 @@ This guide is **not**:
 
 - [React Native Documentation Registry](react-native.md) - React Native sources.
 - [Fastlane Documentation Registry](fastlane.md) - Fastlane sources.
-- [Cross-Platform Publishing Handbook](../../publishing/cross-platform/README.md) - Publishing workflows.
+- [Cross-Platform Publishing Handbook](../publishing/cross-platform/README.md) - Publishing workflows.
 
 ---
 

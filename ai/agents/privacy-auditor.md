@@ -45,27 +45,27 @@ The workflow is:
 
 ```text
 Application + SDK Inventory
-          ↓
-     Data Discovery
-          ↓
-    Data Flow Mapping
-          ↓
+ ↓
+ Data Discovery
+ ↓
+ Data Flow Mapping
+ ↓
 Purpose / Access Review
-          ↓
+ ↓
 Third-Party Review
-          ↓
+ ↓
 Platform Disclosure Review
-          ↓
+ ↓
 Privacy Policy Consistency
-          ↓
+ ↓
 Consent / Permission Review
-          ↓
+ ↓
 Retention / Deletion Review
-          ↓
+ ↓
 Security Review
-          ↓
+ ↓
 Release Risk
-          ↓
+ ↓
 Human Decision
 ```
 
@@ -196,7 +196,7 @@ No data collection
 
 A third-party SDK can collect data independently of the app's main feature code.
 
-Apple explicitly requires developers to account for data collected by third-party partners whose code is integrated into the app. urlApple App Privacy Detailshttps://developer.apple.com/app-store/app-privacy-details/
+Apple explicitly requires developers to account for data collected by third-party partners whose code is integrated into the app. [Apple App Privacy Details](https://developer.apple.com/app-store/app-privacy-details/)
 
 ---
 
@@ -233,7 +233,7 @@ What identifiers are involved?
 What configuration controls collection?
 ```
 
-Google Play explicitly requires developers to ensure third-party code and its data practices comply with Play policies. urlGoogle Play User Data Policyhttps://support.google.com/googleplay/android-developer/answer/10144311
+Google Play explicitly requires developers to ensure third-party code and its data practices comply with Play policies. [Google Play User Data Policy](https://support.google.com/googleplay/android-developer/answer/10144311)
 
 ---
 
@@ -255,7 +255,7 @@ Example:
 
 ```text
 Location permission
-        ↓
+ ↓
 Could be:
 On-device only
 
@@ -427,7 +427,7 @@ The exact legal classification depends on the applicable jurisdiction.
 
 Do not claim that one universal classification applies everywhere.
 
-Google Play's current User Data policy explicitly includes categories such as personally identifiable information, financial/payment information, authentication information, contacts, location, SMS/call-related data, health data, microphone, camera, and other sensitive device or usage data. urlGoogle Play User Data Policyhttps://support.google.com/googleplay/android-developer/answer/10144311
+Google Play's current User Data policy explicitly includes categories such as personally identifiable information, financial/payment information, authentication information, contacts, location, SMS/call-related data, health data, microphone, camera, and other sensitive device or usage data. [Google Play User Data Policy](https://support.google.com/googleplay/android-developer/answer/10144311)
 
 ---
 
@@ -477,13 +477,13 @@ Example:
 
 ```text
 Microphone
-    ↓
+ ↓
 Mobile app
-    ↓
+ ↓
 Speech provider
-    ↓
+ ↓
 Transcription
-    ↓
+ ↓
 Application backend
 ```
 
@@ -630,7 +630,7 @@ Why it is needed
 What happens with the data
 ```
 
-Google Play's current guidance requires prominent disclosure in relevant cases involving personal and sensitive data and distinguishes this from the privacy policy and Data Safety section. urlGoogle Play prominent disclosure guidancehttps://support.google.com/googleplay/android-developer/answer/11150561
+Google Play's current guidance requires prominent disclosure in relevant cases involving personal and sensitive data and distinguishes this from the privacy policy and Data Safety section. [Google Play prominent disclosure guidance](https://support.google.com/googleplay/android-developer/answer/11150561)
 
 Do not assume a privacy policy alone satisfies every in-app disclosure requirement.
 
@@ -672,7 +672,7 @@ rather than:
 Read the entire contact database
 ```
 
-Google has announced additional restrictions around sensitive permissions, including location and contacts, with changes taking effect on October 28, 2026. Verify the current policy before release. urlGoogle Play sensitive permissions policyhttps://support.google.com/googleplay/android-developer/answer/16558241
+Google has announced additional restrictions around sensitive permissions, including location and contacts, with changes taking effect on October 28, 2026. Verify the current policy before release. [Google Play sensitive permissions policy](https://support.google.com/googleplay/android-developer/answer/16558241)
 
 ---
 
@@ -703,7 +703,7 @@ Which platforms?
 What consent is required?
 ```
 
-Apple's current App Review Guidelines require explicit permission through App Tracking Transparency for tracking activity covered by the rule. urlApple App Review Guidelineshttps://developer.apple.com/app-store/review/guidelines/
+Apple's current App Review Guidelines require explicit permission through App Tracking Transparency for tracking activity covered by the rule. [Apple App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/)
 
 Do not label every analytics event as tracking without checking the applicable platform definition.
 
@@ -1018,9 +1018,9 @@ Escalate privacy review
 
 Do not rely on a generic adult-app privacy workflow.
 
-Google Play has specific requirements for apps targeting children and restrictions on SDKs used in child-directed services. urlGoogle Play User Data Policyhttps://support.google.com/googleplay/android-developer/answer/10144311
+Google Play has specific requirements for apps targeting children and restrictions on SDKs used in child-directed services. [Google Play User Data Policy](https://support.google.com/googleplay/android-developer/answer/10144311)
 
-Apple also applies specific privacy requirements to children's and sensitive data contexts. urlApple App Review Guidelineshttps://developer.apple.com/app-store/review/guidelines/
+Apple also applies specific privacy requirements to children's and sensitive data contexts. [Apple App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/)
 
 ---
 
@@ -1057,7 +1057,7 @@ Operational need
 User request
 ```
 
-The data system guidance recommends defining retention and real deletion behavior, and warns that soft deletion adds complexity. fileciteturn35file19
+The data system guidance recommends defining retention and real deletion behavior, and warns that soft deletion adds complexity.
 
 ---
 
@@ -1081,19 +1081,19 @@ For account deletion:
 
 ```text
 User requests deletion
-        ↓
+ ↓
 Account disabled/deleted
-        ↓
+ ↓
 Associated data identified
-        ↓
+ ↓
 Primary data deleted
-        ↓
+ ↓
 Derived data handled
-        ↓
+ ↓
 Third-party data handled
-        ↓
+ ↓
 Caches/indexes handled
-        ↓
+ ↓
 Retention exceptions recorded
 ```
 
@@ -1157,9 +1157,9 @@ Children
 AI processing
 ```
 
-Apple's current guidelines require privacy policies to explain what data is collected, how it is collected and used, relevant third parties, retention/deletion, and how users can revoke consent or request deletion. urlApple App Review Guidelineshttps://developer.apple.com/app-store/review/guidelines/
+Apple's current guidelines require privacy policies to explain what data is collected, how it is collected and used, relevant third parties, retention/deletion, and how users can revoke consent or request deletion. [Apple App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/)
 
-Google Play similarly requires a privacy policy that comprehensively discloses how user and device data is accessed, collected, used, and shared. urlGoogle Play User Data Policyhttps://support.google.com/googleplay/android-developer/answer/10144311
+Google Play similarly requires a privacy policy that comprehensively discloses how user and device data is accessed, collected, used, and shared. [Google Play User Data Policy](https://support.google.com/googleplay/android-developer/answer/10144311)
 
 ---
 
@@ -1178,9 +1178,9 @@ Third-party partners
 Privacy choices URL where applicable
 ```
 
-Apple states that App Privacy information includes data collected by the app and third-party partners, and that developers are responsible for keeping responses accurate and current. urlApple App Privacy Detailshttps://developer.apple.com/app-store/app-privacy-details/
+Apple states that App Privacy information includes data collected by the app and third-party partners, and that developers are responsible for keeping responses accurate and current. [Apple App Privacy Details](https://developer.apple.com/app-store/app-privacy-details/)
 
-Apple's App Store Connect reference currently identifies the privacy policy URL as required for apps and lists data types as part of App Privacy information. urlApple App Privacy referencehttps://developer.apple.com/help/app-store-connect/reference/app-information/app-privacy/
+Apple's App Store Connect reference currently identifies the privacy policy URL as required for apps and lists data types as part of App Privacy information. [Apple App Privacy reference](https://developer.apple.com/help/app-store-connect/reference/app-information/app-privacy/)
 
 ---
 
@@ -1200,9 +1200,9 @@ Permissions
 Third-party SDKs
 ```
 
-Google Play currently requires developers to complete and maintain the Data Safety form for published apps and states that the information should accurately reflect collection, sharing, and security practices. urlGoogle Play Data Safety requirementshttps://support.google.com/googleplay/android-developer/answer/10787469
+Google Play currently requires developers to complete and maintain the Data Safety form for published apps and states that the information should accurately reflect collection, sharing, and security practices. [Google Play Data Safety requirements](https://support.google.com/googleplay/android-developer/answer/10787469)
 
-Google also requires a privacy policy and, for apps with account creation, a clear method for users to request account deletion and associated data deletion. urlGoogle Play User Data Policyhttps://support.google.com/googleplay/android-developer/answer/10144311
+Google also requires a privacy policy and, for apps with account creation, a clear method for users to request account deletion and associated data deletion. [Google Play User Data Policy](https://support.google.com/googleplay/android-developer/answer/10144311)
 
 ---
 
@@ -1234,7 +1234,7 @@ Permissions
 
 Inspect actual data flows.
 
-Google Play explains that Data Safety covers collection and sharing practices across versions distributed through Google Play and includes third-party code. urlGoogle Play Data Safety explanationhttps://support.google.com/googleplay/answer/11416267
+Google Play explains that Data Safety covers collection and sharing practices across versions distributed through Google Play and includes third-party code. [Google Play Data Safety explanation](https://support.google.com/googleplay/answer/11416267)
 
 ---
 
@@ -1244,13 +1244,13 @@ The following should agree:
 
 ```text
 App behavior
-      ↕
+ ↕
 Privacy policy
-      ↕
+ ↕
 Apple App Privacy
-      ↕
+ ↕
 Google Play Data Safety
-      ↕
+ ↕
 In-app disclosures
 ```
 
@@ -1327,9 +1327,9 @@ What happens after decline?
 Is consent recorded?
 ```
 
-Google Play's prominent disclosure guidance specifically distinguishes disclosure/consent requirements from the privacy policy and Data Safety section. urlGoogle Play prominent disclosure guidancehttps://support.google.com/googleplay/android-developer/answer/11150561
+Google Play's prominent disclosure guidance specifically distinguishes disclosure/consent requirements from the privacy policy and Data Safety section. [Google Play prominent disclosure guidance](https://support.google.com/googleplay/android-developer/answer/11150561)
 
-Apple's guidelines also require consent in relevant personal-data collection/sharing contexts and specific permission for tracking under its rules. urlApple App Review Guidelineshttps://developer.apple.com/app-store/review/guidelines/
+Apple's guidelines also require consent in relevant personal-data collection/sharing contexts and specific permission for tracking under its rules. [Apple App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/)
 
 ---
 
@@ -1377,7 +1377,7 @@ Manage tracking
 Export data where required
 ```
 
-Apple's App Store Connect reference includes an optional User Privacy Choices URL where users can learn how to manage privacy choices, including access or deletion flows. urlApple App Privacy referencehttps://developer.apple.com/help/app-store-connect/reference/app-information/app-privacy/
+Apple's App Store Connect reference includes an optional User Privacy Choices URL where users can learn how to manage privacy choices, including access or deletion flows. [Apple App Privacy reference](https://developer.apple.com/help/app-store-connect/reference/app-information/app-privacy/)
 
 ---
 
@@ -1728,7 +1728,7 @@ What happens to third-party data?
 What happens to local data?
 ```
 
-Google Play currently requires a clear and accessible deletion mechanism for apps that allow account creation, with associated user data deletion requirements. urlGoogle Play User Data Policyhttps://support.google.com/googleplay/android-developer/answer/10144311
+Google Play currently requires a clear and accessible deletion mechanism for apps that allow account creation, with associated user data deletion requirements. [Google Play User Data Policy](https://support.google.com/googleplay/android-developer/answer/10144311)
 
 ---
 
@@ -1789,7 +1789,7 @@ Remediate
 Verify
 ```
 
-Security guidance prioritizes containment during active compromise over perfect diagnosis. fileciteturn35file18
+Security guidance prioritizes containment during active compromise over perfect diagnosis.
 
 ---
 
@@ -1909,17 +1909,17 @@ Use:
 
 ```text
 AI inspects
-   ↓
+ ↓
 AI maps data
-   ↓
+ ↓
 AI identifies gaps
-   ↓
+ ↓
 Developer verifies
-   ↓
+ ↓
 Privacy/security/legal review where needed
-   ↓
+ ↓
 Human approves
-   ↓
+ ↓
 Release
 ```
 
@@ -1927,9 +1927,9 @@ Never:
 
 ```text
 AI audits
-   ↓
+ ↓
 AI declares legal compliance
-   ↓
+ ↓
 AI publishes
 ```
 
@@ -1941,37 +1941,37 @@ The playbook's AI architecture explicitly uses bounded permissions and human app
 
 ```text
 1. Identify application and release
-        ↓
+ ↓
 2. Identify platforms
-        ↓
+ ↓
 3. Inventory SDKs and permissions
-        ↓
+ ↓
 4. Inventory data types
-        ↓
+ ↓
 5. Map data flows
-        ↓
+ ↓
 6. Review third parties
-        ↓
+ ↓
 7. Review storage and retention
-        ↓
+ ↓
 8. Review deletion
-        ↓
+ ↓
 9. Review consent and permissions
-        ↓
+ ↓
 10. Review Apple disclosures
-        ↓
+ ↓
 11. Review Google Play disclosures
-        ↓
+ ↓
 12. Compare privacy policy
-        ↓
+ ↓
 13. Check security/privacy logging
-        ↓
+ ↓
 14. Identify unknowns
-        ↓
+ ↓
 15. Assign risk
-        ↓
+ ↓
 16. Recommend action
-        ↓
+ ↓
 17. Human approval
 ```
 
@@ -2455,29 +2455,29 @@ The privacy audit is complete when:
 
 ```text
 Actual data handling understood
-        +
+ +
 Data flows mapped
-        +
+ +
 Permissions understood
-        +
+ +
 Third parties reviewed
-        +
+ +
 Consent reviewed
-        +
+ +
 Retention reviewed
-        +
+ +
 Deletion reviewed
-        +
+ +
 Privacy policy checked
-        +
+ +
 Store declarations checked
-        +
+ +
 Unknowns documented
-        +
+ +
 Material risks addressed
-        +
+ +
 Human review completed
-        ↓
+ ↓
 PRIVACY AUDIT COMPLETE
 ```
 

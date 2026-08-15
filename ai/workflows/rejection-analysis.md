@@ -140,7 +140,7 @@ rejection_workflow_report:
 
 - [Rejection Analyzer Agent](../agents/rejection-analyzer.md) - Rejection analysis agent definition.
 - [Rejection Analysis Prompt](../prompts/rejection-analysis.md) - Copy-paste rejection analysis prompt.
-- [Rejection Handling](../../store-operations/rejections/README.md) - Playbook store rejection procedures.
+- [Store Rejection Handling](../../store-operations/rejection-handling.md) - Rejection triage guidance.
 
 ---
 

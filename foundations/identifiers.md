@@ -8,13 +8,13 @@ A useful mental model is:
 
 ```text
 Your app
-   ↓
+ ↓
 Platform identifier
-   ↓
+ ↓
 Store app record
-   ↓
+ ↓
 Signing / capabilities
-   ↓
+ ↓
 Production binary
 ```
 
@@ -25,7 +25,7 @@ The two main identifiers are:
 | iOS | Bundle ID | `com.example.myapp` |
 | Android | Application ID | `com.example.myapp` |
 
-Expo exposes these through `ios.bundleIdentifier` and `android.package`. EAS Build uses these values when identifying the app for Apple and Google distribution. citeturn0search11turn0search2
+Expo exposes these through `ios.bundleIdentifier` and `android.package`. EAS Build uses these values when identifying the app for Apple and Google distribution.
 
 > **Important:** An identifier is not a secret. It is public application metadata. Credentials, private keys, API secrets, and signing secrets are different and must be protected.
 
@@ -37,19 +37,19 @@ Identifiers are used across the release lifecycle.
 
 ```text
 Identifier
-    ↓
+ ↓
 Native project
-    ↓
+ ↓
 Signing
-    ↓
+ ↓
 Capabilities / permissions
-    ↓
+ ↓
 Store record
-    ↓
+ ↓
 Build
-    ↓
+ ↓
 Updates
-    ↓
+ ↓
 Production services
 ```
 
@@ -80,9 +80,9 @@ Example:
 com.example.myapp
 ```
 
-Apple describes the bundle ID as a unique identifier for an app. The bundle ID in the app's `Info.plist` must match the bundle ID registered for the app, and App Store Connect uses it to associate uploaded builds with the app. citeturn0search12turn0search1
+Apple describes the bundle ID as a unique identifier for an app. The bundle ID in the app's `Info.plist` must match the bundle ID registered for the app, and App Store Connect uses it to associate uploaded builds with the app.
 
-Apple's Bundle ID system also connects the identifier to capabilities and provisioning profiles. citeturn0search0
+Apple's Bundle ID system also connects the identifier to capabilities and provisioning profiles.
 
 ### Typical format
 
@@ -120,15 +120,15 @@ Expo exposes it as:
 
 ```json
 {
-  "expo": {
-    "android": {
-      "package": "com.example.myapp"
-    }
-  }
+ "expo": {
+ "android": {
+ "package": "com.example.myapp"
+ }
+ }
 }
 ```
 
-Expo documents `android.package` as the package name used for the Android standalone app and identifies it as the Android Application ID used for Google Play. citeturn0search5turn0search11
+Expo documents `android.package` as the package name used for the Android standalone app and identifies it as the Android Application ID used for Google Play.
 
 ---
 
@@ -149,7 +149,7 @@ They serve a similar purpose but belong to different platforms.
 You may choose the same string on both platforms:
 
 ```text
-iOS:     com.acme.app
+iOS: com.acme.app
 Android: com.acme.app
 ```
 
@@ -167,19 +167,19 @@ Recommended process:
 
 ```text
 Company / product name
-        ↓
+ ↓
 Choose identifier
-        ↓
+ ↓
 Check platform availability / registration
-        ↓
+ ↓
 Configure native project
-        ↓
+ ↓
 Configure store record
-        ↓
+ ↓
 Build
-        ↓
+ ↓
 Verify
-        ↓
+ ↓
 Publish
 ```
 
@@ -204,9 +204,9 @@ Changing a production identifier later can create a new application identity ins
 
 Treat a published identifier as a long-term decision.
 
-For iOS, Apple states that the Bundle ID in App Store Connect cannot be changed after a build has been uploaded. citeturn0search1
+For iOS, Apple states that the Bundle ID in App Store Connect cannot be changed after a build has been uploaded.
 
-Apple also states that the bundle ID in the app's information property list must match the App Store Connect bundle ID. citeturn0search12
+Apple also states that the bundle ID in the app's information property list must match the App Store Connect bundle ID.
 
 For Android, changing the application ID creates a different application identity rather than a normal update to the existing application.
 
@@ -328,7 +328,7 @@ Apple has several identifiers associated with an app, including:
 
 They do different jobs.
 
-Apple documents the Bundle ID as the identifier used throughout the system, while the Apple ID is generated when the app is added to the account and the SKU is an internal tracking identifier. citeturn0search1
+Apple documents the Bundle ID as the identifier used throughout the system, while the Apple ID is generated when the app is added to the account and the SKU is an internal tracking identifier.
 
 Do not use:
 
@@ -368,16 +368,16 @@ Example:
 
 ```json
 {
-  "expo": {
-    "name": "Acme",
-    "slug": "acme",
-    "ios": {
-      "bundleIdentifier": "com.acme.mobile"
-    },
-    "android": {
-      "package": "com.acme.mobile"
-    }
-  }
+ "expo": {
+ "name": "Acme",
+ "slug": "acme",
+ "ios": {
+ "bundleIdentifier": "com.acme.mobile"
+ },
+ "android": {
+ "package": "com.acme.mobile"
+ }
+ }
 }
 ```
 
@@ -388,9 +388,9 @@ ios.bundleIdentifier
 android.package
 ```
 
-Expo documents `ios.bundleIdentifier` as the iOS standalone app's bundle identifier and `android.package` as the Android package/application ID. citeturn0search2turn0search5
+Expo documents `ios.bundleIdentifier` as the iOS standalone app's bundle identifier and `android.package` as the Android package/application ID.
 
-EAS Build can prompt for these identifiers when they are not configured yet. citeturn0search11
+EAS Build can prompt for these identifiers when they are not configured yet.
 
 ---
 
@@ -408,7 +408,7 @@ CFBundleIdentifier
 
 in the application's property-list/build configuration.
 
-Apple requires the identifier used by the app to match the identifier used in App Store Connect. citeturn0search12
+Apple requires the identifier used by the app to match the identifier used in App Store Connect.
 
 ### Android
 
@@ -420,7 +420,7 @@ android/app/build.gradle
 
 or the equivalent Gradle configuration.
 
-Expo's documentation notes that existing React Native projects use the Android `applicationId` and the iOS `CFBundleIdentifier` rather than relying only on Expo app configuration. citeturn0search5turn0search2
+Expo's documentation notes that existing React Native projects use the Android `applicationId` and the iOS `CFBundleIdentifier` rather than relying only on Expo app configuration.
 
 ---
 
@@ -440,7 +440,7 @@ android/
 
 Depending on the project's workflow, not every app-config value is automatically synchronized into native project directories.
 
-Expo documents that when native `ios` or `android` directories are present, EAS Build does not automatically sync app-config properties into those native projects in every setup. Expo Doctor can warn about app-config fields that are not synchronized. citeturn0search13
+Expo documents that when native `ios` or `android` directories are present, EAS Build does not automatically sync app-config properties into those native projects in every setup. Expo Doctor can warn about app-config fields that are not synchronized.
 
 Therefore, verify the actual release configuration.
 
@@ -495,9 +495,9 @@ Use:
 
 ```text
 One app
-   ↓
+ ↓
 One intended identifier
-   ↓
+ ↓
 One intended store record
 ```
 
@@ -545,19 +545,19 @@ Identifiers are tightly connected to signing.
 
 ### iOS
 
-The Bundle ID is associated with an Apple App ID and its capabilities. Provisioning profiles and signing configuration depend on this relationship. citeturn0search0turn0search17
+The Bundle ID is associated with an Apple App ID and its capabilities. Provisioning profiles and signing configuration depend on this relationship.
 
 For example:
 
 ```text
 Bundle ID
-    ↓
+ ↓
 App ID
-    ↓
+ ↓
 Capabilities
-    ↓
+ ↓
 Provisioning profile
-    ↓
+ ↓
 Signed application
 ```
 
@@ -600,13 +600,13 @@ When adding a capability:
 
 ```text
 Application identifier
-        ↓
+ ↓
 Platform configuration
-        ↓
+ ↓
 Capability
-        ↓
+ ↓
 Build
-        ↓
+ ↓
 Test
 ```
 
@@ -794,7 +794,7 @@ If one codebase produces multiple separately published apps:
 
 ```text
 Shared codebase
-       ↓
+ ↓
 Product A
 Product B
 Product C
@@ -835,11 +835,11 @@ Document:
 
 ```text
 Main application
-    ↓
+ ↓
 Extension / companion target
-    ↓
+ ↓
 Identifier
-    ↓
+ ↓
 Required relationship
 ```
 
@@ -872,7 +872,7 @@ Security comes from:
 - protected credentials
 - least privilege
 
-Do not treat an unpredictable identifier as authorization. The security system should still validate access server-side. fileciteturn11file11L1-L12
+Do not treat an unpredictable identifier as authorization. The security system should still validate access server-side.
 
 ---
 
@@ -993,7 +993,7 @@ Check:
 5. Signing.
 6. Build configuration.
 
-For iOS, App Store Connect associates the build with the app using the Bundle ID and version/build information. citeturn0search1
+For iOS, App Store Connect associates the build with the app using the Bundle ID and version/build information.
 
 ---
 
@@ -1025,15 +1025,15 @@ Check:
 
 ```text
 Identifier
-  ↓
+ ↓
 Platform service registration
-  ↓
+ ↓
 Credentials
-  ↓
+ ↓
 Build configuration
-  ↓
+ ↓
 Token registration
-  ↓
+ ↓
 Provider delivery
 ```
 
@@ -1075,17 +1075,17 @@ A safe workflow:
 
 ```text
 Repository
-    ↓
+ ↓
 AI scans configuration
-    ↓
+ ↓
 Find candidate mismatches
-    ↓
+ ↓
 Developer verifies against native/store configuration
-    ↓
+ ↓
 Build
-    ↓
+ ↓
 Inspect artifact
-    ↓
+ ↓
 Human approval
 ```
 
@@ -1215,23 +1215,23 @@ For a new app:
 
 ```text
 Choose production identity
-        ↓
+ ↓
 Register platform identifiers
-        ↓
+ ↓
 Create store records
-        ↓
+ ↓
 Configure Expo / native projects
-        ↓
+ ↓
 Configure capabilities and services
-        ↓
+ ↓
 Configure signing
-        ↓
+ ↓
 Build
-        ↓
+ ↓
 Inspect actual artifacts
-        ↓
+ ↓
 Test
-        ↓
+ ↓
 Submit
 ```
 
@@ -1239,17 +1239,17 @@ For an existing app:
 
 ```text
 Identify current production IDs
-        ↓
+ ↓
 Treat them as fixed
-        ↓
+ ↓
 Audit configuration
-        ↓
+ ↓
 Keep services aligned
-        ↓
+ ↓
 Build
-        ↓
+ ↓
 Verify
-        ↓
+ ↓
 Release
 ```
 
@@ -1261,20 +1261,20 @@ Identifiers are ready when:
 
 ```text
 Production IDs are intentional
-        +
+ +
 Native configuration matches
-        +
+ +
 Store records match
-        +
+ +
 Signing matches
-        +
+ +
 Platform services match
-        +
+ +
 Production artifact is verified
-        +
+ +
 No accidental environment ID is present
-        ↓
-   IDENTIFIER READY
+ ↓
+ IDENTIFIER READY
 ```
 
 The rule is simple:

@@ -335,7 +335,7 @@ Edit metadata
 
 A new binary is not necessarily required for a metadata-only issue.
 
-Apple currently distinguishes metadata rejection from binary rejection and allows metadata issues to be resolved through the App Review workflow. citeturn0search0turn0search6
+Apple currently distinguishes metadata rejection from binary rejection and allows metadata issues to be resolved through the App Review workflow.
 
 ---
 
@@ -494,9 +494,9 @@ Unresolved Issues
 Accepted
 ```
 
-A rejected item can generally be edited and resubmitted, while accepted items can remain in a submission depending on the submission state. citeturn0search0turn0search9
+A rejected item can generally be edited and resubmitted, while accepted items can remain in a submission depending on the submission state.
 
-Apple provides a direct App Review messaging flow for resolving issues and allows supporting attachments in the conversation. citeturn0search6
+Apple provides a direct App Review messaging flow for resolving issues and allows supporting attachments in the conversation.
 
 The practical workflow is:
 
@@ -538,7 +538,7 @@ Explain why the requirement is satisfied
 Reply or appeal
 ```
 
-Apple provides an appeal path when a developer disagrees with a review outcome. citeturn0search5turn0search8
+Apple provides an appeal path when a developer disagrees with a review outcome.
 
 An appeal should be evidence-based.
 
@@ -578,7 +578,7 @@ Removal
 Suspension
 ```
 
-For a rejected update, the previously published version can remain available while the update is rejected. Google explicitly advises developers not to republish a rejected app until the policy violation has been fixed. citeturn0search1turn0search11
+For a rejected update, the previously published version can remain available while the update is rejected. Google explicitly advises developers not to republish a rejected app until the policy violation has been fixed.
 
 Typical workflow:
 
@@ -618,7 +618,7 @@ The policy is difficult
 The app was rejected
 ```
 
-Google states that appeals are appropriate when the developer believes an enforcement action was made in error and the application does not violate the applicable policies. citeturn0search7turn0search12
+Google states that appeals are appropriate when the developer believes an enforcement action was made in error and the application does not violate the applicable policies.
 
 For serious enforcement actions, follow the appeal instructions provided by Google.
 
@@ -1388,9 +1388,9 @@ Evidence supports the position
 Normal communication has not resolved the issue
 ```
 
-Apple supports direct communication with App Review and a formal appeal path. citeturn0search5turn0search6
+Apple supports direct communication with App Review and a formal appeal path.
 
-Google provides an appeal process for applicable enforcement actions where the developer believes the decision was made in error. citeturn0search7turn0search12
+Google provides an appeal process for applicable enforcement actions where the developer believes the decision was made in error.
 
 ---
 
@@ -1520,7 +1520,7 @@ Some store listing corrections
 
 Always verify the platform's current workflow for the exact rejected item.
 
-Apple explicitly supports resolving some rejected metadata items without replacing the build. citeturn0search6turn0search9
+Apple explicitly supports resolving some rejected metadata items without replacing the build.
 
 ---
 
@@ -1939,7 +1939,7 @@ Suspension
 → stronger enforcement affecting availability and account standing.
 ```
 
-Google states that rejections do not themselves affect developer account standing, while suspensions count as strikes and can result from serious or repeated violations. citeturn0search2turn0search11
+Google states that rejections do not themselves affect developer account standing, while suspensions count as strikes and can result from serious or repeated violations.
 
 The response strategy must reflect the actual enforcement level.
 

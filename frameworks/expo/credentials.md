@@ -8,17 +8,17 @@ A useful mental model is:
 
 ```text
 Application identity
-        ↓
+ ↓
 Signing credentials
-        ↓
+ ↓
 Build artifact
-        ↓
+ ↓
 Store credentials
-        ↓
+ ↓
 Submission
 ```
 
-For Expo projects using EAS, credentials can be managed by EAS or supplied locally. EAS defaults to remotely managed credentials when `credentialsSource` is not specified. citeturn0search0turn0search3
+For Expo projects using EAS, credentials can be managed by EAS or supplied locally. EAS defaults to remotely managed credentials when `credentialsSource` is not specified.
 
 The most important rule is:
 
@@ -68,7 +68,7 @@ Apple Push Notification key
 App Store Connect API key
 ```
 
-Expo's current credential documentation explicitly separates iOS distribution certificates, provisioning profiles, and push notification keys. citeturn0search2
+Expo's current credential documentation explicitly separates iOS distribution certificates, provisioning profiles, and push notification keys.
 
 ---
 
@@ -82,11 +82,11 @@ EAS stores and manages the credentials for the project.
 
 ```text
 Developer
-    ↓
+ ↓
 EAS
-    ↓
+ ↓
 Signing credentials
-    ↓
+ ↓
 EAS Build
 ```
 
@@ -104,9 +104,9 @@ file containing paths to signing material and associated passwords.
 
 ```text
 Developer machine / CI
-        ↓
+ ↓
 credentials.json
-        ↓
+ ↓
 EAS Build
 ```
 
@@ -114,7 +114,7 @@ Expo documents `credentialsSource` as:
 
 ```json
 {
-  "credentialsSource": "remote"
+ "credentialsSource": "remote"
 }
 ```
 
@@ -122,11 +122,11 @@ or:
 
 ```json
 {
-  "credentialsSource": "local"
+ "credentialsSource": "local"
 }
 ```
 
-If it is not specified, the default is `remote`. citeturn0search0
+If it is not specified, the default is `remote`.
 
 For most teams:
 
@@ -204,7 +204,7 @@ or:
 eas credentials --platform ios
 ```
 
-The current EAS CLI provides `eas credentials` for managing credentials and `eas credentials:configure-build` for configuring build credentials. citeturn0search11
+The current EAS CLI provides `eas credentials` for managing credentials and `eas credentials:configure-build` for configuring build credentials.
 
 Start here before creating or replacing credentials.
 
@@ -220,11 +220,11 @@ Example:
 
 ```json
 {
-  "build": {
-    "production": {
-      "credentialsSource": "remote"
-    }
-  }
+ "build": {
+ "production": {
+ "credentialsSource": "remote"
+ }
+ }
 }
 ```
 
@@ -232,11 +232,11 @@ A local credential profile could use:
 
 ```json
 {
-  "build": {
-    "production-local": {
-      "credentialsSource": "local"
-    }
-  }
+ "build": {
+ "production-local": {
+ "credentialsSource": "local"
+ }
+ }
 }
 ```
 
@@ -250,17 +250,17 @@ Android signing generally involves:
 
 ```text
 Keystore
-    ↓
+ ↓
 Private signing key
-    ↓
+ ↓
 Signed AAB/APK
-    ↓
+ ↓
 Google Play
 ```
 
 A keystore contains the private key and certificate used for signing.
 
-Expo's current documentation states that the Android application's keystore must be kept private and must not be committed to the repository. citeturn0search2
+Expo's current documentation states that the Android application's keystore must be kept private and must not be committed to the repository.
 
 ---
 
@@ -309,13 +309,13 @@ A common model is:
 
 ```text
 Developer
-   ↓
+ ↓
 Upload key
-   ↓
+ ↓
 Google Play
-   ↓
+ ↓
 App signing key
-   ↓
+ ↓
 User-installed app
 ```
 
@@ -329,7 +329,7 @@ App signing key
 
 Do not rotate or replace one while assuming it is the other.
 
-If the upload key is lost, Google provides a process for resetting it. Expo documents this as a recoverable scenario when Google Play App Signing is being used. citeturn0search2
+If the upload key is lost, Google provides a process for resetting it. Expo documents this as a recoverable scenario when Google Play App Signing is being used.
 
 ---
 
@@ -339,16 +339,16 @@ If an Android signing credential is missing:
 
 ```text
 STOP
-  ↓
+ ↓
 Identify whether it is:
-  upload key
-  or
-  app signing key
-  ↓
+ upload key
+ or
+ app signing key
+ ↓
 Check EAS credentials
-  ↓
+ ↓
 Check Google Play configuration
-  ↓
+ ↓
 Determine recovery path
 ```
 
@@ -364,7 +364,7 @@ If the app uses Google Play App Signing, recover or reset the upload key through
 
 Google Play submission is separate from application signing.
 
-For EAS Submit, Expo currently requires a Google Service Account key with access to the application in Google Play Console. citeturn0search5
+For EAS Submit, Expo currently requires a Google Service Account key with access to the application in Google Play Console.
 
 The model is:
 
@@ -426,17 +426,17 @@ Push notifications use a separate:
 Apple Push Notification Key
 ```
 
-Expo's current documentation identifies these as distinct credential types. citeturn0search2
+Expo's current documentation identifies these as distinct credential types.
 
 The build relationship is:
 
 ```text
 Bundle ID
-    ↓
+ ↓
 Distribution Certificate
-    +
+ +
 Provisioning Profile
-    ↓
+ ↓
 Signed iOS application
 ```
 
@@ -456,7 +456,7 @@ Team
 
 EAS can create and manage it or use an existing certificate supplied by the project.
 
-Expo's current documentation notes that Apple Developer permissions capable of creating signing credentials are required when EAS needs to create them. citeturn0search7
+Expo's current documentation notes that Apple Developer permissions capable of creating signing credentials are required when EAS needs to create them.
 
 ---
 
@@ -478,7 +478,7 @@ Distribution method
 
 When relevant capabilities or entitlements change, the provisioning profile may need to be updated.
 
-Expo's current Apple credential guidance specifically notes that provisioning profiles may need updating when capabilities change or when the profile expires. citeturn0search7
+Expo's current Apple credential guidance specifically notes that provisioning profiles may need updating when capabilities change or when the profile expires.
 
 ---
 
@@ -499,7 +499,7 @@ Push delivery
 
 Do not delete or rotate a push credential while assuming it affects signing.
 
-Expo identifies Apple Push Notification keys as a separate iOS credential type. citeturn0search2
+Expo identifies Apple Push Notification keys as a separate iOS credential type.
 
 ---
 
@@ -539,7 +539,7 @@ Never commit the private key.
 
 Not every Apple Developer user can create or modify every signing credential.
 
-Expo's current documentation states that the permissions required depend on the Apple Developer account type and role. On organization accounts, Account Holder and Admin can create signing credentials, while App Manager can do so when the appropriate Certificates, Identifiers, and Profiles access is enabled. citeturn0search7
+Expo's current documentation states that the permissions required depend on the Apple Developer account type and role. On organization accounts, Account Holder and Admin can create signing credentials, while App Manager can do so when the appropriate Certificates, Identifiers, and Profiles access is enabled.
 
 Before troubleshooting an apparent credential failure, check:
 
@@ -561,7 +561,7 @@ Do not solve a permissions problem by sharing the Account Holder password.
 
 Apple organizations may use federated authentication.
 
-Expo's current documentation notes that EAS CLI cannot use a federated Apple Developer account's email/password login for certain credential updates. An App Store Connect API token with appropriate access can be used for supported credential-management operations instead. citeturn0search7
+Expo's current documentation notes that EAS CLI cannot use a federated Apple Developer account's email/password login for certain credential updates. An App Store Connect API token with appropriate access can be used for supported credential-management operations instead.
 
 If your organization uses federated Apple accounts:
 
@@ -596,27 +596,27 @@ iOS provisioning profile
 
 and their associated passwords.
 
-Expo documents this local credential model explicitly. citeturn0search0
+Expo documents this local credential model explicitly.
 
 A conceptual structure is:
 
 ```json
 {
-  "android": {
-    "keystore": {
-      "keystorePath": "path/to/keystore",
-      "keystorePassword": "<secret>",
-      "keyAlias": "<secret>",
-      "keyPassword": "<secret>"
-    }
-  },
-  "ios": {
-    "provisioningProfilePath": "path/to/profile",
-    "distributionCertificate": {
-      "path": "path/to/certificate",
-      "password": "<secret>"
-    }
-  }
+ "android": {
+ "keystore": {
+ "keystorePath": "path/to/keystore",
+ "keystorePassword": "<secret>",
+ "keyAlias": "<secret>",
+ "keyPassword": "<secret>"
+ }
+ },
+ "ios": {
+ "provisioningProfilePath": "path/to/profile",
+ "distributionCertificate": {
+ "path": "path/to/certificate",
+ "password": "<secret>"
+ }
+ }
 }
 ```
 
@@ -693,7 +693,7 @@ EAS
 → makes it available to authorized build jobs
 ```
 
-Expo documents that EAS encrypts stored credentials and uses KMS-based encryption for credentials at rest. citeturn0search6
+Expo documents that EAS encrypts stored credentials and uses KMS-based encryption for credentials at rest.
 
 That does not mean credentials are harmless.
 
@@ -721,11 +721,11 @@ A production release system should follow:
 
 ```text
 Need access?
-    ↓
+ ↓
 Grant minimum required permission
-    ↓
+ ↓
 Use for intended task
-    ↓
+ ↓
 Remove/revoke when no longer needed
 ```
 
@@ -743,7 +743,7 @@ Every CI workflow gets every secret
 
 Use project/team permissions and protected environments.
 
-The repository's security guidance requires least privilege, protected secrets, explicit authorization, and human approval for high-impact release actions. fileciteturn21file0L1-L30
+The repository's security guidance requires least privilege, protected secrets, explicit authorization, and human approval for high-impact release actions.
 
 ---
 
@@ -753,17 +753,17 @@ Treat credentials as lifecycle-managed assets.
 
 ```text
 Create
-  ↓
+ ↓
 Store
-  ↓
+ ↓
 Use
-  ↓
+ ↓
 Monitor
-  ↓
+ ↓
 Rotate / renew
-  ↓
+ ↓
 Revoke
-  ↓
+ ↓
 Recover
 ```
 
@@ -822,17 +822,17 @@ When a credential expires:
 
 ```text
 Identify credential
-    ↓
+ ↓
 Check whether it affects:
-    build
-    submission
-    push
-    runtime
-    ↓
+ build
+ submission
+ push
+ runtime
+ ↓
 Renew / replace
-    ↓
+ ↓
 Build/test
-    ↓
+ ↓
 Verify
 ```
 
@@ -850,15 +850,15 @@ For example:
 
 ```text
 Create replacement
-    ↓
+ ↓
 Configure replacement
-    ↓
+ ↓
 Test
-    ↓
+ ↓
 Deploy
-    ↓
+ ↓
 Confirm
-    ↓
+ ↓
 Revoke old credential
 ```
 
@@ -866,7 +866,7 @@ Avoid:
 
 ```text
 Revoke first
-    ↓
+ ↓
 Hope the new credential works
 ```
 
@@ -924,7 +924,7 @@ What applications are affected?
 
 Then follow the platform-supported recovery/rotation process.
 
-For Android, Google Play App Signing can provide a different recovery path for an upload-key compromise than for an app-signing-key compromise. Expo documents the upload-key reset path for Play App Signing. citeturn0search2
+For Android, Google Play App Signing can provide a different recovery path for an upload-key compromise than for an app-signing-key compromise. Expo documents the upload-key reset path for Play App Signing.
 
 ---
 
@@ -1007,7 +1007,7 @@ and:
 credentials.json → EAS
 ```
 
-for supported credentials. citeturn0search1
+for supported credentials.
 
 This is useful when:
 
@@ -1027,9 +1027,9 @@ Keep the relationship explicit:
 
 ```text
 Build profile
-    ↓
+ ↓
 Credential source
-    ↓
+ ↓
 Platform credentials
 ```
 
@@ -1037,14 +1037,14 @@ Example:
 
 ```json
 {
-  "build": {
-    "production": {
-      "credentialsSource": "remote"
-    },
-    "internal-local": {
-      "credentialsSource": "local"
-    }
-  }
+ "build": {
+ "production": {
+ "credentialsSource": "remote"
+ },
+ "internal-local": {
+ "credentialsSource": "local"
+ }
+ }
 }
 ```
 
@@ -1058,11 +1058,11 @@ A CI pipeline typically needs:
 
 ```text
 GitHub Actions
-    ↓
+ ↓
 EXPO_TOKEN
-    ↓
+ ↓
 EAS
-    ↓
+ ↓
 Build credentials
 ```
 
@@ -1109,19 +1109,19 @@ For production release automation:
 
 ```text
 GitHub workflow
-    ↓
+ ↓
 production environment
-    ↓
+ ↓
 required reviewer
-    ↓
+ ↓
 production secrets
-    ↓
+ ↓
 EAS submission
 ```
 
 This is preferable to exposing store credentials to every workflow.
 
-The repository's CI/CD guidance requires production credentials to be protected and production submission to have a human approval boundary. fileciteturn21file8L1-L25
+The repository's CI/CD guidance requires production credentials to be protected and production submission to have a human approval boundary.
 
 ---
 
@@ -1210,19 +1210,19 @@ If moving from an existing native Android workflow to EAS:
 
 ```text
 Existing keystore
-    ↓
+ ↓
 Verify identity
-    ↓
+ ↓
 Configure local credentials
-    ↓
+ ↓
 Upload/sync to EAS if desired
-    ↓
+ ↓
 Build
-    ↓
+ ↓
 Verify signing identity
 ```
 
-Expo documents using `eas credentials` to upload existing local credentials to EAS-managed storage. citeturn0search3
+Expo documents using `eas credentials` to upload existing local credentials to EAS-managed storage.
 
 Do not generate a replacement keystore before verifying the existing one.
 
@@ -1234,17 +1234,17 @@ For an existing iOS application:
 
 ```text
 Existing Bundle ID
-    ↓
+ ↓
 Existing distribution certificate
-    ↓
+ ↓
 Existing provisioning profile
-    ↓
+ ↓
 EAS
 ```
 
 If using existing credentials, EAS supports uploading them.
 
-Expo documents that pre-generated iOS credentials can be added using `eas credentials` or through the EAS dashboard. citeturn0search7
+Expo documents that pre-generated iOS credentials can be added using `eas credentials` or through the EAS dashboard.
 
 Preserve the application's identity.
 
@@ -1314,7 +1314,7 @@ notification provider
 device token
 ```
 
-Expo's credential documentation explicitly distinguishes push notification credentials from app signing credentials. citeturn0search4turn0search6
+Expo's credential documentation explicitly distinguishes push notification credentials from app signing credentials.
 
 ---
 
@@ -1336,7 +1336,7 @@ App Store Connect
 → Apple credentials / API key
 ```
 
-Expo's current EAS Submit documentation describes these separately from build signing. citeturn0search8turn0search9
+Expo's current EAS Submit documentation describes these separately from build signing.
 
 This separation should also exist in your documentation and secret storage.
 
@@ -1348,15 +1348,15 @@ Before a production submission:
 
 ```text
 Credential exists
-        ↓
+ ↓
 Credential has required permission
-        ↓
+ ↓
 Credential targets correct app/account
-        ↓
+ ↓
 Credential is not expired/revoked
-        ↓
+ ↓
 Test submission path
-        ↓
+ ↓
 Human approval
 ```
 
@@ -1418,7 +1418,7 @@ provisioning profile
 credential source
 ```
 
-If EAS needs to create credentials, verify the Apple account has sufficient permissions. citeturn0search7
+If EAS needs to create credentials, verify the Apple account has sufficient permissions.
 
 ---
 
@@ -1436,7 +1436,7 @@ Expired/revoked credential
 
 Check the account role before changing credentials.
 
-Expo's current documentation provides the role-specific requirements for creating signing credentials. citeturn0search7
+Expo's current documentation provides the role-specific requirements for creating signing credentials.
 
 ---
 
@@ -1544,7 +1544,7 @@ Delete from EAS
 delete from Apple / Google
 ```
 
-Expo's current documentation states that deleting credentials through `eas credentials` removes them from Expo's servers; it does not necessarily revoke them at the platform provider. citeturn0search2
+Expo's current documentation states that deleting credentials through `eas credentials` removes them from Expo's servers; it does not necessarily revoke them at the platform provider.
 
 If a credential must actually be revoked:
 
@@ -1658,19 +1658,19 @@ AI can help prepare a rotation plan:
 
 ```text
 Identify credential
-    ↓
+ ↓
 Find where it is referenced
-    ↓
+ ↓
 List affected workflows
-    ↓
+ ↓
 Prepare replacement steps
-    ↓
+ ↓
 Human verifies
-    ↓
+ ↓
 Create replacement
-    ↓
+ ↓
 Test
-    ↓
+ ↓
 Revoke old credential
 ```
 
@@ -1685,7 +1685,7 @@ submit a release
 
 without an explicit human approval boundary.
 
-The repository's AI guidance requires human verification and approval for signing credentials, secrets, store submission, account changes, and other high-impact operations. fileciteturn21file0L1-L30
+The repository's AI guidance requires human verification and approval for signing credentials, secrets, store submission, account changes, and other high-impact operations.
 
 ---
 
@@ -1723,11 +1723,11 @@ The goal is:
 
 ```text
 Developer mistake
-    ↓
+ ↓
 Detection
-    ↓
+ ↓
 Block or alert
-    ↓
+ ↓
 Rotate credential
 ```
 
@@ -1828,19 +1828,19 @@ Before the first production release:
 
 ```text
 Application identity
-        ↓
+ ↓
 Signing credentials
-        ↓
+ ↓
 Build
-        ↓
+ ↓
 Artifact verification
-        ↓
+ ↓
 Store submission credentials
-        ↓
+ ↓
 Test submission path
-        ↓
+ ↓
 Human approval
-        ↓
+ ↓
 Release
 ```
 
@@ -1891,45 +1891,45 @@ being the only place where the release can happen.
 For a typical Expo project:
 
 ```text
-                    ┌─────────────────────┐
-                    │      GitHub          │
-                    │  CI/CD + approval   │
-                    └──────────┬──────────┘
-                               │
-                         EXPO_TOKEN
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │       EAS           │
-                    │                     │
-                    │ Build credentials  │
-                    └──────┬───────┬──────┘
-                           │       │
-                      Android      iOS
-                           │       │
-                     Keystore   Distribution
-                                Certificate
-                                + Profile
-                           │       │
-                           ▼       ▼
-                       Signed application
-                               │
-                    ┌──────────┴──────────┐
-                    │                     │
-                    ▼                     ▼
-              Google Play          App Store Connect
-                    │                     │
-              Service Account        API / Apple
-              submission auth        submission auth
+ ┌─────────────────────┐
+ │ GitHub │
+ │ CI/CD + approval │
+ └──────────┬──────────┘
+ │
+ EXPO_TOKEN
+ │
+ ▼
+ ┌─────────────────────┐
+ │ EAS │
+ │ │
+ │ Build credentials │
+ └──────┬───────┬──────┘
+ │ │
+ Android iOS
+ │ │
+ Keystore Distribution
+ Certificate
+ + Profile
+ │ │
+ ▼ ▼
+ Signed application
+ │
+ ┌──────────┴──────────┐
+ │ │
+ ▼ ▼
+ Google Play App Store Connect
+ │ │
+ Service Account API / Apple
+ submission auth submission auth
 ```
 
 Push credentials are a separate runtime integration:
 
 ```text
 Application
-    ↓
+ ↓
 Push service
-    ↓
+ ↓
 Apple / Google push infrastructure
 ```
 
@@ -1943,25 +1943,25 @@ Expo credential management is production-ready when:
 
 ```text
 Credential types identified
-        +
+ +
 Application identity verified
-        +
+ +
 Signing credentials configured
-        +
+ +
 Store submission credentials configured
-        +
+ +
 Secrets protected
-        +
+ +
 CI access restricted
-        +
+ +
 Recovery documented
-        +
+ +
 Rotation understood
-        +
+ +
 Real build verified
-        +
+ +
 Human approval required
-        ↓
+ ↓
  CREDENTIALS READY
 ```
 

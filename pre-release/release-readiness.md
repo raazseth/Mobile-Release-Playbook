@@ -68,7 +68,7 @@ A **GO** decision requires explicit sign-offs from four key release stakeholders
 
 # 5. Official Sources
 
-- Mobile Release Preparation Workflow: [../../ai/workflows/release-preparation.md](../../ai/workflows/release-preparation.md)
+- Mobile Release Preparation Workflow: [../../ai/workflows/release-preparation.md](../ai/workflows/release-preparation.md)
 
 ---
 

@@ -174,7 +174,7 @@ FitnessTracker Engineering Team
 
 - [Rejection Analyzer Agent](../agents/rejection-analyzer.md) - Rejection analysis agent definition.
 - [Store Rejection Workflow](../workflows/rejection-analysis.md) - Rejection workflow.
-- [Rejection Handling](../../store-operations/rejections/README.md) - Rejection recovery procedures.
+- [Store Rejection Handling](../../store-operations/rejection-handling.md) - Playbook store rejection handling workflows.
 
 ---
 

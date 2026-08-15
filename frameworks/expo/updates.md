@@ -119,7 +119,7 @@ Does the change require a different native runtime?
              └── No → New native build
 ```
 
-Expo explicitly requires a new build when native code changes because updates must match the native runtime. citeturn0search2turn0search3
+Expo explicitly requires a new build when native code changes because updates must match the native runtime.
 
 ---
 
@@ -254,7 +254,7 @@ eas update \
   --message "Fix checkout button"
 ```
 
-The `--environment` flag is important for projects using EAS environment variables. Expo documents that in current SDKs the update command should explicitly select the EAS environment so the update uses the intended server-side environment variables. citeturn0search5turn0search13
+The `--environment` flag is important for projects using EAS environment variables. Expo documents that in current SDKs the update command should explicitly select the EAS environment so the update uses the intended server-side environment variables.
 
 ---
 
@@ -325,7 +325,7 @@ runtimeVersion = 1.5.0
 → not targeted to that build
 ```
 
-Expo describes runtime versions as the compatibility boundary between the native layer inside a build and the update layer served to that build. citeturn0search2
+Expo describes runtime versions as the compatibility boundary between the native layer inside a build and the update layer served to that build.
 
 ---
 
@@ -358,7 +358,7 @@ Broken application
 
 Runtime versioning exists to prevent this class of mistake.
 
-Expo documents that when native code changes, a new build is required before publishing an update for that new native runtime. citeturn0search2
+Expo documents that when native code changes, a new build is required before publishing an update for that new native runtime.
 
 ---
 
@@ -389,7 +389,7 @@ Example:
 }
 ```
 
-The current Expo deployment guide recommends `appVersion` for the simplest common release process. The `fingerprint` policy is more automatic but is currently described by Expo as experimental/not broadly recommended for the default workflow. citeturn0search8
+The current Expo deployment guide recommends `appVersion` for the simplest common release process. The `fingerprint` policy is more automatic but is currently described by Expo as experimental/not broadly recommended for the default workflow.
 
 ---
 
@@ -501,7 +501,7 @@ eas update --channel production --environment production
 
 the update is associated with the production deployment path.
 
-Expo's deployment documentation recommends a simple channel-focused workflow for many applications. citeturn0search8
+Expo's deployment documentation recommends a simple channel-focused workflow for many applications.
 
 ---
 
@@ -569,7 +569,7 @@ The most recent active update on a branch is the update clients can receive thro
 
 Channels can point to branches.
 
-Expo describes branches as similar to Git branches in that they contain an ordered sequence of updates. citeturn0search12turn0search14
+Expo describes branches as similar to Git branches in that they contain an ordered sequence of updates.
 
 ---
 
@@ -589,7 +589,7 @@ preview channel
 
 You can think of the channel and matching branch as one deployment concept.
 
-Expo's current deployment guide specifically recommends a simple channel-focused process for most applications and says teams can mostly ignore branches until they have a reason to use them directly. citeturn0search8
+Expo's current deployment guide specifically recommends a simple channel-focused process for most applications and says teams can mostly ignore branches until they have a reason to use them directly.
 
 ---
 
@@ -648,7 +648,7 @@ Runtime versions solve the compatibility side.
 
 Channels and branches help manage deployment targeting.
 
-Expo's deployment documentation specifically calls out multiple binary versions in production as a reason to use channels, branches, and runtime versions deliberately. citeturn0search8
+Expo's deployment documentation specifically calls out multiple binary versions in production as a reason to use channels, branches, and runtime versions deliberately.
 
 ---
 
@@ -751,7 +751,7 @@ An Android build must receive an Android-compatible update.
 
 An iOS build must receive an iOS-compatible update.
 
-Expo's update matching rules require the update's target platform to match the build platform and the runtime version to match the build runtime version. citeturn0search14
+Expo's update matching rules require the update's target platform to match the build platform and the runtime version to match the build runtime version.
 
 Do not assume:
 
@@ -796,7 +796,7 @@ For current EAS Update workflows, explicitly specify:
 eas update --environment production
 ```
 
-Expo documents this behavior and recommends using the explicit environment so updates and builds use consistent EAS-managed environment variables. citeturn0search5turn0search7
+Expo documents this behavior and recommends using the explicit environment so updates and builds use consistent EAS-managed environment variables.
 
 ---
 
@@ -846,7 +846,7 @@ Applies according to update configuration
 App restarts / launches with update
 ```
 
-Expo's current documentation explains that preview and production builds can download updates in the background and apply them after a subsequent launch/restart. citeturn0search0
+Expo's current documentation explains that preview and production builds can download updates in the background and apply them after a subsequent launch/restart.
 
 Do not design critical product behavior around the assumption that every user receives an update immediately.
 
@@ -973,7 +973,7 @@ The current CLI provides:
 eas update:rollback
 ```
 
-Expo documents both rollback types and explains that a rollback republishes or points clients back to a known-good update path. citeturn0search1
+Expo documents both rollback types and explains that a rollback republishes or points clients back to a known-good update path.
 
 ---
 
@@ -1065,7 +1065,7 @@ you can use:
 
 when the change warrants it.
 
-Expo documents update-based and branch-based rollout mechanisms and provides CLI tooling to control rollout percentages. citeturn0search9
+Expo documents update-based and branch-based rollout mechanisms and provides CLI tooling to control rollout percentages.
 
 ---
 
@@ -1105,7 +1105,7 @@ User reports
 Performance regression
 ```
 
-EAS provides update adoption and failure information through its deployment/update views. Expo documents metrics for users who have run an update and failed installs. citeturn0search10
+EAS provides update adoption and failure information through its deployment/update views. Expo documents metrics for users who have run an update and failed installs.
 
 Combine EAS data with your application's normal observability.
 
@@ -1785,7 +1785,7 @@ Expo Updates includes safety behavior intended to help recover from broken updat
 
 Do not disable anti-bricking protections in production without a strong reason.
 
-Expo documents that overriding update configuration and disabling anti-bricking measures can remove the ability to safely recover from a bad update. citeturn0search6
+Expo documents that overriding update configuration and disabling anti-bricking measures can remove the ability to safely recover from a bad update.
 
 The default production path should preserve recovery.
 
@@ -1807,7 +1807,7 @@ But it changes the normal update-selection model.
 
 Do not add runtime channel switching to production simply because it is technically possible.
 
-Expo documents this capability and warns about the interaction with anti-bricking behavior. citeturn0search6
+Expo documents this capability and warns about the interaction with anti-bricking behavior.
 
 ---
 
@@ -1839,7 +1839,7 @@ Platform
 Runtime version
 ```
 
-Expo documents channel surfing as an advanced feature available in supported Expo SDK versions. citeturn0search11
+Expo documents channel surfing as an advanced feature available in supported Expo SDK versions.
 
 ---
 
@@ -2138,7 +2138,7 @@ For current SDKs, explicitly use:
 eas update --environment production
 ```
 
-when publishing production updates. citeturn0search5
+when publishing production updates.
 
 ---
 
@@ -2167,7 +2167,7 @@ then create the required native build.
 
 Check whether another rollout is already active.
 
-EAS Update restricts concurrent rollouts on the same deployment path/branch in order to avoid conflicting rollout state. citeturn0search9
+EAS Update restricts concurrent rollouts on the same deployment path/branch in order to avoid conflicting rollout state.
 
 End or revert the current rollout before starting another one.
 

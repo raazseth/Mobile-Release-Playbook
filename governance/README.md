@@ -79,9 +79,9 @@ All documentation work in this repository MUST adhere to five mandatory governan
 
 # 4. Related Repository Documentation
 
-- [Repository Rules & Governance](../../.claude/CLAUDE.md) - Repository instructions.
-- [Official Sources Registry](../../sources/README.md) - Primary documentation links.
-- [Repository Changelog](../../CHANGELOG.md) - Repository version history.
+- [Repository Rules & Governance](../.claude/CLAUDE.md) - Repository instructions.
+- [Official Sources Registry](../sources/README.md) - Primary documentation links.
+- [Repository Changelog](../CHANGELOG.md) - Repository version history.
 
 ---
 

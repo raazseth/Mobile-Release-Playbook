@@ -138,7 +138,7 @@ Choose the smallest release stack that solves the project's actual needs.
 
 # React Native and Expo
 
-React Native's current guidance recommends using a React Native framework such as Expo for new applications, while React Native can also be used without a framework when project constraints justify it. urlReact Native framework guidancehttps://reactnative.dev/blog/2024/06/25/use-a-framework-to-build-react-native-apps
+React Native's current guidance recommends using a React Native framework such as Expo for new applications, while React Native can also be used without a framework when project constraints justify it. [React Native framework guidance](https://reactnative.dev/blog/2024/06/25/use-a-framework-to-build-react-native-apps)
 
 For this playbook:
 
@@ -566,7 +566,7 @@ Release
 → AAB
 ```
 
-The React Native iOS publishing documentation explicitly uses the Release scheme for App Store distribution and archives the `.xcworkspace` for upload. urlReact Native iOS publishing guidehttps://reactnative.dev/docs/publishing-to-app-store
+The React Native iOS publishing documentation explicitly uses the Release scheme for App Store distribution and archives the `.xcworkspace` for upload. [React Native iOS publishing guide](https://reactnative.dev/docs/publishing-to-app-store)
 
 ---
 
@@ -894,7 +894,7 @@ Do not rely only on JavaScript tests.
 
 # React Native upgrades
 
-React Native follows a regular release cadence and uses the `0.x.y` versioning model. The official release page is the source of truth for currently supported versions. urlReact Native releaseshttps://reactnative.dev/releases/
+React Native follows a regular release cadence and uses the `0.x.y` versioning model. The official release page is the source of truth for currently supported versions. [React Native releases](https://reactnative.dev/releases/)
 
 Before upgrading:
 
@@ -940,7 +940,7 @@ Unsupported versions
 Upcoming versions
 ```
 
-At the time this document was last reviewed, the official React Native documentation listed 0.86 as the latest stable documentation version. This is intentionally not treated as a permanent requirement. urlReact Native documentation versionshttps://reactnative.dev/versions
+At the time this document was last reviewed, the official React Native documentation listed 0.86 as the latest stable documentation version. This is intentionally not treated as a permanent requirement. [React Native documentation versions](https://reactnative.dev/versions)
 
 ---
 

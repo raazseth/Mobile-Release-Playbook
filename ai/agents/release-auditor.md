@@ -10,37 +10,37 @@ The basic workflow is:
 
 ```text
 Repository + Release Candidate
-            ↓
-      Collect Context
-            ↓
-      Inspect Changes
-            ↓
-      Audit Configuration
-            ↓
-      Audit Dependencies
-            ↓
-      Audit Signing
-            ↓
-      Audit Permissions
-            ↓
-      Audit Privacy
-            ↓
-      Audit Testing
-            ↓
-      Audit Store Readiness
-            ↓
-      Audit Release Operations
-            ↓
-      Report Findings
-            ↓
-      Developer Fixes
-            ↓
-      Re-audit
-            ↓
-      Human Approval
+ ↓
+ Collect Context
+ ↓
+ Inspect Changes
+ ↓
+ Audit Configuration
+ ↓
+ Audit Dependencies
+ ↓
+ Audit Signing
+ ↓
+ Audit Permissions
+ ↓
+ Audit Privacy
+ ↓
+ Audit Testing
+ ↓
+ Audit Store Readiness
+ ↓
+ Audit Release Operations
+ ↓
+ Report Findings
+ ↓
+ Developer Fixes
+ ↓
+ Re-audit
+ ↓
+ Human Approval
 ```
 
-The repository's release lifecycle treats AI as an execution layer for audits, debugging, metadata, release notes, repository inspection, and workflow preparation, while keeping production submission and other high-impact actions human-controlled. fileciteturn38file3L1-L20
+The repository's release lifecycle treats AI as an execution layer for audits, debugging, metadata, release notes, repository inspection, and workflow preparation, while keeping production submission and other high-impact actions human-controlled.
 
 ---
 
@@ -124,7 +124,7 @@ frameworks/expo/
 frameworks/react-native/
 ```
 
-The repository intentionally keeps Expo and React Native first-class while allowing other frameworks to be added through the community path. fileciteturn38file12L1-L20
+The repository intentionally keeps Expo and React Native first-class while allowing other frameworks to be added through the community path.
 
 ---
 
@@ -206,14 +206,14 @@ Example:
 ```text
 Changed:
 app.config.ts
-        ↓
+ ↓
 Potential impact:
 bundle ID
 permissions
 deep links
 environment
 native configuration
-        ↓
+ ↓
 Audit:
 configuration + native behavior + store identity
 ```
@@ -252,7 +252,7 @@ into:
 "Definitely missing."
 ```
 
-The project documentation explicitly requires uncertainty to be visible rather than hidden behind confident wording. fileciteturn38file17L1-L20
+The project documentation explicitly requires uncertainty to be visible rather than hidden behind confident wording.
 
 ---
 
@@ -264,11 +264,11 @@ For volatile requirements:
 
 ```text
 AI identifies candidate requirement
-        ↓
+ ↓
 Check current official source
-        ↓
+ ↓
 Record source
-        ↓
+ ↓
 Apply requirement
 ```
 
@@ -284,7 +284,7 @@ Current account requirements
 Current tooling behavior
 ```
 
-The repository's documentation rules require official sources for volatile platform requirements and prohibit inventing release requirements. fileciteturn38file8L1-L20
+The repository's documentation rules require official sources for volatile platform requirements and prohibit inventing release requirements.
 
 ---
 
@@ -563,15 +563,15 @@ Use:
 
 ```text
 Changed file
-      ↓
+ ↓
 Direct dependency
-      ↓
+ ↓
 Affected capability
-      ↓
+ ↓
 Affected user flow
-      ↓
+ ↓
 Risk
-      ↓
+ ↓
 Required validation
 ```
 
@@ -665,7 +665,7 @@ A common release failure is:
 
 ```text
 Production build
-        ↓
+ ↓
 Staging backend
 ```
 
@@ -673,7 +673,7 @@ or:
 
 ```text
 Production build
-        ↓
+ ↓
 Development credentials
 ```
 
@@ -721,7 +721,7 @@ Remove secret
 → investigate history
 ```
 
-The security system requires secrets to stay out of source code, Git history, frontend bundles, logs, and public configuration. fileciteturn38file13L1-L20
+The security system requires secrets to stay out of source code, Git history, frontend bundles, logs, and public configuration.
 
 ---
 
@@ -1103,11 +1103,11 @@ Instead:
 
 ```text
 Identify relevant requirement
-        ↓
+ ↓
 Open current official source
-        ↓
+ ↓
 Verify
-        ↓
+ ↓
 Audit application
 ```
 
@@ -1634,7 +1634,7 @@ Hotfix build process
 Database migration recovery
 ```
 
-The first-release guidance explicitly treats rollback and recovery as something that must be understood before launch rather than assumed. fileciteturn38file0L1-L20
+The first-release guidance explicitly treats rollback and recovery as something that must be understood before launch rather than assumed.
 
 ---
 
@@ -1697,17 +1697,17 @@ If AI can perform actions:
 
 ```text
 Model output
-      ↓
+ ↓
 Validation
-      ↓
+ ↓
 Authorization
-      ↓
+ ↓
 Human approval where required
-      ↓
+ ↓
 Action
 ```
 
-The security system explicitly requires AI output validation, permission boundaries, and human approval for high-impact actions where appropriate. fileciteturn38file15L1-L20
+The security system explicitly requires AI output validation, permission boundaries, and human approval for high-impact actions where appropriate.
 
 ---
 
@@ -1747,7 +1747,7 @@ AI assists
 → Human approves
 ```
 
-The repository's documentation rules require explicit human approval for production releases, signing credentials, secrets, store submission, destructive actions, account changes, permissions, and irreversible operations. fileciteturn38file11L1-L20
+The repository's documentation rules require explicit human approval for production releases, signing credentials, secrets, store submission, destructive actions, account changes, permissions, and irreversible operations.
 
 ---
 
@@ -2137,17 +2137,17 @@ After fixes:
 
 ```text
 Original audit
-      ↓
+ ↓
 Developer fixes
-      ↓
+ ↓
 New commit
-      ↓
+ ↓
 New build
-      ↓
+ ↓
 Targeted regression
-      ↓
+ ↓
 Re-audit
-      ↓
+ ↓
 Compare findings
 ```
 
@@ -2299,7 +2299,7 @@ Financial systems
 
 Use least privilege.
 
-The security system explicitly applies least privilege to humans, applications, services, and CI/CD. fileciteturn38file13L1-L20
+The security system explicitly applies least privilege to humans, applications, services, and CI/CD.
 
 ---
 
@@ -2582,13 +2582,13 @@ The default repository model is:
 
 ```text
 AI assists
-      ↓
+ ↓
 Developer verifies
-      ↓
+ ↓
 QA
-      ↓
+ ↓
 Human approval
-      ↓
+ ↓
 Submission
 ```
 
@@ -2744,19 +2744,19 @@ For a normal release:
 
 ```text
 Release Auditor
-      ↓
+ ↓
 Finds risk areas
-      ↓
+ ↓
  ┌────┼────┬────┐
- ↓    ↓    ↓    ↓
-QA   Dependency  Metadata  Security/Privacy
-      ↓
+ ↓ ↓ ↓ ↓
+QA Dependency Metadata Security/Privacy
+ ↓
 Specialist findings
-      ↓
+ ↓
 Release Auditor
-      ↓
+ ↓
 Consolidated report
-      ↓
+ ↓
 Human review
 ```
 
@@ -2895,15 +2895,15 @@ When a finding is fixed:
 
 ```text
 Check original evidence
-        ↓
+ ↓
 Confirm fix
-        ↓
+ ↓
 Run targeted test
-        ↓
+ ↓
 Run affected critical flow
-        ↓
+ ↓
 Check for adjacent regressions
-        ↓
+ ↓
 Mark VERIFIED
 ```
 
@@ -2921,35 +2921,35 @@ A release audit is complete when:
 
 ```text
 Release identified
-        +
+ +
 Changes understood
-        +
+ +
 High-risk areas identified
-        +
+ +
 Configuration checked
-        +
+ +
 Dependencies checked
-        +
+ +
 Signing checked
-        +
+ +
 Permissions checked
-        +
+ +
 Testing evidence reviewed
-        +
+ +
 Store readiness reviewed
-        +
+ +
 Security/privacy risks reviewed
-        +
+ +
 Production readiness reviewed
-        +
+ +
 Unknowns documented
-        +
+ +
 Findings assigned
-        +
+ +
 Required actions clear
-        +
+ +
 Human approval boundary preserved
-        ↓
+ ↓
 AUDIT COMPLETE
 ```
 
@@ -3337,21 +3337,21 @@ Use this loop:
 
 ```text
 Inspect
-  ↓
+ ↓
 Understand
-  ↓
+ ↓
 Find risk
-  ↓
+ ↓
 Verify
-  ↓
+ ↓
 Fix
-  ↓
+ ↓
 Test
-  ↓
+ ↓
 Re-audit
-  ↓
+ ↓
 Human approval
-  ↓
+ ↓
 Release
 ```
 
@@ -3359,9 +3359,9 @@ Do not use:
 
 ```text
 AI scan
-  ↓
+ ↓
 Looks good
-  ↓
+ ↓
 Ship
 ```
 

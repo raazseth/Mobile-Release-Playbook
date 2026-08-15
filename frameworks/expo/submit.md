@@ -6,23 +6,23 @@ The important distinction is:
 
 ```text
 Build
-  ↓
+ ↓
 Verify
-  ↓
+ ↓
 Test
-  ↓
+ ↓
 Approve
-  ↓
+ ↓
 Submit
-  ↓
+ ↓
 Store processing
-  ↓
+ ↓
 Review / testing / rollout
 ```
 
 **Submission is not the same as release.**
 
-EAS Submit uploads the binary to the store's distribution pipeline. Apple and Google still control store metadata, review, testing tracks, and production rollout. citeturn0search0turn0search2
+EAS Submit uploads the binary to the store's distribution pipeline. Apple and Google still control store metadata, review, testing tracks, and production rollout.
 
 ---
 
@@ -53,7 +53,7 @@ EAS Build artifacts
 locally built artifacts
 ```
 
-For local artifacts, specify the file with `--path`. citeturn0search0turn0search2
+For local artifacts, specify the file with `--path`.
 
 Basic commands:
 
@@ -71,7 +71,7 @@ You can also build and submit in one command:
 eas build --platform ios --auto-submit
 ```
 
-EAS Submit can run locally, from CI/CD, or through EAS Workflows. citeturn0search0turn0search10
+EAS Submit can run locally, from CI/CD, or through EAS Workflows.
 
 ---
 
@@ -96,7 +96,7 @@ Production monitoring
 
 It also does not manage all store metadata automatically.
 
-Expo's current documentation explicitly states that EAS Submit uploads the binary but does not manage store listing metadata, screenshots, or release notes. EAS Metadata can be used for supported Apple App Store metadata workflows. citeturn0search0turn0search2
+Expo's current documentation explicitly states that EAS Submit uploads the binary but does not manage store listing metadata, screenshots, or release notes. EAS Metadata can be used for supported Apple App Store metadata workflows.
 
 Use the repository's shared documentation for those areas:
 
@@ -165,7 +165,7 @@ Google review / processing
 Rollout
 ```
 
-The exact store workflow varies by platform. citeturn0search0turn0search2
+The exact store workflow varies by platform.
 
 ---
 
@@ -181,29 +181,29 @@ Start with:
 
 ```text
 Release candidate
-      ↓
+ ↓
 Application identity
-      ↓
+ ↓
 Version
-      ↓
+ ↓
 Environment
-      ↓
+ ↓
 Signing
-      ↓
+ ↓
 Build
-      ↓
+ ↓
 Artifact verification
-      ↓
+ ↓
 Real-device testing
-      ↓
+ ↓
 Store readiness
-      ↓
+ ↓
 Human approval
-      ↓
+ ↓
 Submission
 ```
 
-The repository's first-release and pre-release gates require the release artifact, configuration, signing, testing, privacy, store readiness, security, monitoring, and recovery plan to be verified before submission. fileciteturn25file5L1-L20 fileciteturn25file14L1-L30
+The repository's first-release and pre-release gates require the release artifact, configuration, signing, testing, privacy, store readiness, security, monitoring, and recovery plan to be verified before submission.
 
 ---
 
@@ -243,7 +243,7 @@ frameworks/expo/credentials.md
 frameworks/expo/build.md
 ```
 
-The repository's credential model intentionally separates signing credentials from store submission credentials. fileciteturn25file0L1-L20
+The repository's credential model intentionally separates signing credentials from store submission credentials.
 
 ---
 
@@ -261,7 +261,7 @@ A production EAS build normally produces an Android App Bundle:
 eas build --platform android --profile production
 ```
 
-Expo's current documentation states that Google Play requires new apps to be published as app bundles rather than APKs. An APK build is useful for device/emulator installation but is not the normal Play Store submission artifact. citeturn0search1
+Expo's current documentation states that Google Play requires new apps to be published as app bundles rather than APKs. An APK build is useful for device/emulator installation but is not the normal Play Store submission artifact.
 
 ---
 
@@ -281,15 +281,15 @@ Android package name
 Signed production AAB
 ```
 
-Expo currently documents the Google Service Account as the credential EAS Submit uses to submit on your behalf. citeturn0search1
+Expo currently documents the Google Service Account as the credential EAS Submit uses to submit on your behalf.
 
 Your Expo configuration should contain the package name:
 
 ```json
 {
-  "android": {
-    "package": "com.example.app"
-  }
+ "android": {
+ "package": "com.example.app"
+ }
 }
 ```
 
@@ -303,23 +303,23 @@ Do not change it casually after the Play Store application exists.
 
 Google Play has an important first-release consideration.
 
-Expo's current documentation says the first submission can be handled through EAS Submit and defaults to the internal testing track. It also documents manual first-upload options. citeturn0search1turn0search5
+Expo's current documentation says the first submission can be handled through EAS Submit and defaults to the internal testing track. It also documents manual first-upload options.
 
 A safe first-release flow is:
 
 ```text
 Create app in Play Console
-        ↓
+ ↓
 Configure service account
-        ↓
+ ↓
 Create production AAB
-        ↓
+ ↓
 Submit to internal testing
-        ↓
+ ↓
 Verify
-        ↓
+ ↓
 Complete store setup
-        ↓
+ ↓
 Promote / release according to your rollout plan
 ```
 
@@ -354,11 +354,11 @@ For a local artifact:
 
 ```bash
 eas submit \
-  --platform android \
-  --path ./app.aab
+ --platform android \
+ --path ./app.aab
 ```
 
-Current EAS CLI supports selecting by build ID, latest build, local path, or archive URL. citeturn0search6
+Current EAS CLI supports selecting by build ID, latest build, local path, or archive URL.
 
 ---
 
@@ -384,23 +384,23 @@ For an important production release, prefer:
 
 ```bash
 eas submit \
-  --platform android \
-  --id <APPROVED_BUILD_ID>
+ --platform android \
+ --id <APPROVED_BUILD_ID>
 ```
 
 This gives you:
 
 ```text
 Approved release
-      ↓
+ ↓
 Exact EAS build
-      ↓
+ ↓
 Exact artifact
-      ↓
+ ↓
 Submission
 ```
 
-The current EAS CLI supports `--id` specifically for selecting a build. citeturn0search6
+The current EAS CLI supports `--id` specifically for selecting a build.
 
 ---
 
@@ -459,19 +459,19 @@ with:
 draft
 ```
 
-Expo's current Android submission guide documents this as a way to upload without rolling out the release. citeturn0search1
+Expo's current Android submission guide documents this as a way to upload without rolling out the release.
 
 Conceptually:
 
 ```json
 {
-  "submit": {
-    "production": {
-      "android": {
-        "releaseStatus": "draft"
-      }
-    }
-  }
+ "submit": {
+ "production": {
+ "android": {
+ "releaseStatus": "draft"
+ }
+ }
+ }
 }
 ```
 
@@ -524,7 +524,7 @@ Submit:
 eas submit --platform ios
 ```
 
-Expo currently documents EAS Submit as the recommended way to upload iOS builds to App Store Connect and notes that it works from macOS, Linux, and Windows. citeturn0search4
+Expo currently documents EAS Submit as the recommended way to upload iOS builds to App Store Connect and notes that it works from macOS, Linux, and Windows.
 
 This is particularly useful because an iOS build can be submitted from a non-macOS machine when the artifact and credentials are correctly configured.
 
@@ -550,9 +550,9 @@ Your Expo configuration should contain:
 
 ```json
 {
-  "ios": {
-    "bundleIdentifier": "com.example.app"
-  }
+ "ios": {
+ "bundleIdentifier": "com.example.app"
+ }
 }
 ```
 
@@ -570,17 +570,17 @@ Example:
 
 ```json
 {
-  "submit": {
-    "production": {
-      "ios": {
-        "ascAppId": "1234567890"
-      }
-    }
-  }
+ "submit": {
+ "production": {
+ "ios": {
+ "ascAppId": "1234567890"
+ }
+ }
+ }
 }
 ```
 
-Expo's current iOS submission documentation identifies `ascAppId` as the App Store Connect app's Apple ID and explains where to find it in App Store Connect. citeturn0search4
+Expo's current iOS submission documentation identifies `ascAppId` as the App Store Connect app's Apple ID and explains where to find it in App Store Connect.
 
 Do not confuse:
 
@@ -610,19 +610,19 @@ Specific build:
 
 ```bash
 eas submit \
-  --platform ios \
-  --id <BUILD_ID>
+ --platform ios \
+ --id <BUILD_ID>
 ```
 
 Local artifact:
 
 ```bash
 eas submit \
-  --platform ios \
-  --path ./app.ipa
+ --platform ios \
+ --path ./app.ipa
 ```
 
-The current EAS CLI supports all of these selection modes. citeturn0search6
+The current EAS CLI supports all of these selection modes.
 
 ---
 
@@ -664,7 +664,7 @@ Apple review
 Release
 ```
 
-Expo's current documentation explicitly states that an iOS submission becomes available in TestFlight after processing but still requires App Store Connect actions for App Store production release. citeturn0search0turn0search4
+Expo's current documentation explicitly states that an iOS submission becomes available in TestFlight after processing but still requires App Store Connect actions for App Store production release.
 
 ---
 
@@ -674,17 +674,17 @@ Use:
 
 ```text
 Production IPA
-      ↓
+ ↓
 EAS Submit
-      ↓
+ ↓
 App Store Connect processing
-      ↓
+ ↓
 TestFlight
-      ↓
+ ↓
 Internal testing
-      ↓
+ ↓
 Optional external testing
-      ↓
+ ↓
 App Store submission
 ```
 
@@ -711,11 +711,11 @@ EAS Submit supports the current CLI option:
 
 ```bash
 eas submit \
-  --platform ios \
-  --what-to-test "Test login, onboarding, and payment flow"
+ --platform ios \
+ --what-to-test "Test login, onboarding, and payment flow"
 ```
 
-The current EAS CLI exposes `--what-to-test` for iOS/TestFlight submissions. citeturn0search6
+The current EAS CLI exposes `--what-to-test` for iOS/TestFlight submissions.
 
 Keep this short and useful.
 
@@ -747,15 +747,15 @@ Example:
 
 ```bash
 eas submit \
-  --platform ios \
-  --groups "Internal QA"
+ --platform ios \
+ --groups "Internal QA"
 ```
 
 Use this when the TestFlight groups are already configured and the release process intentionally targets them.
 
 Do not use arbitrary group names in production automation.
 
-Verify the configured App Store Connect groups first. citeturn0search6
+Verify the configured App Store Connect groups first.
 
 ---
 
@@ -767,16 +767,16 @@ Example:
 
 ```json
 {
-  "submit": {
-    "production": {
-      "android": {
-        "track": "internal"
-      },
-      "ios": {
-        "ascAppId": "1234567890"
-      }
-    }
-  }
+ "submit": {
+ "production": {
+ "android": {
+ "track": "internal"
+ },
+ "ios": {
+ "ascAppId": "1234567890"
+ }
+ }
+ }
 }
 ```
 
@@ -792,7 +792,7 @@ Which release target?
 Which submission-specific configuration?
 ```
 
-EAS documentation states that `eas.json` is not mandatory for every EAS Submit use case, but it makes switching between submission configurations easier and is important for non-interactive CI/CD workflows. citeturn0search8
+EAS documentation states that `eas.json` is not mandatory for every EAS Submit use case, but it makes switching between submission configurations easier and is important for non-interactive CI/CD workflows.
 
 ---
 
@@ -810,9 +810,9 @@ Example:
 
 ```json
 {
-  "build": {
-    "production": {}
-  }
+ "build": {
+ "production": {}
+ }
 }
 ```
 
@@ -826,13 +826,13 @@ Example:
 
 ```json
 {
-  "submit": {
-    "production": {
-      "ios": {
-        "ascAppId": "1234567890"
-      }
-    }
-  }
+ "submit": {
+ "production": {
+ "ios": {
+ "ascAppId": "1234567890"
+ }
+ }
+ }
 }
 ```
 
@@ -846,18 +846,18 @@ EAS supports:
 
 ```bash
 eas build \
-  --platform android \
-  --profile production \
-  --auto-submit
+ --platform android \
+ --profile production \
+ --auto-submit
 ```
 
 and:
 
 ```bash
 eas build \
-  --platform ios \
-  --profile production \
-  --auto-submit
+ --platform ios \
+ --profile production \
+ --auto-submit
 ```
 
 This can be useful once the release workflow is mature.
@@ -934,35 +934,35 @@ Conceptually:
 
 ```text
 Git event
-   ↓
+ ↓
 Build
-   ↓
+ ↓
 Build ID
-   ↓
+ ↓
 Submit
 ```
 
-Expo currently supports pre-packaged `build` and `submit` jobs in EAS Workflows. citeturn0search10
+Expo currently supports pre-packaged `build` and `submit` jobs in EAS Workflows.
 
 Example:
 
 ```yaml
 jobs:
-  build_android:
-    name: Build Android
-    type: build
-    params:
-      platform: android
-      profile: production
+ build_android:
+ name: Build Android
+ type: build
+ params:
+ platform: android
+ profile: production
 
-  submit_android:
-    name: Submit Android
-    type: submit
-    needs:
-      - build_android
-    params:
-      profile: production
-      build_id: ${{ needs.build_android.outputs.build_id }}
+ submit_android:
+ name: Submit Android
+ type: submit
+ needs:
+ - build_android
+ params:
+ profile: production
+ build_id: ${{ needs.build_android.outputs.build_id }}
 ```
 
 The exact workflow schema can change. Validate it against current Expo documentation before committing a production workflow.
@@ -977,11 +977,11 @@ Typical model:
 
 ```text
 GitHub Actions
-      ↓
+ ↓
 EXPO_TOKEN
-      ↓
+ ↓
 eas submit
-      ↓
+ ↓
 Store
 ```
 
@@ -989,21 +989,21 @@ For non-interactive CI:
 
 ```bash
 eas submit \
-  --platform android \
-  --profile production \
-  --non-interactive
+ --platform android \
+ --profile production \
+ --non-interactive
 ```
 
 or:
 
 ```bash
 eas submit \
-  --platform ios \
-  --profile production \
-  --non-interactive
+ --platform ios \
+ --profile production \
+ --non-interactive
 ```
 
-Expo's current documentation confirms that EAS Submit can be used from GitHub Actions and other CI/CD services. citeturn0search1turn0search4
+Expo's current documentation confirms that EAS Submit can be used from GitHub Actions and other CI/CD services.
 
 Never commit:
 
@@ -1031,9 +1031,9 @@ Prefer:
 
 ```text
 build job
-   ↓
+ ↓
 build_id
-   ↓
+ ↓
 submit job
 ```
 
@@ -1041,12 +1041,12 @@ Example:
 
 ```yaml
 submit_android:
-  type: submit
-  needs:
-    - build_android
-  params:
-    profile: production
-    build_id: ${{ needs.build_android.outputs.build_id }}
+ type: submit
+ needs:
+ - build_android
+ params:
+ profile: production
+ build_id: ${{ needs.build_android.outputs.build_id }}
 ```
 
 This creates a deterministic relationship between:
@@ -1072,11 +1072,11 @@ EAS Submit requires:
 Google Service Account
 ```
 
-with access to the application in Google Play Console. citeturn0search1
+with access to the application in Google Play Console.
 
 ### iOS
 
-EAS Submit uses Apple/App Store Connect authentication and can use App Store Connect API credentials when configured. citeturn0search0turn0search4
+EAS Submit uses Apple/App Store Connect authentication and can use App Store Connect API credentials when configured.
 
 Keep these separate from:
 
@@ -1093,7 +1093,7 @@ frameworks/expo/credentials.md
 signing/
 ```
 
-The repository's credential guidance explicitly separates signing, submission, and runtime integration credentials. fileciteturn25file0L1-L20
+The repository's credential guidance explicitly separates signing, submission, and runtime integration credentials.
 
 ---
 
@@ -1195,19 +1195,19 @@ A useful model is:
 
 ```text
 Binary uploaded
-      ↓
+ ↓
 Store processing
-      ↓
+ ↓
 Testing / draft
-      ↓
+ ↓
 Submission
-      ↓
+ ↓
 Review
-      ↓
+ ↓
 Approved
-      ↓
+ ↓
 Release
-      ↓
+ ↓
 Production monitoring
 ```
 
@@ -1307,7 +1307,7 @@ Uploaded to TestFlight
 App Store release
 ```
 
-The App Store submission remains a separate step. citeturn0search4
+The App Store submission remains a separate step.
 
 ---
 
@@ -1342,27 +1342,27 @@ A practical first-release sequence:
 
 ```text
 Create Play Console app
-        ↓
+ ↓
 Configure package name
-        ↓
+ ↓
 Configure Google service account
-        ↓
+ ↓
 Build production AAB
-        ↓
+ ↓
 Submit
-        ↓
+ ↓
 Internal testing / draft
-        ↓
+ ↓
 Complete Play Console setup
-        ↓
+ ↓
 Testing requirements
-        ↓
+ ↓
 Production rollout
 ```
 
-Expo currently documents that the default first EAS submission can create the first release on the internal testing track. citeturn0search1
+Expo currently documents that the default first EAS submission can create the first release on the internal testing track.
 
-If you prefer manual first-upload control, Play Console also supports manual submission. citeturn0search5
+If you prefer manual first-upload control, Play Console also supports manual submission.
 
 ---
 
@@ -1372,25 +1372,25 @@ A practical first-release sequence:
 
 ```text
 Apple Developer account
-        ↓
+ ↓
 App Store Connect app
-        ↓
+ ↓
 Bundle identifier
-        ↓
+ ↓
 Production IPA
-        ↓
+ ↓
 EAS Submit
-        ↓
+ ↓
 App Store Connect processing
-        ↓
+ ↓
 TestFlight
-        ↓
+ ↓
 Metadata
-        ↓
+ ↓
 App Review submission
-        ↓
+ ↓
 Apple review
-        ↓
+ ↓
 Production release
 ```
 
@@ -1407,19 +1407,19 @@ If submission fails:
 2. Read the submission logs.
 3. Identify the first meaningful error.
 4. Determine whether it is:
-   - credentials
-   - artifact
-   - application identity
-   - version
-   - store configuration
-   - permissions
-   - store policy
-   - network/service
+ - credentials
+ - artifact
+ - application identity
+ - version
+ - store configuration
+ - permissions
+ - store policy
+ - network/service
 5. Fix the smallest confirmed issue.
 6. Retry with the same intended artifact when possible.
 ```
 
-Expo's current EAS Submit documentation points to the submission details page and its logs for diagnosing failures. citeturn0search0turn0search2
+Expo's current EAS Submit documentation points to the submission details page and its logs for diagnosing failures.
 
 Do not rebuild the application when the failure is only a submission credential problem.
 
@@ -1500,15 +1500,15 @@ If the store rejects the binary because the version/build number is already used
 
 ```text
 Check current store state
-        ↓
+ ↓
 Check local/EAS version state
-        ↓
+ ↓
 Identify version owner
-        ↓
+ ↓
 Increment correctly
-        ↓
+ ↓
 Build again
-        ↓
+ ↓
 Submit new artifact
 ```
 
@@ -1663,9 +1663,9 @@ For example:
 
 ```bash
 eas submit \
-  --platform android \
-  --profile production \
-  --non-interactive
+ --platform android \
+ --profile production \
+ --non-interactive
 ```
 
 Do not rely on:
@@ -1694,7 +1694,7 @@ Check platform
 Check profile
 ```
 
-The repository's documentation rules explicitly require commands to be verified and volatile tooling behavior to be checked against current reliable sources. fileciteturn25file1L1-L30
+The repository's documentation rules explicitly require commands to be verified and volatile tooling behavior to be checked against current reliable sources.
 
 Do not trust an AI-generated release command simply because it looks plausible.
 
@@ -1737,7 +1737,7 @@ Human approves
 Submit
 ```
 
-The repository's AI guidance requires explicit human approval around production releases, store submission, credentials, secrets, and destructive actions. fileciteturn25file1L1-L25
+The repository's AI guidance requires explicit human approval around production releases, store submission, credentials, secrets, and destructive actions.
 
 ---
 
@@ -1852,17 +1852,17 @@ Before production submission:
 
 ```text
 Release candidate
-      ↓
+ ↓
 Automated checks
-      ↓
+ ↓
 Artifact verification
-      ↓
+ ↓
 Store readiness
-      ↓
+ ↓
 Human review
-      ↓
+ ↓
 APPROVE
-      ↓
+ ↓
 EAS Submit
 ```
 
@@ -1935,36 +1935,36 @@ This creates a useful release history without creating another secret store.
 For a mature Expo project:
 
 ```text
-                 Git commit
-                     ↓
-             Release candidate
-                     ↓
-              Validation
-                     ↓
-              Production build
-                     ↓
-             Artifact inspection
-                     ↓
-             Real-device test
-                     ↓
-             Store-readiness check
-                     ↓
-              Human approval
-                     ↓
-          ┌──────────┴──────────┐
-          ↓                     ↓
-      Android                 iOS
-          ↓                     ↓
-     EAS Submit             EAS Submit
-          ↓                     ↓
-   Google Play Console    App Store Connect
-          ↓                     ↓
-     Testing / rollout       TestFlight
-          ↓                     ↓
-      Production           App Review
-          └──────────┬──────────┘
-                     ↓
-                Monitoring
+ Git commit
+ ↓
+ Release candidate
+ ↓
+ Validation
+ ↓
+ Production build
+ ↓
+ Artifact inspection
+ ↓
+ Real-device test
+ ↓
+ Store-readiness check
+ ↓
+ Human approval
+ ↓
+ ┌──────────┴──────────┐
+ ↓ ↓
+ Android iOS
+ ↓ ↓
+ EAS Submit EAS Submit
+ ↓ ↓
+ Google Play Console App Store Connect
+ ↓ ↓
+ Testing / rollout TestFlight
+ ↓ ↓
+ Production App Review
+ └──────────┬──────────┘
+ ↓
+ Monitoring
 ```
 
 This keeps the release path understandable and traceable.
@@ -2023,7 +2023,7 @@ iOS
 → App Store Connect / Apple tooling
 ```
 
-Expo currently documents manual Android submission for the first release and manual iOS upload as a fallback when EAS Submit is unavailable. citeturn0search5turn0search4
+Expo currently documents manual Android submission for the first release and manual iOS upload as a fallback when EAS Submit is unavailable.
 
 Manual submission is useful when:
 
@@ -2116,31 +2116,31 @@ A store submission is complete only when:
 
 ```text
 Correct artifact
-        +
+ +
 Correct application
-        +
+ +
 Correct version
-        +
+ +
 Correct credentials
-        +
+ +
 Correct store target
-        +
+ +
 Artifact verified
-        +
+ +
 Human approval
-        +
+ +
 Binary uploaded
-        +
+ +
 Store processing verified
-        +
+ +
 Next store action completed
-        ↓
+ ↓
 SUBMISSION COMPLETE
 ```
 
 For Android, that may mean the build is correctly placed into the intended testing or production track.
 
-For iOS, successful upload means the build is in App Store Connect/TestFlight; App Store production still requires the App Review workflow. citeturn0search0turn0search4
+For iOS, successful upload means the build is in App Store Connect/TestFlight; App Store production still requires the App Review workflow.
 
 ---
 

@@ -235,7 +235,7 @@ React version
 
 For a dependency-related release issue, inspect the actual resolved dependency tree rather than only the version written in `package.json`.
 
-If the project is upgrading React Native, use the official Upgrade Helper and apply the version-specific native template changes. React Native's upgrade guide explicitly treats upgrades as both dependency and project-file changes. citeturn0search7
+If the project is upgrading React Native, use the official Upgrade Helper and apply the version-specific native template changes. React Native's upgrade guide explicitly treats upgrades as both dependency and project-file changes.
 
 ### Do not
 
@@ -329,7 +329,7 @@ If the evidence points to cache state, restart Metro using the project's support
 
 Do not use cache deletion as the first diagnosis.
 
-React Native's upgrade documentation also notes that some "old version still running" problems can be cache-related. citeturn0search7
+React Native's upgrade documentation also notes that some "old version still running" problems can be cache-related.
 
 ---
 
@@ -367,7 +367,7 @@ Then confirm the device is actually connected.
 
 This is normally a **development** problem.
 
-A properly packaged release build should not depend on a developer's Metro server. React Native's Android publishing documentation explicitly notes that release builds bundle the JavaScript and do not require a running bundler. citeturn0search0
+A properly packaged release build should not depend on a developer's Metro server. React Native's Android publishing documentation explicitly notes that release builds bundle the JavaScript and do not require a running bundler.
 
 ---
 
@@ -434,7 +434,7 @@ Assets
 Custom bundle paths
 ```
 
-For Android, React Native's release build process bundles JavaScript into the AAB. The official documentation also warns that `org.gradle.configureondemand=true` can cause release builds to skip bundling JavaScript and assets. citeturn0search0
+For Android, React Native's release build process bundles JavaScript into the AAB. The official documentation also warns that `org.gradle.configureondemand=true` can cause release builds to skip bundling JavaScript and assets.
 
 Check:
 
@@ -902,7 +902,7 @@ and:
 Google Play app signing key
 ```
 
-React Native's official Android publishing guide documents the upload-key model and recommends keeping signing credentials out of Git. citeturn0search0
+React Native's official Android publishing guide documents the upload-key model and recommends keeping signing credentials out of Git.
 
 ---
 
@@ -929,7 +929,7 @@ Code generation
 Release-only configuration
 ```
 
-React Native's Android publishing documentation warns that code shrinking can require library-specific rules and should be thoroughly tested. citeturn0search0
+React Native's Android publishing documentation warns that code shrinking can require library-specific rules and should be thoroughly tested.
 
 ### Fix
 
@@ -1004,7 +1004,7 @@ Do not debug from these values alone.
 
 Generate and retain the source map for the exact build.
 
-React Native's release debugging documentation explains how to use source maps and `metro-symbolicate` to translate release stack traces back to source locations. citeturn0search2
+React Native's release debugging documentation explains how to use source maps and `metro-symbolicate` to translate release stack traces back to source locations.
 
 Example:
 
@@ -1125,7 +1125,7 @@ third-party native dependency
 build configuration
 ```
 
-React Native supports architecture-specific development builds and provides `--active-arch-only` to speed local Android development. That optimization should not accidentally become the production artifact configuration. citeturn0search4
+React Native supports architecture-specific development builds and provides `--active-arch-only` to speed local Android development. That optimization should not accidentally become the production artifact configuration.
 
 Before release, verify that the production artifact supports the intended device architectures.
 
@@ -1422,7 +1422,7 @@ Do not stop there.
 
 Determine why the cache was stale and fix the cache key or invalidation rule.
 
-React Native's build documentation notes that CI native builds should be treated carefully with caching and warns about poisoned cache problems. citeturn0search4
+React Native's build documentation notes that CI native builds should be treated carefully with caching and warns about poisoned cache problems.
 
 ---
 
@@ -1545,7 +1545,7 @@ Tests
 Real-device testing
 ```
 
-React Native's official upgrade guide explicitly recommends using Upgrade Helper to identify dependency and project-file changes. citeturn0search7
+React Native's official upgrade guide explicitly recommends using Upgrade Helper to identify dependency and project-file changes.
 
 Do not skip native template changes.
 
@@ -1636,7 +1636,7 @@ Target platform
 Build variant
 ```
 
-For Android, React Native's official publishing guide identifies the release AAB as the production artifact generated by the release build process. citeturn0search0
+For Android, React Native's official publishing guide identifies the release AAB as the production artifact generated by the release build process.
 
 Do not upload an artifact simply because the filename says:
 
@@ -1732,7 +1732,7 @@ metro-symbolicate
 Source location
 ```
 
-React Native's official release debugging documentation emphasizes that the source map must correspond to the exact crashing build because small source changes can significantly alter offsets. citeturn0search2
+React Native's official release debugging documentation emphasizes that the source map must correspond to the exact crashing build because small source changes can significantly alter offsets.
 
 Keep release artifacts and source maps according to the project's observability policy.
 
@@ -1821,7 +1821,7 @@ Unused native code
 Bundled data
 ```
 
-React Native's build documentation notes that building multiple Android ABIs increases artifact size, and development-only architecture optimizations should not accidentally become the production configuration. citeturn0search4
+React Native's build documentation notes that building multiple Android ABIs increases artifact size, and development-only architecture optimizations should not accidentally become the production configuration.
 
 Measure before optimizing.
 
@@ -1847,7 +1847,7 @@ A development command such as:
 npx react-native run-android --active-arch-only
 ```
 
-is intended to speed local development. It should not accidentally define the production artifact's supported architectures. citeturn0search4
+is intended to speed local development. It should not accidentally define the production artifact's supported architectures.
 
 ---
 

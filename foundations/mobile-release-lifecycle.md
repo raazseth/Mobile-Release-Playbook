@@ -6,31 +6,31 @@ The Mobile Release Playbook is built around this lifecycle:
 
 ```text
 App Built
-   ↓
+ ↓
 Release Readiness
-   ↓
+ ↓
 Configuration & Signing
-   ↓
+ ↓
 Testing
-   ↓
+ ↓
 Store Preparation
-   ↓
+ ↓
 Production Build
-   ↓
+ ↓
 TestFlight / Play Testing
-   ↓
+ ↓
 Submission
-   ↓
+ ↓
 Review / Rejection
-   ↓
+ ↓
 Production Release
-   ↓
+ ↓
 Monitoring
-   ↓
+ ↓
 Update / Hotfix
 ```
 
-This is the core model of the playbook. fileciteturn12file9L1-L31
+This is the core model of the playbook.
 
 The goal is not to make every release complicated.
 
@@ -66,19 +66,19 @@ A useful mental model is:
 
 ```text
 Code change
-    ↓
+ ↓
 Release candidate
-    ↓
+ ↓
 Verified build
-    ↓
+ ↓
 Store submission
-    ↓
+ ↓
 Approved release
-    ↓
+ ↓
 Production users
-    ↓
+ ↓
 Production evidence
-    ↓
+ ↓
 Next release
 ```
 
@@ -142,11 +142,11 @@ The key difference is:
 
 ```text
 Development
-    ↓
+ ↓
 Many possible states
 
 Release candidate
-    ↓
+ ↓
 One specific state
 ```
 
@@ -226,13 +226,13 @@ The release flow generally involves:
 
 ```text
 Bundle ID
-    ↓
+ ↓
 Apple Developer configuration
-    ↓
+ ↓
 Signing credentials
-    ↓
+ ↓
 Provisioning / distribution configuration
-    ↓
+ ↓
 Signed application
 ```
 
@@ -242,11 +242,11 @@ The release flow generally involves:
 
 ```text
 Application ID
-    ↓
+ ↓
 Release signing
-    ↓
+ ↓
 Upload / Play App Signing
-    ↓
+ ↓
 Signed application
 ```
 
@@ -274,13 +274,13 @@ Test the application at several levels.
 
 ```text
 Unit
-  ↓
+ ↓
 Integration
-  ↓
+ ↓
 End-to-end
-  ↓
+ ↓
 Real device
-  ↓
+ ↓
 Production-like build
 ```
 
@@ -340,7 +340,7 @@ Do not write claims that the production build cannot demonstrate.
 
 Create the exact binary that will be distributed.
 
-For Expo and React Native, EAS Build is a common path for creating production-ready Android and iOS binaries. Expo documents EAS Build as a hosted build service for Expo and React Native projects and supports production builds for both platforms. citeturn0search0turn0search14
+For Expo and React Native, EAS Build is a common path for creating production-ready Android and iOS binaries. Expo documents EAS Build as a hosted build service for Expo and React Native projects and supports production builds for both platforms.
 
 Typical Expo commands include:
 
@@ -430,21 +430,21 @@ Typical flow:
 
 ```text
 Production build
-    ↓
+ ↓
 App Store Connect
-    ↓
+ ↓
 Build processing
-    ↓
+ ↓
 TestFlight
-    ↓
+ ↓
 Testing
-    ↓
+ ↓
 App Review
-    ↓
+ ↓
 Production release
 ```
 
-App Store Connect supports uploading builds, distributing beta versions through TestFlight, and submitting versions for review. citeturn0search9
+App Store Connect supports uploading builds, distributing beta versions through TestFlight, and submitting versions for review.
 
 ### Android
 
@@ -467,7 +467,7 @@ Use beta testing to validate:
 
 These are different things.
 
-Expo EAS internal distribution can provide installable builds for a development team or testers. Expo documents internal distribution as a way to share builds directly with testers. citeturn0search12
+Expo EAS internal distribution can provide installable builds for a development team or testers. Expo documents internal distribution as a way to share builds directly with testers.
 
 Store testing happens through:
 
@@ -481,13 +481,13 @@ A useful sequence is:
 
 ```text
 Local development
-    ↓
+ ↓
 Internal build
-    ↓
+ ↓
 Real-device validation
-    ↓
+ ↓
 Store testing
-    ↓
+ ↓
 Production release
 ```
 
@@ -501,17 +501,17 @@ Submission means sending the selected production build and required store inform
 
 ### iOS
 
-Apple's current workflow requires required metadata and the correct build to be selected before adding the version for review. The app is then submitted for App Review. citeturn0search5
+Apple's current workflow requires required metadata and the correct build to be selected before adding the version for review. The app is then submitted for App Review.
 
 A simplified flow:
 
 ```text
 Prepare metadata
-    ↓
+ ↓
 Select correct build
-    ↓
+ ↓
 Add for Review
-    ↓
+ ↓
 Submit for Review
 ```
 
@@ -521,13 +521,13 @@ The flow generally involves:
 
 ```text
 Prepare release
-    ↓
+ ↓
 Select artifact
-    ↓
+ ↓
 Configure release
-    ↓
+ ↓
 Submit / rollout
-    ↓
+ ↓
 Google review / processing
 ```
 
@@ -537,7 +537,7 @@ Exact Play Console behavior depends on the app's account, testing history, relea
 
 # 14. Expo EAS Submit
 
-For Expo and React Native projects, EAS Submit can upload Android and iOS binaries to the respective store systems. citeturn0search1
+For Expo and React Native projects, EAS Submit can upload Android and iOS binaries to the respective store systems.
 
 Examples:
 
@@ -555,13 +555,13 @@ You can also connect build and submission:
 eas build --platform ios --auto-submit
 ```
 
-Expo documents `--auto-submit` as a way to pass a completed build to EAS Submit automatically. citeturn0search8
+Expo documents `--auto-submit` as a way to pass a completed build to EAS Submit automatically.
 
 Important:
 
 > Uploading a binary is not always the same as publishing it.
 
-For example, an iOS upload through EAS Submit appears in App Store Connect/TestFlight and still requires the App Store submission workflow for public release. citeturn0search1
+For example, an iOS upload through EAS Submit appears in App Store Connect/TestFlight and still requires the App Store submission workflow for public release.
 
 ---
 
@@ -587,23 +587,23 @@ When rejected:
 
 ```text
 Read exact reason
-    ↓
+ ↓
 Identify affected requirement
-    ↓
+ ↓
 Reproduce if possible
-    ↓
+ ↓
 Fix
-    ↓
+ ↓
 Test
-    ↓
+ ↓
 Update metadata / review notes
-    ↓
+ ↓
 Resubmit
 ```
 
 Do not blindly resubmit the same build without addressing the stated issue.
 
-Apple exposes submission and app statuses such as Ready for Review, Waiting for Review, In Review, Accepted, and Rejected. citeturn0search6
+Apple exposes submission and app statuses such as Ready for Review, Waiting for Review, In Review, Accepted, and Rejected.
 
 ---
 
@@ -767,13 +767,13 @@ A useful production loop is:
 
 ```text
 Release
-   ↓
+ ↓
 Observe
-   ↓
+ ↓
 Compare
-   ↓
+ ↓
 Investigate
-   ↓
+ ↓
 Act
 ```
 
@@ -817,9 +817,9 @@ Therefore:
 
 ```text
 Mobile release
-    ↓
+ ↓
 Users install version
-    ↓
+ ↓
 Version remains on devices
 ```
 
@@ -854,25 +854,25 @@ When a production problem requires a new mobile build:
 
 ```text
 Incident
-   ↓
+ ↓
 Contain
-   ↓
+ ↓
 Root cause
-   ↓
+ ↓
 Focused fix
-   ↓
+ ↓
 Regression test
-   ↓
+ ↓
 Build
-   ↓
+ ↓
 Real-device validation
-   ↓
+ ↓
 Store submission
-   ↓
+ ↓
 Review
-   ↓
+ ↓
 Production
-   ↓
+ ↓
 Monitor
 ```
 
@@ -902,25 +902,25 @@ Most mobile applications go through this cycle repeatedly.
 
 ```text
 Existing production
-      ↓
+ ↓
 New code
-      ↓
+ ↓
 Release candidate
-      ↓
+ ↓
 Validation
-      ↓
+ ↓
 Build
-      ↓
+ ↓
 Testing
-      ↓
+ ↓
 Submission
-      ↓
+ ↓
 Review
-      ↓
+ ↓
 Production
-      ↓
+ ↓
 Monitoring
-      ↓
+ ↓
 Next change
 ```
 
@@ -940,7 +940,7 @@ A useful distinction is:
 
 ```text
 JavaScript / compatible update
-        ↓
+ ↓
 OTA may be appropriate
 ```
 
@@ -952,7 +952,7 @@ permissions
 entitlements
 native dependency
 OS/build configuration
-        ↓
+ ↓
 New binary required
 ```
 
@@ -966,20 +966,20 @@ Do not use OTA as a way to bypass store review for changes that require a new na
 
 AI is an execution layer across the release lifecycle.
 
-The playbook explicitly treats AI as a practical accelerator rather than a separate product. It can help with audits, debugging, metadata, release notes, repetitive checks, repository inspection, and workflow preparation. fileciteturn12file9L29-L40
+The playbook explicitly treats AI as a practical accelerator rather than a separate product. It can help with audits, debugging, metadata, release notes, repetitive checks, repository inspection, and workflow preparation.
 
 A useful model is:
 
 ```text
-                    AI
-                     │
-       ┌─────────────┼─────────────┐
-       ↓             ↓             ↓
-     Audit         Build          QA
-       ↓             ↓             ↓
-    Metadata      Debug         Release
-       ↓             ↓             ↓
-   Rejection     Automate       Monitor
+ AI
+ │
+ ┌─────────────┼─────────────┐
+ ↓ ↓ ↓
+ Audit Build QA
+ ↓ ↓ ↓
+ Metadata Debug Release
+ ↓ ↓ ↓
+ Rejection Automate Monitor
 ```
 
 AI should help developers move through the lifecycle faster.
@@ -994,23 +994,23 @@ A practical AI workflow:
 
 ```text
 Developer
-   ↓
+ ↓
 Ask AI to inspect release
-   ↓
+ ↓
 AI finds candidate issues
-   ↓
+ ↓
 Developer verifies findings
-   ↓
+ ↓
 Developer fixes issues
-   ↓
+ ↓
 Automated tests
-   ↓
+ ↓
 Production build
-   ↓
+ ↓
 Real-device testing
-   ↓
+ ↓
 Human approval
-   ↓
+ ↓
 Submission
 ```
 
@@ -1081,9 +1081,9 @@ The core rule is:
 
 ```text
 AI assists
-    +
+ +
 Human verifies
-    +
+ +
 Human approves
 ```
 
@@ -1099,7 +1099,7 @@ This is especially important for:
 - destructive actions
 - irreversible operations
 
-The documentation rules explicitly require human approval boundaries for sensitive or irreversible actions. fileciteturn12file18L1-L17
+The documentation rules explicitly require human approval boundaries for sensitive or irreversible actions.
 
 Do not give an AI agent unrestricted access to production systems.
 
@@ -1113,17 +1113,17 @@ A practical progression is:
 
 ```text
 Manual
-  ↓
+ ↓
 Documented
-  ↓
+ ↓
 Scripted
-  ↓
+ ↓
 CI validated
-  ↓
+ ↓
 AI-assisted
-  ↓
+ ↓
 Bounded automation
-  ↓
+ ↓
 Selective automation
 ```
 
@@ -1131,15 +1131,15 @@ Do not jump directly to:
 
 ```text
 Commit
-  ↓
+ ↓
 AI agent
-  ↓
+ ↓
 Production release
 ```
 
 without strong validation and approval controls.
 
-The playbook is a GitHub repository and knowledge system, not a SaaS release-management platform. It should prefer documentation, executable examples, small scripts, AI workflows, and community contributions over unnecessary infrastructure. fileciteturn12file9L1-L14
+The playbook is a GitHub repository and knowledge system, not a SaaS release-management platform. It should prefer documentation, executable examples, small scripts, AI workflows, and community contributions over unnecessary infrastructure.
 
 ---
 
@@ -1183,25 +1183,25 @@ A release can be represented as:
 
 ```text
 DRAFT
-  ↓
+ ↓
 READY
-  ↓
+ ↓
 BUILDING
-  ↓
+ ↓
 BUILT
-  ↓
+ ↓
 TESTING
-  ↓
+ ↓
 SUBMITTED
-  ↓
+ ↓
 IN_REVIEW
-  ↓
+ ↓
 APPROVED
-  ↓
+ ↓
 RELEASED
-  ↓
+ ↓
 MONITORING
-  ↓
+ ↓
 STABLE
 ```
 
@@ -1209,27 +1209,27 @@ Failure paths:
 
 ```text
 BUILDING
-   ↓
+ ↓
 BUILD_FAILED
 ```
 
 ```text
 TESTING
-   ↓
+ ↓
 TEST_FAILED
 ```
 
 ```text
 SUBMITTED
-   ↓
+ ↓
 REJECTED
 ```
 
 ```text
 RELEASED
-   ↓
+ ↓
 INCIDENT
-   ↓
+ ↓
 HOTFIX
 ```
 
@@ -1342,19 +1342,19 @@ Run:
 
 ```text
 Production release
-      ↓
+ ↓
 Public install/update
-      ↓
+ ↓
 Smoke test
-      ↓
+ ↓
 Observe crashes/errors
-      ↓
+ ↓
 Check critical workflow
-      ↓
+ ↓
 Check backend health
-      ↓
+ ↓
 Check store/support signals
-      ↓
+ ↓
 Continue rollout or intervene
 ```
 
@@ -1376,64 +1376,64 @@ The complete model is:
 
 ```text
 ┌─────────────────────┐
-│      APP BUILT      │
+│ APP BUILT │
 └──────────┬──────────┘
-           ↓
+ ↓
 ┌─────────────────────┐
-│ RELEASE READINESS   │
+│ RELEASE READINESS │
 └──────────┬──────────┘
-           ↓
+ ↓
 ┌─────────────────────┐
 │ CONFIG + IDENTITIES │
 └──────────┬──────────┘
-           ↓
+ ↓
 ┌─────────────────────┐
-│ SIGNING             │
+│ SIGNING │
 └──────────┬──────────┘
-           ↓
+ ↓
 ┌─────────────────────┐
-│ TESTING             │
+│ TESTING │
 └──────────┬──────────┘
-           ↓
+ ↓
 ┌─────────────────────┐
-│ STORE PREPARATION   │
+│ STORE PREPARATION │
 └──────────┬──────────┘
-           ↓
+ ↓
 ┌─────────────────────┐
-│ PRODUCTION BUILD    │
+│ PRODUCTION BUILD │
 └──────────┬──────────┘
-           ↓
+ ↓
 ┌─────────────────────┐
-│ STORE TESTING       │
+│ STORE TESTING │
 └──────────┬──────────┘
-           ↓
+ ↓
 ┌─────────────────────┐
-│ SUBMISSION          │
+│ SUBMISSION │
 └──────────┬──────────┘
-           ↓
-      ┌────┴─────┐
-      ↓          ↓
-  ACCEPTED    REJECTED
-      ↓          ↓
-      ↓      FIX + RESUBMIT
-      ↓
+ ↓
+ ┌────┴─────┐
+ ↓ ↓
+ ACCEPTED REJECTED
+ ↓ ↓
+ ↓ FIX + RESUBMIT
+ ↓
 ┌─────────────────────┐
-│ PRODUCTION RELEASE  │
+│ PRODUCTION RELEASE │
 └──────────┬──────────┘
-           ↓
+ ↓
 ┌─────────────────────┐
-│ MONITORING          │
+│ MONITORING │
 └──────────┬──────────┘
-           ↓
-      ┌────┴─────┐
-      ↓          ↓
-   STABLE      INCIDENT
-      ↓          ↓
-      ↓       HOTFIX
-      ↓          ↓
-      └──────┬───┘
-             ↓
-       NEXT RELEASE
+ ↓
+ ┌────┴─────┐
+ ↓ ↓
+ STABLE INCIDENT
+ ↓ ↓
+ ↓ HOTFIX
+ ↓ ↓
+ └──────┬───┘
+ ↓
+ NEXT RELEASE
 ```
 
 ---
@@ -1468,7 +1468,7 @@ Monitoring
 
 Add automation only where it removes real repeated work.
 
-Use GitHub Actions, EAS Workflows, or another CI/CD system when the team benefits from repeatable builds, tests, submissions, or release checks. Expo's current EAS Workflows can automate builds, submissions, updates, and tests and can be triggered by GitHub events or manually. citeturn0search11
+Use GitHub Actions, EAS Workflows, or another CI/CD system when the team benefits from repeatable builds, tests, submissions, or release checks. Expo's current EAS Workflows can automate builds, submissions, updates, and tests and can be triggered by GitHub events or manually.
 
 ---
 
@@ -1478,27 +1478,27 @@ A mobile release is complete when:
 
 ```text
 Code is ready
-      +
+ +
 Release candidate is known
-      +
+ +
 Configuration is verified
-      +
+ +
 Signing is verified
-      +
+ +
 Testing is complete
-      +
+ +
 Store package is complete
-      +
+ +
 Production artifact is verified
-      +
+ +
 Store testing is complete
-      +
+ +
 Submission is accepted
-      +
+ +
 Production release is verified
-      +
+ +
 Monitoring is healthy
-      ↓
+ ↓
 RELEASE COMPLETE
 ```
 

@@ -93,7 +93,7 @@ When setting up product pricing in store consoles:
 
 - [Subscriptions Handbook](subscriptions.md) - Subscriptions setup.
 - [Offers Handbook](offers.md) - Promotional offers & trials.
-- [Store Metadata Workflow](../../ai/workflows/metadata-generation.md) - Metadata setup.
+- [Store Metadata Workflow](../ai/workflows/metadata-generation.md) - Metadata setup.
 
 ---
 

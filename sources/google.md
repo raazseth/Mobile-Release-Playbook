@@ -65,7 +65,7 @@ This guide is **not**:
 
 - [Apple Documentation Registry](apple.md) - iOS sources.
 - [Expo Documentation Registry](expo.md) - Expo sources.
-- [Android Publishing Handbook](../../publishing/android/README.md) - Android publishing.
+- [Android Publishing Handbook](../publishing/android/README.md) - Android publishing.
 
 ---
 

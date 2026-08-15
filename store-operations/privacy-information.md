@@ -83,7 +83,7 @@ Apple merges privacy manifests from your app binary and all compiled third-party
 
 - [Data Safety Handbook](data-safety.md) - Google Play Data Safety.
 - [App Listing Handbook](app-listing.md) - Listing setup.
-- [Privacy Auditor Agent](../../ai/agents/privacy-auditor.md) - Privacy auditing.
+- [Privacy Auditor Agent](../ai/agents/privacy-auditor.md) - Privacy auditing.
 
 ---
 

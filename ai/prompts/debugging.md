@@ -187,8 +187,8 @@ Ensure all native module dependencies added to `package.json` include their corr
 
 ### Troubleshooting & Frameworks
 
-- [Expo Common Failures](../../frameworks/expo/common-failures.md) - Common EAS build and native failure patterns.
-- [React Native Overview](../../frameworks/react-native/overview.md) - Native compilation and linking concepts.
+- [Expo Common Failures](../../frameworks/expo/common-failures.md) - Common EAS build failures.
+- React Native Release Guidelines: [../../frameworks/react-native/README.md](../../frameworks/react-native/README.md) - Native compilation and linking concepts.
 
 ---
 

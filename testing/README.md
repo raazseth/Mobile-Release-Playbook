@@ -96,9 +96,9 @@ All testing implementations in this playbook must adhere to five mandatory QA ru
 
 # 4. Related Repository Documentation
 
-- [Release Checklist Template](../../templates/release-checklist.md) - Release checklist.
-- [CI/CD Pipelines](../../release-engineering/README.md) - Automated CI testing.
-- [AI QA Agent](../../ai/agents/qa-agent.md) - Automated AI testing.
+- [Release Checklist Template](../templates/release-checklist.md) - Release checklist.
+- [CI/CD Pipelines](../release-engineering/README.md) - Automated CI testing.
+- [AI QA Agent](../ai/agents/qa-agent.md) - Automated AI testing.
 
 ---
 

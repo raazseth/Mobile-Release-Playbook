@@ -21,7 +21,7 @@ For framework-specific build and distribution steps, use the relevant guide unde
 - [ ] The correct Apple Developer team is selected.
 - [ ] The correct App Store Connect app is being used.
 
-Apple identifies a build by the combination of Bundle ID, version number, and build string. The Bundle ID cannot be changed in App Store Connect after a build has been uploaded. citeturn0search1
+Apple identifies a build by the combination of Bundle ID, version number, and build string. The Bundle ID cannot be changed in App Store Connect after a build has been uploaded.
 
 ### Versioning
 
@@ -45,7 +45,7 @@ Apple identifies a build by the combination of Bundle ID, version number, and bu
 
 Do not share an Apple Account password between developers. Use Apple's team roles and permissions instead.
 
-Apple provides separate account and App Store Connect tooling for team access, roles, certificates, identifiers, profiles, app management, and submission. citeturn0search4turn0search16
+Apple provides separate account and App Store Connect tooling for team access, roles, certificates, identifiers, profiles, app management, and submission.
 
 ---
 
@@ -62,7 +62,7 @@ Apple provides separate account and App Store Connect tooling for team access, r
 - [ ] App Review notes are prepared where needed.
 - [ ] App access instructions are prepared if reviewers need special access.
 
-An app record is required before uploading a build to App Store Connect. citeturn0search4turn0search10
+An app record is required before uploading a build to App Store Connect.
 
 ---
 
@@ -110,7 +110,7 @@ iOS distribution depends on Apple signing assets.
 - [ ] CI signing configuration is valid where CI is used.
 - [ ] The final build is signed for App Store distribution.
 
-Apple's Certificates, Identifiers & Profiles system manages certificates, keys, identifiers, capabilities, devices, and provisioning profiles. Xcode can manage many common signing workflows automatically. citeturn0search2turn0search9
+Apple's Certificates, Identifiers & Profiles system manages certificates, keys, identifiers, capabilities, devices, and provisioning profiles. Xcode can manage many common signing workflows automatically.
 
 ### Automatic signing
 
@@ -132,7 +132,7 @@ If manually managing signing:
 - [ ] Provisioning profile uses the intended distribution certificate.
 - [ ] Certificates and profiles are not expired or revoked.
 
-Apple documents that an App Store provisioning profile contains an App ID and distribution certificate and is used when uploading an app to App Store Connect. citeturn0search10turn0search15
+Apple documents that an App Store provisioning profile contains an App ID and distribution certificate and is used when uploading an app to App Store Connect.
 
 ---
 
@@ -212,7 +212,7 @@ Create the actual production candidate.
 - [ ] Archive/export succeeds where applicable.
 - [ ] The final artifact can be uploaded to App Store Connect.
 
-Apple supports uploading builds through Xcode, Transporter, and supported App Store Connect tooling. citeturn0search4
+Apple supports uploading builds through Xcode, Transporter, and supported App Store Connect tooling.
 
 ### Do not stop at "build succeeded"
 
@@ -437,7 +437,7 @@ Base them on the actual production app and the current Apple requirements.
 - [ ] Mature or sensitive content is represented accurately.
 - [ ] Region-specific requirements have been considered where applicable.
 
-Apple currently requires an age rating for App Store distribution and generates ratings from the information provided in the age-rating questionnaire. citeturn0search0
+Apple currently requires an age rating for App Store distribution and generates ratings from the information provided in the age-rating questionnaire.
 
 Do not hard-code rating categories into a generic workflow without checking the current App Store Connect questionnaire.
 
@@ -511,7 +511,7 @@ Before App Review, test the release candidate through TestFlight where practical
 - [ ] Feedback has been reviewed.
 - [ ] Release-blocking issues are fixed.
 
-Apple provides TestFlight for distributing beta versions and App Store Connect for managing the submission process. citeturn0search4
+Apple provides TestFlight for distributing beta versions and App Store Connect for managing the submission process.
 
 ---
 
@@ -547,7 +547,7 @@ Before submitting:
 - [ ] Known release-blocking issues are resolved.
 - [ ] A human has reviewed the final submission.
 
-Apple's current submission workflow requires the appropriate metadata and a selected build before submitting an app version for review. citeturn0search8
+Apple's current submission workflow requires the appropriate metadata and a selected build before submitting an app version for review.
 
 ---
 
@@ -571,7 +571,7 @@ Human approval
 Submit for Review
 ```
 
-Apple's current App Store Connect flow separates adding an app version to a review submission from actually submitting it for review. citeturn0search8
+Apple's current App Store Connect flow separates adding an app version to a review submission from actually submitting it for review.
 
 Do not allow an AI agent to independently submit a production app for review without an explicit, reviewed workflow.
 
@@ -591,7 +591,7 @@ After App Review approval:
 - [ ] Confirm rollout/release settings are correct.
 - [ ] Human approves the production release.
 
-Apple's App Store Connect status system distinguishes states such as Ready for Review, In Review, Accepted, Rejected, and Ready for Distribution. citeturn0search13
+Apple's App Store Connect status system distinguishes states such as Ready for Review, In Review, Accepted, Rejected, and Ready for Distribution.
 
 ---
 

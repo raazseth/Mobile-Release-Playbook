@@ -134,7 +134,7 @@ Store compatibility
 Security posture
 ```
 
-The repository's dependency guidance treats dependencies as part of the mobile release system, not just development tooling. fileciteturn33file10
+The repository's dependency guidance treats dependencies as part of the mobile release system, not just development tooling.
 
 ---
 
@@ -182,7 +182,7 @@ build configuration
 
 The Dependency Auditor must treat unexpected lockfile changes as something to investigate, not something to ignore.
 
-The repository guidance explicitly requires one package manager and an intentional, reviewed lockfile. fileciteturn33file10
+The repository guidance explicitly requires one package manager and an intentional, reviewed lockfile.
 
 ---
 
@@ -234,19 +234,19 @@ Check the relevant matrix:
 
 ```text
 Package
-  ↓
+ ↓
 Package version
-  ↓
+ ↓
 React Native version
-  ↓
+ ↓
 Expo SDK if applicable
-  ↓
+ ↓
 iOS version
-  ↓
+ ↓
 Android version
-  ↓
+ ↓
 Architecture
-  ↓
+ ↓
 Build tooling
 ```
 
@@ -272,7 +272,7 @@ Sensitive data access
 CI permissions
 ```
 
-The security system specifically treats third-party packages, lockfiles, dependency updates, CI/CD permissions, build secrets, and untrusted scripts as supply-chain concerns. fileciteturn33file15
+The security system specifically treats third-party packages, lockfiles, dependency updates, CI/CD permissions, build secrets, and untrusted scripts as supply-chain concerns.
 
 Do not turn every small dependency into a full manual security investigation.
 
@@ -307,7 +307,7 @@ Production dependency approval
 
 Verify important claims against official package/framework/platform documentation.
 
-The repository's AI guidance treats model output as untrusted and requires human verification for important decisions. fileciteturn33file6
+The repository's AI guidance treats model output as untrusted and requires human verification for important decisions.
 
 ---
 
@@ -352,19 +352,19 @@ A mobile project usually contains several dependency layers:
 
 ```text
 Application
-    ↓
+ ↓
 JavaScript / TypeScript packages
-    ↓
+ ↓
 React
-    ↓
+ ↓
 React Native
-    ↓
+ ↓
 Expo SDK / native modules
-    ↓
+ ↓
 iOS / Android native dependencies
-    ↓
+ ↓
 Build tooling
-    ↓
+ ↓
 Platform SDK
 ```
 
@@ -374,15 +374,15 @@ Example:
 
 ```text
 Native library update
-        ↓
+ ↓
 Pod / Gradle changes
-        ↓
+ ↓
 Build behavior changes
-        ↓
+ ↓
 Permission / entitlement changes
-        ↓
+ ↓
 Runtime behavior changes
-        ↓
+ ↓
 Release validation
 ```
 
@@ -484,29 +484,29 @@ SAFE
 
 ```text
 Dependency change
-       ↓
+ ↓
 Inventory dependency tree
-       ↓
+ ↓
 Identify direct/transitive status
-       ↓
+ ↓
 Inspect version changes
-       ↓
+ ↓
 Check framework compatibility
-       ↓
+ ↓
 Check native impact
-       ↓
+ ↓
 Check security
-       ↓
+ ↓
 Inspect lockfile
-       ↓
+ ↓
 Review migration requirements
-       ↓
+ ↓
 Define validation
-       ↓
+ ↓
 Assign release risk
-       ↓
+ ↓
 Recommend
-       ↓
+ ↓
 Human decision
 ```
 
@@ -598,9 +598,9 @@ Example:
 
 ```text
 Application
-   ↓
+ ↓
 Package A
-   ↓
+ ↓
 Package B
 ```
 
@@ -689,7 +689,7 @@ npx expo-doctor
 npx expo install --check
 ```
 
-The playbook documents `expo install --check` as a CI-friendly compatibility check and `expo-doctor` as a project/dependency health check. fileciteturn33file0
+The playbook documents `expo install --check` as a CI-friendly compatibility check and `expo-doctor` as a project/dependency health check.
 
 A clean result is evidence, not proof of full release readiness.
 
@@ -1057,7 +1057,7 @@ Have broad permissions
 Have privileged CI access
 ```
 
-The security system recommends evaluating third-party packages, lockfiles, dependency updates, known vulnerabilities, CI/CD permissions, build secrets, and untrusted scripts as supply-chain risks. fileciteturn33file15
+The security system recommends evaluating third-party packages, lockfiles, dependency updates, known vulnerabilities, CI/CD permissions, build secrets, and untrusted scripts as supply-chain risks.
 
 ---
 
@@ -1220,7 +1220,7 @@ Android build
 Real-device test
 ```
 
-The project's dependency guidance recommends incremental framework upgrades and native validation. fileciteturn33file4
+The project's dependency guidance recommends incremental framework upgrades and native validation.
 
 ---
 
@@ -1244,7 +1244,7 @@ For npm:
 npm ci
 ```
 
-is appropriate for reproducible CI installs when the project uses a valid `package-lock.json`. fileciteturn33file10
+is appropriate for reproducible CI installs when the project uses a valid `package-lock.json`.
 
 For other package managers, use their equivalent frozen/immutable install mode.
 
@@ -1349,7 +1349,7 @@ Test both where relevant:
 
 ```text
 Fresh install
-    ↓
+ ↓
 New dependency state
 ```
 
@@ -1357,9 +1357,9 @@ and:
 
 ```text
 Previous production version
-    ↓
+ ↓
 Upgrade
-    ↓
+ ↓
 New dependency state
 ```
 
@@ -1645,7 +1645,7 @@ Submit store releases
 
 unless a separate workflow explicitly grants that permission and requires the appropriate human approval.
 
-The playbook's AI architecture requires bounded permissions and explicit human approval for sensitive or irreversible operations. fileciteturn33file6
+The playbook's AI architecture requires bounded permissions and explicit human approval for sensitive or irreversible operations.
 
 ---
 
@@ -1735,7 +1735,7 @@ Flag the exposure
 Recommend rotation when appropriate
 ```
 
-The security system explicitly prohibits storing secrets in source code, Git history, frontend bundles, logs, or public configuration. fileciteturn33file15
+The security system explicitly prohibits storing secrets in source code, Git history, frontend bundles, logs, or public configuration.
 
 ---
 
@@ -1814,35 +1814,35 @@ For a normal update:
 
 ```text
 Check available update
-        ↓
+ ↓
 Identify reason
-        ↓
+ ↓
 Review release notes
-        ↓
+ ↓
 Check compatibility
-        ↓
+ ↓
 Inspect native impact
-        ↓
+ ↓
 Update
-        ↓
+ ↓
 Review package + lockfile diff
-        ↓
+ ↓
 Run dependency checks
-        ↓
+ ↓
 Run tests
-        ↓
+ ↓
 Build iOS
-        ↓
+ ↓
 Build Android
-        ↓
+ ↓
 Real-device test
-        ↓
+ ↓
 Human approval
-        ↓
+ ↓
 Merge
 ```
 
-The project's canonical dependency workflow follows the same basic sequence. fileciteturn33file1
+The project's canonical dependency workflow follows the same basic sequence.
 
 ---
 
@@ -1852,27 +1852,27 @@ For an urgent vulnerability:
 
 ```text
 Advisory
-   ↓
+ ↓
 Identify affected dependency
-   ↓
+ ↓
 Confirm application exposure
-   ↓
+ ↓
 Find fixed version
-   ↓
+ ↓
 Check framework compatibility
-   ↓
+ ↓
 Update
-   ↓
+ ↓
 Run tests
-   ↓
+ ↓
 Build affected platforms
-   ↓
+ ↓
 Real-device smoke test
-   ↓
+ ↓
 Human approval
-   ↓
+ ↓
 Release
-   ↓
+ ↓
 Monitor
 ```
 
@@ -1888,27 +1888,27 @@ Do not rush an incompatible update into production without understanding the res
 
 ```text
 Current SDK
-    ↓
+ ↓
 Target SDK
-    ↓
+ ↓
 Read official upgrade guidance
-    ↓
+ ↓
 Align dependencies
-    ↓
+ ↓
 Run Expo Doctor
-    ↓
+ ↓
 Run dependency check
-    ↓
+ ↓
 Review native changes
-    ↓
+ ↓
 Build iOS
-    ↓
+ ↓
 Build Android
-    ↓
+ ↓
 Run tests
-    ↓
+ ↓
 Real-device testing
-    ↓
+ ↓
 Release
 ```
 
@@ -1933,27 +1933,27 @@ Review the resulting diff before accepting it.
 
 ```text
 Current version
-    ↓
+ ↓
 Target version
-    ↓
+ ↓
 Read upgrade guidance
-    ↓
+ ↓
 Use Upgrade Helper
-    ↓
+ ↓
 Update dependencies
-    ↓
+ ↓
 Apply native changes
-    ↓
+ ↓
 Resolve conflicts
-    ↓
+ ↓
 Build iOS
-    ↓
+ ↓
 Build Android
-    ↓
+ ↓
 Run tests
-    ↓
+ ↓
 Real-device testing
-    ↓
+ ↓
 Release
 ```
 
@@ -2240,15 +2240,15 @@ Expected workflow:
 
 ```text
 Identify dependency path
-        ↓
+ ↓
 Check whether application uses affected functionality
-        ↓
+ ↓
 Check fixed version
-        ↓
+ ↓
 Check compatibility
-        ↓
+ ↓
 Recommend update
-        ↓
+ ↓
 Test
 ```
 
@@ -2329,25 +2329,25 @@ Example:
 
 ```json
 {
-  "project": {
-    "framework": "expo",
-    "react_native": "known",
-    "platforms": ["ios", "android"]
-  },
-  "changes": [],
-  "native_impact": {
-    "ios": "unknown",
-    "android": "unknown"
-  },
-  "security": {
-    "status": "pending"
-  },
-  "compatibility": {
-    "expo": "pending",
-    "react_native": "pending"
-  },
-  "risk": "pending",
-  "status": "audit_in_progress"
+ "project": {
+ "framework": "expo",
+ "react_native": "known",
+ "platforms": ["ios", "android"]
+ },
+ "changes": [],
+ "native_impact": {
+ "ios": "unknown",
+ "android": "unknown"
+ },
+ "security": {
+ "status": "pending"
+ },
+ "compatibility": {
+ "expo": "pending",
+ "react_native": "pending"
+ },
+ "risk": "pending",
+ "status": "audit_in_progress"
 }
 ```
 
@@ -2536,27 +2536,27 @@ A practical repository workflow:
 
 ```text
 Developer
-   ↓
+ ↓
 Agent reads repository
-   ↓
+ ↓
 Dependency Auditor
-   ↓
+ ↓
 Audit report
-   ↓
+ ↓
 Developer reviews
-   ↓
+ ↓
 Developer performs update
-   ↓
+ ↓
 Agent re-audits diff
-   ↓
+ ↓
 Tests
-   ↓
+ ↓
 iOS build
-   ↓
+ ↓
 Android build
-   ↓
+ ↓
 Real-device validation
-   ↓
+ ↓
 Human approval
 ```
 
@@ -2674,23 +2674,23 @@ The dependency audit is complete when:
 
 ```text
 Dependency change understood
-        +
+ +
 Compatibility checked
-        +
+ +
 Native impact understood
-        +
+ +
 Security reviewed
-        +
+ +
 Lockfile reviewed
-        +
+ +
 Required validation defined
-        +
+ +
 Unknowns documented
-        +
+ +
 Risk classified
-        +
+ +
 Human decision made
-        ↓
+ ↓
 DEPENDENCY AUDIT COMPLETE
 ```
 

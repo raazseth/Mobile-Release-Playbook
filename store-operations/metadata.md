@@ -127,7 +127,7 @@ fastlane/
 
 - [App Listing Handbook](app-listing.md) - Listing setup.
 - [Localization Handbook](localization.md) - Localized metadata.
-- [Metadata Generation Workflow](../../ai/workflows/metadata-generation.md) - AI metadata generation.
+- [Metadata Generation Workflow](../ai/workflows/metadata-generation.md) - AI metadata generation.
 
 ---
 

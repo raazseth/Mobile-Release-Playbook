@@ -240,7 +240,7 @@ User feedback is an important production signal.
 - [ ] Respond where appropriate.
 - [ ] Escalate reports that indicate a production issue.
 
-App Store Connect provides ratings, reviews, and review filtering by version, country/region, and rating. citeturn0search0turn0search3
+App Store Connect provides ratings, reviews, and review filtering by version, country/region, and rating.
 
 ### Android
 
@@ -251,13 +251,13 @@ App Store Connect provides ratings, reviews, and review filtering by version, co
 - [ ] Respond where appropriate.
 - [ ] Escalate reports that indicate a production issue.
 
-Google Play Console provides ratings and review analysis, including current and historical rating information. citeturn0search4
+Google Play Console provides ratings and review analysis, including current and historical rating information.
 
 Do not manipulate ratings or reviews.
 
 Do not pay for, fake, or artificially incentivize reviews.
 
-Google's policy explicitly prohibits manipulation of ratings, reviews, and install counts. citeturn0search8
+Google's policy explicitly prohibits manipulation of ratings, reviews, and install counts.
 
 ---
 
@@ -295,7 +295,7 @@ Before increasing the rollout:
 
 ### Android staged rollouts
 
-Google Play supports staged rollouts for app updates. The rollout percentage does not increase automatically. Google recommends closely monitoring crash reports and user feedback during a staged rollout. citeturn0search1
+Google Play supports staged rollouts for app updates. The rollout percentage does not increase automatically. Google recommends closely monitoring crash reports and user feedback during a staged rollout.
 
 If a serious issue is found:
 
@@ -304,9 +304,9 @@ If a serious issue is found:
 - [ ] Identify affected users and systems.
 - [ ] Prepare a fix.
 
-Halting a staged rollout does not remove the version from users who already received it. citeturn0search1
+Halting a staged rollout does not remove the version from users who already received it.
 
-Google also provides a mechanism to halt a fully rolled-out release in eligible cases. This can prevent new or existing users from installing or updating to the affected version, but it is not a universal rollback mechanism and has important limitations. citeturn0search2
+Google also provides a mechanism to halt a fully rolled-out release in eligible cases. This can prevent new or existing users from installing or updating to the affected version, but it is not a universal rollback mechanism and has important limitations.
 
 ---
 
@@ -321,7 +321,7 @@ If users report that the app or update is missing:
 - [ ] Confirm the store listing is active.
 - [ ] Confirm the update has finished processing/distribution where applicable.
 
-Google notes that app updates can take time to reach existing users and that device compatibility can affect app visibility. citeturn0search5turn0search10
+Google notes that app updates can take time to reach existing users and that device compatibility can affect app visibility.
 
 Do not immediately assume the release is broken.
 
@@ -524,7 +524,7 @@ Therefore:
 - [ ] Prepare a fixed release when rollback cannot fully remove the problem.
 - [ ] Coordinate backend compatibility with older and newer app versions.
 
-For Android, Google documents specific halt behavior for staged and fully rolled-out releases, including limitations. citeturn0search1turn0search2
+For Android, Google documents specific halt behavior for staged and fully rolled-out releases, including limitations.
 
 For iOS, do not describe a generic "rollback" as if an older App Store binary can simply be restored to all users. Plan for mitigation and a new release when necessary.
 
@@ -584,9 +584,9 @@ After the initial release window:
 - [ ] Identify regressions.
 - [ ] Identify improvements.
 
-For Apple, App Store Connect Analytics provides data across discovery, downloads, engagement, purchases, and subscriptions. citeturn0search6
+For Apple, App Store Connect Analytics provides data across discovery, downloads, engagement, purchases, and subscriptions.
 
-For Google Play, release details include release-level information such as installs/updates, performance issues, and ratings compared with previous releases. citeturn0search7
+For Google Play, release details include release-level information such as installs/updates, performance issues, and ratings compared with previous releases.
 
 Only track metrics that can lead to an action.
 

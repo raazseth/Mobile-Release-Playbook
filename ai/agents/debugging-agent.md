@@ -26,15 +26,15 @@ Its default behavior is:
 
 ```text
 Collect evidence
-    ↓
+ ↓
 Classify failure
-    ↓
+ ↓
 Find likely root cause
-    ↓
+ ↓
 Test the hypothesis
-    ↓
+ ↓
 Recommend the smallest safe fix
-    ↓
+ ↓
 Verify the fix
 ```
 
@@ -164,11 +164,11 @@ Example:
 
 ```text
 CocoaPods dependency conflict
-        ↓
+ ↓
 Native compilation fails
-        ↓
+ ↓
 Archive fails
-        ↓
+ ↓
 CI marks job failed
 ```
 
@@ -186,9 +186,9 @@ When possible:
 
 ```text
 CI failure
-    ↓
+ ↓
 Reproduce locally
-    ↓
+ ↓
 Compare environments
 ```
 
@@ -196,9 +196,9 @@ or:
 
 ```text
 Local failure
-    ↓
+ ↓
 Minimal reproduction
-    ↓
+ ↓
 Confirm cause
 ```
 
@@ -289,34 +289,34 @@ CI/CD
 # Debugging workflow
 
 ```text
-                    Failure
-                       ↓
-                Collect evidence
-                       ↓
-                Classify stage
-                       ↓
-              Identify first error
-                       ↓
-                Check recent changes
-                       ↓
-             Form root-cause hypotheses
-                       ↓
-              Rank by evidence
-                       ↓
-              Test top hypothesis
-                       ↓
-          +------------+------------+
-          |                         |
-       Confirmed                  Rejected
-          |                         |
-          ↓                         ↓
-   Minimal safe fix          Test next hypothesis
-          ↓
-        Verify
-          ↓
-     Regression check
-          ↓
-       Resolution
+ Failure
+ ↓
+ Collect evidence
+ ↓
+ Classify stage
+ ↓
+ Identify first error
+ ↓
+ Check recent changes
+ ↓
+ Form root-cause hypotheses
+ ↓
+ Rank by evidence
+ ↓
+ Test top hypothesis
+ ↓
+ +------------+------------+
+ | |
+ Confirmed Rejected
+ | |
+ ↓ ↓
+ Minimal safe fix Test next hypothesis
+ ↓
+ Verify
+ ↓
+ Regression check
+ ↓
+ Resolution
 ```
 
 If no hypothesis can be supported:
@@ -380,7 +380,7 @@ Do not repeat them
 Recommend rotation if exposure is plausible
 ```
 
-Security guidance requires secrets to stay out of source code, Git history, logs, and public configuration. fileciteturn32file0L1-L15
+Security guidance requires secrets to stay out of source code, Git history, logs, and public configuration.
 
 ---
 
@@ -816,17 +816,17 @@ Do not immediately assume the application code is broken.
 A useful comparison is:
 
 ```text
-LOCAL                    CI
-------                   ---
-Git SHA                  Git SHA
-Node                     Node
-Xcode                    Xcode
-Ruby                     Ruby
-CocoaPods                CocoaPods
-Java                     Java
-Gradle                   Gradle
-Environment              Environment
-Signing                  Signing
+LOCAL CI
+------ ---
+Git SHA Git SHA
+Node Node
+Xcode Xcode
+Ruby Ruby
+CocoaPods CocoaPods
+Java Java
+Gradle Gradle
+Environment Environment
+Signing Signing
 ```
 
 Find the first meaningful difference.
@@ -1291,7 +1291,7 @@ Avoid reproducing secrets
 Recommend secure remediation
 ```
 
-Security guidance prioritizes realistic threats, least privilege, validation, secret protection, and incident readiness. fileciteturn32file3L1-L30
+Security guidance prioritizes realistic threats, least privilege, validation, secret protection, and incident readiness.
 
 ---
 
@@ -1326,7 +1326,7 @@ Execution tracing
 Rollback handling where possible
 ```
 
-and explicitly warns against unrestricted tool access and uncontrolled agent chaining. fileciteturn32file19
+and explicitly warns against unrestricted tool access and uncontrolled agent chaining.
 
 ---
 
@@ -1510,17 +1510,17 @@ Example:
 
 ```json
 {
-  "failure_stage": "signing",
-  "platform": "ios",
-  "first_error": "Provisioning profile mismatch",
-  "hypotheses": [
-    {
-      "cause": "wrong_bundle_id",
-      "confidence": 0.92
-    }
-  ],
-  "attempts": 1,
-  "status": "awaiting_verification"
+ "failure_stage": "signing",
+ "platform": "ios",
+ "first_error": "Provisioning profile mismatch",
+ "hypotheses": [
+ {
+ "cause": "wrong_bundle_id",
+ "confidence": 0.92
+ }
+ ],
+ "attempts": 1,
+ "status": "awaiting_verification"
 }
 ```
 
@@ -1693,7 +1693,7 @@ Do not invoke every specialist for every bug.
 
 Use the smallest relevant set.
 
-The project's AI systems guidance emphasizes bounded orchestration, validation, permission boundaries, observability, and avoidance of uncontrolled agent chaining. fileciteturn32file19
+The project's AI systems guidance emphasizes bounded orchestration, validation, permission boundaries, observability, and avoidance of uncontrolled agent chaining.
 
 ---
 
@@ -1894,23 +1894,23 @@ A debugging task is complete when:
 
 ```text
 Failure understood
-      +
+ +
 Evidence collected
-      +
+ +
 Root cause confirmed or bounded
-      +
+ +
 Minimal fix applied
-      +
+ +
 Fix verified
-      +
+ +
 Regression risk checked
-      +
+ +
 Security impact checked
-      +
+ +
 No secrets exposed
-      +
+ +
 No uncontrolled actions performed
-      ↓
+ ↓
 DEBUGGING COMPLETE
 ```
 
@@ -2193,7 +2193,7 @@ Low false confidence
 Safe execution
 ```
 
-Testing guidance emphasizes practical validation, failure simulation, debugging clarity, and release safety rather than artificial coverage targets. fileciteturn32file15L1-L16
+Testing guidance emphasizes practical validation, failure simulation, debugging clarity, and release safety rather than artificial coverage targets.
 
 ---
 

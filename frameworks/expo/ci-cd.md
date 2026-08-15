@@ -6,19 +6,19 @@ For an Expo project using EAS, the practical model is:
 
 ```text
 Pull Request
-    ↓
+ ↓
 Validation
-    ↓
+ ↓
 Merge
-    ↓
+ ↓
 Build
-    ↓
+ ↓
 Artifact verification
-    ↓
+ ↓
 Human approval
-    ↓
+ ↓
 Store submission
-    ↓
+ ↓
 Monitor
 ```
 
@@ -34,7 +34,7 @@ CD
 
 This guide focuses on **Expo + EAS + GitHub Actions**, while keeping the workflow simple enough for a public open-source project.
 
-It does not turn the repository into a CI/CD platform. The playbook architecture deliberately favors documentation, executable examples, small scripts, AI workflows, and community contributions over unnecessary infrastructure. The repository's documentation rules also require workflows to be executable, commands to be verified, secrets to be protected, and production actions to have a human approval boundary. fileciteturn19file4L1-L30 fileciteturn19file3L1-L45
+It does not turn the repository into a CI/CD platform. The playbook architecture deliberately favors documentation, executable examples, small scripts, AI workflows, and community contributions over unnecessary infrastructure. The repository's documentation rules also require workflows to be executable, commands to be verified, secrets to be protected, and production actions to have a human approval boundary.
 
 ---
 
@@ -79,7 +79,7 @@ Unrestricted automation
 Automatic production publishing
 ```
 
-The project explicitly rejects unnecessary CI/CD infrastructure and prefers the simplest solution that solves the real release problem. fileciteturn19file2L1-L35
+The project explicitly rejects unnecessary CI/CD infrastructure and prefers the simplest solution that solves the real release problem.
 
 ---
 
@@ -89,29 +89,29 @@ For most Expo applications:
 
 ```text
 GitHub
-  │
-  ├── Pull Request
-  │      ↓
-  │   Validation
-  │
-  ├── main
-  │      ↓
-  │   Build / integration checks
-  │
-  └── Release trigger
-         ↓
-      EAS Build
-         ↓
-      Artifact
-         ↓
-   Human approval
-         ↓
-   EAS Submit / Store
+ │
+ ├── Pull Request
+ │ ↓
+ │ Validation
+ │
+ ├── main
+ │ ↓
+ │ Build / integration checks
+ │
+ └── Release trigger
+ ↓
+ EAS Build
+ ↓
+ Artifact
+ ↓
+ Human approval
+ ↓
+ EAS Submit / Store
 ```
 
 The build itself can run on EAS rather than requiring GitHub Actions to maintain Android and iOS build environments.
 
-Expo documents GitHub Actions as a supported way to trigger EAS builds. A successful local EAS setup is required first so the project has the necessary EAS project configuration, build profiles, and native identifiers. fileciteturn0search4
+Expo documents GitHub Actions as a supported way to trigger EAS builds. A successful local EAS setup is required first so the project has the necessary EAS project configuration, build profiles, and native identifiers.
 
 This keeps the responsibilities clear:
 
@@ -134,27 +134,27 @@ A practical pipeline is:
 
 ```text
 1. Pull Request
-      ↓
+ ↓
 2. Install dependencies
-      ↓
+ ↓
 3. Validate Expo project
-      ↓
+ ↓
 4. Run tests
-      ↓
+ ↓
 5. Build preview when needed
-      ↓
+ ↓
 6. Merge
-      ↓
+ ↓
 7. Release trigger
-      ↓
+ ↓
 8. Production EAS Build
-      ↓
+ ↓
 9. Inspect artifact
-      ↓
+ ↓
 10. Human approval
-      ↓
+ ↓
 11. Submit
-      ↓
+ ↓
 12. Monitor
 ```
 
@@ -202,7 +202,7 @@ npx expo config --type public
 
 Then prove that EAS can build the application from a developer machine.
 
-Expo's current CI guidance requires a successful EAS build locally before relying on non-interactive CI builds. That initial setup establishes the EAS project, `eas.json`, and critical native configuration. citeturn0search4
+Expo's current CI guidance requires a successful EAS build locally before relying on non-interactive CI builds. That initial setup establishes the EAS project, `eas.json`, and critical native configuration.
 
 ---
 
@@ -218,13 +218,13 @@ mobile-app/
 ├── package-lock.json
 ├── src/
 ├── scripts/
-│   └── build-validation/
+│ └── build-validation/
 │
 ├── .github/
-│   └── workflows/
-│       ├── ci.yml
-│       ├── eas-build.yml
-│       └── release.yml
+│ └── workflows/
+│ ├── ci.yml
+│ ├── eas-build.yml
+│ └── release.yml
 │
 └── ...
 ```
@@ -251,19 +251,19 @@ A typical flow:
 
 ```text
 Pull Request
-    ↓
+ ↓
 Checkout
-    ↓
+ ↓
 Install dependencies
-    ↓
+ ↓
 Lint
-    ↓
+ ↓
 Typecheck
-    ↓
+ ↓
 Unit tests
-    ↓
+ ↓
 Expo validation
-    ↓
+ ↓
 Pass / Fail
 ```
 
@@ -273,44 +273,44 @@ Example:
 name: CI
 
 on:
-  pull_request:
-    branches:
-      - main
+ pull_request:
+ branches:
+ - main
 
 jobs:
-  validate:
-    name: Validate
-    runs-on: ubuntu-latest
+ validate:
+ name: Validate
+ runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
+ steps:
+ - name: Checkout
+ uses: actions/checkout@v5
 
-      - name: Setup Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          cache: npm
+ - name: Setup Node
+ uses: actions/setup-node@v6
+ with:
+ node-version: 24
+ cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+ - name: Install dependencies
+ run: npm ci
 
-      - name: Expo Doctor
-        run: npx expo-doctor
+ - name: Expo Doctor
+ run: npx expo-doctor
 
-      - name: Typecheck
-        run: npm run typecheck
+ - name: Typecheck
+ run: npm run typecheck
 
-      - name: Lint
-        run: npm run lint
+ - name: Lint
+ run: npm run lint
 
-      - name: Test
-        run: npm test
+ - name: Test
+ run: npm test
 ```
 
 The exact Node version should match the project's supported toolchain. Do not copy a version blindly from another repository.
 
-Expo's current CI example uses `actions/checkout@v5`, `actions/setup-node@v6`, Node 24, and `expo/expo-github-action@v8`; verify current tool versions against the project's Expo SDK and official documentation before adopting them. citeturn0search4
+Expo's current CI example uses `actions/checkout@v5`, `actions/setup-node@v6`, Node 24, and `expo/expo-github-action@v8`; verify current tool versions against the project's Expo SDK and official documentation before adopting them.
 
 ---
 
@@ -344,7 +344,7 @@ Release
 
 This is one of the most important boundaries in mobile CI/CD.
 
-GitHub's documentation recommends using protected secrets and environment controls for sensitive deployment workflows. citeturn0search6turn0search3
+GitHub's documentation recommends using protected secrets and environment controls for sensitive deployment workflows.
 
 ---
 
@@ -356,7 +356,7 @@ For a validation workflow, prefer:
 
 ```yaml
 permissions:
-  contents: read
+ contents: read
 ```
 
 Example:
@@ -365,16 +365,16 @@ Example:
 name: CI
 
 on:
-  pull_request:
-    branches:
-      - main
+ pull_request:
+ branches:
+ - main
 
 permissions:
-  contents: read
+ contents: read
 
 jobs:
-  validate:
-    ...
+ validate:
+ ...
 ```
 
 Do not grant:
@@ -437,13 +437,13 @@ Example:
 
 ```text
 Pull Request
-   ↓
+ ↓
 CI
-   ↓
+ ↓
 Merge
-   ↓
+ ↓
 Preview build
-   ↓
+ ↓
 QA
 ```
 
@@ -472,33 +472,33 @@ Expo's current official GitHub Actions example uses:
 - uses: actions/checkout@v5
 
 - uses: actions/setup-node@v6
-  with:
-    node-version: 24
-    cache: npm
+ with:
+ node-version: 24
+ cache: npm
 
 - name: Setup Expo and EAS
-  uses: expo/expo-github-action@v8
-  with:
-    eas-version: latest
-    token: ${{ secrets.EXPO_TOKEN }}
+ uses: expo/expo-github-action@v8
+ with:
+ eas-version: latest
+ token: ${{ secrets.EXPO_TOKEN }}
 
 - name: Install dependencies
-  run: npm ci
+ run: npm ci
 
 - name: Build on EAS
-  run: eas build --platform all --non-interactive --no-wait
+ run: eas build --platform all --non-interactive --no-wait
 ```
 
-Expo documents this as a way to trigger EAS builds from GitHub Actions. citeturn0search4
+Expo documents this as a way to trigger EAS builds from GitHub Actions.
 
 For production repositories, prefer an explicit build profile:
 
 ```bash
 eas build \
-  --profile production \
-  --platform all \
-  --non-interactive \
-  --no-wait
+ --profile production \
+ --platform all \
+ --non-interactive \
+ --no-wait
 ```
 
 This makes the release intent clear.
@@ -572,21 +572,21 @@ Example:
 
 ```json
 {
-  "build": {
-    "development": {
-      "developmentClient": true,
-      "distribution": "internal",
-      "environment": "development"
-    },
-    "preview": {
-      "distribution": "internal",
-      "environment": "preview"
-    },
-    "production": {
-      "distribution": "store",
-      "environment": "production"
-    }
-  }
+ "build": {
+ "development": {
+ "developmentClient": true,
+ "distribution": "internal",
+ "environment": "development"
+ },
+ "preview": {
+ "distribution": "internal",
+ "environment": "preview"
+ },
+ "production": {
+ "distribution": "store",
+ "environment": "production"
+ }
+ }
 }
 ```
 
@@ -605,7 +605,7 @@ production
 → production
 ```
 
-EAS supports explicit `environment` values in build profiles. If the field is omitted, EAS can infer the environment from profile configuration, but explicit configuration is easier to review and reason about. citeturn0search7
+EAS supports explicit `environment` values in build profiles. If the field is omitted, EAS can infer the environment from profile configuration, but explicit configuration is easier to review and reason about.
 
 ---
 
@@ -615,7 +615,7 @@ Do not confuse GitHub Actions environment variables with EAS environment variabl
 
 This matters because the EAS builder runs remotely.
 
-Expo explicitly notes that environment variables need to be defined on EAS servers to be available to EAS Build builders. Setting a variable only inside GitHub Actions does not automatically make it available inside the EAS build environment. citeturn0search0
+Expo explicitly notes that environment variables need to be defined on EAS servers to be available to EAS Build builders. Setting a variable only inside GitHub Actions does not automatically make it available inside the EAS build environment.
 
 Recommended model:
 
@@ -649,16 +649,16 @@ sensitive
 secret
 ```
 
-Expo's current documentation recommends EAS environment variables when you want one environment configuration source for builds, updates, and workflows. citeturn0search1turn0search5
+Expo's current documentation recommends EAS environment variables when you want one environment configuration source for builds, updates, and workflows.
 
 Example:
 
 ```bash
 eas env:create \
-  --name EXPO_PUBLIC_API_URL \
-  --value https://api.example.com \
-  --environment production \
-  --visibility plaintext
+ --name EXPO_PUBLIC_API_URL \
+ --value https://api.example.com \
+ --environment production \
+ --visibility plaintext
 ```
 
 List variables:
@@ -691,7 +691,7 @@ extra
 
 should be treated accordingly.
 
-EAS secret variables protect values used by EAS jobs, but they do not make a value secret if the value is ultimately embedded in the client application. Expo explicitly documents this distinction. citeturn0search1turn0search7
+EAS secret variables protect values used by EAS jobs, but they do not make a value secret if the value is ultimately embedded in the client application. Expo explicitly documents this distinction.
 
 Never put:
 
@@ -728,7 +728,7 @@ EXPO_TOKEN
 
 rather than exposing it to every workflow.
 
-GitHub documents repository, organization, and environment secrets and supports required reviewers for protected environment access. citeturn0search6turn0search3
+GitHub documents repository, organization, and environment secrets and supports required reviewers for protected environment access.
 
 ---
 
@@ -746,8 +746,8 @@ Example:
 
 ```yaml
 jobs:
-  submit:
-    environment: production
+ submit:
+ environment: production
 ```
 
 Configure the environment with:
@@ -759,17 +759,17 @@ Environment secrets
 Protection rules
 ```
 
-GitHub environments can require approval before a job proceeds and can restrict access to environment secrets until approval is granted. citeturn0search2turn0search3
+GitHub environments can require approval before a job proceeds and can restrict access to environment secrets until approval is granted.
 
 This creates the required boundary:
 
 ```text
 Automation prepares release
-        ↓
+ ↓
 Human approves production
-        ↓
+ ↓
 Protected job gets production secrets
-        ↓
+ ↓
 Submission executes
 ```
 
@@ -794,9 +794,9 @@ Release trigger
 → submit
 ```
 
-The repository's documentation rules require explicit human approval for production releases, signing credentials, secrets, store submission, destructive actions, and other high-impact operations. fileciteturn19file3L10-L25
+The repository's documentation rules require explicit human approval for production releases, signing credentials, secrets, store submission, destructive actions, and other high-impact operations.
 
-GitHub environment required reviewers provide a native mechanism for this approval gate. citeturn0search2turn0search9
+GitHub environment required reviewers provide a native mechanism for this approval gate.
 
 ---
 
@@ -817,7 +817,7 @@ For example:
 
 ```yaml
 on:
-  workflow_dispatch:
+ workflow_dispatch:
 ```
 
 This is often a good starting point because it makes production release intentional.
@@ -842,55 +842,55 @@ A simplified release workflow:
 name: Release
 
 on:
-  workflow_dispatch:
+ workflow_dispatch:
 
 permissions:
-  contents: read
+ contents: read
 
 jobs:
-  build:
-    name: Production build
-    runs-on: ubuntu-latest
+ build:
+ name: Production build
+ runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
+ steps:
+ - name: Checkout
+ uses: actions/checkout@v5
 
-      - name: Setup Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          cache: npm
+ - name: Setup Node
+ uses: actions/setup-node@v6
+ with:
+ node-version: 24
+ cache: npm
 
-      - name: Setup Expo and EAS
-        uses: expo/expo-github-action@v8
-        with:
-          eas-version: latest
-          token: ${{ secrets.EXPO_TOKEN }}
+ - name: Setup Expo and EAS
+ uses: expo/expo-github-action@v8
+ with:
+ eas-version: latest
+ token: ${{ secrets.EXPO_TOKEN }}
 
-      - name: Install dependencies
-        run: npm ci
+ - name: Install dependencies
+ run: npm ci
 
-      - name: Validate Expo project
-        run: npx expo-doctor
+ - name: Validate Expo project
+ run: npx expo-doctor
 
-      - name: Build production
-        run: |
-          eas build \
-            --profile production \
-            --platform all \
-            --non-interactive \
-            --no-wait
+ - name: Build production
+ run: |
+ eas build \
+ --profile production \
+ --platform all \
+ --non-interactive \
+ --no-wait
 
-  submit:
-    name: Submit production
-    needs: build
-    runs-on: ubuntu-latest
-    environment: production
+ submit:
+ name: Submit production
+ needs: build
+ runs-on: ubuntu-latest
+ environment: production
 
-    steps:
-      - name: Submit approved release
-        run: echo "Run the project's verified EAS submission workflow here."
+ steps:
+ - name: Submit approved release
+ run: echo "Run the project's verified EAS submission workflow here."
 ```
 
 The final submission step is intentionally left project-specific.
@@ -905,7 +905,7 @@ Prefer:
 
 ```text
 build
-  ↓
+ ↓
 submit
 ```
 
@@ -1026,8 +1026,8 @@ Example:
 
 ```yaml
 concurrency:
-  group: production-release
-  cancel-in-progress: false
+ group: production-release
+ cancel-in-progress: false
 ```
 
 This can prevent multiple production release workflows from running simultaneously.
@@ -1046,7 +1046,7 @@ Release B
 
 could otherwise race to submit different artifacts.
 
-GitHub documents concurrency as a way to ensure only one workflow/job in a concurrency group runs at a time. citeturn0search11
+GitHub documents concurrency as a way to ensure only one workflow/job in a concurrency group runs at a time.
 
 Use it where overlapping releases would create a real operational problem.
 
@@ -1148,7 +1148,7 @@ Native/release configuration change
 → stronger release validation
 ```
 
-The repository's project configuration guidance explicitly treats configuration-only changes as potentially release-affecting and recommends build/device validation where appropriate. fileciteturn19file12L1-L40
+The repository's project configuration guidance explicitly treats configuration-only changes as potentially release-affecting and recommends build/device validation where appropriate.
 
 ---
 
@@ -1192,9 +1192,9 @@ For npm:
 
 ```yaml
 - uses: actions/setup-node@v6
-  with:
-    node-version: 24
-    cache: npm
+ with:
+ node-version: 24
+ cache: npm
 ```
 
 The project should still use:
@@ -1255,7 +1255,7 @@ Native toolchain
 Signing
 ```
 
-The project configuration guidance explicitly requires CI to avoid silently using a different dependency or build environment from the one used during release validation. fileciteturn19file12L1-L20
+The project configuration guidance explicitly requires CI to avoid silently using a different dependency or build environment from the one used during release validation.
 
 ---
 
@@ -1334,7 +1334,7 @@ message queues
 
 unless the repository has a real requirement for them.
 
-The playbook explicitly prefers simple documentation, scripts, AI workflows, and community contributions over unnecessary infrastructure. fileciteturn19file2L1-L35
+The playbook explicitly prefers simple documentation, scripts, AI workflows, and community contributions over unnecessary infrastructure.
 
 ---
 
@@ -1344,23 +1344,23 @@ A safe release flow is:
 
 ```text
 Release trigger
-    ↓
+ ↓
 Production EAS build
-    ↓
+ ↓
 Build succeeds
-    ↓
+ ↓
 Identify artifact
-    ↓
+ ↓
 Verify artifact
-    ↓
+ ↓
 Human approval
-    ↓
+ ↓
 EAS Submit
-    ↓
+ ↓
 Store processing
-    ↓
+ ↓
 TestFlight / Play testing
-    ↓
+ ↓
 Production release
 ```
 
@@ -1417,7 +1417,7 @@ private keys
 
 to the repository.
 
-The security baseline explicitly requires secrets to stay out of source code, Git history, frontend bundles, and logs. fileciteturn19file7L1-L35
+The security baseline explicitly requires secrets to stay out of source code, Git history, frontend bundles, and logs.
 
 ---
 
@@ -1453,7 +1453,7 @@ and before:
 Store submission
 ```
 
-GitHub's environment protection model ensures protected environment secrets are not available to the job until the required protection rules pass. citeturn0search2turn0search3
+GitHub's environment protection model ensures protected environment secrets are not available to the job until the required protection rules pass.
 
 ---
 
@@ -1505,7 +1505,7 @@ Automation
 → execute
 ```
 
-The repository's documentation rules explicitly state that AI output must be treated as untrusted until inspected, verified, tested, and approved. fileciteturn19file10L1-L30
+The repository's documentation rules explicitly state that AI output must be treated as untrusted until inspected, verified, tested, and approved.
 
 ---
 
@@ -1648,7 +1648,6 @@ AI says it works
 → ship
 ```
 
-fileciteturn19file10L1-L30
 
 ---
 
@@ -1695,7 +1694,7 @@ This should be advisory.
 
 Do not make AI the sole authority for release risk.
 
-The repository's governance rules require AI-generated changes to remain aligned with architecture, maintainability, operational safety, and human review. fileciteturn19file16L1-L35
+The repository's governance rules require AI-generated changes to remain aligned with architecture, maintainability, operational safety, and human review.
 
 ---
 
@@ -1736,7 +1735,7 @@ Can logs expose secrets?
 Can AI trigger a high-impact action?
 ```
 
-Prioritize realistic attack paths rather than theoretical security theater. The security system requires least privilege, protected secrets, explicit authorization, and testable controls. fileciteturn19file8L1-L45
+Prioritize realistic attack paths rather than theoretical security theater. The security system requires least privilege, protected secrets, explicit authorization, and testable controls.
 
 ---
 
@@ -1764,7 +1763,7 @@ npm ci
 
 solves the problem, do not add a third-party action simply to run npm.
 
-The security baseline explicitly treats dependencies, CI/CD permissions, build secrets, and untrusted scripts as supply-chain concerns. fileciteturn19file13L1-L35
+The security baseline explicitly treats dependencies, CI/CD permissions, build secrets, and untrusted scripts as supply-chain concerns.
 
 ---
 
@@ -1848,7 +1847,7 @@ EAS cloud build
 
 is simpler.
 
-The repository's architecture explicitly avoids unnecessary infrastructure and operational burden. fileciteturn19file19L1-L35
+The repository's architecture explicitly avoids unnecessary infrastructure and operational burden.
 
 ---
 
@@ -2029,7 +2028,7 @@ runtimeVersion
 
 consistent.
 
-Expo's current environment documentation notes that EAS Update uses an explicit environment and that build/workflow environments should be kept in sync where they are paired. citeturn0search7turn0search8
+Expo's current environment documentation notes that EAS Update uses an explicit environment and that build/workflow environments should be kept in sync where they are paired.
 
 Do not let CI publish an update against the wrong environment.
 
@@ -2077,9 +2076,9 @@ Example:
 
 ```yaml
 on:
-  push:
-    tags:
-      - 'v*.*.*'
+ push:
+ tags:
+ - 'v*.*.*'
 ```
 
 This creates a useful relationship:
@@ -2199,7 +2198,7 @@ High-impact financial changes
 Destructive actions
 ```
 
-The project documentation explicitly requires human approval for high-impact release actions. fileciteturn19file3L10-L25
+The project documentation explicitly requires human approval for high-impact release actions.
 
 ---
 
@@ -2278,7 +2277,7 @@ GitHub Actions environment
 EAS Build environment
 ```
 
-Expo explicitly documents this distinction. citeturn0search0
+Expo explicitly documents this distinction.
 
 ---
 
@@ -2293,7 +2292,7 @@ Secret scope
 Job environment declaration
 ```
 
-Protected environment secrets become available only after the environment's protection rules pass. citeturn0search2turn0search3
+Protected environment secrets become available only after the environment's protection rules pass.
 
 ---
 

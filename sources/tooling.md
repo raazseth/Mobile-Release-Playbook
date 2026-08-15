@@ -56,7 +56,7 @@ This guide is **not**:
 
 - [Fastlane Documentation Registry](fastlane.md) - Fastlane sources.
 - [Expo Documentation Registry](expo.md) - Expo sources.
-- [Integrations Subsystem](../../integrations/README.md) - Integration handbooks.
+- [Integrations Subsystem](../integrations/README.md) - Integration handbooks.
 
 ---
 

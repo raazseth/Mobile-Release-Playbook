@@ -90,7 +90,7 @@ In App Store Connect under the rejected version:
 
 - [Rejection Handling Handbook](rejection-handling.md) - Rejection triage.
 - [App Review Handbook](app-review.md) - Review submission.
-- [Versioning Handbook](../../foundations/versioning.md) - Versioning rules.
+- [Versioning Handbook](../foundations/versioning.md) - Versioning rules.
 
 ---
 

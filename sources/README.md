@@ -85,9 +85,9 @@ All documentation and handbook writing in this playbook must adhere to five mand
 
 # 4. Related Repository Documentation
 
-- [CONTRIBUTING.md](../../CONTRIBUTING.md) - Contribution guidelines.
-- [ARCHITECTURE.md](../../ARCHITECTURE.md) - Playbook architecture.
-- [CHANGELOG.md](../../CHANGELOG.md) - Repository changelog.
+- [CONTRIBUTING.md](../CONTRIBUTING.md) - Contribution guidelines.
+- [ARCHITECTURE.md](../ARCHITECTURE.md) - Playbook architecture.
+- [CHANGELOG.md](../CHANGELOG.md) - Repository changelog.
 
 ---
 

@@ -34,7 +34,8 @@ Evaluation benchmarks measure prompt accuracy, tool call correctness, and adhere
 
 # 2. Key Evaluation Handbooks
 
-- [eval-suite.md](eval-suite.md) - Benchmark suite specifications.
+- [agent-evaluation.md](agent-evaluation.md) - Agent task accuracy benchmark suite.
+- [regression-tests.md](regression-tests.md) - Prompt regression test suite.
 
 ---
 

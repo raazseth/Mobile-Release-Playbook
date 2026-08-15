@@ -202,7 +202,7 @@ preview
 
 The important thing is that the relationship is explicit.
 
-For EAS, `eas.json` build profiles can specify the environment used during the build. Expo currently supports `development`, `preview`, and `production` as the default EAS environments, and custom environment names are available on eligible plans. citeturn0search1turn0search2
+For EAS, `eas.json` build profiles can specify the environment used during the build. Expo currently supports `development`, `preview`, and `production` as the default EAS environments, and custom environment names are available on eligible plans.
 
 ---
 
@@ -309,7 +309,7 @@ preview
 production
 ```
 
-Environment variables can be scoped to these environments and used by EAS Build, EAS Update, EAS Workflows, and local development workflows where supported. citeturn0search2turn0search4
+Environment variables can be scoped to these environments and used by EAS Build, EAS Update, EAS Workflows, and local development workflows where supported.
 
 Example:
 
@@ -323,7 +323,7 @@ To pull an environment locally:
 eas env:pull --environment development
 ```
 
-Expo documents `eas env:pull` as a way to retrieve environment variables for local development. Generated `.env` files should remain ignored by Git when they contain sensitive or machine-specific values. citeturn0search0turn0search5
+Expo documents `eas env:pull` as a way to retrieve environment variables for local development. Generated `.env` files should remain ignored by Git when they contain sensitive or machine-specific values.
 
 ---
 
@@ -351,7 +351,7 @@ Example:
 
 This is easier to reason about than relying entirely on implicit behavior.
 
-Expo documents that EAS can automatically determine an environment based on build configuration, but explicitly setting `environment` gives the project direct control over the mapping. citeturn0search4
+Expo documents that EAS can automatically determine an environment based on build configuration, but explicitly setting `environment` gives the project direct control over the mapping.
 
 For release-critical configuration:
 
@@ -386,7 +386,7 @@ SENSITIVE
 SECRET
 ```
 
-For EAS, Expo currently provides plain-text, sensitive, and secret visibility levels. Secret variables are intended for values that should remain on EAS servers and not be readable outside them. citeturn0search0turn0search2
+For EAS, Expo currently provides plain-text, sensitive, and secret visibility levels. Secret variables are intended for values that should remain on EAS servers and not be readable outside them.
 
 ---
 
@@ -427,7 +427,7 @@ Payment private key
 
 into client-side environment variables.
 
-Expo explicitly warns that values included in client-side code are readable by users. citeturn0search0turn0search4
+Expo explicitly warns that values included in client-side code are readable by users.
 
 ---
 
@@ -470,7 +470,7 @@ Application code can read:
 const apiUrl = process.env.EXPO_PUBLIC_API_URL;
 ```
 
-Expo documents that `EXPO_PUBLIC_*` values are inlined into the client bundle and therefore must not contain secrets. citeturn0search0turn0search7
+Expo documents that `EXPO_PUBLIC_*` values are inlined into the client bundle and therefore must not contain secrets.
 
 Do not use:
 
@@ -606,7 +606,7 @@ Shared release configuration
 Protected build values
 ```
 
-Expo recommends EAS environment variables for cloud builds and updates when using EAS, while local `.env` files remain useful for local development. citeturn0search2turn0search6
+Expo recommends EAS environment variables for cloud builds and updates when using EAS, while local `.env` files remain useful for local development.
 
 Avoid having two conflicting sources of truth.
 
@@ -1041,7 +1041,7 @@ OTA update
 
 Do not use OTA updates to bypass a required native release.
 
-For EAS Update, specify the intended environment when publishing updates so the update uses the correct environment variables. Expo currently documents the `--environment` option for this purpose. citeturn0search2turn0search5
+For EAS Update, specify the intended environment when publishing updates so the update uses the correct environment variables. Expo currently documents the `--environment` option for this purpose.
 
 Example:
 
@@ -1170,7 +1170,7 @@ Example:
 }
 ```
 
-Expo's current EAS Build documentation uses `development`, `preview`, and `production` as common build profile patterns and supports explicit `environment` mapping. citeturn0search1turn0search4
+Expo's current EAS Build documentation uses `development`, `preview`, and `production` as common build profile patterns and supports explicit `environment` mapping.
 
 ---
 
@@ -1378,7 +1378,7 @@ Managed secret systems
 
 depending on the project.
 
-For EAS, secret environment variables are not readable outside EAS servers and are intended for values needed by build/workflow jobs. citeturn0search0turn0search2
+For EAS, secret environment variables are not readable outside EAS servers and are intended for values needed by build/workflow jobs.
 
 Remember:
 
@@ -1479,7 +1479,7 @@ eas.json looks correct
 
 Verify what the build actually receives.
 
-For EAS, build jobs expose information such as the build profile, build environment, platform, project ID, and Git commit to the job. citeturn0search4
+For EAS, build jobs expose information such as the build profile, build environment, platform, project ID, and Git commit to the job.
 
 Useful release evidence:
 
@@ -1681,7 +1681,7 @@ A production application receives an update configured for another environment.
 
 Publish using the intended environment and verify compatibility before rollout.
 
-Expo documents the `--environment` flag for EAS Update and recommends using the same environment mapping as the build workflow. citeturn0search2turn0search5
+Expo documents the `--environment` flag for EAS Update and recommends using the same environment mapping as the build workflow.
 
 ---
 

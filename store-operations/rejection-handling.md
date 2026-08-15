@@ -91,7 +91,7 @@ If you believe your app was rejected due to a reviewer misunderstanding or incor
 
 - [Resubmission Handbook](resubmission.md) - Resubmitting builds.
 - [App Review Handbook](app-review.md) - Review submission.
-- [Rejection Analysis Prompt](../../ai/prompts/rejection-analysis.md) - AI rejection triage.
+- [Rejection Analysis Prompt](../ai/prompts/rejection-analysis.md) - AI rejection triage.
 
 ---
 

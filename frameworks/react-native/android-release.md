@@ -50,29 +50,29 @@ A React Native Android release should follow:
 
 ```text
 React Native source
-        ↓
+ ↓
 Android project configuration
-        ↓
+ ↓
 Release configuration
-        ↓
+ ↓
 Signing
-        ↓
+ ↓
 JavaScript + native build
-        ↓
+ ↓
 AAB
-        ↓
+ ↓
 Artifact verification
-        ↓
+ ↓
 Real-device testing
-        ↓
+ ↓
 Google Play testing
-        ↓
+ ↓
 Production release
-        ↓
+ ↓
 Monitoring
 ```
 
-The repository architecture deliberately keeps this framework-specific layer separate from the shared release lifecycle. The core repository is framework-agnostic, while React Native provides the implementation details for Android. fileciteturn28file2
+The repository architecture deliberately keeps this framework-specific layer separate from the shared release lifecycle. The core repository is framework-agnostic, while React Native provides the implementation details for Android.
 
 ---
 
@@ -109,11 +109,11 @@ The important boundary is:
 
 ```text
 React Native
-    ↓
+ ↓
 Android native project
-    ↓
+ ↓
 Gradle
-    ↓
+ ↓
 Android artifact
 ```
 
@@ -157,7 +157,7 @@ You may see:
 
 ```gradle
 defaultConfig {
-    applicationId "com.example.app"
+ applicationId "com.example.app"
 }
 ```
 
@@ -206,8 +206,8 @@ Example:
 
 ```gradle
 defaultConfig {
-    versionCode 42
-    versionName "1.4.0"
+ versionCode 42
+ versionName "1.4.0"
 }
 ```
 
@@ -307,7 +307,7 @@ The official React Native Android publishing guide documents:
 npx react-native build-android --mode=release
 ```
 
-as the current command for generating a release Android App Bundle. The command uses Gradle's `bundleRelease` task and bundles the JavaScript required by the application. citeturn0search0
+as the current command for generating a release Android App Bundle. The command uses Gradle's `bundleRelease` task and bundles the JavaScript required by the application.
 
 The expected artifact is:
 
@@ -325,9 +325,9 @@ Development normally uses Metro:
 
 ```text
 React Native app
-      ↓
+ ↓
 Metro
-      ↓
+ ↓
 Device
 ```
 
@@ -356,7 +356,7 @@ The recommended React Native release command documented by React Native is:
 npx react-native build-android --mode=release
 ```
 
-This creates an Android App Bundle using the release configuration. citeturn0search0
+This creates an Android App Bundle using the release configuration.
 
 The resulting artifact is normally:
 
@@ -366,7 +366,7 @@ android/app/build/outputs/bundle/release/app-release.aab
 
 An Android App Bundle uses the `.aab` extension.
 
-Google Play uses the bundle to generate device-specific APKs for distribution. citeturn0search4turn0search9
+Google Play uses the bundle to generate device-specific APKs for distribution.
 
 ---
 
@@ -441,7 +441,7 @@ app-release.aab
 
 is uploaded to Google Play.
 
-Google Play then generates optimized APKs for users based on their device configuration. citeturn0search2turn0search4turn0search9
+Google Play then generates optimized APKs for users based on their device configuration.
 
 For a normal Google Play release:
 
@@ -484,9 +484,9 @@ Developer
 → Google Play App Signing handles distribution signing
 ```
 
-Android's official documentation describes this model and recommends protecting the signing credentials. citeturn0search8
+Android's official documentation describes this model and recommends protecting the signing credentials.
 
-React Native's official Android publishing guide also documents using an upload key for the release build. citeturn0search0
+React Native's official Android publishing guide also documents using an upload key for the release build.
 
 See:
 
@@ -521,7 +521,7 @@ For an existing application, key changes must follow the appropriate Google Play
 
 # 16. Store signing credentials outside Git
 
-React Native's official publishing guide recommends keeping sensitive Gradle variables outside the repository when possible. citeturn0search0
+React Native's official publishing guide recommends keeping sensitive Gradle variables outside the repository when possible.
 
 For example, credentials can be stored in:
 
@@ -561,26 +561,26 @@ Example pattern:
 
 ```gradle
 android {
-    signingConfigs {
-        release {
-            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
-                storeFile file(MYAPP_UPLOAD_STORE_FILE)
-                storePassword MYAPP_UPLOAD_STORE_PASSWORD
-                keyAlias MYAPP_UPLOAD_KEY_ALIAS
-                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
-            }
-        }
-    }
+ signingConfigs {
+ release {
+ if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+ storeFile file(MYAPP_UPLOAD_STORE_FILE)
+ storePassword MYAPP_UPLOAD_STORE_PASSWORD
+ keyAlias MYAPP_UPLOAD_KEY_ALIAS
+ keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+ }
+ }
+ }
 
-    buildTypes {
-        release {
-            signingConfig signingConfigs.release
-        }
-    }
+ buildTypes {
+ release {
+ signingConfig signingConfigs.release
+ }
+ }
 }
 ```
 
-This pattern is documented in the React Native Android publishing guide. citeturn0search0
+This pattern is documented in the React Native Android publishing guide.
 
 Use the project's existing signing structure if one already exists.
 
@@ -631,7 +631,7 @@ The upload key authenticates the upload.
 
 Google manages the app-signing key used to sign distributed APKs when Play App Signing is enabled.
 
-Android's official documentation recommends Play App Signing for Google Play distribution. citeturn0search8
+Android's official documentation recommends Play App Signing for Google Play distribution.
 
 Do not confuse:
 
@@ -663,7 +663,7 @@ New apps and app updates:
 
 Existing apps:
 → Android 15 / API 35 or higher
-  to remain available to new users on newer Android versions
+ to remain available to new users on newer Android versions
 ```
 
 There are platform-specific exceptions for:
@@ -675,7 +675,7 @@ Android TV
 Android XR
 ```
 
-and Google documents an extension process in applicable cases. citeturn0search1
+and Google documents an extension process in applicable cases.
 
 Because this requirement changes over time:
 
@@ -757,13 +757,13 @@ React Native Android builds depend on a chain:
 
 ```text
 React Native
-    ↓
+ ↓
 Android Gradle Plugin
-    ↓
+ ↓
 Gradle
-    ↓
+ ↓
 JDK
-    ↓
+ ↓
 Android SDK
 ```
 
@@ -935,7 +935,7 @@ public environment variables
 
 Use a backend for privileged operations.
 
-The repository security system explicitly requires secrets to stay out of source, Git history, frontend/client bundles, and logs. fileciteturn27file2
+The repository security system explicitly requires secrets to stay out of source, Git history, frontend/client bundles, and logs.
 
 ---
 
@@ -961,11 +961,11 @@ When adding or changing a native dependency:
 
 ```text
 Dependency change
-    ↓
+ ↓
 Android native project changes
-    ↓
+ ↓
 Development build
-    ↓
+ ↓
 Release build
 ```
 
@@ -1039,7 +1039,7 @@ resource shrinking
 
 The exact configuration depends on the project and React Native version.
 
-React Native's current Android publishing guide notes that enabling ProGuard can reduce size but may require rules specific to native libraries, so the release must be tested thoroughly. citeturn0search0
+React Native's current Android publishing guide notes that enabling ProGuard can reduce size but may require rules specific to native libraries, so the release must be tested thoroughly.
 
 If a release works in debug but crashes in release:
 
@@ -1086,13 +1086,13 @@ Debug systematically:
 
 ```text
 Compare debug vs release
-        ↓
+ ↓
 Identify first difference
-        ↓
+ ↓
 Reproduce in release
-        ↓
+ ↓
 Fix
-        ↓
+ ↓
 Verify release artifact
 ```
 
@@ -1102,7 +1102,7 @@ Do not make unrelated configuration changes.
 
 # 33. Release build testing
 
-React Native's official publishing guide recommends testing the release build before uploading it to Google Play. citeturn0search0
+React Native's official publishing guide recommends testing the release build before uploading it to Google Play.
 
 At minimum:
 
@@ -1157,7 +1157,7 @@ or:
 yarn android --mode release
 ```
 
-React Native's current Android publishing guide documents release-mode installation/testing and notes that the release application contains the bundled JavaScript and does not require a running Metro server. citeturn0search0
+React Native's current Android publishing guide documents release-mode installation/testing and notes that the release application contains the bundled JavaScript and does not require a running Metro server.
 
 ---
 
@@ -1167,11 +1167,11 @@ Before Play submission:
 
 ```text
 Uninstall existing application
-        ↓
+ ↓
 Install release build
-        ↓
+ ↓
 Launch
-        ↓
+ ↓
 Complete critical flows
 ```
 
@@ -1194,13 +1194,13 @@ A production release should be tested as an upgrade:
 
 ```text
 Previous production build
-        ↓
+ ↓
 Install
-        ↓
+ ↓
 Create realistic state
-        ↓
+ ↓
 Install new release
-        ↓
+ ↓
 Verify state survives
 ```
 
@@ -1422,21 +1422,21 @@ Recommended flow:
 
 ```text
 React Native upgrade
-        ↓
+ ↓
 Resolve native changes
-        ↓
+ ↓
 Resolve Gradle/toolchain changes
-        ↓
+ ↓
 Run tests
-        ↓
+ ↓
 Debug release build
-        ↓
+ ↓
 Real-device testing
-        ↓
+ ↓
 Upgrade testing
-        ↓
+ ↓
 Preview/Play testing
-        ↓
+ ↓
 Production
 ```
 
@@ -1454,9 +1454,9 @@ If a build fails:
 
 ```text
 Read first meaningful error
-        ↓
+ ↓
 Determine whether cache is involved
-        ↓
+ ↓
 Clear cache only when justified
 ```
 
@@ -1603,7 +1603,7 @@ Assets
 Build variant
 ```
 
-The official React Native release command bundles JavaScript into the release AAB. citeturn0search0
+The official React Native release command bundles JavaScript into the release AAB.
 
 Do not run Metro in production as a workaround.
 
@@ -1641,7 +1641,7 @@ New apps + updates
 → target API 36+
 ```
 
-for standard Android applications. citeturn0search1
+for standard Android applications.
 
 Do not hard-code this number into long-lived scripts without a maintenance mechanism.
 
@@ -1655,15 +1655,15 @@ If Google Play reports that the version code already exists:
 
 ```text
 Check Play Console
-        ↓
+ ↓
 Check release configuration
-        ↓
+ ↓
 Increase versionCode
-        ↓
+ ↓
 Build new AAB
-        ↓
+ ↓
 Verify
-        ↓
+ ↓
 Submit
 ```
 
@@ -1734,27 +1734,27 @@ React Native Android release automation should have a clear pipeline:
 
 ```text
 Pull Request
-    ↓
+ ↓
 Install dependencies
-    ↓
+ ↓
 Lint / typecheck
-    ↓
+ ↓
 Unit tests
-    ↓
+ ↓
 Android validation
-    ↓
+ ↓
 Merge
-    ↓
+ ↓
 Production release trigger
-    ↓
+ ↓
 Build AAB
-    ↓
+ ↓
 Verify artifact
-    ↓
+ ↓
 Human approval
-    ↓
+ ↓
 Google Play submission
-    ↓
+ ↓
 Monitor
 ```
 
@@ -1764,7 +1764,7 @@ The repository architecture places React Native release automation under:
 release-engineering/
 ```
 
-while the framework directory explains React Native-specific build behavior. fileciteturn28file10
+while the framework directory explains React Native-specific build behavior.
 
 ---
 
@@ -1935,7 +1935,7 @@ Push notifications
 Google Play readiness
 ```
 
-The repository's AI architecture treats AI as an accelerator and requires human verification for high-impact actions. fileciteturn28file2L1-L35
+The repository's AI architecture treats AI as an accelerator and requires human verification for high-impact actions.
 
 ---
 
@@ -2063,17 +2063,17 @@ API credentials
 
 Never commit them.
 
-The repository security guidance explicitly requires least privilege, secret isolation, protected CI/CD, and secure handling of private keys. fileciteturn27file0turn27file3
+The repository security guidance explicitly requires least privilege, secret isolation, protected CI/CD, and secure handling of private keys.
 
 If a secret is exposed:
 
 ```text
 Revoke
-    ↓
+ ↓
 Rotate
-    ↓
+ ↓
 Investigate
-    ↓
+ ↓
 Verify
 ```
 
@@ -2101,7 +2101,7 @@ Deep-link success
 Payment failures
 ```
 
-The production operations system requires deployment visibility, structured logs, metrics, error tracking, and rollback readiness. fileciteturn27file5turn27file7
+The production operations system requires deployment visibility, structured logs, metrics, error tracking, and rollback readiness.
 
 Use the project's observability stack and application-specific telemetry.
 
@@ -2179,33 +2179,33 @@ For a normal React Native Android release:
 
 ```text
 1. Confirm release commit
-        ↓
+ ↓
 2. Confirm application ID
-        ↓
+ ↓
 3. Confirm versionName
-        ↓
+ ↓
 4. Increment versionCode
-        ↓
+ ↓
 5. Verify production environment
-        ↓
+ ↓
 6. Run tests
-        ↓
+ ↓
 7. Build release AAB
-        ↓
+ ↓
 8. Verify signing
-        ↓
+ ↓
 9. Install/test release build
-        ↓
+ ↓
 10. Test upgrade from previous release
-        ↓
+ ↓
 11. Upload to Play testing
-        ↓
+ ↓
 12. Validate production-like behavior
-        ↓
+ ↓
 13. Human approval
-        ↓
+ ↓
 14. Production rollout
-        ↓
+ ↓
 15. Monitor
 ```
 
@@ -2247,29 +2247,29 @@ A React Native Android release is ready when:
 
 ```text
 Correct project
-      +
+ +
 Correct application identity
-      +
+ +
 Correct version
-      +
+ +
 Compatible Android toolchain
-      +
+ +
 Production configuration
-      +
+ +
 Correct signing
-      +
+ +
 Valid AAB
-      +
+ +
 Real-device testing
-      +
+ +
 Upgrade testing
-      +
+ +
 Play testing
-      +
+ +
 Human approval
-      +
+ +
 Production monitoring
-      ↓
+ ↓
 ANDROID RELEASE READY
 ```
 

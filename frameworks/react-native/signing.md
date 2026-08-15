@@ -35,21 +35,21 @@ This guide covers the signing layer for a React Native application and explains 
 A React Native application has two independent signing systems.
 
 ```text
-                React Native
-                     |
-          +----------+----------+
-          |                     |
-        iOS                  Android
-          |                     |
-     Apple signing         Android signing
-          |                     |
-     Certificate           Keystore
-          |                     |
-  Provisioning profile      Upload key
-          |                     |
-     Entitlements       Google Play App Signing
-          |                     |
-         IPA                    AAB
+ React Native
+ |
+ +----------+----------+
+ | |
+ iOS Android
+ | |
+ Apple signing Android signing
+ | |
+ Certificate Keystore
+ | |
+ Provisioning profile Upload key
+ | |
+ Entitlements Google Play App Signing
+ | |
+ IPA AAB
 ```
 
 Do not treat iOS and Android signing as one system.
@@ -96,7 +96,7 @@ CI tokens
 
 to a public repository.
 
-The repository security rules explicitly prohibit storing secrets in source code, Git history, frontend bundles, logs, or public configuration and require support for secret rotation. fileciteturn30file0L1-L15
+The repository security rules explicitly prohibit storing secrets in source code, Git history, frontend bundles, logs, or public configuration and require support for secret rotation.
 
 ---
 
@@ -133,19 +133,19 @@ A production release should follow:
 
 ```text
 Source
-  ↓
+ ↓
 Application identity
-  ↓
+ ↓
 Native configuration
-  ↓
+ ↓
 Signing credentials
-  ↓
+ ↓
 Build
-  ↓
+ ↓
 Signed artifact
-  ↓
+ ↓
 Validation
-  ↓
+ ↓
 Store submission
 ```
 
@@ -193,19 +193,19 @@ For example:
 
 ```text
 Apple Developer
-    ↓
+ ↓
 Apple signing state
 
 Google Play
-    ↓
+ ↓
 Android signing state
 
 CI secret manager
-    ↓
+ ↓
 CI access credentials
 
 Fastlane match / approved credential store
-    ↓
+ ↓
 Shared signing assets
 ```
 
@@ -238,7 +238,7 @@ Services
 CI/CD
 ```
 
-and treats signing credentials as sensitive assets. fileciteturn30file2L1-L14
+and treats signing credentials as sensitive assets.
 
 Separate:
 
@@ -260,23 +260,23 @@ The iOS signing chain is:
 
 ```text
 Apple Developer Team
-        ↓
+ ↓
 App ID / Bundle ID
-        ↓
+ ↓
 Certificate
-        ↓
+ ↓
 Provisioning Profile
-        ↓
+ ↓
 Entitlements
-        ↓
+ ↓
 Xcode Archive
-        ↓
+ ↓
 IPA
-        ↓
+ ↓
 App Store Connect
 ```
 
-Apple describes a distribution provisioning profile as authorizing an app to use certain services and identifying the developer distributing or uploading the app. It contains an App ID and distribution certificate. citeturn0search4turn0search13
+Apple describes a distribution provisioning profile as authorizing an app to use certain services and identifying the developer distributing or uploading the app. It contains an App ID and distribution certificate.
 
 ---
 
@@ -293,7 +293,7 @@ Apple Distribution
 
 The exact certificate types available depend on the platform and workflow.
 
-Apple states that Apple Developer Program membership is required to request, download, and use Apple signing certificates. citeturn0search3
+Apple states that Apple Developer Program membership is required to request, download, and use Apple signing certificates.
 
 ---
 
@@ -326,7 +326,7 @@ Print it in CI logs
 Store it in application code
 ```
 
-Apple explicitly treats certificates and account credentials as sensitive assets. citeturn0search3
+Apple explicitly treats certificates and account credentials as sensitive assets.
 
 ---
 
@@ -346,7 +346,7 @@ Authorized capabilities
 
 The exact contents depend on the profile type.
 
-Apple's current documentation distinguishes development and distribution provisioning profiles and notes that a profile authorizes app services and establishes the developer/distribution relationship. citeturn0search2turn0search4
+Apple's current documentation distinguishes development and distribution provisioning profiles and notes that a profile authorizes app services and establishes the developer/distribution relationship.
 
 ---
 
@@ -368,7 +368,7 @@ Development certificate
 Registered devices
 ```
 
-Apple documents this relationship for manually created development profiles. citeturn0search2
+Apple documents this relationship for manually created development profiles.
 
 For most teams, automatic signing through Xcode is simpler for development.
 
@@ -391,7 +391,7 @@ Explicit App ID
 Distribution certificate
 ```
 
-Apple documents this as the App Store Connect provisioning profile workflow. citeturn0search6
+Apple documents this as the App Store Connect provisioning profile workflow.
 
 ---
 
@@ -411,7 +411,7 @@ Xcode
 
 This is often the simplest choice for local development.
 
-Automatic signing can also manage distribution provisioning profiles during supported Xcode distribution workflows. citeturn0search6
+Automatic signing can also manage distribution provisioning profiles during supported Xcode distribution workflows.
 
 Automatic signing does not mean signing is irrelevant.
 
@@ -521,15 +521,15 @@ Debug in this order:
 
 ```text
 Capability enabled?
-        ↓
+ ↓
 App ID configured?
-        ↓
+ ↓
 Entitlement present?
-        ↓
+ ↓
 Provisioning profile supports it?
-        ↓
+ ↓
 Correct certificate/team?
-        ↓
+ ↓
 Correct build configuration?
 ```
 
@@ -584,9 +584,9 @@ The React Native layer sits above this:
 
 ```text
 React Native JS/TS
-        ↓
+ ↓
 Native iOS project
-        ↓
+ ↓
 Xcode signing
 ```
 
@@ -598,15 +598,15 @@ The Android production chain is:
 
 ```text
 React Native
-    ↓
+ ↓
 Gradle
-    ↓
+ ↓
 Signing configuration
-    ↓
+ ↓
 AAB
-    ↓
+ ↓
 Google Play
-    ↓
+ ↓
 Google Play App Signing
 ```
 
@@ -656,15 +656,15 @@ Conceptually:
 
 ```text
 Developer / CI
-      ↓
+ ↓
 Upload key
-      ↓
+ ↓
 Google Play
-      ↓
+ ↓
 Google Play App Signing
-      ↓
+ ↓
 App signing key
-      ↓
+ ↓
 Users
 ```
 
@@ -701,20 +701,20 @@ A simplified structure can look like:
 
 ```gradle
 android {
-    signingConfigs {
-        release {
-            storeFile file(System.getenv("ANDROID_KEYSTORE_PATH"))
-            storePassword System.getenv("ANDROID_KEYSTORE_PASSWORD")
-            keyAlias System.getenv("ANDROID_KEY_ALIAS")
-            keyPassword System.getenv("ANDROID_KEY_PASSWORD")
-        }
-    }
+ signingConfigs {
+ release {
+ storeFile file(System.getenv("ANDROID_KEYSTORE_PATH"))
+ storePassword System.getenv("ANDROID_KEYSTORE_PASSWORD")
+ keyAlias System.getenv("ANDROID_KEY_ALIAS")
+ keyPassword System.getenv("ANDROID_KEY_PASSWORD")
+ }
+ }
 
-    buildTypes {
-        release {
-            signingConfig signingConfigs.release
-        }
-    }
+ buildTypes {
+ release {
+ signingConfig signingConfigs.release
+ }
+ }
 }
 ```
 
@@ -927,19 +927,19 @@ Conceptual Android setup:
 
 ```yaml
 jobs:
-  build:
-    runs-on: ubuntu-latest
+ build:
+ runs-on: ubuntu-latest
 
-    environment: production
+ environment: production
 
-    steps:
-      - uses: actions/checkout@v4
+ steps:
+ - uses: actions/checkout@v4
 
-      - name: Build
-        run: ./gradlew bundleRelease
-        env:
-          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+ - name: Build
+ run: ./gradlew bundleRelease
+ env:
+ ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+ ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
 ```
 
 The actual keystore must also be supplied securely.
@@ -986,7 +986,7 @@ Xcode signing
 manual management
 ```
 
-Fastlane currently describes `match` as a way to synchronize certificates and profiles across a team. It can use Git, Google Cloud, or Amazon S3 as credential storage. citeturn0search0turn0search16
+Fastlane currently describes `match` as a way to synchronize certificates and profiles across a team. It can use Git, Google Cloud, or Amazon S3 as credential storage.
 
 Use Fastlane when it reduces actual release complexity.
 
@@ -1000,17 +1000,17 @@ A common Fastlane model is:
 
 ```text
 Private credential store
-        ↓
+ ↓
 match
-        ↓
+ ↓
 Certificates + profiles
-        ↓
+ ↓
 CI / developer machine
-        ↓
+ ↓
 Xcode build
 ```
 
-Fastlane's current documentation says `match` stores signing identities separately and supports encrypted Git storage or cloud storage. citeturn0search0
+Fastlane's current documentation says `match` stores signing identities separately and supports encrypted Git storage or cloud storage.
 
 If using Git storage:
 
@@ -1058,7 +1058,7 @@ iOS provisioning profiles
 iOS distribution certificates
 ```
 
-or use credentials supplied by the project. citeturn0search7
+or use credentials supplied by the project.
 
 This can be useful for teams that want:
 
@@ -1274,7 +1274,6 @@ Rotate second.
 Investigate third.
 ```
 
-fileciteturn30file2L1-L15
 
 ---
 
@@ -1292,7 +1291,7 @@ Ownership changes
 Security policy requires it
 ```
 
-Apple currently supports cloud-managed certificates, which can be automatically created ahead of expiration in supported workflows. citeturn0search5
+Apple currently supports cloud-managed certificates, which can be automatically created ahead of expiration in supported workflows.
 
 Understand whether your project uses:
 
@@ -1348,7 +1347,7 @@ Do not regenerate every profile whenever a build fails.
 
 First identify why the existing profile is no longer valid.
 
-Apple provides profile editing and regeneration workflows for these cases. citeturn0search10
+Apple provides profile editing and regeneration workflows for these cases.
 
 ---
 
@@ -1360,13 +1359,13 @@ Example:
 
 ```text
 Add Push Notifications
-        ↓
+ ↓
 App ID capability
-        ↓
+ ↓
 Entitlements
-        ↓
+ ↓
 Provisioning state
-        ↓
+ ↓
 New build
 ```
 
@@ -1452,15 +1451,15 @@ The CI workflow should follow:
 
 ```text
 Untrusted code
-    ↓
+ ↓
 Tests
-    ↓
+ ↓
 No production signing access
 
 Trusted release ref
-    ↓
+ ↓
 Approval
-    ↓
+ ↓
 Production signing
 ```
 
@@ -1483,7 +1482,7 @@ Minimal secrets
 
 Do not pass production signing secrets to steps that do not require them.
 
-The security system explicitly treats CI/CD permissions and build secrets as supply-chain security concerns. fileciteturn30file2L1-L14
+The security system explicitly treats CI/CD permissions and build secrets as supply-chain security concerns.
 
 ---
 
@@ -1541,7 +1540,7 @@ Signing repositories
 Production CI environments
 ```
 
-The security system requires permission boundaries for AI tools and says AI output/actions must not be treated as trusted. fileciteturn30file0L15-L30
+The security system requires permission boundaries for AI tools and says AI output/actions must not be treated as trusted.
 
 ---
 
@@ -1604,26 +1603,26 @@ When signing fails:
 
 ```text
 Build fails
-    ↓
+ ↓
 Identify platform
-    ├── iOS
-    └── Android
-    ↓
+ ├── iOS
+ └── Android
+ ↓
 Identify artifact
-    ├── Development
-    ├── Internal/Test
-    └── Production
-    ↓
+ ├── Development
+ ├── Internal/Test
+ └── Production
+ ↓
 Verify application identity
-    ↓
+ ↓
 Verify signing configuration
-    ↓
+ ↓
 Verify credential validity
-    ↓
+ ↓
 Verify capabilities/entitlements
-    ↓
+ ↓
 Verify CI environment
-    ↓
+ ↓
 Rebuild
 ```
 
@@ -1965,7 +1964,7 @@ Communication
 Postmortem
 ```
 
-for serious security incidents. fileciteturn30file3L1-L16
+for serious security incidents.
 
 ---
 
@@ -2062,11 +2061,11 @@ The goal is:
 
 ```text
 Artifact
-   ↓
+ ↓
 Exact source
-   ↓
+ ↓
 Exact configuration
-   ↓
+ ↓
 Known signing identity
 ```
 
@@ -2165,23 +2164,23 @@ The signing documentation in this playbook should remain separated by platform:
 ```text
 signing/
 ├── ios/
-│   ├── certificates.md
-│   ├── provisioning-profiles.md
-│   ├── distribution.md
-│   ├── api-keys.md
-│   └── key-rotation.md
+│ ├── certificates.md
+│ ├── provisioning-profiles.md
+│ ├── distribution.md
+│ ├── api-keys.md
+│ └── key-rotation.md
 │
 ├── android/
-│   ├── keystore.md
-│   ├── upload-key.md
-│   ├── play-app-signing.md
-│   └── key-rotation.md
+│ ├── keystore.md
+│ ├── upload-key.md
+│ ├── play-app-signing.md
+│ └── key-rotation.md
 │
 └── security/
-    ├── secret-storage.md
-    ├── ci-secrets.md
-    ├── access-control.md
-    └── recovery.md
+ ├── secret-storage.md
+ ├── ci-secrets.md
+ ├── access-control.md
+ └── recovery.md
 ```
 
 This file provides the React Native-level model.
@@ -2195,35 +2194,35 @@ Platform-specific credential procedures should live in the platform directories.
 For a React Native project, prefer a clear ownership model:
 
 ```text
-                React Native
-                     |
-          +----------+----------+
-          |                     |
-        iOS                  Android
-          |                     |
-        Xcode                Gradle
-          |                     |
- Apple signing             Android signing
-          |                     |
-       IPA/AAB              AAB
-          |                     |
- App Store Connect        Google Play
+ React Native
+ |
+ +----------+----------+
+ | |
+ iOS Android
+ | |
+ Xcode Gradle
+ | |
+ Apple signing Android signing
+ | |
+ IPA/AAB AAB
+ | |
+ App Store Connect Google Play
 ```
 
 Automation can sit around this:
 
 ```text
-                 CI/CD
-                   |
-          +--------+--------+
-          |                 |
-       iOS build        Android build
-          |                 |
-       Xcode/EAS        Gradle/EAS
-          |                 |
-       Fastlane          Fastlane
-          |                 |
-       Store             Store
+ CI/CD
+ |
+ +--------+--------+
+ | |
+ iOS build Android build
+ | |
+ Xcode/EAS Gradle/EAS
+ | |
+ Fastlane Fastlane
+ | |
+ Store Store
 ```
 
 Keep the underlying platform ownership clear.
@@ -2294,25 +2293,25 @@ Signing is production-ready when:
 
 ```text
 Application identity is correct
-        +
+ +
 Signing ownership is explicit
-        +
+ +
 Credentials are protected
-        +
+ +
 CI access is least-privileged
-        +
+ +
 Builds are reproducible
-        +
+ +
 Capabilities match signing state
-        +
+ +
 Recovery is documented
-        +
+ +
 Rotation is understood
-        +
+ +
 Secrets are not in source control
-        +
+ +
 Production release is human-controlled
-        ↓
+ ↓
 SIGNING READY
 ```
 
@@ -2350,7 +2349,7 @@ For production signing, evaluate:
 | AI | No unrestricted signing access |
 | Supply chain | CI actions and dependencies reviewed |
 
-The security system's baseline is practical security that is layered, testable, maintainable, and based on realistic threats rather than security theater. fileciteturn30file4L1-L14
+The security system's baseline is practical security that is layered, testable, maintainable, and based on realistic threats rather than security theater.
 
 ---
 

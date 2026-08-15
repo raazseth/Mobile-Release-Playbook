@@ -45,7 +45,7 @@ For framework-specific steps, use the relevant guide under `frameworks/`.
 - [ ] The person submitting the release has the required Play Console permissions.
 - [ ] Required developer agreements are accepted.
 
-Google Play requires developers to complete applicable Play Console requirements and provide verifiable developer and app information. citeturn0search14turn0search8
+Google Play requires developers to complete applicable Play Console requirements and provide verifiable developer and app information.
 
 ### New personal developer accounts
 
@@ -57,7 +57,7 @@ If the Play Console account is a **personal account created after November 13, 2
 - [ ] Confirm the testing requirement is satisfied in Play Console.
 - [ ] Complete the production-access application when eligible.
 
-Google's current guidance states that this requirement applies to new personal developer accounts created after November 13, 2023. citeturn0search1
+Google's current guidance states that this requirement applies to new personal developer accounts created after November 13, 2023.
 
 ### Device verification
 
@@ -66,7 +66,7 @@ For applicable new personal developer accounts:
 - [ ] Complete the required Android device verification in Play Console.
 - [ ] Confirm the account owner has completed the verification flow.
 
-Google currently requires applicable new personal accounts to verify access to a real Android mobile device through the Play Console mobile app before making an app available on Google Play. citeturn0search11
+Google currently requires applicable new personal accounts to verify access to a real Android mobile device through the Play Console mobile app before making an app available on Google Play.
 
 ---
 
@@ -101,7 +101,7 @@ Google currently requires applicable new personal accounts to verify access to a
 
 ### Current 2026 requirement
 
-Google states that, starting **August 31, 2026**, new apps and app updates submitted to Google Play must target **Android 16 (API level 36) or higher**, with exceptions for specific form factors. citeturn0search0turn0search10
+Google states that, starting **August 31, 2026**, new apps and app updates submitted to Google Play must target **Android 16 (API level 36) or higher**, with exceptions for specific form factors.
 
 For this repository, do not hard-code this as a permanent rule. Re-check the official target API requirement before each release because Google updates this policy over time.
 
@@ -307,7 +307,7 @@ For applicable new personal developer accounts:
 - [ ] The production-access requirement is satisfied.
 - [ ] The production-access application has been submitted when eligible.
 
-Google recommends using closed testing to identify issues and improve the app before production. citeturn0search1turn0search6
+Google recommends using closed testing to identify issues and improve the app before production.
 
 ---
 

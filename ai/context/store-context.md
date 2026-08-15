@@ -147,11 +147,11 @@ Use:
 
 ```text
 Repository Context
-        +
+ +
 Release Context
-        +
+ +
 Store Context
-        ↓
+ ↓
 Filtered Agent Context
 ```
 
@@ -235,68 +235,68 @@ Use this conceptual structure:
 
 ```yaml
 store_context:
-  schema_version:
+ schema_version:
 
-  application:
-    name:
-    platform:
-    store:
-    store_app_id:
-    package_or_bundle_id:
+ application:
+ name:
+ platform:
+ store:
+ store_app_id:
+ package_or_bundle_id:
 
-  release:
-    version:
-    build:
-    artifact:
-    source_commit:
+ release:
+ version:
+ build:
+ artifact:
+ source_commit:
 
-  listing:
-    status:
-    locales:
-    metadata:
-    assets:
-    privacy:
-    content_rating:
-    data_safety:
+ listing:
+ status:
+ locales:
+ metadata:
+ assets:
+ privacy:
+ content_rating:
+ data_safety:
 
-  submission:
-    status:
-    submitted_at:
-    submitted_by:
-    artifact:
-    processing:
+ submission:
+ status:
+ submitted_at:
+ submitted_by:
+ artifact:
+ processing:
 
-  review:
-    status:
-    started_at:
-    completed_at:
-    rejection:
-    reviewer_message:
+ review:
+ status:
+ started_at:
+ completed_at:
+ rejection:
+ reviewer_message:
 
-  rollout:
-    status:
-    strategy:
-    percentage:
-    track:
-    started_at:
-    paused_at:
+ rollout:
+ status:
+ strategy:
+ percentage:
+ track:
+ started_at:
+ paused_at:
 
-  production:
-    status:
-    released_at:
+ production:
+ status:
+ released_at:
 
-  policy:
-    status:
-    violations:
-    warnings:
+ policy:
+ status:
+ violations:
+ warnings:
 
-  incidents:
+ incidents:
 
-  evidence:
+ evidence:
 
-  unknowns:
+ unknowns:
 
-  next_action:
+ next_action:
 ```
 
 This is a conceptual schema.
@@ -313,10 +313,10 @@ Example:
 
 ```yaml
 ios:
-  store: "App Store Connect"
+ store: "App Store Connect"
 
 android:
-  store: "Google Play"
+ store: "Google Play"
 ```
 
 Do not create a single field such as:
@@ -393,11 +393,11 @@ Example:
 
 ```yaml
 application:
-  name: "Example App"
-  platform: "iOS"
-  store: "App Store Connect"
-  store_app_id: "<store-id>"
-  bundle_id: "com.example.app"
+ name: "Example App"
+ platform: "iOS"
+ store: "App Store Connect"
+ store_app_id: "<store-id>"
+ bundle_id: "com.example.app"
 ```
 
 Do not store:
@@ -434,10 +434,10 @@ Example:
 
 ```yaml
 release:
-  version: "2.4.0"
-  build: "104"
-  artifact: "production-ios-104.ipa"
-  source_commit: "abc1234"
+ version: "2.4.0"
+ build: "104"
+ artifact: "production-ios-104.ipa"
+ source_commit: "abc1234"
 ```
 
 The exact build should be traceable to the artifact that was submitted.
@@ -628,9 +628,9 @@ Example:
 
 ```yaml
 listing:
-  metadata:
-    status: "PASS"
-    evidence: "metadata-audit-104"
+ metadata:
+ status: "PASS"
+ evidence: "metadata-audit-104"
 ```
 
 If a metadata field is missing:
@@ -715,9 +715,9 @@ Example:
 
 ```yaml
 listing:
-  locales:
-    - "en-US"
-    - "en-IN"
+ locales:
+ - "en-US"
+ - "en-IN"
 ```
 
 Where relevant, validate:
@@ -770,9 +770,9 @@ Example:
 
 ```yaml
 listing:
-  content_rating:
-    status: "VERIFIED"
-    evidence: "store-questionnaire-104"
+ content_rating:
+ status: "VERIFIED"
+ evidence: "store-questionnaire-104"
 ```
 
 Do not guess ratings.
@@ -824,7 +824,7 @@ Track:
 
 ```yaml
 review:
-  status: "IN_REVIEW"
+ status: "IN_REVIEW"
 ```
 
 If the store provides reviewer communication, keep:
@@ -861,9 +861,9 @@ Use:
 
 ```yaml
 review_access:
-  configured: true
-  credential_source: "secure store"
-  exposed_to_agent: false
+ configured: true
+ credential_source: "secure store"
+ exposed_to_agent: false
 ```
 
 ---
@@ -900,14 +900,14 @@ Record:
 
 ```yaml
 review:
-  status: "REJECTED"
+ status: "REJECTED"
 
-  rejection:
-    severity: "HIGH"
-    category: "<verified category>"
-    reference: "<store reference>"
-    message_summary: "<redacted summary>"
-    required_action: "<verified action>"
+ rejection:
+ severity: "HIGH"
+ category: "<verified category>"
+ reference: "<store reference>"
+ message_summary: "<redacted summary>"
+ required_action: "<verified action>"
 ```
 
 Do not invent the rejection reason.
@@ -920,23 +920,23 @@ Use:
 
 ```text
 Rejected
-   ↓
+ ↓
 Capture store evidence
-   ↓
+ ↓
 Classify
-   ↓
+ ↓
 Verify actual behavior
-   ↓
+ ↓
 Identify root cause
-   ↓
+ ↓
 Fix
-   ↓
+ ↓
 Test
-   ↓
+ ↓
 Update metadata/declarations if required
-   ↓
+ ↓
 Human review
-   ↓
+ ↓
 Resubmit
 ```
 
@@ -985,9 +985,9 @@ Example:
 
 ```yaml
 policy:
-  status: "CLEAR"
-  violations: []
-  warnings: []
+ status: "CLEAR"
+ violations: []
+ warnings: []
 ```
 
 Possible conceptual states:
@@ -1089,12 +1089,12 @@ Track:
 
 ```yaml
 rollout:
-  status:
-  strategy:
-  percentage:
-  track:
-  started_at:
-  paused_at:
+ status:
+ strategy:
+ percentage:
+ track:
+ started_at:
+ paused_at:
 ```
 
 Conceptual statuses:
@@ -1132,8 +1132,8 @@ Example:
 
 ```yaml
 rollout:
-  track: "production"
-  status: "ACTIVE"
+ track: "production"
+ status: "ACTIVE"
 ```
 
 Do not assume a testing track is production.
@@ -1171,8 +1171,8 @@ Track:
 
 ```yaml
 production:
-  status:
-  released_at:
+ status:
+ released_at:
 ```
 
 Conceptual states:
@@ -1217,12 +1217,12 @@ Example:
 
 ```yaml
 incidents:
-  - id: "STORE-104"
-    platform: "android"
-    severity: "HIGH"
-    status: "OPEN"
-    summary: "Production rollout paused after crash increase."
-    release_related: true
+ - id: "STORE-104"
+ platform: "android"
+ severity: "HIGH"
+ status: "OPEN"
+ summary: "Production rollout paused after crash increase."
+ release_related: true
 ```
 
 Do not include:
@@ -1304,17 +1304,17 @@ Example:
 
 ```yaml
 evidence:
-  - type: "store"
-    platform: "ios"
-    source: "App Store Connect"
-    reference: "<submission/build reference>"
-    status: "VERIFIED"
+ - type: "store"
+ platform: "ios"
+ source: "App Store Connect"
+ reference: "<submission/build reference>"
+ status: "VERIFIED"
 
-  - type: "store"
-    platform: "android"
-    source: "Google Play Console"
-    reference: "<release reference>"
-    status: "VERIFIED"
+ - type: "store"
+ platform: "android"
+ source: "Google Play Console"
+ reference: "<release reference>"
+ status: "VERIFIED"
 ```
 
 Evidence status:
@@ -1361,7 +1361,7 @@ Example:
 
 ```yaml
 store_context:
-  observed_at: "2026-08-11T08:30:00+05:30"
+ observed_at: "2026-08-11T08:30:00+05:30"
 ```
 
 The timestamp describes when the store state was observed.
@@ -1660,16 +1660,16 @@ Example:
 
 ```yaml
 permissions:
-  app_store_connect:
-    read: true
-    upload: false
-    submit: false
-    release: false
+ app_store_connect:
+ read: true
+ upload: false
+ submit: false
+ release: false
 
-  google_play:
-    read: true
-    upload: false
-    release: false
+ google_play:
+ read: true
+ upload: false
+ release: false
 ```
 
 The actual execution layer must enforce these permissions.
@@ -1735,9 +1735,9 @@ Instead:
 
 ```yaml
 credentials:
-  configured: true
-  source: "secure secret store"
-  exposed_to_agent: false
+ configured: true
+ source: "secure secret store"
+ exposed_to_agent: false
 ```
 
 The agent only needs to know whether the required credential path is configured and accessible to the authorized execution layer.
@@ -1762,10 +1762,10 @@ Example:
 
 ```yaml
 api:
-  provider: "App Store Connect"
-  configured: true
-  permissions: "least-privilege"
-  health: "HEALTHY"
+ provider: "App Store Connect"
+ configured: true
+ permissions: "least-privilege"
+ health: "HEALTHY"
 ```
 
 ---
@@ -1789,8 +1789,8 @@ When evidence comes from a human:
 
 ```yaml
 evidence:
-  type: "human-confirmed"
-  status: "UNVERIFIED"
+ type: "human-confirmed"
+ status: "UNVERIFIED"
 ```
 
 unless the workflow explicitly treats the confirmation as verified evidence.
@@ -1805,25 +1805,25 @@ A store submission is complete only when:
 
 ```text
 Correct artifact
-        +
+ +
 Correct application
-        +
+ +
 Correct version
-        +
+ +
 Correct credentials
-        +
+ +
 Correct store target
-        +
+ +
 Artifact verified
-        +
+ +
 Human approval
-        +
+ +
 Binary uploaded
-        +
+ +
 Store processing verified
-        +
+ +
 Next store action completed
-        ↓
+ ↓
 SUBMISSION COMPLETE
 ```
 
@@ -1895,23 +1895,23 @@ Use the conceptual state flow:
 
 ```text
 NOT_STARTED
-    ↓
+ ↓
 PREPARING
-    ↓
+ ↓
 READY
-    ↓
+ ↓
 SUBMITTED / UPLOADED
-    ↓
+ ↓
 PROCESSING
-    ↓
+ ↓
 IN_REVIEW / TESTING
-    ↓
+ ↓
 APPROVED / READY_FOR_RELEASE
-    ↓
+ ↓
 RELEASED
-    ↓
+ ↓
 ROLLOUT_ACTIVE
-    ↓
+ ↓
 ROLLOUT_COMPLETE
 ```
 
@@ -1919,19 +1919,19 @@ Possible failure paths:
 
 ```text
 PROCESSING
-    ↓
+ ↓
 PROCESSING_FAILED
 
 IN_REVIEW
-    ↓
+ ↓
 REJECTED
 
 ROLLOUT_ACTIVE
-    ↓
+ ↓
 PAUSED
 
 ROLLOUT_ACTIVE
-    ↓
+ ↓
 ROLLED_BACK
 ```
 
@@ -1960,39 +1960,39 @@ Never invent a platform status.
 
 ```yaml
 store_context:
-  platform: "ios"
-  store: "App Store Connect"
+ platform: "ios"
+ store: "App Store Connect"
 
-  application:
-    name: "Example App"
-    bundle_id: "com.example.app"
+ application:
+ name: "Example App"
+ bundle_id: "com.example.app"
 
-  release:
-    version: "2.4.0"
-    build: "104"
-    artifact: "production-ios-104.ipa"
+ release:
+ version: "2.4.0"
+ build: "104"
+ artifact: "production-ios-104.ipa"
 
-  submission:
-    status: "SUBMITTED"
-    processing: "COMPLETE"
+ submission:
+ status: "SUBMITTED"
+ processing: "COMPLETE"
 
-  review:
-    status: "IN_REVIEW"
+ review:
+ status: "IN_REVIEW"
 
-  rollout:
-    status: "NOT_STARTED"
+ rollout:
+ status: "NOT_STARTED"
 
-  production:
-    status: "NOT_RELEASED"
+ production:
+ status: "NOT_RELEASED"
 
-  policy:
-    status: "CLEAR"
+ policy:
+ status: "CLEAR"
 
-  unknowns: []
+ unknowns: []
 
-  next_action:
-    action: "Wait for current review outcome and monitor store status."
-    blocking: false
+ next_action:
+ action: "Wait for current review outcome and monitor store status."
+ blocking: false
 ```
 
 Do not report the app as released.
@@ -2003,39 +2003,39 @@ Do not report the app as released.
 
 ```yaml
 store_context:
-  platform: "android"
-  store: "Google Play"
+ platform: "android"
+ store: "Google Play"
 
-  application:
-    name: "Example App"
-    application_id: "com.example.app"
+ application:
+ name: "Example App"
+ application_id: "com.example.app"
 
-  release:
-    version: "2.4.0"
-    version_code: 104
-    artifact: "production-104.aab"
+ release:
+ version: "2.4.0"
+ version_code: 104
+ artifact: "production-104.aab"
 
-  submission:
-    status: "APPROVED"
-    processing: "COMPLETE"
+ submission:
+ status: "APPROVED"
+ processing: "COMPLETE"
 
-  rollout:
-    status: "ACTIVE"
-    strategy: "STAGED"
-    percentage: 25
-    track: "production"
+ rollout:
+ status: "ACTIVE"
+ strategy: "STAGED"
+ percentage: 25
+ track: "production"
 
-  production:
-    status: "PARTIALLY_RELEASED"
+ production:
+ status: "PARTIALLY_RELEASED"
 
-  policy:
-    status: "CLEAR"
+ policy:
+ status: "CLEAR"
 
-  unknowns: []
+ unknowns: []
 
-  next_action:
-    action: "Monitor rollout health before increasing exposure."
-    blocking: false
+ next_action:
+ action: "Monitor rollout health before increasing exposure."
+ blocking: false
 ```
 
 Do not report:
@@ -2050,34 +2050,34 @@ Do not report:
 
 ```yaml
 store_context:
-  platform: "ios"
+ platform: "ios"
 
-  release:
-    version: "2.4.0"
-    build: "104"
+ release:
+ version: "2.4.0"
+ build: "104"
 
-  submission:
-    status: "SUBMITTED"
+ submission:
+ status: "SUBMITTED"
 
-  review:
-    status: "REJECTED"
+ review:
+ status: "REJECTED"
 
-    rejection:
-      severity: "HIGH"
-      category: "REVIEW_ACCESS"
-      reference: "<store-reference>"
-      message_summary: "Reviewer could not access the required feature."
-      required_action: "Provide valid review access and verify the workflow."
+ rejection:
+ severity: "HIGH"
+ category: "REVIEW_ACCESS"
+ reference: "<store-reference>"
+ message_summary: "Reviewer could not access the required feature."
+ required_action: "Provide valid review access and verify the workflow."
 
-  policy:
-    status: "UNKNOWN"
+ policy:
+ status: "UNKNOWN"
 
-  unknowns:
-    - "Whether the rejection also affects another submission issue."
+ unknowns:
+ - "Whether the rejection also affects another submission issue."
 
-  next_action:
-    action: "Verify review access, reproduce the reviewer path, and prepare the required response."
-    blocking: true
+ next_action:
+ action: "Verify review access, reproduce the reviewer path, and prepare the required response."
+ blocking: true
 ```
 
 The Rejection Analyzer should perform the detailed investigation.
@@ -2088,28 +2088,28 @@ The Rejection Analyzer should perform the detailed investigation.
 
 ```yaml
 store_context:
-  platform: "android"
+ platform: "android"
 
-  release:
-    version: "2.4.0"
-    version_code: 104
+ release:
+ version: "2.4.0"
+ version_code: 104
 
-  submission:
-    status: "UPLOADED"
-    processing: "PROCESSING_FAILED"
+ submission:
+ status: "UPLOADED"
+ processing: "PROCESSING_FAILED"
 
-  review:
-    status: "NOT_STARTED"
+ review:
+ status: "NOT_STARTED"
 
-  rollout:
-    status: "NOT_STARTED"
+ rollout:
+ status: "NOT_STARTED"
 
-  production:
-    status: "NOT_RELEASED"
+ production:
+ status: "NOT_RELEASED"
 
-  next_action:
-    action: "Inspect the store processing error before attempting another submission."
-    blocking: true
+ next_action:
+ action: "Inspect the store processing error before attempting another submission."
+ blocking: true
 ```
 
 Do not proceed directly to production release.
@@ -2120,23 +2120,23 @@ Do not proceed directly to production release.
 
 ```yaml
 store_context:
-  platform: "android"
+ platform: "android"
 
-  submission:
-    status: "UNKNOWN"
+ submission:
+ status: "UNKNOWN"
 
-  review:
-    status: "UNKNOWN"
+ review:
+ status: "UNKNOWN"
 
-  rollout:
-    status: "UNKNOWN"
+ rollout:
+ status: "UNKNOWN"
 
-  unknowns:
-    - "Current Google Play release state was not provided."
+ unknowns:
+ - "Current Google Play release state was not provided."
 
-  next_action:
-    action: "Check the current Play Console release state."
-    blocking: true
+ next_action:
+ action: "Check the current Play Console release state."
+ blocking: true
 ```
 
 The correct AI behavior is:
@@ -2204,20 +2204,20 @@ Preserve important events:
 
 ```yaml
 history:
-  - event: "SUBMITTED"
-    version: "2.4.0"
-    build: "104"
-    observed_at: "<timestamp>"
+ - event: "SUBMITTED"
+ version: "2.4.0"
+ build: "104"
+ observed_at: "<timestamp>"
 
-  - event: "REJECTED"
-    version: "2.4.0"
-    build: "104"
-    observed_at: "<timestamp>"
+ - event: "REJECTED"
+ version: "2.4.0"
+ build: "104"
+ observed_at: "<timestamp>"
 
-  - event: "RESUBMITTED"
-    version: "2.4.0"
-    build: "105"
-    observed_at: "<timestamp>"
+ - event: "RESUBMITTED"
+ version: "2.4.0"
+ build: "105"
+ observed_at: "<timestamp>"
 ```
 
 Historical events should not be overwritten.
@@ -2228,25 +2228,25 @@ Historical events should not be overwritten.
 
 ```text
 Application created
-        ↓
+ ↓
 Store listing prepared
-        ↓
+ ↓
 Release prepared
-        ↓
+ ↓
 Artifact submitted
-        ↓
+ ↓
 Processing
-        ↓
+ ↓
 Review / testing
-        ↓
+ ↓
 Approval
-        ↓
+ ↓
 Production release
-        ↓
+ ↓
 Rollout
-        ↓
+ ↓
 Monitoring
-        ↓
+ ↓
 Closure
 ```
 
@@ -2254,15 +2254,15 @@ For rejection:
 
 ```text
 Review
-  ↓
+ ↓
 Rejected
-  ↓
+ ↓
 Analyze
-  ↓
+ ↓
 Fix
-  ↓
+ ↓
 Verify
-  ↓
+ ↓
 Resubmit
 ```
 
@@ -2437,19 +2437,19 @@ Example:
 
 ```yaml
 permissions:
-  store:
-    read:
-      app: true
-      releases: true
-      review: true
-      rollout: true
+ store:
+ read:
+ app: true
+ releases: true
+ review: true
+ rollout: true
 
-    write:
-      metadata: false
-      upload: false
-      submit: false
-      release: false
-      rollout: false
+ write:
+ metadata: false
+ upload: false
+ submit: false
+ release: false
+ rollout: false
 ```
 
 The actual permissions belong to the execution environment.
@@ -2516,11 +2516,11 @@ then verify the store.
 
 Current store requirements can change.
 
-The repository documentation explicitly requires official sources for volatile platform requirements and says not to guess store requirements. fileciteturn43file18L1-L20
+The repository documentation explicitly requires official sources for volatile platform requirements and says not to guess store requirements.
 
 For Apple, use current App Store Connect and App Review documentation.
 
-For Google Play, use current Google Play Console and Developer Program documentation. The repository's existing agent guidance points to official Apple and Google sources for review, policy, submission, and release status. fileciteturn44file1L1-L25
+For Google Play, use current Google Play Console and Developer Program documentation. The repository's existing agent guidance points to official Apple and Google sources for review, policy, submission, and release status.
 
 ---
 
@@ -2952,39 +2952,39 @@ Store Context is complete when:
 
 ```text
 Store identified
-        +
+ +
 Platform identified
-        +
+ +
 Application identified
-        +
+ +
 Version/build identified
-        +
+ +
 Artifact identified
-        +
+ +
 Submission state known
-        +
+ +
 Processing state known
-        +
+ +
 Review state known
-        +
+ +
 Policy state known where relevant
-        +
+ +
 Metadata state known
-        +
+ +
 Rollout state known
-        +
+ +
 Production state known
-        +
+ +
 Evidence recorded
-        +
+ +
 Unknowns visible
-        +
+ +
 Credentials protected
-        +
+ +
 Human approval boundary explicit
-        +
+ +
 Next action clear
-        ↓
+ ↓
 STORE CONTEXT READY
 ```
 
@@ -3151,13 +3151,13 @@ Recoverable operations
 
 # Source alignment
 
-This document follows the repository's existing context model: Release Context separates store state from build/release state, keeps platform-specific state explicit, treats unknown information as a real state, records evidence, and preserves human approval boundaries. fileciteturn43file3L1-L20
+This document follows the repository's existing context model: Release Context separates store state from build/release state, keeps platform-specific state explicit, treats unknown information as a real state, records evidence, and preserves human approval boundaries.
 
-The repository architecture also separates publishing from ongoing store operations. Publishing handles the submission process, while store operations cover listing, metadata, screenshots, localization, privacy information, review, rejection, and resubmission. fileciteturn44file16L1-L20
+The repository architecture also separates publishing from ongoing store operations. Publishing handles the submission process, while store operations cover listing, metadata, screenshots, localization, privacy information, review, rejection, and resubmission.
 
-The existing submission guidance requires the correct artifact, application, version, credentials, store target, verified artifact, human approval, upload, processing verification, and completion of the next store action before calling submission complete. fileciteturn44file3L1-L20
+The existing submission guidance requires the correct artifact, application, version, credentials, store target, verified artifact, human approval, upload, processing verification, and completion of the next store action before calling submission complete.
 
-The repository's AI guidance requires human approval for high-impact actions such as store submission and production release, and prohibits exposing real credentials or treating AI output as verified truth. fileciteturn44file18L1-L20
+The repository's AI guidance requires human approval for high-impact actions such as store submission and production release, and prohibits exposing real credentials or treating AI output as verified truth.
 
 ---
 

@@ -98,7 +98,7 @@ App Store Connect manages internal and external beta testing via TestFlight:
 
 - [Apple Developer Handbook](apple-developer.md) - Program enrollment.
 - [Roles & Permissions Handbook](roles-and-permissions.md) - Permission matrices.
-- [Secret Protection](../../ai/security/secret-protection.md) - Masking keys.
+- [Secret Protection](../ai/security/secret-protection.md) - Masking keys.
 
 ---
 

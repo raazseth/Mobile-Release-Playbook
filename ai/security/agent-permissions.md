@@ -170,7 +170,7 @@ If an agent process attempts to violate sandbox boundaries (e.g., executing a fo
 ### Signing & Credentials
 
 - [Signing Overview](../../signing/README.md) - Certificate and keystore mechanics.
-- [CI Secrets](../../signing/ci-secrets.md) - Secure secret storage in build pipelines.
+- [CI Secret Management](../../signing/security/ci-secrets.md) - Secure handling of secrets in CI/CD pipelines.
 
 ---
 

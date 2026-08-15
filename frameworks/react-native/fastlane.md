@@ -43,7 +43,7 @@ testing/
 release-engineering/
 ```
 
-The current fastlane documentation describes fastlane as a tool for automating beta deployments and releases for iOS and Android. Its React Native documentation points developers to the general iOS/Android workflows because fastlane does not maintain a separate full React Native release implementation. citehttps://docs.fastlane.tools/ citehttps://docs.fastlane.tools/getting-started/cross-platform/react-native/
+The current fastlane documentation describes fastlane as a tool for automating beta deployments and releases for iOS and Android. Its React Native documentation points developers to the general iOS/Android workflows because fastlane does not maintain a separate full React Native release implementation. citehttps://docs.fastlane.tools/ citehttps://docs.fastlane.tools/getting-started/cross-platform/react-native/
 
 ---
 
@@ -226,7 +226,7 @@ Add other files only when they provide real value.
 
 # 5. Install Fastlane
 
-Fastlane's current setup documentation recommends using Bundler with a `Gemfile` so the project pins its Fastlane dependency and its Ruby dependencies. citehttps://docs.fastlane.tools/getting-started/android/setup/
+Fastlane's current setup documentation recommends using Bundler with a `Gemfile` so the project pins its Fastlane dependency and its Ruby dependencies. citehttps://docs.fastlane.tools/getting-started/android/setup/
 
 Create:
 
@@ -504,7 +504,7 @@ Fastlane can automate the execution.
 
 It should not remove the approval boundary.
 
-The repository architecture explicitly requires human approval for high-impact release actions. citeturn29file8
+The repository architecture explicitly requires human approval for high-impact release actions.
 
 ---
 
@@ -522,7 +522,7 @@ AAB
 Google Play
 ```
 
-Fastlane delegates Android builds to Gradle and can upload the resulting artifact to Google Play. citehttps://docs.fastlane.tools/getting-started/android/release-deployment/
+Fastlane delegates Android builds to Gradle and can upload the resulting artifact to Google Play. citehttps://docs.fastlane.tools/getting-started/android/release-deployment/
 
 Example:
 
@@ -560,7 +560,7 @@ For Google Play production workflows, the Android artifact is normally:
 .aab
 ```
 
-Fastlane's `upload_to_play_store` / `supply` supports uploading Android App Bundles. citehttps://docs.fastlane.tools/actions/supply/
+Fastlane's `upload_to_play_store` / `supply` supports uploading Android App Bundles. citehttps://docs.fastlane.tools/actions/supply/
 
 Example:
 
@@ -608,7 +608,7 @@ Validation
 Production
 ```
 
-For gradual rollout, Fastlane's `upload_to_play_store` supports rollout configuration. citehttps://docs.fastlane.tools/actions/supply/
+For gradual rollout, Fastlane's `upload_to_play_store` supports rollout configuration. citehttps://docs.fastlane.tools/actions/supply/
 
 Example:
 
@@ -649,7 +649,7 @@ fastlane/
         └── ...
 ```
 
-Fastlane documents `supply init` for downloading existing metadata and `supply` for uploading local metadata. citehttps://docs.fastlane.tools/actions/supply/
+Fastlane documents `supply init` for downloading existing metadata and `supply` for uploading local metadata. citehttps://docs.fastlane.tools/actions/supply/
 
 Treat store metadata as release content.
 
@@ -675,7 +675,7 @@ Play Console access
 Fastlane
 ```
 
-Fastlane documents service-account configuration for `supply`. citehttps://docs.fastlane.tools/getting-started/android/setup/
+Fastlane documents service-account configuration for `supply`. citehttps://docs.fastlane.tools/getting-started/android/setup/
 
 Do not commit the service-account JSON key.
 
@@ -782,7 +782,7 @@ IPA
 TestFlight / App Store Connect
 ```
 
-Fastlane's iOS workflow uses `build_app` to create the IPA and `upload_to_testflight` or `deliver` to distribute it. citehttps://docs.fastlane.tools/getting-started/ios/beta-deployment/
+Fastlane's iOS workflow uses `build_app` to create the IPA and `upload_to_testflight` or `deliver` to distribute it. citehttps://docs.fastlane.tools/getting-started/ios/beta-deployment/
 
 Example:
 
@@ -851,7 +851,7 @@ cert
 sigh
 ```
 
-`match` is commonly used to synchronize signing certificates and provisioning profiles across developers and CI. Fastlane's current documentation supports API-key authentication for `match` as well. citehttps://docs.fastlane.tools/actions/match/
+`match` is commonly used to synchronize signing certificates and provisioning profiles across developers and CI. Fastlane's current documentation supports API-key authentication for `match` as well. citehttps://docs.fastlane.tools/actions/match/
 
 A typical workflow is:
 
@@ -905,7 +905,7 @@ How are they recovered?
 How are they rotated?
 ```
 
-Fastlane documents multiple storage modes for `match`, including Git and cloud storage options. citehttps://docs.fastlane.tools/actions/match/
+Fastlane documents multiple storage modes for `match`, including Git and cloud storage options. citehttps://docs.fastlane.tools/actions/match/
 
 ---
 
@@ -964,7 +964,7 @@ match
 precheck
 ```
 
-with some differences between tools. citehttps://docs.fastlane.tools/app-store-connect-api/
+with some differences between tools. citehttps://docs.fastlane.tools/app-store-connect-api/
 
 Prefer API keys for CI when the required action supports them.
 
@@ -986,7 +986,7 @@ Do not hard-code real credentials.
 
 The `.p8` private key is sensitive.
 
-Fastlane's current documentation notes that the downloaded `.p8` key cannot be downloaded again after the relevant page is refreshed, so protect the original securely. citehttps://docs.fastlane.tools/app-store-connect-api/
+Fastlane's current documentation notes that the downloaded `.p8` key cannot be downloaded again after the relevant page is refreshed, so protect the original securely. citehttps://docs.fastlane.tools/app-store-connect-api/
 
 ---
 
@@ -1019,7 +1019,7 @@ lane :beta do
 end
 ```
 
-Fastlane's current documentation supports API-key authentication for TestFlight uploads. citehttps://docs.fastlane.tools/actions/pilot/
+Fastlane's current documentation supports API-key authentication for TestFlight uploads. citehttps://docs.fastlane.tools/actions/pilot/
 
 ---
 
@@ -1076,7 +1076,7 @@ App previews
 Binary
 ```
 
-and can submit the app for review. citehttps://docs.fastlane.tools/actions/appstore/
+and can submit the app for review. citehttps://docs.fastlane.tools/actions/appstore/
 
 Example:
 
@@ -1169,7 +1169,7 @@ Review generated or AI-written metadata before publishing.
 
 Fastlane supports automated screenshot workflows.
 
-For Android, `screengrab` can generate screenshots that can then be uploaded through `supply`. citehttps://docs.fastlane.tools/getting-started/android/screenshots/
+For Android, `screengrab` can generate screenshots that can then be uploaded through `supply`. citehttps://docs.fastlane.tools/getting-started/android/screenshots/
 
 For iOS, Fastlane provides screenshot automation through its screenshot tooling.
 
@@ -1202,7 +1202,7 @@ Developer review
 Store release notes
 ```
 
-Fastlane documents `changelog_from_git_commits` for generating changelog content from Git history. citehttps://docs.fastlane.tools/getting-started/android/beta-deployment/
+Fastlane documents `changelog_from_git_commits` for generating changelog content from Git history. citehttps://docs.fastlane.tools/getting-started/android/beta-deployment/
 
 AI can also draft release notes, but the final content should be reviewed.
 
@@ -1222,7 +1222,7 @@ lane :test do
 end
 ```
 
-Fastlane's Android testing documentation shows this pattern and supports running Fastlane lanes in CI. citehttps://docs.fastlane.tools/getting-started/android/running-tests/
+Fastlane's Android testing documentation shows this pattern and supports running Fastlane lanes in CI. citehttps://docs.fastlane.tools/getting-started/android/running-tests/
 
 For React Native, keep actual test ownership in:
 
@@ -1474,7 +1474,7 @@ Observable
 Recoverable
 ```
 
-The repository's production rules require staged deployments, rollback capability, deployment verification, monitoring hooks, and environment isolation. citeturn29file0
+The repository's production rules require staged deployments, rollback capability, deployment verification, monitoring hooks, and environment isolation.
 
 ---
 
@@ -1919,7 +1919,7 @@ Useful diagnostic:
 bundle exec fastlane match appstore --verbose
 ```
 
-Fastlane's current documentation recommends `--verbose` for more detailed `match` output. citehttps://docs.fastlane.tools/actions/match/
+Fastlane's current documentation recommends `--verbose` for more detailed `match` output. citehttps://docs.fastlane.tools/actions/match/
 
 Never paste the verbose output into a public issue without reviewing it for sensitive information.
 
@@ -1940,7 +1940,7 @@ App access
 Environment variables
 ```
 
-Fastlane documents the App Store Connect API key as the preferred authentication method where available. citehttps://docs.fastlane.tools/app-store-connect-api/
+Fastlane documents the App Store Connect API key as the preferred authentication method where available. citehttps://docs.fastlane.tools/app-store-connect-api/
 
 Do not generate a new key until you know the existing key is invalid or insufficient.
 
@@ -1966,7 +1966,7 @@ Compliance
 Missing metadata
 ```
 
-Fastlane's `pilot` can upload builds and manage TestFlight information, but App Store Connect processing remains part of the platform workflow. citehttps://docs.fastlane.tools/actions/pilot/
+Fastlane's `pilot` can upload builds and manage TestFlight information, but App Store Connect processing remains part of the platform workflow. citehttps://docs.fastlane.tools/actions/pilot/
 
 ---
 
@@ -2441,7 +2441,7 @@ Release evidence
 
 Do not depend on a developer's terminal history as the release audit trail.
 
-The production system requires deployment visibility and useful failure/recovery information. citeturn29file5
+The production system requires deployment visibility and useful failure/recovery information.
 
 ---
 
@@ -2514,7 +2514,7 @@ Human approval
 Fastlane submission
 ```
 
-This matches the repository's broader AI model: AI assists with inspection and preparation, while high-impact release actions remain bounded and human-controlled. citeturn29file15
+This matches the repository's broader AI model: AI assists with inspection and preparation, while high-impact release actions remain bounded and human-controlled.
 
 ---
 

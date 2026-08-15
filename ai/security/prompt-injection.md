@@ -152,7 +152,7 @@ If an untrusted input contains an explicit prompt injection attempt (e.g., text 
 - [ ] **XML Delimiters Enforced**: Untrusted repository content (commits, PRs, logs) is enclosed in explicit `<untrusted_input>` blocks.
 - [ ] **Prompt Shielding Present**: Prompts contain explicit system directives instructing the model to treat input text as data, not instructions.
 - [ ] **Dual-LLM Isolation Active**: High-risk workflows separate untrusted reading from privileged tool execution.
-- [ ] **No Self-Approval**: Prompt injection text cannot trigger tool execution or override [Human Approval](human-approval.md) requirements.
+- [ ] **No Self-Approval**: Prompt injection text cannot trigger tool execution or override [Human Approval Boundaries](../orchestration/human-approval.md) - Rules for human approval gates.
 
 ---
 

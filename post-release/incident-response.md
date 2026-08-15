@@ -46,14 +46,14 @@ This guide is **not**:
 # 3. Operational Verification Checklist
 
 - [ ] **PagerDuty Escalation Active**: PagerDuty configured to alert on-call engineer for P0 crash spikes.
-- [ ] **Incident Template Ready**: Post-mortem template ([templates/incident-report.md](../../templates/incident-report.md)) available.
+- [ ] **Incident Template Ready**: Post-mortem template ([templates/incident-report.md](../templates/incident-report.md)) available.
 - [ ] **5 Whys Conducted**: Blameless 5 Whys post-mortem conducted within 48 hours of P0 incident resolution.
 
 ---
 
 # 4. Official Sources
 
-- Incident Report Template: [../../templates/incident-report.md](../../templates/incident-report.md)
+- Incident Report Template: [../../templates/incident-report.md](../templates/incident-report.md)
 
 ---
 

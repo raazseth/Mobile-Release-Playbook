@@ -118,7 +118,7 @@ If this is a personal Google Play developer account created after **November 13,
 - [ ] Confirm at least 12 testers are opted in continuously for at least 14 days where the requirement applies.
 - [ ] Complete the production-access application when eligible.
 
-Google's current guidance states that this requirement applies to new personal developer accounts created after November 13, 2023. citeturn0search1
+Google's current guidance states that this requirement applies to new personal developer accounts created after November 13, 2023.
 
 ### Device verification
 
@@ -146,7 +146,7 @@ Create the application record on each store.
 - [ ] Store metadata fields are understood.
 - [ ] App access information is prepared if reviewers need access.
 
-Apple requires an app record to exist in App Store Connect before a build can be uploaded. citeturn0search10
+Apple requires an app record to exist in App Store Connect before a build can be uploaded.
 
 ### Google Play Console
 
@@ -485,7 +485,7 @@ Do not guess store privacy declarations. Base them on the actual application beh
 - [ ] Critical flows work through Google Play testing.
 - [ ] Required testing requirements are satisfied.
 
-For applicable new personal Google Play developer accounts created after November 13, 2023, Google currently requires a closed test with at least 12 opted-in testers for 14 continuous days before production access can be requested. citeturn0search1
+For applicable new personal Google Play developer accounts created after November 13, 2023, Google currently requires a closed test with at least 12 opted-in testers for 14 continuous days before production access can be requested.
 
 ---
 

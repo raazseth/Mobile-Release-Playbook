@@ -21,16 +21,16 @@ Mobile frameworks provide the core JavaScript runtime, native bridge architectur
 │             MOBILE FRAMEWORKS ARCHITECTURE             │
 │                                                        │
 │  - [expo/](expo/README.md)                            │
-│    Expo SDK 51+, EAS Build, Config Plugins, Prebuild,  │
-│    Expo Modules API, and OTA updates.                  │
+│    Expo SDK 51+, EAS Build, Config, Credentials,      │
+│    Development Builds, Submit, and Updates.            │
 │                                                        │
 │  - [react-native/](react-native/README.md)            │
-│    React Native Core, New Architecture (Fabric/Turbo), │
-│    Hermes JS engine, CocoaPods, and Gradle native tool.│
+│    React Native Core, Android/iOS releases, Hermes,   │
+│    Fastlane automation, Signing, & Debugging.          │
 │                                                        │
 │  - [community/](community/README.md)                  │
 │    Third-party community module evaluation, license    │
-│    compliance, native autolinking, and native patches. │
+│    compliance, and framework addition procedures.      │
 └────────────────────────────────────────────────────────┘
 ```
 
@@ -41,9 +41,9 @@ Mobile frameworks provide the core JavaScript runtime, native bridge architectur
 | Framework Subsystem | Primary Scope & Architecture | Key Guides & Tools |
 |---|---|---|
 | **[README.md](README.md)** | Subsystem parent index and framework architecture. | High-level framework overview. |
-| **[expo/](expo/README.md)** | Expo SDK, Config Plugins, EAS tooling, Prebuild workflows. | [config-plugins.md](expo/config-plugins.md), [eas-build.md](expo/eas-build.md), [prebuild.md](expo/prebuild.md). |
-| **[react-native/](react-native/README.md)** | React Native Core, New Architecture, Hermes, CocoaPods, Gradle. | [new-architecture.md](react-native/new-architecture.md), [hermes.md](react-native/hermes.md), [cocoapods.md](react-native/cocoapods.md). |
-| **[community/](community/README.md)** | Third-party community modules, autolinking, patch-package. | [module-evaluation.md](community/module-evaluation.md), [autolinking.md](community/autolinking.md). |
+| **[expo/](expo/README.md)** | Expo SDK, App Config, EAS Tooling, Credentials, Submissions. | [app-config.md](expo/app-config.md), [build.md](expo/build.md), [eas.md](expo/eas.md), [submit.md](expo/submit.md), [updates.md](expo/updates.md). |
+| **[react-native/](react-native/README.md)** | React Native Core, iOS & Android releases, Fastlane, Signing. | [android-release.md](react-native/android-release.md), [ios-release.md](react-native/ios-release.md), [fastlane.md](react-native/fastlane.md), [signing.md](react-native/signing.md). |
+| **[community/](community/README.md)** | Third-party community modules & framework integration. | [adding-a-framework.md](community/adding-a-framework.md). |
 
 ---
 

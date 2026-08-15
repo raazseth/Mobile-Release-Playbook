@@ -54,7 +54,7 @@ If using Expo:
 - [ ] Required native configuration is present.
 - [ ] Production credentials are configured.
 
-Expo's current documentation recommends using a production build specifically prepared for app-store distribution. EAS Build supports production builds for both Android and iOS. citeturn1search1turn1search4
+Expo's current documentation recommends using a production build specifically prepared for app-store distribution. EAS Build supports production builds for both Android and iOS.
 
 ---
 
@@ -129,7 +129,7 @@ Verify current requirements before submission.
 - [ ] Current privacy requirements are satisfied.
 - [ ] Current App Review requirements have been reviewed.
 
-Apple currently states that, since April 28, 2026, apps uploaded to App Store Connect must be built with Xcode 26 or later using an SDK for iOS 26, iPadOS 26, tvOS 26, visionOS 26, or watchOS 26, as applicable. Verify this requirement again when releasing because Apple can update it. citeturn0search10
+Apple currently states that, since April 28, 2026, apps uploaded to App Store Connect must be built with Xcode 26 or later using an SDK for iOS 26, iPadOS 26, tvOS 26, visionOS 26, or watchOS 26, as applicable. Verify this requirement again when releasing because Apple can update it.
 
 ### Android
 
@@ -140,7 +140,7 @@ Apple currently states that, since April 28, 2026, apps uploaded to App Store Co
 - [ ] Current content/target-audience requirements have been checked.
 - [ ] Current app-signing requirements have been checked.
 
-Starting August 31, 2026, new apps and app updates submitted to Google Play must target Android 16 (API level 36) or higher, with exceptions for certain form factors. citeturn1search0
+Starting August 31, 2026, new apps and app updates submitted to Google Play must target Android 16 (API level 36) or higher, with exceptions for certain form factors.
 
 Do not treat these dates or requirements as permanent. Re-check the official source before each release.
 
@@ -213,7 +213,7 @@ or a combined build:
 eas build --platform all
 ```
 
-These commands are current Expo documentation examples as of July 2026. citeturn1search1
+These commands are current Expo documentation examples as of July 2026.
 
 ---
 
@@ -434,7 +434,7 @@ If reviewers need access:
 - [ ] Reviewers can reach the important functionality.
 - [ ] Any region/device/account limitations are explained.
 
-Apple explicitly asks developers to provide required settings, user account information, or special instructions in App Review Information when the app needs them. Missing information can delay review or prevent the app from passing review. citeturn0search1
+Apple explicitly asks developers to provide required settings, user account information, or special instructions in App Review Information when the app needs them. Missing information can delay review or prevent the app from passing review.
 
 ---
 
@@ -455,9 +455,9 @@ Apple explicitly asks developers to provide required settings, user account info
 - [ ] Required closed testing requirements are satisfied where applicable.
 - [ ] Play Console pre-launch report has been reviewed where available.
 
-Google Play can automatically generate pre-launch reports after app bundles/APKs are uploaded, checking areas including stability, compatibility, performance, and accessibility. citeturn0search13
+Google Play can automatically generate pre-launch reports after app bundles/APKs are uploaded, checking areas including stability, compatibility, performance, and accessibility.
 
-For new personal developer accounts created after November 13, 2023, Google currently requires a closed test with at least 12 testers opted in continuously for at least 14 days before production access can be requested. citeturn0search7
+For new personal developer accounts created after November 13, 2023, Google currently requires a closed test with at least 12 testers opted in continuously for at least 14 days before production access can be requested.
 
 ---
 
@@ -474,7 +474,7 @@ Before submission:
 - [ ] Required declarations are complete.
 - [ ] Submission has been reviewed by a human.
 
-Apple's current workflow requires required metadata and the correct build to be selected before adding the app version for review. Adding it for review and actually submitting it are separate steps. citeturn0search2
+Apple's current workflow requires required metadata and the correct build to be selected before adding the app version for review. Adding it for review and actually submitting it are separate steps.
 
 ### Android
 
@@ -487,7 +487,7 @@ Before submission:
 - [ ] Store listing is complete.
 - [ ] Release configuration has been reviewed by a human.
 
-Google's current release workflow requires the release artifact and release information to be prepared before moving the release forward. citeturn0search9
+Google's current release workflow requires the release artifact and release information to be prepared before moving the release forward.
 
 ---
 

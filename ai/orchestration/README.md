@@ -32,7 +32,8 @@ Orchestration manages context passing, subagent dispatching, and state synchroni
 
 # 2. Key Orchestration Handbooks
 
-- [orchestrator.md](orchestrator.md) - Master orchestrator architecture.
+- [agent-workflows.md](agent-workflows.md) - Agent workflow chaining architecture.
+- [subagents.md](subagents.md) - Subagent delegation & context isolation.
 
 ---
 

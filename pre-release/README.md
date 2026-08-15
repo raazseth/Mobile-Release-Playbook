@@ -92,9 +92,9 @@ All pre-release audit implementations in this playbook must adhere to five manda
 
 # 4. Related Repository Documentation
 
-- [Release Readiness Workflow](../../ai/workflows/release-audit.md) - AI release audit.
-- [Release Preparation Workflow](../../ai/workflows/release-preparation.md) - Release preparation.
-- [Master Release Checklist](../../templates/release-checklist.md) - Checklist template.
+- [Release Readiness Workflow](../ai/workflows/release-audit.md) - AI release audit.
+- [Release Preparation Workflow](../ai/workflows/release-preparation.md) - Release preparation.
+- [Master Release Checklist](../templates/release-checklist.md) - Checklist template.
 
 ---
 

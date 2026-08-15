@@ -141,21 +141,21 @@ Minimum information:
 
 ```yaml
 repository:
-  name:
-  purpose:
-  type:
-  owner:
-  default_branch:
+ name:
+ purpose:
+ type:
+ owner:
+ default_branch:
 ```
 
 Example:
 
 ```yaml
 repository:
-  name: "mobile-release-playbook"
-  purpose: "Open-source mobile release engineering playbook"
-  type: "documentation repository"
-  default_branch: "main"
+ name: "mobile-release-playbook"
+ purpose: "Open-source mobile release engineering playbook"
+ type: "documentation repository"
+ default_branch: "main"
 ```
 
 The repository purpose matters because it limits what an agent should try to build.
@@ -236,11 +236,11 @@ Use:
 
 ```text
 Core release concept
-        ↓
+ ↓
 Framework-independent documentation
 
 Framework-specific behavior
-        ↓
+ ↓
 frameworks/<framework>/
 ```
 
@@ -563,26 +563,26 @@ For code repositories, collect:
 
 ```yaml
 implementation:
-  source_directories:
-  entry_points:
-  modules:
-  shared_components:
-  services:
-  data_access:
-  tests:
-  scripts:
+ source_directories:
+ entry_points:
+ modules:
+ shared_components:
+ services:
+ data_access:
+ tests:
+ scripts:
 ```
 
 For documentation repositories, collect:
 
 ```yaml
 implementation:
-  documentation_directories:
-  workflows:
-  scripts:
-  templates:
-  source_indexes:
-  governance:
+ documentation_directories:
+ workflows:
+ scripts:
+ templates:
+ source_indexes:
+ governance:
 ```
 
 Do not invent directories just because they are common in other projects.
@@ -597,13 +597,13 @@ Example:
 
 ```yaml
 stack:
-  languages:
-  frameworks:
-  package_manager:
-  build_tools:
-  test_tools:
-  ci:
-  deployment:
+ languages:
+ frameworks:
+ package_manager:
+ build_tools:
+ test_tools:
+ ci:
+ deployment:
 ```
 
 For this repository, framework-specific release tooling can include:
@@ -702,12 +702,12 @@ Example:
 
 ```yaml
 testing:
-  unit:
-    command: "<verified command>"
-  e2e:
-    command: "<verified command>"
-  lint:
-    command: "<verified command>"
+ unit:
+ command: "<verified command>"
+ e2e:
+ command: "<verified command>"
+ lint:
+ command: "<verified command>"
 ```
 
 Never invent commands.
@@ -722,24 +722,24 @@ Track:
 
 ```yaml
 git:
-  branch:
-  commit:
-  status:
-  staged_files:
-  modified_files:
-  untracked_files:
-  recent_commits:
+ branch:
+ commit:
+ status:
+ staged_files:
+ modified_files:
+ untracked_files:
+ recent_commits:
 ```
 
 Example:
 
 ```yaml
 git:
-  branch: "main"
-  commit: "abc1234"
-  status: "clean"
-  modified_files: []
-  untracked_files: []
+ branch: "main"
+ commit: "abc1234"
+ status: "clean"
+ modified_files: []
+ untracked_files: []
 ```
 
 If the working tree is dirty:
@@ -766,14 +766,14 @@ Example:
 
 ```yaml
 changes:
-  current_task:
-    - "ai/context/repository-context.md"
+ current_task:
+ - "ai/context/repository-context.md"
 
-  pre_existing:
-    - "CHANGELOG.md"
+ pre_existing:
+ - "CHANGELOG.md"
 
-  untracked:
-    - "notes.md"
+ untracked:
+ - "notes.md"
 ```
 
 An agent must not overwrite pre-existing work simply because it appears in the working tree.
@@ -788,15 +788,15 @@ Build a focused set:
 
 ```yaml
 relevant_files:
-  required:
-    - "architecture.md"
-    - "governance/documentation-style.md"
+ required:
+ - "architecture.md"
+ - "governance/documentation-style.md"
 
-  task_specific:
-    - "ai/context/release-context.md"
+ task_specific:
+ - "ai/context/release-context.md"
 
-  references:
-    - "ai/agents/release-manager.md"
+ references:
+ - "ai/agents/release-manager.md"
 ```
 
 The selection should be based on the task.
@@ -984,10 +984,10 @@ Record:
 
 ```yaml
 dependencies:
-  changed:
-  relevant:
-  security_review:
-  compatibility_risk:
+ changed:
+ relevant:
+ security_review:
+ compatibility_risk:
 ```
 
 Do not include the entire dependency tree unless required.
@@ -1016,12 +1016,12 @@ Instead record:
 
 ```yaml
 secrets:
-  configured: true
-  storage: "managed secret store"
-  exposed_to_agent: false
+ configured: true
+ storage: "managed secret store"
+ exposed_to_agent: false
 ```
 
-The repository security model requires secrets to stay out of source code, Git history, bundles, logs, and public configuration. fileciteturn42file1L1-L20
+The repository security model requires secrets to stay out of source code, Git history, bundles, logs, and public configuration.
 
 ---
 
@@ -1072,22 +1072,22 @@ Example:
 
 ```yaml
 permissions:
-  repository:
-    read: true
-    write: false
+ repository:
+ read: true
+ write: false
 
-  git:
-    read: true
-    commit: false
-    push: false
+ git:
+ read: true
+ commit: false
+ push: false
 
-  ci:
-    read: true
-    trigger: false
+ ci:
+ read: true
+ trigger: false
 
-  production:
-    read: false
-    write: false
+ production:
+ read: false
+ write: false
 ```
 
 Repository Context informs the agent.
@@ -1169,15 +1169,15 @@ Example:
 
 ```yaml
 task:
-  goal: "Create ai/context/repository-context.md"
-  type: "documentation"
-  target:
-    - "ai/context/repository-context.md"
+ goal: "Create ai/context/repository-context.md"
+ type: "documentation"
+ target:
+ - "ai/context/repository-context.md"
 
-  constraints:
-    - "Follow repository documentation rules"
-    - "Do not duplicate release-context.md"
-    - "Keep core concepts framework-independent"
+ constraints:
+ - "Follow repository documentation rules"
+ - "Do not duplicate release-context.md"
+ - "Keep core concepts framework-independent"
 ```
 
 The task should be narrow enough that an agent knows what success means.
@@ -1200,17 +1200,17 @@ Example:
 
 ```yaml
 task:
-  in_scope:
-    - "Document repository context for AI workflows"
+ in_scope:
+ - "Document repository context for AI workflows"
 
-  out_of_scope:
-    - "Implement repository indexing service"
-    - "Create backend API"
+ out_of_scope:
+ - "Implement repository indexing service"
+ - "Create backend API"
 
-  validation:
-    - "Check links"
-    - "Check terminology"
-    - "Check repository placement"
+ validation:
+ - "Check links"
+ - "Check terminology"
+ - "Check repository placement"
 ```
 
 This prevents scope drift.
@@ -1253,79 +1253,79 @@ A practical machine-readable form:
 
 ```yaml
 context_schema:
-  version: "1"
+ version: "1"
 
 repository:
-  name:
-  purpose:
-  type:
-  default_branch:
+ name:
+ purpose:
+ type:
+ default_branch:
 
 scope:
-  in:
-  out:
+ in:
+ out:
 
 structure:
-  root:
-  directories:
-  important_files:
+ root:
+ directories:
+ important_files:
 
 stack:
-  languages:
-  frameworks:
-  package_manager:
-  build_tools:
-  test_tools:
-  ci:
+ languages:
+ frameworks:
+ package_manager:
+ build_tools:
+ test_tools:
+ ci:
 
 architecture:
-  authority:
-  patterns:
-  boundaries:
-  prohibited_complexity:
+ authority:
+ patterns:
+ boundaries:
+ prohibited_complexity:
 
 governance:
-  documentation:
-  security:
-  source_policy:
-  contribution:
+ documentation:
+ security:
+ source_policy:
+ contribution:
 
 git:
-  branch:
-  commit:
-  status:
-  modified:
-  staged:
-  untracked:
+ branch:
+ commit:
+ status:
+ modified:
+ staged:
+ untracked:
 
 task:
-  goal:
-  type:
-  in_scope:
-  out_of_scope:
-  validation:
+ goal:
+ type:
+ in_scope:
+ out_of_scope:
+ validation:
 
 relevant_files:
-  required:
-  task_specific:
-  references:
+ required:
+ task_specific:
+ references:
 
 dependencies:
-  changed:
-  relevant:
+ changed:
+ relevant:
 
 security:
-  constraints:
-  secrets_exposed_to_agent: false
+ constraints:
+ secrets_exposed_to_agent: false
 
 permissions:
-  repository:
-    read:
-    write:
-  git:
-    read:
-    commit:
-    push:
+ repository:
+ read:
+ write:
+ git:
+ read:
+ commit:
+ push:
 
 unknowns:
 
@@ -1342,78 +1342,78 @@ Do not introduce a database or service merely to store this information.
 
 ```yaml
 context_schema:
-  version: "1"
+ version: "1"
 
 repository:
-  name: "mobile-release-playbook"
-  purpose: "Open-source mobile release engineering playbook"
-  type: "documentation and workflow repository"
-  default_branch: "main"
+ name: "mobile-release-playbook"
+ purpose: "Open-source mobile release engineering playbook"
+ type: "documentation and workflow repository"
+ default_branch: "main"
 
 scope:
-  in:
-    - "Mobile release engineering"
-    - "Testing"
-    - "Signing"
-    - "Publishing"
-    - "Store operations"
-    - "Release automation"
-    - "AI-assisted release workflows"
-    - "Framework-specific release guidance"
+ in:
+ - "Mobile release engineering"
+ - "Testing"
+ - "Signing"
+ - "Publishing"
+ - "Store operations"
+ - "Release automation"
+ - "AI-assisted release workflows"
+ - "Framework-specific release guidance"
 
-  out:
-    - "Mobile development tutorials"
-    - "Release-management SaaS"
-    - "Backend infrastructure"
-    - "Unnecessary DevOps infrastructure"
+ out:
+ - "Mobile development tutorials"
+ - "Release-management SaaS"
+ - "Backend infrastructure"
+ - "Unnecessary DevOps infrastructure"
 
 structure:
-  root:
-    - "foundations/"
-    - "signing/"
-    - "testing/"
-    - "publishing/"
-    - "release-engineering/"
-    - "post-release/"
-    - "ai/"
-    - "frameworks/"
-    - "troubleshooting/"
-    - "checklists/"
-    - "templates/"
-    - "scripts/"
-    - "sources/"
-    - "governance/"
+ root:
+ - "foundations/"
+ - "signing/"
+ - "testing/"
+ - "publishing/"
+ - "release-engineering/"
+ - "post-release/"
+ - "ai/"
+ - "frameworks/"
+ - "troubleshooting/"
+ - "checklists/"
+ - "templates/"
+ - "scripts/"
+ - "sources/"
+ - "governance/"
 
 architecture:
-  authority:
-    - "Current repository implementation"
-    - "Repository architecture"
-    - "Governance rules"
-    - "Official platform documentation"
+ authority:
+ - "Current repository implementation"
+ - "Repository architecture"
+ - "Governance rules"
+ - "Official platform documentation"
 
-  patterns:
-    - "Documentation-first"
-    - "Small scripts"
-    - "Reusable AI workflows"
-    - "Community-extensible framework layer"
+ patterns:
+ - "Documentation-first"
+ - "Small scripts"
+ - "Reusable AI workflows"
+ - "Community-extensible framework layer"
 
-  prohibited_complexity:
-    - "Unnecessary backend"
-    - "Microservices"
-    - "Kubernetes"
-    - "API gateway"
-    - "Release-management SaaS"
+ prohibited_complexity:
+ - "Unnecessary backend"
+ - "Microservices"
+ - "Kubernetes"
+ - "API gateway"
+ - "Release-management SaaS"
 
 frameworks:
-  first_class:
-    - "Expo"
-    - "React Native"
+ first_class:
+ - "Expo"
+ - "React Native"
 
-  community:
-    - "Flutter"
-    - "Native iOS"
-    - "Native Android"
-    - "Other frameworks"
+ community:
+ - "Flutter"
+ - "Native iOS"
+ - "Native Android"
+ - "Other frameworks"
 ```
 
 ---
@@ -1424,39 +1424,39 @@ For an application repository, the structure may instead look like:
 
 ```yaml
 repository:
-  name: "example-mobile-app"
-  purpose: "Mobile application"
-  type: "application"
+ name: "example-mobile-app"
+ purpose: "Mobile application"
+ type: "application"
 
 stack:
-  languages:
-    - "TypeScript"
+ languages:
+ - "TypeScript"
 
-  frameworks:
-    - "React Native"
-    - "Expo"
+ frameworks:
+ - "React Native"
+ - "Expo"
 
-  package_manager:
-    - "pnpm"
+ package_manager:
+ - "pnpm"
 
-  build_tools:
-    - "EAS"
+ build_tools:
+ - "EAS"
 
-  test_tools:
-    - "Jest"
-    - "Detox"
+ test_tools:
+ - "Jest"
+ - "Detox"
 
-  ci:
-    - "GitHub Actions"
+ ci:
+ - "GitHub Actions"
 
 architecture:
-  source_directories:
-    - "src/"
-  tests:
-    - "tests/"
-  configuration:
-    - "app.config.ts"
-    - "eas.json"
+ source_directories:
+ - "src/"
+ tests:
+ - "tests/"
+ configuration:
+ - "app.config.ts"
+ - "eas.json"
 ```
 
 The agent must inspect the actual repository before filling these values.
@@ -1467,18 +1467,18 @@ The agent must inspect the actual repository before filling these values.
 
 ```yaml
 git:
-  branch: "main"
-  commit: "abc1234"
-  status: "dirty"
+ branch: "main"
+ commit: "abc1234"
+ status: "dirty"
 
-  modified:
-    - "src/auth/session.ts"
+ modified:
+ - "src/auth/session.ts"
 
-  untracked:
-    - "notes.md"
+ untracked:
+ - "notes.md"
 
 task:
-  goal: "Update release documentation"
+ goal: "Update release documentation"
 ```
 
 Agent rule:
@@ -1497,11 +1497,11 @@ If the agent cannot verify the stack:
 
 ```yaml
 stack:
-  frameworks:
-    status: "UNKNOWN"
+ frameworks:
+ status: "UNKNOWN"
 
 unknowns:
-  - "Framework could not be determined from available repository files."
+ - "Framework could not be determined from available repository files."
 ```
 
 Correct behavior:
@@ -1530,14 +1530,14 @@ Useful context:
 
 ```yaml
 relevant_files:
-  required:
-    - "frameworks/expo/build.md"
-    - "frameworks/expo/eas.md"
-    - "frameworks/expo/README.md"
+ required:
+ - "frameworks/expo/build.md"
+ - "frameworks/expo/eas.md"
+ - "frameworks/expo/README.md"
 
-  references:
-    - "foundations/mobile-release-lifecycle.md"
-    - "governance/documentation-style.md"
+ references:
+ - "foundations/mobile-release-lifecycle.md"
+ - "governance/documentation-style.md"
 ```
 
 Unnecessary:
@@ -1641,9 +1641,9 @@ Prefer:
 
 ```text
 Repository Context
-        ↓
+ ↓
 Release Context
-        ↓
+ ↓
 Agent-specific filtered context
 ```
 
@@ -1738,7 +1738,7 @@ Example:
 
 ```text
 Repository Context
-        ↓
+ ↓
 Security Agent Context
 ```
 
@@ -2013,33 +2013,33 @@ Repository Context is complete when:
 
 ```text
 Repository identified
-        +
+ +
 Purpose understood
-        +
+ +
 Scope understood
-        +
+ +
 Structure verified
-        +
+ +
 Architecture authority identified
-        +
+ +
 Stack verified
-        +
+ +
 Tooling verified
-        +
+ +
 Git state checked
-        +
+ +
 Current changes identified
-        +
+ +
 Relevant files selected
-        +
+ +
 Security constraints defined
-        +
+ +
 Unknowns visible
-        +
+ +
 Task explicit
-        +
+ +
 Validation defined
-        ↓
+ ↓
 REPOSITORY CONTEXT READY
 ```
 
@@ -2134,9 +2134,9 @@ Better:
 
 ```yaml
 api_key:
-  configured: true
-  source: "managed secret store"
-  exposed_to_agent: false
+ configured: true
+ source: "managed secret store"
+ exposed_to_agent: false
 ```
 
 ---

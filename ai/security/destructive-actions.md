@@ -45,7 +45,7 @@ Destructive actions are categorized into three risk levels:
 |---|---|---|---|---|
 | **Level 1: Severe** | **Workspace / Local Destruction** | Deleting uncommitted local source files, wiping local build caches (`rm -rf node_modules`), force-cleaning git working tree (`git clean -fdx`). | Moderate (Local work lost; recoverable if committed) | File path sandboxing & soft-delete backups. |
 | **Level 2: Major** | **Repository / CI Destruction** | Force-pushing remote branches (`git push --force`), deleting remote release tags, deleting CI pipeline secrets, modifying branch protection rules. | High (Requires git history repair or secret re-issuance) | Tool command blacklisting & repository protection rules. |
-| **Level 3: Catastrophic** | **Production & Platform Destruction** | Submitting production store binaries, publishing production OTA updates, revoking signing certificates, deleting store listings, wiping database tables. | Critical / Irreversible (Immediate impact on end-users or developer account status) | **STRICTLY BLOCKED**. Requires non-bypassable [Human Approval](human-approval.md). |
+| **Level 3: Catastrophic** | **Production & Platform Destruction** | Submitting production store binaries, publishing production OTA updates, revoking signing certificates, deleting store listings, wiping database tables. | Critical / Irreversible (Immediate impact on end-users or developer account status) | **STRICTLY BLOCKED**. Requires non-bypassable [Human Approval Boundaries](../orchestration/human-approval.md) - Rules for human intervention. |
 
 ---
 

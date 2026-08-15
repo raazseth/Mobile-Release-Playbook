@@ -149,13 +149,13 @@ Identify where trust changes:
 
 ```text
 Mobile App
-    ↓
+ ↓
 Public API
-    ↓
+ ↓
 Backend
-    ↓
+ ↓
 Database
-    ↓
+ ↓
 Third-party service
 ```
 
@@ -163,11 +163,11 @@ Also:
 
 ```text
 User input
-    ↓
+ ↓
 AI model
-    ↓
+ ↓
 Tool
-    ↓
+ ↓
 External system
 ```
 
@@ -794,8 +794,8 @@ Check APIs that accept objects directly:
 
 ```json
 {
-  "name": "Raj",
-  "role": "admin"
+ "name": "Raj",
+ "role": "admin"
 }
 ```
 
@@ -1704,15 +1704,15 @@ Use:
 
 ```text
 Model output
-    ↓
+ ↓
 Schema validation
-    ↓
+ ↓
 Authorization
-    ↓
+ ↓
 Policy checks
-    ↓
+ ↓
 Human approval when required
-    ↓
+ ↓
 Execution
 ```
 
@@ -1720,7 +1720,7 @@ Never:
 
 ```text
 Model output
-    ↓
+ ↓
 Direct execution
 ```
 
@@ -2327,21 +2327,21 @@ Recommended flow:
 
 ```text
 Release changes
-      ↓
+ ↓
 Release Auditor
-      ↓
+ ↓
 Security risk identified
-      ↓
+ ↓
 Security Auditor
-      ↓
+ ↓
 Findings
-      ↓
+ ↓
 Fix
-      ↓
+ ↓
 Security verification
-      ↓
+ ↓
 Release Auditor
-      ↓
+ ↓
 Human approval
 ```
 
@@ -2917,37 +2917,37 @@ A security review is complete when:
 
 ```text
 Assets identified
-        +
+ +
 Trust boundaries mapped
-        +
+ +
 Entry points reviewed
-        +
+ +
 Authentication reviewed
-        +
+ +
 Authorization reviewed
-        +
+ +
 Input/API security reviewed
-        +
+ +
 Data protection reviewed
-        +
+ +
 Secrets reviewed
-        +
+ +
 Mobile-specific risks reviewed
-        +
+ +
 Dependencies reviewed
-        +
+ +
 CI/CD reviewed
-        +
+ +
 AI reviewed where applicable
-        +
+ +
 Logging reviewed
-        +
+ +
 Security tests identified
-        +
+ +
 Incident readiness reviewed
-        +
+ +
 Residual risk documented
-        ↓
+ ↓
 SECURITY REVIEW COMPLETE
 ```
 
@@ -3307,13 +3307,13 @@ Safe release decisions
 
 This agent follows the repository's `SECURITY-SYSTEMS` guidance.
 
-The security system requires review of assets, trust boundaries, threat actors, authentication, authorization, input/API security, data protection, secrets, infrastructure, dependencies, AI security, detection, incident response, and residual risk. fileciteturn40file0L1-L20
+The security system requires review of assets, trust boundaries, threat actors, authentication, authorization, input/API security, data protection, secrets, infrastructure, dependencies, AI security, detection, incident response, and residual risk.
 
-It also requires server-side authorization, least privilege, explicit permission checks, and protection against client-side authorization assumptions. fileciteturn40file4L1-L20
+It also requires server-side authorization, least privilege, explicit permission checks, and protection against client-side authorization assumptions.
 
-The repository security guidance requires secrets to stay out of source code, Git history, frontend/mobile bundles, logs, and public configuration, with exposure handled through revoke, rotate, then investigate. fileciteturn40file3L1-L25
+The repository security guidance requires secrets to stay out of source code, Git history, frontend/mobile bundles, logs, and public configuration, with exposure handled through revoke, rotate, then investigate.
 
-For AI systems, the security model explicitly covers prompt injection, data leakage, tool abuse, unauthorized actions, excessive agency, sensitive context exposure, RAG poisoning, and cost abuse. Model output must be validated, tools must have permission boundaries, and high-impact actions should require human approval where appropriate. fileciteturn40file2L1-L25
+For AI systems, the security model explicitly covers prompt injection, data leakage, tool abuse, unauthorized actions, excessive agency, sensitive context exposure, RAG poisoning, and cost abuse. Model output must be validated, tools must have permission boundaries, and high-impact actions should require human approval where appropriate.
 
 ---
 

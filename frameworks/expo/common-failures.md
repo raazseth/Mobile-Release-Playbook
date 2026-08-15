@@ -19,7 +19,7 @@ The first rule is simple:
 
 > **Find the first real failure before changing anything.**
 
-A later error is often only a consequence of an earlier one. Expo's current EAS troubleshooting guidance recommends inspecting the earliest failed build phase and its logs before moving on. It also distinguishes build failures from runtime failures because they require different debugging paths. citeturn0search0
+A later error is often only a consequence of an earlier one. Expo's current EAS troubleshooting guidance recommends inspecting the earliest failed build phase and its logs before moving on. It also distinguishes build failures from runtime failures because they require different debugging paths.
 
 This guide focuses on **Expo + React Native + EAS**.
 
@@ -86,7 +86,7 @@ Did the build fail?
              └── Runtime troubleshooting
 ```
 
-Expo's official troubleshooting guide makes the same distinction: a build can fail during compilation, or it can succeed and then fail at runtime. citeturn0search0
+Expo's official troubleshooting guide makes the same distinction: a build can fail during compilation, or it can succeed and then fail at runtime.
 
 ---
 
@@ -134,7 +134,7 @@ Do not assume every line marked:
 
 is an error.
 
-Expo explicitly notes that CLI tools commonly write warnings and diagnostics to stderr. citeturn0search0
+Expo explicitly notes that CLI tools commonly write warnings and diagnostics to stderr.
 
 Look for:
 
@@ -215,7 +215,7 @@ Expo Doctor checks areas including:
 - dependency compatibility
 - configuration files
 - React Native Directory compatibility
-- synchronization between app config and native directories where applicable. citeturn0search2
+- synchronization between app config and native directories where applicable.
 
 Use it early for:
 
@@ -324,7 +324,7 @@ Does it support the target platform?
 Does it require a native setup step?
 ```
 
-Expo's EAS troubleshooting guidance specifically points to config plugins and project dependencies as common causes of native build errors in projects using Continuous Native Generation. citeturn0search0
+Expo's EAS troubleshooting guidance specifically points to config plugins and project dependencies as common causes of native build errors in projects using Continuous Native Generation.
 
 ### Verify
 
@@ -368,7 +368,7 @@ Run:
 EXPO_DEBUG=1 npx expo prebuild
 ```
 
-Expo documents `EXPO_DEBUG=1` as a way to print the plugin stack and show which mods ran and in what order. citeturn0search7
+Expo documents `EXPO_DEBUG=1` as a way to print the plugin stack and show which mods ran and in what order.
 
 For verbose static plugin resolution errors:
 
@@ -376,7 +376,7 @@ For verbose static plugin resolution errors:
 EXPO_CONFIG_PLUGIN_VERBOSE_ERRORS=1 npx expo prebuild
 ```
 
-Use this mainly when the normal error does not reveal enough information. citeturn0search7
+Use this mainly when the normal error does not reveal enough information.
 
 ### Fix
 
@@ -418,7 +418,7 @@ android/
 npx expo config --type prebuild
 ```
 
-This can help inspect the evaluated configuration before native code generation. citeturn0search7
+This can help inspect the evaluated configuration before native code generation.
 
 Then inspect:
 
@@ -456,7 +456,7 @@ You may see advice like:
 npx expo prebuild --clean
 ```
 
-This removes generated native directories before compiling. Expo documents it as a tool for regenerating native projects. citeturn0search7
+This removes generated native directories before compiling. Expo documents it as a tool for regenerating native projects.
 
 Use it deliberately.
 
@@ -493,7 +493,7 @@ Environment variables
 Uploaded source files
 ```
 
-between local and EAS environments. citeturn0search0
+between local and EAS environments.
 
 Check:
 
@@ -553,7 +553,7 @@ If needed, reproduce locally using:
 eas build --local
 ```
 
-Expo provides local EAS builds specifically as a way to debug failures that are difficult to understand on the hosted service. citeturn0search4
+Expo provides local EAS builds specifically as a way to debug failures that are difficult to understand on the hosted service.
 
 The goal is not to permanently replace cloud builds.
 
@@ -573,7 +573,7 @@ Try:
 npx expo export
 ```
 
-Expo recommends this as a faster way to isolate JavaScript bundling problems from the rest of the EAS Build process. citeturn0search0
+Expo recommends this as a faster way to isolate JavaScript bundling problems from the rest of the EAS Build process.
 
 Then fix:
 
@@ -617,7 +617,7 @@ JavaScript logs
 
 Then reproduce the release build locally where possible.
 
-Expo recommends using production/release-mode builds to reproduce failures that only appear after a successful build. citeturn0search0
+Expo recommends using production/release-mode builds to reproduce failures that only appear after a successful build.
 
 ---
 
@@ -663,7 +663,7 @@ crash reporting
 production bundle testing
 ```
 
-Expo's troubleshooting guide specifically identifies "works in Expo Go but hangs on the splash screen in my build" as a runtime troubleshooting case. citeturn0search0
+Expo's troubleshooting guide specifically identifies "works in Expo Go but hangs on the splash screen in my build" as a runtime troubleshooting case.
 
 ---
 
@@ -698,7 +698,7 @@ A production bundle can also be tested faster with:
 npx expo start --no-dev
 ```
 
-to approximate production JavaScript bundling behavior. Expo documents this as a way to test how the JavaScript portion behaves in production mode. citeturn0search0
+to approximate production JavaScript bundling behavior. Expo documents this as a way to test how the JavaScript portion behaves in production mode.
 
 ---
 
@@ -736,7 +736,7 @@ preview
 production
 ```
 
-and the selected environment controls which variables are available to the job. citeturn0search3turn0search5
+and the selected environment controls which variables are available to the job.
 
 Example:
 
@@ -778,7 +778,7 @@ API_URL undefined
 
 Local `.env` files are not automatically available to remote EAS jobs just because they exist on your machine.
 
-EAS provides its own environment variable system for cloud builds and workflows. citeturn0search3
+EAS provides its own environment variable system for cloud builds and workflows.
 
 ### Check
 
@@ -817,7 +817,7 @@ This is not a safe secret architecture.
 
 Anything embedded into the client can be inspected.
 
-Expo explicitly states that values included in client-side code should be treated as public, even if the source environment variable was configured as a secret. citeturn0search3turn0search5
+Expo explicitly states that values included in client-side code should be treated as public, even if the source environment variable was configured as a secret.
 
 ### Fix
 
@@ -853,7 +853,7 @@ Keep local environment files out of Git:
 
 when they contain machine-specific or sensitive values.
 
-Expo recommends using `.gitignore` for local environment files and using EAS environment variables for cloud builds. citeturn0search3turn0search8
+Expo recommends using `.gitignore` for local environment files and using EAS environment variables for cloud builds.
 
 Avoid having multiple competing sources silently override each other.
 
@@ -1072,7 +1072,7 @@ but native files contain:
 Bundle ID B
 ```
 
-Expo Doctor can check for app-config fields that are not synchronized when native directories exist. citeturn0search2
+Expo Doctor can check for app-config fields that are not synchronized when native directories exist.
 
 Check:
 
@@ -1106,7 +1106,7 @@ An EAS workflow reports:
 Missing build profile in eas.json
 ```
 
-Expo's current EAS Workflows troubleshooting documentation identifies this as a common workflow failure. Prepackaged build jobs use the `production` profile unless another profile is specified. citeturn0search1
+Expo's current EAS Workflows troubleshooting documentation identifies this as a common workflow failure. Prepackaged build jobs use the `production` profile unless another profile is specified.
 
 ### Check
 
@@ -1155,7 +1155,7 @@ Expo's current workflow troubleshooting guide also notes that workflow files mus
 .eas/workflows/
 ```
 
-and that some events read the workflow from the triggering commit or default branch depending on the event. citeturn0search1
+and that some events read the workflow from the triggering commit or default branch depending on the event.
 
 Also check skip markers such as:
 
@@ -1165,7 +1165,7 @@ Also check skip markers such as:
 [no eas]
 ```
 
-which can prevent certain event-triggered workflows from running. citeturn0search1
+which can prevent certain event-triggered workflows from running.
 
 ---
 
@@ -1183,7 +1183,7 @@ A variable set only in GitHub Actions does not automatically become an EAS Build
 
 Use EAS environment variables when the value is needed by the remote EAS build.
 
-Expo documents this distinction directly in its EAS environment variable guidance. citeturn0search3
+Expo documents this distinction directly in its EAS environment variable guidance.
 
 ---
 
@@ -1506,7 +1506,7 @@ To test the JavaScript production bundle:
 npx expo start --no-dev
 ```
 
-Expo documents this as a way to test production-like JavaScript bundling behavior without performing the entire native release build. citeturn0search0
+Expo documents this as a way to test production-like JavaScript bundling behavior without performing the entire native release build.
 
 Then test the actual release binary for native behavior.
 
@@ -1777,7 +1777,7 @@ native toolchains are available
 you need a faster debugging loop
 ```
 
-Expo documents local builds as a debugging option for reproducing hosted EAS build failures. citeturn0search4
+Expo documents local builds as a debugging option for reproducing hosted EAS build failures.
 
 Do not assume local and hosted builds are identical.
 
@@ -1928,7 +1928,7 @@ npx expo run:ios --configuration Release
 eas build --local
 ```
 
-These commands should be used according to the project setup and current Expo tooling. Expo's current troubleshooting documentation explicitly recommends several of them for narrowing build and runtime failures. citeturn0search0turn0search4
+These commands should be used according to the project setup and current Expo tooling. Expo's current troubleshooting documentation explicitly recommends several of them for narrowing build and runtime failures.
 
 ---
 
@@ -1948,7 +1948,7 @@ eas env:list --environment preview
 eas env:list --environment production
 ```
 
-Use these to verify that the variable exists in the environment actually used by the job. EAS environment variables are explicitly scoped by environment. citeturn0search3turn0search6
+Use these to verify that the variable exists in the environment actually used by the job. EAS environment variables are explicitly scoped by environment.
 
 Never print secret values.
 

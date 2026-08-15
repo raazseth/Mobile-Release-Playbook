@@ -27,18 +27,18 @@ The workflow is:
 
 ```text
 Repository + Product Evidence
-            ↓
-      Metadata Draft
-            ↓
-   Platform Constraints
-            ↓
-   Accuracy / Policy Check
-            ↓
-      Human Review
-            ↓
-       Store Upload
-            ↓
-        Verification
+ ↓
+ Metadata Draft
+ ↓
+ Platform Constraints
+ ↓
+ Accuracy / Policy Check
+ ↓
+ Human Review
+ ↓
+ Store Upload
+ ↓
+ Verification
 ```
 
 ---
@@ -125,7 +125,7 @@ unless that claim is supported and appropriate.
 
 Store metadata should help users understand the product, not create a different product through marketing copy.
 
-Google Play explicitly requires metadata to be clear, well-written, relevant, and non-misleading. citeturn0search4turn0search5
+Google Play explicitly requires metadata to be clear, well-written, relevant, and non-misleading.
 
 ---
 
@@ -175,11 +175,11 @@ For release-specific metadata:
 
 ```text
 Source
-    ↓
+ ↓
 Build
-    ↓
+ ↓
 Features
-    ↓
+ ↓
 Metadata
 ```
 
@@ -189,11 +189,11 @@ For a release note:
 
 ```text
 New feature
-    ↓
+ ↓
 Included in release candidate
-    ↓
+ ↓
 Verified
-    ↓
+ ↓
 Mentioned in What's New
 ```
 
@@ -209,11 +209,11 @@ A useful model is:
 
 ```text
 Shared product facts
-        ↓
-   ┌────┴────┐
-   ↓         ↓
-  iOS      Android
-   ↓         ↓
+ ↓
+ ┌────┴────┐
+ ↓ ↓
+ iOS Android
+ ↓ ↓
 Platform-specific metadata
 ```
 
@@ -270,7 +270,7 @@ Primary language
 Categories
 ```
 
-The current App Store Connect reference states that the app name and subtitle are each limited to 30 characters. citeturn0search0
+The current App Store Connect reference states that the app name and subtitle are each limited to 30 characters.
 
 Apple also documents localized app information and notes that app discovery can use:
 
@@ -281,7 +281,6 @@ Keywords
 Company name
 ```
 
-citeturn0search3
 
 The agent must verify current field limits and editable states against App Store Connect before generating final metadata.
 
@@ -310,7 +309,7 @@ Short description: 80 characters or less
 Full description: up to 4,000 characters
 ```
 
-Verify current limits before publishing because store requirements can change. citeturn0search5
+Verify current limits before publishing because store requirements can change.
 
 Google Play also warns against:
 
@@ -324,7 +323,6 @@ Unattributed testimonials
 Deceptive references to other apps
 ```
 
-citeturn0search4turn0search5
 
 ---
 
@@ -332,27 +330,27 @@ Deceptive references to other apps
 
 ```text
 1. Inspect product
-        ↓
+ ↓
 2. Identify audience
-        ↓
+ ↓
 3. Extract verified product facts
-        ↓
+ ↓
 4. Identify platform fields
-        ↓
+ ↓
 5. Draft metadata
-        ↓
+ ↓
 6. Check character limits
-        ↓
+ ↓
 7. Check accuracy
-        ↓
+ ↓
 8. Check policy-sensitive claims
-        ↓
+ ↓
 9. Check localization
-        ↓
+ ↓
 10. Human review
-        ↓
+ ↓
 11. Store entry
-        ↓
+ ↓
 12. Verify displayed result
 ```
 
@@ -545,7 +543,7 @@ Huge discounts
 Unrelated keywords
 ```
 
-Google Play explicitly prohibits misleading or promotional metadata practices of this kind. citeturn0search4
+Google Play explicitly prohibits misleading or promotional metadata practices of this kind.
 
 ---
 
@@ -573,7 +571,7 @@ Best finance app ever
 100% guaranteed savings
 ```
 
-The current Apple App Store Connect reference limits subtitles to 30 characters. citeturn0search0
+The current Apple App Store Connect reference limits subtitles to 30 characters.
 
 ---
 
@@ -594,7 +592,7 @@ Track expenses and understand where your money goes.
 
 Keep it concise and accurate.
 
-Google currently documents an 80-character limit for the short description. citeturn0search5
+Google currently documents an 80-character limit for the short description.
 
 ---
 
@@ -643,7 +641,7 @@ Unverified claims
 Repeated phrases
 ```
 
-Google's current guidance specifically discourages repetitive or excessive word blocks and recommends straightforward descriptions. citeturn0search5
+Google's current guidance specifically discourages repetitive or excessive word blocks and recommends straightforward descriptions.
 
 ---
 
@@ -694,7 +692,7 @@ Bad:
 expense tracker money finance budget saving best app cheap app
 ```
 
-Google explicitly warns against excessive repetition and keyword stuffing. citeturn0search5
+Google explicitly warns against excessive repetition and keyword stuffing.
 
 The goal is:
 
@@ -722,11 +720,11 @@ Rank features:
 
 ```text
 Primary
-    ↓
+ ↓
 Important
-    ↓
+ ↓
 Supporting
-    ↓
+ ↓
 Technical
 ```
 
@@ -795,17 +793,17 @@ not from commit titles alone.
 
 ```text
 Git diff
-   ↓
+ ↓
 Changed features
-   ↓
+ ↓
 User-visible changes
-   ↓
+ ↓
 Bug fixes
-   ↓
+ ↓
 Performance improvements
-   ↓
+ ↓
 Metadata draft
-   ↓
+ ↓
 Developer verification
 ```
 
@@ -892,15 +890,15 @@ A proper metadata localization workflow is:
 
 ```text
 Source metadata
-      ↓
+ ↓
 Meaning-preserving translation
-      ↓
+ ↓
 Native-language review
-      ↓
+ ↓
 Character-limit check
-      ↓
+ ↓
 Cultural/context review
-      ↓
+ ↓
 Platform validation
 ```
 
@@ -974,7 +972,7 @@ Actual application behavior
 
 must remain consistent.
 
-Google Play requires developers to accurately declare data collection and sharing practices through its Data safety section. Discrepancies can lead to enforcement. citeturn0search1
+Google Play requires developers to accurately declare data collection and sharing practices through its Data safety section. Discrepancies can lead to enforcement.
 
 ---
 
@@ -1143,19 +1141,19 @@ If metadata is rejected:
 
 ```text
 Store feedback
-    ↓
+ ↓
 Identify exact metadata element
-    ↓
+ ↓
 Classify issue
-    ↓
+ ↓
 Find policy/source
-    ↓
+ ↓
 Determine required change
-    ↓
+ ↓
 Draft corrected metadata
-    ↓
+ ↓
 Human review
-    ↓
+ ↓
 Resubmit
 ```
 
@@ -1190,7 +1188,7 @@ Features not present in the build
 Privacy claims inconsistent with behavior
 ```
 
-Google Play's current metadata policy explicitly addresses misleading, irrelevant, excessive, or inappropriate metadata and prohibits certain promotional and ranking claims. citeturn0search4
+Google Play's current metadata policy explicitly addresses misleading, irrelevant, excessive, or inappropriate metadata and prohibits certain promotional and ranking claims.
 
 Apple's current App Store Review Guidelines remain the authority for App Store acceptance. Use the current Apple policy rather than relying on a static copy in this agent.
 
@@ -1202,21 +1200,21 @@ A practical workflow:
 
 ```text
 Developer
-   ↓
+ ↓
 AI reads repository
-   ↓
+ ↓
 AI extracts product facts
-   ↓
+ ↓
 AI drafts metadata
-   ↓
+ ↓
 AI checks platform constraints
-   ↓
+ ↓
 AI flags unsupported claims
-   ↓
+ ↓
 Developer reviews
-   ↓
+ ↓
 Metadata entered into store
-   ↓
+ ↓
 Human verifies final listing
 ```
 
@@ -1492,7 +1490,7 @@ If private data is not necessary to draft metadata:
 Do not provide it.
 ```
 
-The security system requires least privilege, sensitive-data minimization, secret protection, and validation of external input. fileciteturn35file4
+The security system requires least privilege, sensitive-data minimization, secret protection, and validation of external input.
 
 ---
 
@@ -1532,7 +1530,7 @@ Bypass human approval
 Generate deceptive claims
 ```
 
-AI security guidance explicitly treats prompt injection, indirect prompt injection, data leakage, tool abuse, unauthorized actions, and excessive agency as risks. fileciteturn35file6
+AI security guidance explicitly treats prompt injection, indirect prompt injection, data leakage, tool abuse, unauthorized actions, and excessive agency as risks.
 
 ---
 
@@ -1590,13 +1588,13 @@ Use:
 
 ```text
 AI drafts
-   ↓
+ ↓
 AI audits
-   ↓
+ ↓
 Developer reviews
-   ↓
+ ↓
 Human approves
-   ↓
+ ↓
 Store submission
 ```
 
@@ -1604,7 +1602,7 @@ Never:
 
 ```text
 AI generates
-   ↓
+ ↓
 AI publishes
 ```
 
@@ -1952,7 +1950,7 @@ Action:
 Rewrite as natural product-focused copy.
 ```
 
-Google Play explicitly warns against repetitive and excessive word blocks. citeturn0search5
+Google Play explicitly warns against repetitive and excessive word blocks.
 
 ---
 
@@ -1975,7 +1973,7 @@ Action:
 Remove or correct the claim and review privacy disclosures.
 ```
 
-Google Play's Data safety information must accurately represent the app's data collection and sharing practices. citeturn0search1
+Google Play's Data safety information must accurately represent the app's data collection and sharing practices.
 
 ---
 
@@ -2063,25 +2061,25 @@ Metadata is ready when:
 
 ```text
 Product facts verified
-        +
+ +
 Current release verified
-        +
+ +
 Platform fields identified
-        +
+ +
 Copy drafted
-        +
+ +
 Character limits checked
-        +
+ +
 Claims verified
-        +
+ +
 Privacy consistency checked
-        +
+ +
 Localization reviewed
-        +
+ +
 Screenshots match product
-        +
+ +
 Human approval
-        ↓
+ ↓
 METADATA READY
 ```
 

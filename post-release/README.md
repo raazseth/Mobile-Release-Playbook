@@ -86,9 +86,9 @@ All post-release operations in this playbook must adhere to five mandatory gover
 
 # 4. Related Repository Documentation
 
-- [Incident Report Template](../../templates/incident-report.md) - Post-mortem artifact.
-- [Production Post-Release Crash Triage](../../troubleshooting/crash-after-release.md) - Troubleshooting guide.
-- [AI Release Audit Workflow](../../ai/workflows/release-audit.md) - AI audit.
+- [Incident Report Template](../templates/incident-report.md) - Post-mortem artifact.
+- [Production Post-Release Crash Triage](../troubleshooting/crash-after-release.md) - Troubleshooting guide.
+- [AI Release Audit Workflow](../ai/workflows/release-audit.md) - AI audit.
 
 ---
 

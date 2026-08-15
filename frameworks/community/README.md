@@ -3,7 +3,7 @@
 
 This directory is the community extension point for frameworks that are not currently maintained as first-class implementations.
 
-The playbook is intentionally **first-class for Expo and React Native**, while remaining open to developers who want to add release guidance for other mobile frameworks. The existing project guidance defines community frameworks as an extension layer rather than a separate copy of the playbook. fileciteturn16file12L1-L35
+The playbook is intentionally **first-class for Expo and React Native**, while remaining open to developers who want to add release guidance for other mobile frameworks. The existing project guidance defines community frameworks as an extension layer rather than a separate copy of the playbook.
 
 The goal is simple:
 
@@ -28,25 +28,25 @@ A framework contribution may cover:
 
 ```text
 Project configuration
-        ↓
+ ↓
 Environment setup
-        ↓
+ ↓
 Versioning
-        ↓
+ ↓
 Build
-        ↓
+ ↓
 Signing
-        ↓
+ ↓
 Testing
-        ↓
+ ↓
 Store submission
-        ↓
+ ↓
 Framework-specific failures
 ```
 
 The shared playbook remains the source of truth for concepts that apply to mobile applications generally.
 
-The framework documentation explains the implementation differences. fileciteturn16file1L1-L40
+The framework documentation explains the implementation differences.
 
 ---
 
@@ -83,11 +83,11 @@ It may start as:
 
 ```text
 Community
-    ↓
+ ↓
 Verified
-    ↓
+ ↓
 Maintained
-    ↓
+ ↓
 First-class
 ```
 
@@ -116,17 +116,17 @@ A useful initial contribution can be:
 ```text
 frameworks/community/
 └── flutter/
-    ├── README.md
-    ├── build.md
-    ├── ios-release.md
-    ├── android-release.md
-    ├── signing.md
-    └── common-failures.md
+ ├── README.md
+ ├── build.md
+ ├── ios-release.md
+ ├── android-release.md
+ ├── signing.md
+ └── common-failures.md
 ```
 
 Do not create every file simply because the structure exists.
 
-Start with the release problems you can actually document and verify. The repository's framework contribution guide explicitly recommends starting small and expanding only when verified material exists. fileciteturn16file1L70-L120
+Start with the release problems you can actually document and verify. The repository's framework contribution guide explicitly recommends starting small and expanding only when verified material exists.
 
 See [`adding-a-framework.md`](./adding-a-framework.md) for the complete contribution process.
 
@@ -153,11 +153,11 @@ Instead:
 
 ```text
 Shared concept
-      ↓
+ ↓
 Core documentation
-      ↓
+ ↓
 Framework-specific difference
-      ↓
+ ↓
 Community framework guide
 ```
 
@@ -171,7 +171,7 @@ This framework-specific guide explains how the framework
 configures the iOS and Android build identifiers.
 ```
 
-The core repository should remain the source of truth for shared release concepts. fileciteturn16file1L40-L85
+The core repository should remain the source of truth for shared release concepts.
 
 ---
 
@@ -197,15 +197,15 @@ A developer should be able to move from:
 
 ```text
 Framework project
-        ↓
+ ↓
 Release configuration
-        ↓
+ ↓
 Build
-        ↓
+ ↓
 Verify
-        ↓
+ ↓
 Test
-        ↓
+ ↓
 Submit
 ```
 
@@ -321,13 +321,13 @@ A framework build guide should explain:
 
 ```text
 Prerequisites
-      ↓
+ ↓
 Configuration
-      ↓
+ ↓
 Release build
-      ↓
+ ↓
 Artifact
-      ↓
+ ↓
 Verification
 ```
 
@@ -343,7 +343,7 @@ At minimum include:
 
 Commands must be verified before they are published.
 
-The project's documentation rules explicitly require commands and code to be checked rather than guessed. fileciteturn16file16L1-L20
+The project's documentation rules explicitly require commands and code to be checked rather than guessed.
 
 ---
 
@@ -405,9 +405,9 @@ For example:
 
 ```text
 Framework
-    ↓
+ ↓
 Generates native project
-    ↓
+ ↓
 Native signing configuration
 ```
 
@@ -415,9 +415,9 @@ or:
 
 ```text
 Framework
-    ↓
+ ↓
 Managed build system
-    ↓
+ ↓
 Credentials configured through build tooling
 ```
 
@@ -507,11 +507,11 @@ For version-sensitive instructions:
 
 ```text
 Framework version
-        ↓
+ ↓
 Tooling version
-        ↓
+ ↓
 Platform version
-        ↓
+ ↓
 Expected behavior
 ```
 
@@ -523,7 +523,7 @@ NEEDS VERIFICATION
 
 Do not hide uncertainty.
 
-The repository documentation rules require volatile information and version-specific behavior to be treated carefully and verified against current authoritative sources. fileciteturn16file17L1-L30
+The repository documentation rules require volatile information and version-specific behavior to be treated carefully and verified against current authoritative sources.
 
 ---
 
@@ -533,11 +533,11 @@ Framework contributions should prefer primary sources:
 
 ```text
 Framework official documentation
-        +
+ +
 Apple documentation
-        +
+ +
 Android documentation
-        +
+ +
 Official build/release tooling
 ```
 
@@ -565,19 +565,19 @@ Before publishing a framework instruction:
 
 ```text
 Is it framework-specific?
-        ↓
+ ↓
 Is the source authoritative?
-        ↓
+ ↓
 Is the information current enough?
-        ↓
+ ↓
 Can the command/configuration be verified?
-        ↓
+ ↓
 Can a developer reproduce it?
 ```
 
 If any answer is no, either verify it or clearly mark it as needing verification.
 
-The repository's contribution guidance requires official-source verification, command verification, version awareness, and explicit handling of unknowns. fileciteturn16file1L170-L240
+The repository's contribution guidance requires official-source verification, command verification, version awareness, and explicit handling of unknowns.
 
 ---
 
@@ -601,23 +601,23 @@ A safe contribution workflow is:
 
 ```text
 Official framework documentation
-        ↓
+ ↓
 AI research / draft
-        ↓
+ ↓
 Contributor verification
-        ↓
+ ↓
 Real build / test
-        ↓
+ ↓
 Official sources checked
-        ↓
+ ↓
 Pull request
-        ↓
+ ↓
 Human review
 ```
 
 Do not publish AI-generated release instructions without verification.
 
-The existing project guidance explicitly treats AI output as untrusted until it is inspected, verified, tested, and approved. fileciteturn16file16L17-L22
+The existing project guidance explicitly treats AI output as untrusted until it is inspected, verified, tested, and approved.
 
 ---
 
@@ -629,19 +629,19 @@ A safe workflow is:
 
 ```text
 Read repository
-        ↓
+ ↓
 Find existing guidance
-        ↓
+ ↓
 Identify framework-specific gaps
-        ↓
+ ↓
 Draft documentation
-        ↓
+ ↓
 Check links
-        ↓
+ ↓
 Run validation
-        ↓
+ ↓
 Show Git diff
-        ↓
+ ↓
 Human review
 ```
 
@@ -655,7 +655,7 @@ Agents should not receive unrestricted access to:
 
 The resulting changes should remain reviewable as a normal Git diff.
 
-The project documentation rules require explicit human approval for production releases, signing credentials, secrets, store submission, destructive actions, account changes, and other high-impact operations. fileciteturn16file16L10-L18
+The project documentation rules require explicit human approval for production releases, signing credentials, secrets, store submission, destructive actions, account changes, and other high-impact operations.
 
 ---
 
@@ -682,7 +682,7 @@ Before opening a pull request:
 [ ] CHANGELOG.md was updated if the contribution is meaningful.
 ```
 
-This keeps contributions small, reviewable, and maintainable. fileciteturn16file3L1-L35
+This keeps contributions small, reviewable, and maintainable.
 
 ---
 
@@ -726,7 +726,7 @@ Maintainers should check:
 - Can another contributor verify the instructions later?
 - Are links specific enough to remain useful?
 
-The project's framework contribution guidance uses these same review concerns for community additions. fileciteturn16file13L1-L45
+The project's framework contribution guidance uses these same review concerns for community additions.
 
 ---
 
@@ -754,7 +754,7 @@ First-class status is a maintenance commitment.
 
 Do not add that commitment simply because a framework has a README.
 
-The existing contribution guidance recommends reliable coverage, verified workflows, active maintenance, community demand, and clear ownership before considering first-class status. fileciteturn16file13L45-L70
+The existing contribution guidance recommends reliable coverage, verified workflows, active maintenance, community demand, and clear ownership before considering first-class status.
 
 ---
 
@@ -801,17 +801,17 @@ When framework tooling changes:
 
 ```text
 Identify changed behavior
-        ↓
+ ↓
 Check official source
-        ↓
+ ↓
 Identify affected versions
-        ↓
+ ↓
 Update guide
-        ↓
+ ↓
 Verify commands
-        ↓
+ ↓
 Update source references
-        ↓
+ ↓
 Update CHANGELOG.md if meaningful
 ```
 
@@ -847,21 +847,21 @@ A healthy community contribution looks like:
 
 ```text
 Developer knows framework
-        ↓
+ ↓
 Finds a missing release workflow
-        ↓
+ ↓
 Checks existing playbook
-        ↓
+ ↓
 Adds only framework-specific guidance
-        ↓
+ ↓
 Verifies against official sources
-        ↓
+ ↓
 Tests the workflow
-        ↓
+ ↓
 Opens pull request
-        ↓
+ ↓
 Maintainer reviews
-        ↓
+ ↓
 Community framework improves
 ```
 
@@ -877,40 +877,40 @@ The overall structure is:
 mobile-release-playbook/
 │
 ├── foundations/
-│   └── shared release concepts
+│ └── shared release concepts
 │
 ├── signing/
-│   └── shared signing guidance
+│ └── shared signing guidance
 │
 ├── testing/
-│   └── shared testing guidance
+│ └── shared testing guidance
 │
 ├── publishing/
-│   └── shared store publishing
+│ └── shared store publishing
 │
 ├── release-engineering/
-│   └── shared automation
+│ └── shared automation
 │
 ├── troubleshooting/
-│   └── shared failure diagnosis
+│ └── shared failure diagnosis
 │
 ├── frameworks/
-│   ├── expo/
-│   │   └── first-class implementation
-│   │
-│   ├── react-native/
-│   │   └── first-class implementation
-│   │
-│   └── community/
-│       ├── README.md
-│       ├── adding-a-framework.md
-│       └── <community-framework>/
+│ ├── expo/
+│ │ └── first-class implementation
+│ │
+│ ├── react-native/
+│ │ └── first-class implementation
+│ │
+│ └── community/
+│ ├── README.md
+│ ├── adding-a-framework.md
+│ └── <community-framework>/
 │
 └── ai/
-    └── AI-assisted release workflows
+ └── AI-assisted release workflows
 ```
 
-This separation keeps shared concepts centralized while allowing the framework layer to grow through community contributions. fileciteturn16file12L1-L35
+This separation keeps shared concepts centralized while allowing the framework layer to grow through community contributions.
 
 ---
 
@@ -928,15 +928,15 @@ The standard is:
 
 ```text
 Framework knowledge
-        +
+ +
 Release-specific guidance
-        +
+ +
 Official sources
-        +
+ +
 Real verification
-        +
+ +
 Clear boundaries
-        ↓
+ ↓
 Useful community contribution
 ```
 

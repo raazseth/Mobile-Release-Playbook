@@ -98,9 +98,9 @@ All troubleshooting implementations in this playbook must adhere to five mandato
 
 # 4. Related Repository Documentation
 
-- [Release Engineering Subsystem](../../release-engineering/README.md) - Build pipelines.
-- [AI Debugging Workflow](../../ai/workflows/debugging.md) - AI debugging procedures.
-- [Incident Report Template](../../templates/incident-report.md) - Post-mortem forms.
+- [Release Engineering Subsystem](../release-engineering/README.md) - Build pipelines.
+- [AI Debugging Workflow](../ai/workflows/debugging.md) - AI debugging procedures.
+- [Incident Report Template](../templates/incident-report.md) - Post-mortem forms.
 
 ---
 

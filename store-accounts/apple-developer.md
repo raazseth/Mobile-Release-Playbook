@@ -7,7 +7,7 @@ Engineered in alignment with **2026 platform requirements**, it specifies how to
 This guide is **not**:
 
 - an App Store Connect portal management guide (see [app-store-connect.md](app-store-connect.md))
-- a guide to signing certificate generation (see [signing/](../../signing/README.md))
+- a guide to signing certificate generation (see [signing/](../signing/README.md))
 - a substitute for verifying official Apple legal entity documentation
 
 ---

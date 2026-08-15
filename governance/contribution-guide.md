@@ -44,7 +44,7 @@ All contributions MUST pass through a structured 4-stage contribution pipeline:
 Every Pull Request submitted to this repository MUST satisfy four mandatory quality gates:
 
 1. **Handbook-Grade Depth**: New or updated domain files must provide exhaustive technical depth (~10–25KB per file) with complete code snippets and schemas. No 4-line stub files permitted.
-2. **CLAUDE.md Style Compliance**: Markdown formatting MUST comply 100% with [CLAUDE.md](../../.claude/CLAUDE.md) structural standards.
+2. **CLAUDE.md Style Compliance**: Markdown formatting MUST comply 100% with [CLAUDE.md](../.claude/CLAUDE.md) structural standards.
 3. **Verified Sources**: All policy assertions MUST cite primary official URLs under `# Official Sources`.
 4. **Changelog Entry**: `CHANGELOG.md` MUST be updated under `[Unreleased] -> Added` or `Changed`.
 
@@ -61,8 +61,8 @@ Every Pull Request submitted to this repository MUST satisfy four mandatory qual
 
 # 4. Official Sources
 
-- Repository Instructions: [../../.claude/CLAUDE.md](../../.claude/CLAUDE.md)
-- Repository Changelog: [../../CHANGELOG.md](../../CHANGELOG.md)
+- Repository Instructions: [../../.claude/CLAUDE.md](../.claude/CLAUDE.md)
+- Repository Changelog: [../../CHANGELOG.md](../CHANGELOG.md)
 
 ---
 

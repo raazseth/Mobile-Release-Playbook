@@ -53,7 +53,7 @@ This guide is **not**:
 
 # 4. Official Sources
 
-- Mobile Release Preparation Workflow: [../../ai/workflows/release-preparation.md](../../ai/workflows/release-preparation.md)
+- Mobile Release Preparation Workflow: [../../ai/workflows/release-preparation.md](../ai/workflows/release-preparation.md)
 
 ---
 

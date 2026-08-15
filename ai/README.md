@@ -158,10 +158,10 @@ All agents, prompts, and orchestration schemas in `ai/` implement standard repos
 
 # 6. Related Repository Documentation
 
-- [Repository Architecture](../../ARCHITECTURE.md) - Full rationale for playbook structure.
-- [Mobile Release Lifecycle](../../foundations/mobile-release-lifecycle.md) - Core release lifecycle stages.
-- [Governance & Contribution](../../CONTRIBUTING.md) - Playbook governance rules.
-- [Repository CLAUDE.md](../../.claude/CLAUDE.md) - System rules for AI pair-programming in this repo.
+- [Repository Architecture](../ARCHITECTURE.md) - Full rationale for playbook structure.
+- [Mobile Release Lifecycle](../foundations/mobile-release-lifecycle.md) - Core release lifecycle stages.
+- [Governance & Contribution](../CONTRIBUTING.md) - Playbook governance rules.
+- [Repository CLAUDE.md](../.claude/CLAUDE.md) - System rules for AI pair-programming in this repo.
 
 ---
 

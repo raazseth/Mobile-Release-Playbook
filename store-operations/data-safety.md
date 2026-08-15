@@ -71,7 +71,7 @@ Google Play mandates that any app allowing account creation MUST provide a clear
 
 - [Privacy Information Handbook](privacy-information.md) - Apple Privacy Labels.
 - [App Listing Handbook](app-listing.md) - Store listing setup.
-- [Privacy Auditor Agent](../../ai/agents/privacy-auditor.md) - Privacy auditing.
+- [Privacy Auditor Agent](../ai/agents/privacy-auditor.md) - Privacy auditing.
 
 ---
 

@@ -82,9 +82,9 @@ All privacy compliance implementations in this playbook must adhere to five mand
 
 # 4. Related Repository Documentation
 
-- [Privacy Questionnaire Template](../../templates/privacy-questionnaire.md) - Audit form.
-- [Privacy Information Handbook](../../store-operations/privacy-information.md) - Store operations.
-- [Privacy Auditor Agent](../../ai/agents/privacy-auditor.md) - Automated privacy audit.
+- [Privacy Questionnaire Template](../templates/privacy-questionnaire.md) - Audit form.
+- [Privacy Information Handbook](../store-operations/privacy-information.md) - Store operations.
+- [Privacy Auditor Agent](../ai/agents/privacy-auditor.md) - Automated privacy audit.
 
 ---
 

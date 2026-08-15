@@ -31,7 +31,8 @@ Getting Started provides step-by-step onboarding for utilizing AI models (Claude
 
 # 2. Key Getting Started Handbooks
 
-- [overview.md](overview.md) - High-level AI integration overview.
+- [when-to-use-ai.md](when-to-use-ai.md) - Guidance on effective AI agent deployment.
+- [when-not-to-use-ai.md](when-not-to-use-ai.md) - Boundaries and prohibited execution scenarios.
 
 ---
 

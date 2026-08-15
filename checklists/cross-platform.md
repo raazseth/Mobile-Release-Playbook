@@ -364,7 +364,7 @@ Do not assume one screenshot set can simply be reused for every store requiremen
 - [ ] The submitting user has the required role.
 - [ ] Required app metadata is complete.
 
-Apple's App Store Connect documentation states that an app record must exist before uploading a build, and that required agreements may need to be accepted before creating an app record. citeturn0search10turn0search12
+Apple's App Store Connect documentation states that an app record must exist before uploading a build, and that required agreements may need to be accepted before creating an app record.
 
 ### Google
 
@@ -422,7 +422,7 @@ Before submitting either platform:
 
 Uploading a binary is not necessarily the same as submitting the app for review or releasing it to production.
 
-For example, EAS Submit uploads iOS builds to App Store Connect/TestFlight and Android builds to Google Play Console. The remaining store submission and rollout steps still depend on the platform workflow. citeturn0search0turn0search2
+For example, EAS Submit uploads iOS builds to App Store Connect/TestFlight and Android builds to Google Play Console. The remaining store submission and rollout steps still depend on the platform workflow.
 
 ---
 

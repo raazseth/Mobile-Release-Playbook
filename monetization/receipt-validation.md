@@ -111,7 +111,7 @@ GET https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{pa
 
 - [In-App Purchases Handbook](in-app-purchases.md) - Product taxonomy.
 - [Subscription Lifecycle Handbook](subscription-lifecycle.md) - Webhook state machine.
-- [Secret Protection](../../ai/security/secret-protection.md) - Masking service account keys.
+- [Secret Protection](../ai/security/secret-protection.md) - Masking service account keys.
 
 ---
 

@@ -16,7 +16,7 @@ Development Build
 → real project development
 ```
 
-Expo recommends development builds for production-grade Expo applications because they let the project use native libraries and native configuration that are not part of the fixed Expo Go app. Development builds include `expo-dev-client`. citeturn0search0turn0search11
+Expo recommends development builds for production-grade Expo applications because they let the project use native libraries and native configuration that are not part of the fixed Expo Go app. Development builds include `expo-dev-client`.
 
 This guide covers:
 
@@ -58,7 +58,7 @@ Your native configuration
 Developer tooling
 ```
 
-Expo describes a development build as essentially your own version of Expo Go, with freedom to use native libraries and change native configuration. citeturn0search0
+Expo describes a development build as essentially your own version of Expo Go, with freedom to use native libraries and change native configuration.
 
 ---
 
@@ -107,7 +107,7 @@ Install updated binary
 Continue development
 ```
 
-Expo documents that adding a library containing native code requires rebuilding the development client because the native code is not added to the already-installed binary automatically. citeturn0search7
+Expo documents that adding a library containing native code requires rebuilding the development client because the native code is not added to the already-installed binary automatically.
 
 ---
 
@@ -134,7 +134,7 @@ Development Build
 → Your native application
 ```
 
-Expo's current FAQ describes Expo Go as a fixed playground-style native app and development builds as the development environment for production-grade Expo applications. citeturn0search12
+Expo's current FAQ describes Expo Go as a fixed playground-style native app and development builds as the development environment for production-grade Expo applications.
 
 ---
 
@@ -194,7 +194,7 @@ Install it using Expo's dependency tooling:
 npx expo install expo-dev-client
 ```
 
-Expo's current documentation recommends this package for development builds. citeturn0search0turn0search5
+Expo's current documentation recommends this package for development builds.
 
 After installation, the project can create a development build containing the development client.
 
@@ -224,7 +224,7 @@ or
 iPhone
 ```
 
-Expo documents local development builds as compiling the application with Expo CLI and the native development tools installed on your machine. citeturn0search0
+Expo documents local development builds as compiling the application with Expo CLI and the native development tools installed on your machine.
 
 ---
 
@@ -242,7 +242,7 @@ For iOS:
 npx expo run:ios
 ```
 
-Expo's build tools automatically run prebuild when native directories do not exist, so you normally do not need to run prebuild manually for the first build in that situation. citeturn0search0
+Expo's build tools automatically run prebuild when native directories do not exist, so you normally do not need to run prebuild manually for the first build in that situation.
 
 ---
 
@@ -270,7 +270,7 @@ Development Build
 JavaScript bundle
 ```
 
-The development client launcher can help connect to development servers and switch between available development targets. citeturn0search0turn0search7
+The development client launcher can help connect to development servers and switch between available development targets.
 
 ---
 
@@ -335,7 +335,7 @@ EAS cloud build
 EAS local build
 ```
 
-All produce the same type of development build, but the build environment differs. citeturn0search0
+All produce the same type of development build, but the build environment differs.
 
 ---
 
@@ -364,7 +364,7 @@ The development profile is configured with:
 }
 ```
 
-This produces a development client suitable for internal installation rather than store submission. citeturn0search1turn0search3
+This produces a development client suitable for internal installation rather than store submission.
 
 ---
 
@@ -399,7 +399,7 @@ This tells EAS to create a development build containing `expo-dev-client`.
 distribution: internal
 ```
 
-makes the development artifact suitable for internal distribution rather than App Store / Google Play submission. citeturn0search1turn0search3
+makes the development artifact suitable for internal distribution rather than App Store / Google Play submission.
 
 ---
 
@@ -423,7 +423,7 @@ For iOS:
 eas build --profile development --platform ios
 ```
 
-Expo's current EAS documentation uses the development profile for this workflow. citeturn0search1turn0search13
+Expo's current EAS documentation uses the development profile for this workflow.
 
 ---
 
@@ -455,7 +455,7 @@ Internal testing
 
 A preview build is closer to what you will distribute, while a development build is optimized for active development.
 
-Expo's current EAS Build documentation distinguishes development builds from preview builds in exactly this way. citeturn0search3
+Expo's current EAS Build documentation distinguishes development builds from preview builds in exactly this way.
 
 ---
 
@@ -487,7 +487,7 @@ Real users
 
 Do not submit a development build to the stores.
 
-Expo documents development builds as builds that include developer tools and are not intended for app-store submission. citeturn0search3
+Expo documents development builds as builds that include developer tools and are not intended for app-store submission.
 
 ---
 
@@ -543,7 +543,7 @@ For a simulator-specific EAS profile:
 }
 ```
 
-Expo documents simulator-specific development profiles for EAS Build. citeturn0search3turn0search6
+Expo documents simulator-specific development profiles for EAS Build.
 
 For local development:
 
@@ -586,7 +586,7 @@ Do not treat simulator success as proof that native device functionality works.
 
 A local build has an important advantage.
 
-Expo's current documentation states that local compilation is the way to install a development build on an iPhone without a paid Apple Developer account. citeturn0search0
+Expo's current documentation states that local compilation is the way to install a development build on an iPhone without a paid Apple Developer account.
 
 For EAS cloud development builds on physical iOS devices, normal Apple signing and device distribution requirements apply.
 
@@ -624,7 +624,7 @@ or:
 scan the QR code
 ```
 
-Expo's current development-build launcher supports connecting to detected local servers and switching between development targets. citeturn0search7
+Expo's current development-build launcher supports connecting to detected local servers and switching between development targets.
 
 ---
 
@@ -666,7 +666,7 @@ Install new binary
 Start Metro
 ```
 
-Expo explicitly documents this requirement. citeturn0search7
+Expo explicitly documents this requirement.
 
 ---
 
@@ -845,7 +845,7 @@ EAS Update
 Preview update
 ```
 
-Expo documents that `expo-dev-client` can launch compatible published EAS Updates from a development build. citeturn0search2
+Expo documents that `expo-dev-client` can launch compatible published EAS Updates from a development build.
 
 This can be useful for:
 
@@ -888,7 +888,7 @@ broken behavior
 
 can result.
 
-Expo recommends managing runtime compatibility so updates are only delivered to compatible native runtimes. citeturn0search14
+Expo recommends managing runtime compatibility so updates are only delivered to compatible native runtimes.
 
 ---
 
@@ -948,7 +948,7 @@ Install
 Connect to development server
 ```
 
-Expo documents downloading development builds from the EAS dashboard or using EAS CLI. citeturn0search8
+Expo documents downloading development builds from the EAS dashboard or using EAS CLI.
 
 For EAS CLI:
 
@@ -956,7 +956,7 @@ For EAS CLI:
 eas build:run --profile development
 ```
 
-The exact profile name should match the project's configuration. citeturn0search8
+The exact profile name should match the project's configuration.
 
 ---
 
@@ -1047,7 +1047,7 @@ Install / share
 Developer or QA testing
 ```
 
-EAS Workflows supports build jobs for development profiles. Expo documents development-build workflows using `.eas/workflows/` and the `build` job type. citeturn0search6turn0search13
+EAS Workflows supports build jobs for development profiles. Expo documents development-build workflows using `.eas/workflows/` and the `build` job type.
 
 Do not build every development commit unless the project actually benefits from it.
 
@@ -1105,7 +1105,7 @@ The current EAS CLI includes:
 eas build:dev
 ```
 
-which can run a development client build when a matching fingerprint exists or create a new one. citeturn0search9
+which can run a development client build when a matching fingerprint exists or create a new one.
 
 This can reduce unnecessary rebuilding when the existing development binary is still compatible.
 
@@ -1131,7 +1131,7 @@ on macOS workflows and:
 Ctrl + D
 ```
 
-for the relevant CLI development flow, as well as device gestures. citeturn0search7
+for the relevant CLI development flow, as well as device gestures.
 
 Use the development menu for:
 
@@ -1589,7 +1589,7 @@ Then:
 Rebuild development client
 ```
 
-Expo explicitly documents rebuilding after adding native-code dependencies. citeturn0search7
+Expo explicitly documents rebuilding after adding native-code dependencies.
 
 ---
 
@@ -1723,7 +1723,7 @@ Do not assume emulator behavior proves physical-device behavior.
 
 If a new physical iOS device is registered after an existing development build was created, the build may need to be recreated.
 
-Expo's current team-sharing documentation explicitly notes that newly registered iOS devices require a new development build for installation. citeturn0search8
+Expo's current team-sharing documentation explicitly notes that newly registered iOS devices require a new development build for installation.
 
 Use the supported internal-distribution workflow.
 

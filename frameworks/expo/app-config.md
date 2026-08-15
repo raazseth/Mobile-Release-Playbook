@@ -10,7 +10,7 @@ app.config.js
 app.config.ts
 ```
 
-Expo uses app configuration for areas including Expo Prebuild generation, Expo Go behavior, and the OTA update manifest. The configuration file belongs at the project root, next to `package.json`. citeturn0view1
+Expo uses app configuration for areas including Expo Prebuild generation, Expo Go behavior, and the OTA update manifest. The configuration file belongs at the project root, next to `package.json`.view1
 
 This guide focuses on **release engineering**, not general Expo development.
 
@@ -121,7 +121,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
 });
 ```
 
-Expo currently supports TypeScript configuration and documents `app.config.ts` as a way to get TypeScript support and configuration-time logic. citeturn1view0
+Expo currently supports TypeScript configuration and documents `app.config.ts` as a way to get TypeScript support and configuration-time logic.view0
 
 ---
 
@@ -192,7 +192,7 @@ Current Expo resolution rules include:
 8. The final configuration cannot depend on Promises.
 9. `npx expo config` shows the resolved configuration Expo will use.
 
-These rules matter because the file you open in the editor is not necessarily the final configuration consumed by the Expo tooling. citeturn1view0
+These rules matter because the file you open in the editor is not necessarily the final configuration consumed by the Expo tooling.view0
 
 ---
 
@@ -212,7 +212,7 @@ For the public configuration that will be available to the application:
 npx expo config --type public
 ```
 
-Expo specifically documents `npx expo config --type public` as a way to inspect the configuration that will be embedded in builds/updates and made available at runtime. citeturn1view0
+Expo specifically documents `npx expo config --type public` as a way to inspect the configuration that will be embedded in builds/updates and made available at runtime.view0
 
 This is one of the highest-value checks in an Expo release workflow.
 
@@ -279,7 +279,7 @@ The top-level:
 }
 ```
 
-defines the app name used by Expo and the standalone app's home-screen identity in the Expo configuration model. citeturn0view0
+defines the app name used by Expo and the standalone app's home-screen identity in the Expo configuration model.view0
 
 Do not confuse:
 
@@ -318,7 +318,7 @@ Example:
 }
 ```
 
-The slug is a URL-friendly project name associated with the Expo project. Expo documents it as a unique project name within the relevant account context. citeturn0view0
+The slug is a URL-friendly project name associated with the Expo project. Expo documents it as a unique project name within the relevant account context.view0
 
 Do not use the slug as a substitute for:
 
@@ -509,7 +509,7 @@ Production
 → production API
 ```
 
-Expo documents using dynamic app configuration together with environment variables to switch configuration between environments. citeturn1view0
+Expo documents using dynamic app configuration together with environment variables to switch configuration between environments.view0
 
 Keep the logic explicit.
 
@@ -573,7 +573,7 @@ Payment private keys
 
 into client-visible configuration.
 
-Expo explicitly warns that `EXPO_PUBLIC_*` variables are visible in compiled application code. citeturn0view3
+Expo explicitly warns that `EXPO_PUBLIC_*` variables are visible in compiled application code.view3
 
 ---
 
@@ -585,7 +585,7 @@ Expo CLI automatically loads variables with the:
 EXPO_PUBLIC_
 ```
 
-prefix from `.env` files for use in JavaScript. citeturn0view3
+prefix from `.env` files for use in JavaScript.view3
 
 Example:
 
@@ -617,7 +617,7 @@ or:
 const { EXPO_PUBLIC_API_URL } = process.env;
 ```
 
-Expo documents that those alternative forms are not supported for its inlining behavior. citeturn0view3
+Expo documents that those alternative forms are not supported for its inlining behavior.view3
 
 ---
 
@@ -644,7 +644,7 @@ A common `.gitignore` rule is:
 .env*.local
 ```
 
-Expo recommends ignoring local environment files such as `.env.local` because they commonly contain machine-specific configuration. citeturn0view3
+Expo recommends ignoring local environment files such as `.env.local` because they commonly contain machine-specific configuration.view3
 
 Do not assume that every `.env` file is secret.
 
@@ -662,7 +662,7 @@ NODE_ENV=staging
 NODE_ENV=production
 ```
 
-Expo explicitly recommends against using `NODE_ENV` to switch between environment files because Expo tooling can force or change `NODE_ENV` for certain operations. citeturn0view3
+Expo explicitly recommends against using `NODE_ENV` to switch between environment files because Expo tooling can force or change `NODE_ENV` for certain operations.view3
 
 Use a dedicated variable when you need an application environment selector:
 
@@ -802,7 +802,7 @@ Values in `extra` can be accessed through:
 Constants.expoConfig.extra
 ```
 
-Expo documents that `extra` values are passed to the application and are available through `Constants.expoConfig.extra`. citeturn1view0turn1view1
+Expo documents that `extra` values are passed to the application and are available through `Constants.expoConfig.extra`.view0view1
 
 Treat `extra` as public application configuration.
 
@@ -828,7 +828,7 @@ import appConfig from './app.config';
 
 Expo warns that directly importing the configuration file imports the entire file rather than the processed configuration.
 
-Use the processed runtime configuration instead. citeturn1view0
+Use the processed runtime configuration instead.view0
 
 ---
 
@@ -941,7 +941,7 @@ ios/
 android/
 ```
 
-Config plugins can extend this process for libraries and native capabilities. Expo documents config plugins as a mechanism primarily used to configure `npx expo prebuild`. citeturn1view0
+Config plugins can extend this process for libraries and native capabilities. Expo documents config plugins as a mechanism primarily used to configure `npx expo prebuild`.view0
 
 If the project uses generated native projects, understand whether:
 
@@ -1033,7 +1033,7 @@ Examples from the current Expo configuration reference include:
 }
 ```
 
-Expo warns that arbitrary `ios.infoPlist` and `ios.entitlements` values are applied without validation, so incorrect configuration can lead to platform or App Store problems. citeturn1view2
+Expo warns that arbitrary `ios.infoPlist` and `ios.entitlements` values are applied without validation, so incorrect configuration can lead to platform or App Store problems.view2
 
 Do not add native keys unless you understand the platform requirement.
 
@@ -1047,7 +1047,7 @@ Current Expo configuration includes support for:
 ios.privacyManifests
 ```
 
-which can define privacy manifest information in the generated native project. citeturn1view2
+which can define privacy manifest information in the generated native project.view2
 
 This area is tied to current Apple requirements and can change.
 
@@ -1107,7 +1107,7 @@ This creates a custom URL scheme such as:
 example://
 ```
 
-Expo documents `scheme` as build-time configuration for linking into the app. It does not affect Expo Go in the same way as a standalone build. citeturn1view1
+Expo documents `scheme` as build-time configuration for linking into the app. It does not affect Expo Go in the same way as a standalone build.view1
 
 Treat schemes as part of application identity and deep-link configuration.
 
@@ -1158,7 +1158,7 @@ updates.url
 updates.runtimeVersion
 ```
 
-The current Expo reference documents these settings and their behavior. citeturn1view1
+The current Expo reference documents these settings and their behavior.view1
 
 Treat update configuration as release-critical.
 
@@ -1199,7 +1199,7 @@ appVersion
 fingerprint
 ```
 
-and platform-specific runtime configuration. citeturn1view2
+and platform-specific runtime configuration.view2
 
 Do not change runtime version strategy casually.
 
@@ -1929,7 +1929,7 @@ network calls
 secrets that are not available in CI
 ```
 
-Expo configuration functions cannot use Promises in the final configuration process. citeturn1view0
+Expo configuration functions cannot use Promises in the final configuration process.view0
 
 ---
 
@@ -2295,11 +2295,11 @@ Treat it as public application configuration.
 
 ### Do not use `EXPO_PUBLIC_*` for secrets
 
-Expo explicitly states these values are visible in compiled application code. citeturn0view3
+Expo explicitly states these values are visible in compiled application code.view3
 
 ### Do not use `NODE_ENV` as the entire release environment system
 
-Expo recommends against using it to switch environment files. citeturn0view3
+Expo recommends against using it to switch environment files.view3
 
 ### Do not duplicate configuration sources without a reason
 

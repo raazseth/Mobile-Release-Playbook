@@ -58,7 +58,7 @@ Easy to validate
 Already solved by normal code
 ```
 
-The AI-SYSTEMS guidance explicitly prefers simple pipelines first, agents only when workflows justify them, and orchestration only when measurable ROI exists. It also requires grounding, constrained autonomy, validation before critical actions, explicit tool boundaries, and human override support. fileciteturn46file8L1-L25
+The AI-SYSTEMS guidance explicitly prefers simple pipelines first, agents only when workflows justify them, and orchestration only when measurable ROI exists. It also requires grounding, constrained autonomy, validation before critical actions, explicit tool boundaries, and human override support.
 
 ---
 
@@ -142,7 +142,7 @@ Tenant
 Policy
 ```
 
-The security system explicitly requires server-side authorization, least privilege, explicit permission checks, and deny-by-default behavior. fileciteturn46file6L1-L20
+The security system explicitly requires server-side authorization, least privilege, explicit permission checks, and deny-by-default behavior.
 
 AI can recommend or explain an authorization decision, but the trusted backend must enforce it.
 
@@ -173,7 +173,7 @@ Revocation
 Audit logs
 ```
 
-The security guidance explicitly prohibits storing secrets in source code, Git history, frontend bundles, logs, or public configuration. fileciteturn46file0L1-L25
+The security guidance explicitly prohibits storing secrets in source code, Git history, frontend bundles, logs, or public configuration.
 
 ---
 
@@ -258,7 +258,7 @@ Validate gates
 
 AI output must not become the source of truth.
 
-The AI-SYSTEMS guidance requires validation before critical actions, explicit tool boundaries, permission boundaries, execution tracing, and rollback handling where possible. fileciteturn46file13L1-L25
+The AI-SYSTEMS guidance requires validation before critical actions, explicit tool boundaries, permission boundaries, execution tracing, and rollback handling where possible.
 
 ---
 
@@ -341,7 +341,7 @@ Example:
 
 ```text
 if device_test != PASS:
-    block_release()
+ block_release
 ```
 
 Do not replace it with:
@@ -497,7 +497,7 @@ Credential validation
 Security policy enforcement
 ```
 
-The security system specifically requires AI-generated actions to be validated and bounded by permissions. fileciteturn46file3L1-L25
+The security system specifically requires AI-generated actions to be validated and bounded by permissions.
 
 AI is useful for:
 
@@ -568,7 +568,7 @@ Failure modes
 
 without meaningful benefit.
 
-The AI-SYSTEMS guidance explicitly warns against agent sprawl, fake autonomy, orchestration theater, uncontrolled tool execution, and unnecessary memory systems. fileciteturn46file9L1-L25
+The AI-SYSTEMS guidance explicitly warns against agent sprawl, fake autonomy, orchestration theater, uncontrolled tool execution, and unnecessary memory systems.
 
 ---
 
@@ -616,8 +616,8 @@ use:
 
 ```text
 switch platform:
-    ios → iOS workflow
-    android → Android workflow
+ ios → iOS workflow
+ android → Android workflow
 ```
 
 Do not ask an LLM:
@@ -727,7 +727,7 @@ Use telemetry as the source of operational truth.
 
 AI can help interpret telemetry and identify patterns.
 
-The observability system prioritizes correlated telemetry, production visibility, AI workflow visibility, and debugging speed. fileciteturn46file12L1-L25
+The observability system prioritizes correlated telemetry, production visibility, AI workflow visibility, and debugging speed.
 
 ---
 
@@ -894,7 +894,7 @@ Observability
 Fallback
 ```
 
-The AI-SYSTEMS review process explicitly requires review of hallucination risk, orchestration complexity, retrieval quality, autonomy safety, observability, performance, and cost before production validation. fileciteturn46file13L25-L45
+The AI-SYSTEMS review process explicitly requires review of hallucination risk, orchestration complexity, retrieval quality, autonomy safety, observability, performance, and cost before production validation.
 
 ---
 
@@ -981,7 +981,7 @@ Execution tracing
 Rollback/recovery
 ```
 
-AI-SYSTEMS explicitly favors constrained execution and permission boundaries over unrestricted tool access. fileciteturn46file13L1-L25
+AI-SYSTEMS explicitly favors constrained execution and permission boundaries over unrestricted tool access.
 
 ---
 
@@ -1012,19 +1012,19 @@ The strongest pattern is often:
 
 ```text
 Deterministic System
-        ↓
+ ↓
 Evidence
-        ↓
+ ↓
 AI Analysis
-        ↓
+ ↓
 Structured Recommendation
-        ↓
+ ↓
 Deterministic Validation
-        ↓
+ ↓
 Approval
-        ↓
+ ↓
 Bounded Action
-        ↓
+ ↓
 External Verification
 ```
 
@@ -1213,7 +1213,7 @@ Current release context
 Current repository context
 ```
 
-The AI-SYSTEMS guidance prefers session memory first and long-term memory only when justified, with expiration, correction, observability, isolation, and traceability. fileciteturn46file9L1-L25
+The AI-SYSTEMS guidance prefers session memory first and long-term memory only when justified, with expiration, correction, observability, isolation, and traceability.
 
 Use persistent memory only when it provides clear value.
 
@@ -1235,7 +1235,7 @@ Do not add a vector database just to answer a small static question.
 
 Use existing infrastructure when sufficient.
 
-The data guidance explicitly recommends evaluating whether PostgreSQL plus pgvector or existing infrastructure is sufficient before introducing dedicated vector infrastructure. fileciteturn46file11L1-L25
+The data guidance explicitly recommends evaluating whether PostgreSQL plus pgvector or existing infrastructure is sufficient before introducing dedicated vector infrastructure.
 
 ---
 
@@ -1372,7 +1372,7 @@ RAG poisoning
 Cost abuse
 ```
 
-These are explicitly called out by the security system. fileciteturn46file0L1-L25
+These are explicitly called out by the security system.
 
 If the proposed AI feature cannot be safely bounded:
 
@@ -1632,40 +1632,40 @@ Wrong unless measurable coordination value exists.
 For most release workflows, prefer:
 
 ```text
-                 ┌───────────────┐
-                 │ Source Truth  │
-                 │ Git / CI /    │
-                 │ Store / DB    │
-                 └───────┬───────┘
-                         │
-                         ▼
-                 ┌───────────────┐
-                 │ AI Analysis   │
-                 │ Summarize     │
-                 │ Classify      │
-                 │ Explain       │
-                 └───────┬───────┘
-                         │
-                         ▼
-                 ┌───────────────┐
-                 │ Deterministic │
-                 │ Validation    │
-                 │ Release Gates │
-                 └───────┬───────┘
-                         │
-                    approval
-                         │
-                         ▼
-                 ┌───────────────┐
-                 │ Bounded Tool  │
-                 │ Execution     │
-                 └───────┬───────┘
-                         │
-                         ▼
-                 ┌───────────────┐
-                 │ External      │
-                 │ Verification  │
-                 └───────────────┘
+ ┌───────────────┐
+ │ Source Truth │
+ │ Git / CI / │
+ │ Store / DB │
+ └───────┬───────┘
+ │
+ ▼
+ ┌───────────────┐
+ │ AI Analysis │
+ │ Summarize │
+ │ Classify │
+ │ Explain │
+ └───────┬───────┘
+ │
+ ▼
+ ┌───────────────┐
+ │ Deterministic │
+ │ Validation │
+ │ Release Gates │
+ └───────┬───────┘
+ │
+ approval
+ │
+ ▼
+ ┌───────────────┐
+ │ Bounded Tool │
+ │ Execution │
+ └───────┬───────┘
+ │
+ ▼
+ ┌───────────────┐
+ │ External │
+ │ Verification │
+ └───────────────┘
 ```
 
 This keeps AI useful without making it the authority over critical state.

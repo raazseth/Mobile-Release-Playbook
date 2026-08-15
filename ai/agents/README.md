@@ -31,7 +31,8 @@ Autonomous AI agents leverage specialized prompt context and tool capabilities t
 
 # 2. Key Agent Handbooks
 
-- [agent-roles.md](agent-roles.md) - Agent role definitions & delegation rules.
+- [release-manager.md](release-manager.md) - Autonomous release manager agent role.
+- [release-auditor.md](release-auditor.md) - Pre-flight release auditor agent role.
 
 ---
 

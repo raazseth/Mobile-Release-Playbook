@@ -53,7 +53,7 @@ Release retrospectives review release execution, audit failures, production bugs
 
 # 4. Official Sources
 
-- Incident Report Template: [../../templates/incident-report.md](../../templates/incident-report.md)
+- Incident Report Template: [../../templates/incident-report.md](../templates/incident-report.md)
 
 ---
 

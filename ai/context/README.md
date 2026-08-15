@@ -30,7 +30,8 @@ Context engineering maximizes LLM reasoning accuracy while minimizing API latenc
 
 # 2. Key Context Handbooks
 
-- [context-caching.md](context-caching.md) - System prompt caching rules.
+- [repository-context.md](repository-context.md) - Repository structure context schema.
+- [release-context.md](release-context.md) - Release candidate state context schema.
 
 ---
 

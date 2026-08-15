@@ -105,7 +105,7 @@ The minimum OS version determines the oldest operating system that the applicati
 
 The minimum iOS version is controlled by the application's deployment target.
 
-Apple exposes the resulting minimum OS requirement in App Store Connect build metadata. Apple calculates the build's device requirements from the build settings and reports the minimum OS version for the uploaded build. citeturn0search10
+Apple exposes the resulting minimum OS requirement in App Store Connect build metadata. Apple calculates the build's device requirements from the build settings and reports the minimum OS version for the uploaded build.
 
 ### Android
 
@@ -160,7 +160,7 @@ minSdk < targetSdk <= compileSdk
 
 but the exact supported configuration depends on the framework, dependencies, and current platform requirements.
 
-Google Play also has current target API requirements for submissions. Starting August 31, 2026, new apps and updates submitted to Google Play must target Android 16 (API level 36) or higher, subject to the platform-specific exceptions documented by Google. citeturn0search12
+Google Play also has current target API requirements for submissions. Starting August 31, 2026, new apps and updates submitted to Google Play must target Android 16 (API level 36) or higher, subject to the platform-specific exceptions documented by Google.
 
 Do not use the target API requirement as the application's minimum supported Android version.
 
@@ -172,7 +172,7 @@ For iOS, define the minimum supported iOS version intentionally.
 
 For React Native projects this may be configured in the native iOS project.
 
-For Expo projects, the deployment target can be configured through Expo app configuration/build properties where appropriate. Expo documents `ios.deploymentTarget` as the setting that defines the minimum iOS version supported by the application. citeturn0search4turn0search14
+For Expo projects, the deployment target can be configured through Expo app configuration/build properties where appropriate. Expo documents `ios.deploymentTarget` as the setting that defines the minimum iOS version supported by the application.
 
 Do not increase the deployment target simply to remove an old-device test.
 
@@ -204,7 +204,7 @@ Native dependencies
 Your app
 ```
 
-Expo publishes the minimum Android and iOS versions supported by each SDK version. For example, the current Expo SDK reference documents the supported OS versions and compile/target SDK values for each SDK release. citeturn0search1
+Expo publishes the minimum Android and iOS versions supported by each SDK version. For example, the current Expo SDK reference documents the supported OS versions and compile/target SDK values for each SDK release.
 
 Do not define a device-support policy independently of the framework version.
 
@@ -240,7 +240,7 @@ If the application supports iPad:
 - [ ] Keyboard behavior is tested.
 - [ ] Store configuration reflects the intended device support.
 
-Expo provides configuration for declaring whether an iOS standalone app supports tablet screen sizes. citeturn0search2
+Expo provides configuration for declaring whether an iOS standalone app supports tablet screen sizes.
 
 Do not claim iPad support simply because the application technically launches on an iPad.
 
@@ -258,7 +258,7 @@ Consider:
 - different aspect ratios
 - different hardware capabilities
 
-Android's compatibility model allows many hardware manufacturers to produce compatible devices, so the application should be tested against meaningful device classes rather than one representative Android phone. citeturn0search11
+Android's compatibility model allows many hardware manufacturers to produce compatible devices, so the application should be tested against meaningful device classes rather than one representative Android phone.
 
 ---
 
@@ -371,7 +371,7 @@ Review:
 - [ ] Release builds use the intended architecture configuration.
 - [ ] Architecture-specific runtime behavior has been tested where relevant.
 
-Expo's device APIs can expose supported CPU architectures at runtime, which can also be useful when diagnosing device-specific native issues. citeturn0search0
+Expo's device APIs can expose supported CPU architectures at runtime, which can also be useful when diagnosing device-specific native issues.
 
 Do not add architecture-specific workarounds unless the actual release configuration requires them.
 
@@ -567,9 +567,9 @@ Do not claim that every supported device has been individually tested.
 
 Stores use application metadata and binary requirements to determine device availability.
 
-For iOS, App Store Connect exposes device requirements for uploaded builds, including minimum OS, supported architectures, device family, and required capabilities. citeturn0search10
+For iOS, App Store Connect exposes device requirements for uploaded builds, including minimum OS, supported architectures, device family, and required capabilities.
 
-For Android, Google Play uses compatibility information to determine which devices can access an application. Android's official compatibility documentation distinguishes platform/device compatibility from application compatibility. citeturn0search11
+For Android, Google Play uses compatibility information to determine which devices can access an application. Android's official compatibility documentation distinguishes platform/device compatibility from application compatibility.
 
 If a device cannot see or install the application:
 
@@ -716,7 +716,7 @@ Native platform requirements
 
 Check the current Expo SDK reference before choosing a support range.
 
-Expo publishes the supported Android and iOS versions for each SDK. The current SDK reference should be treated as the source of truth for Expo-level compatibility, while Apple and Google remain the authorities for store requirements. citeturn0search1
+Expo publishes the supported Android and iOS versions for each SDK. The current SDK reference should be treated as the source of truth for Expo-level compatibility, while Apple and Google remain the authorities for store requirements.
 
 For Expo projects:
 
@@ -848,7 +848,7 @@ Device OS
 → Build metadata
 ```
 
-For iOS, inspect App Store Connect build metadata and device requirements. citeturn0search10
+For iOS, inspect App Store Connect build metadata and device requirements.
 
 For Android, inspect Play Console compatibility information and the application's manifest/device requirements.
 

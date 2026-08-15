@@ -90,9 +90,9 @@ All operational templates in this playbook must adhere to five mandatory rules:
 
 # 4. Related Repository Documentation
 
-- [Release Preparation Workflow](../../ai/workflows/release-preparation.md) - Automated release prep.
-- [Release Engineering Subsystem](../../release-engineering/README.md) - Release pipelines.
-- [CHANGELOG.md](../../CHANGELOG.md) - Repository changelog.
+- [Release Preparation Workflow](../ai/workflows/release-preparation.md) - Automated release prep.
+- [Release Engineering Subsystem](../release-engineering/README.md) - Release pipelines.
+- [CHANGELOG.md](../CHANGELOG.md) - Repository changelog.
 
 ---
 
