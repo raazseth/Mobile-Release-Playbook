@@ -50,3 +50,42 @@ Health data collected via Apple HealthKit or Android Health Connect is subject t
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Privacy compliance
+
+- `privacy-compliance/README.md`
+- `privacy-compliance/advertising.md`
+- `privacy-compliance/analytics.md`
+- `privacy-compliance/children.md`
+- `privacy-compliance/data-collection.md`
+- `privacy-compliance/data-deletion.md`
+- `privacy-compliance/data-retention.md`
+- `privacy-compliance/permissions.md`
+- `privacy-compliance/privacy-policy.md`
+- `privacy-compliance/regional-requirements.md`
+- `privacy-compliance/tracking.md`
+
+### Store operations
+
+- `store-operations/data-safety.md`
+- `store-operations/privacy-information.md`
+
+### Pre-release
+
+- `pre-release/privacy-audit.md`
+
+### AI agents
+
+- `ai/agents/privacy-auditor.md`
+
+### Monetization
+
+- `monetization/receipt-validation.md`
+
+### Troubleshooting
+
+- `troubleshooting/privacy-rejected.md`

@@ -103,3 +103,4 @@ If you believe your app was rejected due to a reviewer misunderstanding or incor
 ---
 
 **Last verified:** August 14, 2026
+

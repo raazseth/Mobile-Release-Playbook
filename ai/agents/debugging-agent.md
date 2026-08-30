@@ -2293,3 +2293,47 @@ Better release reliability
 ```
 
 not by how much code or automation it produces.
+
+---
+
+# Related documentation
+
+### Agents
+
+- `ai/agents/README.md`
+- `ai/agents/dependency-auditor.md`
+- `ai/agents/metadata-agent.md`
+- `ai/agents/privacy-auditor.md`
+- `ai/agents/qa-agent.md`
+- `ai/agents/rejection-analyzer.md`
+- `ai/agents/release-auditor.md`
+- `ai/agents/release-manager.md`
+- `ai/agents/security-auditor.md`
+
+### Context
+
+- `ai/context/repository-context.md`
+- `ai/context/release-context.md`
+- `ai/context/store-context.md`
+
+### Orchestration
+
+- `ai/orchestration/agent-workflows.md`
+- `ai/orchestration/human-approval.md`
+- `ai/orchestration/bounded-autonomy.md`
+
+### AI security
+
+- `ai/security/agent-permissions.md`
+- `ai/security/destructive-actions.md`
+- `ai/security/prompt-injection.md`
+
+### Evals
+
+- `ai/evals/agent-evaluation.md`
+- `ai/evals/hallucination-tests.md`
+
+### Workflows
+
+- `ai/workflows/release-audit.md`
+- `ai/workflows/debugging.md`

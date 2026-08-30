@@ -100,3 +100,4 @@ Both Apple and Google require that the person enrolling an organization possesse
 ---
 
 **Last verified:** August 14, 2026
+

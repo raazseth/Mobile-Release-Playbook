@@ -56,3 +56,32 @@ Apple code signing relies on a cryptographic Chain of Trust linking team certifi
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### iOS signing
+
+- `signing/ios/README.md`
+- `signing/ios/api-keys.md`
+- `signing/ios/distribution.md`
+- `signing/ios/key-rotation.md`
+- `signing/ios/provisioning-profiles.md`
+
+### Android signing
+
+- `signing/android/README.md`
+
+### Signing security
+
+- `signing/security/secret-storage.md`
+- `signing/security/recovery.md`
+
+### Store accounts
+
+- `store-accounts/apple-developer.md`
+
+### Troubleshooting
+
+- `troubleshooting/signing-fails.md`

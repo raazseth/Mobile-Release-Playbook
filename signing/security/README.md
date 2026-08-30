@@ -63,3 +63,29 @@ Mobile code signing security enforces strict isolation between developer environ
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Signing security
+
+- `signing/security/access-control.md`
+- `signing/security/ci-secrets.md`
+- `signing/security/recovery.md`
+- `signing/security/secret-storage.md`
+
+### iOS signing
+
+- `signing/ios/certificates.md`
+- `signing/ios/key-rotation.md`
+
+### Android signing
+
+- `signing/android/keystore.md`
+- `signing/android/key-rotation.md`
+
+### AI security
+
+- `ai/security/secret-protection.md`
+- `ai/security/agent-permissions.md`

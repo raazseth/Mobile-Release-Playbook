@@ -149,3 +149,4 @@ When submitting an app using analytics to Google Play, the Data Safety questionn
 ---
 
 **Last verified:** August 13, 2026
+

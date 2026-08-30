@@ -1,8 +1,6 @@
 # Google Play App Review Policies & Pre-Launch Reports
 
-This document details the evaluation mechanics, automated Pre-Launch Report analysis (Firebase Test Lab), policy enforcement rules, and appeal procedures for **Google Play App Review**.
-
-Engineered in alignment with **2026 platform specifications**, it specifies how to navigate Google Play review scans and resolve policy warnings before publishing.
+This document covers the Pre-Launch Report (Firebase Test Lab), the policy areas Google Play checks most often, and appeal procedures for **Google Play App Review** — how to navigate Google Play's review scans and resolve policy warnings before publishing.
 
 This guide is **not**:
 
@@ -17,22 +15,16 @@ This guide is **not**:
 Every App Bundle (`.aab`) submitted to Google Play Console undergoes dual inspection: automated static/dynamic security analysis (Firebase Test Lab) followed by policy review.
 
 ```text
-[ Upload App Bundle (.aab) to Google Play Console ]
-                         │
-                         ▼
-┌────────────────────────────────────────────────────────┐
-│             AUTOMATED PRE-LAUNCH REPORT SCAN           │
-│  - Executes app on physical Android devices            │
-│  - Scans for startup crashes, ANRs, & rendering bugs   │
-│  - Checks accessibility & security vulnerabilities     │
-└────────────────────────┬───────────────────────────────┘
-                         │
-                         ▼
-┌────────────────────────────────────────────────────────┐
-│             GOOGLE PLAY POLICY INSPECTION              │
-│  - Evaluates Data Safety form against app permissions  │
-│  - Checks Target API Level 36 compliance               │
-└────────────────────────────────────────────────────────┘
+Upload .aab to Google Play Console
+        ↓
+Automated pre-launch report scan
+  - runs the app on physical Android devices
+  - scans for startup crashes, ANRs, rendering bugs
+  - checks accessibility and security vulnerabilities
+        ↓
+Google Play policy inspection
+  - Data Safety form checked against requested permissions
+  - target API level compliance checked
 ```
 
 ---
@@ -68,15 +60,44 @@ If Google Play issues a **Rejection**, **Warning**, or **Removal Notice**:
 
 ---
 
-# 5. Related Documentation
+# Related documentation
 
-- [App Bundle Handbook](app-bundle.md) - `.aab` compilation.
-- [Data Safety Handbook](../../store-operations/data-safety.md) - Data Safety questionnaire.
-- [Google Play Store Accounts](../../store-accounts/google-play-console.md) - Play Console accounts.
+### Publishing (Android)
+
+- `publishing/android/README.md`
+- `publishing/android/app-bundle.md`
+- `publishing/android/closed-testing.md`
+- `publishing/android/internal-testing.md`
+- `publishing/android/metadata.md`
+- `publishing/android/play-console.md`
+- `publishing/android/production-release.md`
+- `publishing/android/screenshots.md`
+
+### Store accounts
+
+- `store-accounts/google-play-console.md`
+
+### Android signing
+
+- `signing/android/README.md`
+- `signing/android/play-app-signing.md`
+
+### Store operations
+
+- `store-operations/app-review.md`
+- `store-operations/rejection-handling.md`
+
+### Checklists
+
+- `checklists/android.md`
+
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
 
 ---
 
-# 6. Official Sources
+# Official sources
 
 - Google Play Policy Center: https://play.google.com/about/developer-content-policy/
 - Google Play Pre-Launch Report Guide: https://support.google.com/googleplay/android-developer/answer/9842757
@@ -84,3 +105,4 @@ If Google Play issues a **Rejection**, **Warning**, or **Removal Notice**:
 ---
 
 **Last verified:** August 14, 2026
+

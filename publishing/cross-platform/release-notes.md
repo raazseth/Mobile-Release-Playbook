@@ -1,8 +1,6 @@
 # Cross-Platform Release Notes & Changelogs
 
-This document details the Keep a Changelog standards, automated git commit parsing, dual store character limits, and release notes formatting for **Cross-Platform Release Notes** in Expo and React Native applications.
-
-Engineered in alignment with **2026 platform specifications**, it specifies how to generate clear, informative user-facing release notes for App Store Connect ("What's New") and Google Play Console ("Release Notes").
+This document covers Keep a Changelog formatting, generating release notes from git commits, and the character limits for both stores' "what's new" fields, for **Cross-Platform Release Notes** in Expo and React Native applications — how to write clear, user-facing release notes for App Store Connect and Google Play Console.
 
 This guide is **not**:
 
@@ -17,23 +15,13 @@ This guide is **not**:
 Public release notes inform end users about new features, UI improvements, and bug fixes included in the current release.
 
 ```text
-[ Git Commit Log (Conventional Commits: `feat:`, `fix:`) ]
-                           │
-                           ▼
-┌────────────────────────────────────────────────────────┐
-│             CHANGELOG PARSING PIPELINE                 │
-│  - Filter out internal refactors, CI, and test commits │
-│  - Group user-facing changes into Categories:          │
-│    (New Features, Improvements, Bug Fixes)             │
-│  - Format according to Keep a Changelog standard      │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-             ┌─────────────┴─────────────┐
-             ▼                           ▼
-┌────────────────────────┐               ┌────────────────────────┐
-│ App Store "What's New" │               │ Google Play Changelog  │
-│ (Max 4,000 characters) │               │ (Max 500 characters)   │
-└────────────────────────┘               └────────────────────────┘
+Git commit log (Conventional Commits: feat:, fix:)
+        ↓
+Changelog parsing: filter out internal refactors/CI/test commits, group user-facing
+changes into New Features / Improvements / Bug Fixes, format per Keep a Changelog
+        │
+        ├─→ App Store "What's New"    (max 4,000 characters)
+        └─→ Google Play release notes (max 500 characters)
 ```
 
 ---
@@ -119,15 +107,34 @@ console.log('✅ Generated cross-platform release notes!');
 
 ---
 
-# 6. Related Documentation
+# Related documentation
 
-- [Metadata Handbook](metadata.md) - Metadata character limits.
-- [Release Notes Workflow](../../ai/workflows/release-notes.md) - AI release notes generation.
-- [CHANGELOG.md](../../CHANGELOG.md) - Repository changelog.
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
+- `publishing/cross-platform/assets.md`
+- `publishing/cross-platform/metadata.md`
+- `publishing/cross-platform/submission.md`
+
+### Publishing (iOS)
+
+- `publishing/ios/README.md`
+
+### Publishing (Android)
+
+- `publishing/android/README.md`
+
+### Checklists
+
+- `checklists/cross-platform.md`
+
+### Store operations
+
+- `store-operations/README.md`
 
 ---
 
-# 7. Official Sources
+# Official sources
 
 - Keep a Changelog Standard: https://keepachangelog.com/
 - Apple Release Notes Guidelines: https://developer.apple.com/help/app-store-connect/#/dev8b49e0c52
@@ -135,3 +142,4 @@ console.log('✅ Generated cross-platform release notes!');
 ---
 
 **Last verified:** August 14, 2026
+

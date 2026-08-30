@@ -45,3 +45,29 @@ AI agents invoke structured tools via JSON-schema tool declarations to interact 
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Tools
+
+- `ai/tools/chatgpt.md`
+- `ai/tools/claude-code.md`
+- `ai/tools/claude.md`
+- `ai/tools/codex.md`
+- `ai/tools/github-agents.md`
+- `ai/tools/github-copilot.md`
+
+### Getting started
+
+- `ai/getting-started/when-to-use-ai.md`
+- `ai/getting-started/when-not-to-use-ai.md`
+
+### Agents
+
+- `ai/agents/README.md`
+
+### AI security
+
+- `ai/security/README.md`

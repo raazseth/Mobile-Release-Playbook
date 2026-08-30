@@ -44,7 +44,7 @@ This guide is **not**:
 - [ ] **Revocation Executed**: Compromised certificate revoked in Apple Developer Portal.
 - [ ] **Upload Key Reset Requested**: Upload key reset request submitted to Google Play Console.
 - [ ] **API Keys Rotated**: App Store Connect API keys and Service Account JSON keys rotated immediately.
-- [ ] **Incident Report File Created**: Outage post-mortem documented in `.releases/incidents/`.
+- [ ] **Incident Report File Created**: Outage post-mortem documented using the `templates/incident-report.md` template.
 
 ---
 
@@ -55,3 +55,29 @@ This guide is **not**:
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Signing security
+
+- `signing/security/README.md`
+- `signing/security/access-control.md`
+- `signing/security/ci-secrets.md`
+- `signing/security/secret-storage.md`
+
+### iOS signing
+
+- `signing/ios/certificates.md`
+- `signing/ios/key-rotation.md`
+
+### Android signing
+
+- `signing/android/keystore.md`
+- `signing/android/key-rotation.md`
+
+### AI security
+
+- `ai/security/secret-protection.md`
+- `ai/security/agent-permissions.md`

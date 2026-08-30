@@ -54,3 +54,19 @@ Version bumping synchronizes version strings (`1.2.0`) and build numbers (`42`) 
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Version bump scripts
+
+- `scripts/version-bump/version-bump.md`
+
+### Foundations
+
+- `foundations/versioning.md`
+
+### Governance
+
+- `governance/versioning.md`

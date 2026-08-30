@@ -1,8 +1,6 @@
 # iOS Publishing Handbook & App Store Administration
 
-This directory contains production handbook guides, build archiving standards, TestFlight beta distribution workflows, App Store Review preparation rules, and Phased Release protocols for **iOS App Publishing** in Expo and React Native applications.
-
-Engineered in alignment with **2026 platform specifications**—specifically App Store Connect API Key (`.p8`) authentication, `ITSAppUsesNonExemptEncryption` declarations, TestFlight Beta App Review rules, and 7-Day Phased Releases—it details how to compile, test, stage, and publish iOS applications on the Apple App Store.
+This directory covers build archiving, TestFlight beta distribution, App Store Review preparation, and phased release rollout for **iOS App Publishing** in Expo and React Native applications — App Store Connect API Key (`.p8`) authentication, `ITSAppUsesNonExemptEncryption` declarations, TestFlight Beta App Review rules, and the 7-day phased release schedule, covering how to compile, test, stage, and publish iOS applications on the App Store.
 
 This guide is **not**:
 
@@ -17,27 +15,17 @@ This guide is **not**:
 iOS application publishing follows a structured progression from local `.ipa` compilation through TestFlight beta testing channels to App Store production releases.
 
 ```text
-┌────────────────────────────────────────────────────────┐
-│             iOS BUILD COMPILATION (`eas build`)        │
-│  - React Native Hermes JS + Native Objective-C/Swift   │
-│  - Signed with Distribution Certificate & Profile     │
-│  - Generates Production `.ipa` Archive                 │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-                           ▼ (App Store Connect API Key `.p8`)
-┌────────────────────────────────────────────────────────┐
-│             TESTFLIGHT BETA DISTRIBUTION               │
-│                                                        │
-│  1. Internal Testing (Instant access; 100 testers)    │
-│  2. External Testing (Beta App Review; 10,000 testers)│
-└──────────────────────────┬─────────────────────────────┘
-                           │
-                           ▼
-┌────────────────────────────────────────────────────────┐
-│             APP STORE PRODUCTION RELEASE               │
-│  - App Store Review Inspection (Guidelines 2.1, 3.1.1) │
-│  - Phased Release Over 7 Days (Day 1: 1% → Day 7: 100%)│
-└────────────────────────────────────────────────────────┘
+eas build → signed .ipa (Distribution Certificate & Profile)
+        │
+        ↓ (App Store Connect API Key .p8)
+TestFlight beta distribution
+  - Internal testing: instant access, up to 100 testers
+  - External testing: Beta App Review required, up to 10,000 testers
+        │
+        ↓
+App Store production release
+  - App Store Review (Guidelines 2.1, 3.1.1)
+  - Phased release over 7 days (Day 1: 1% → Day 7: 100%)
 ```
 
 ---
@@ -59,41 +47,53 @@ iOS application publishing follows a structured progression from local `.ipa` co
 
 # 3. Universal iOS Publishing Rules
 
-All iOS publishing implementations in this playbook must adhere to five mandatory engineering rules:
+Every guide in this directory assumes these five rules:
 
-```text
-1. Export Compliance Declaration in `Info.plist`
-   All iOS binaries MUST include `ITSAppUsesNonExemptEncryption` in `Info.plist` (set to `false` if
-   using standard HTTPS encryption) to prevent automated export compliance halts on TestFlight.
-
-2. App Store Connect API Key (`.p8`) Authentication
-   Automated build deployment tools (EAS Submit, Fastlane Deliver) MUST authenticate using App Store Connect
-   API Keys (.p8). Deprecated password-based authentication or legacy `altool` commands ARE FORBIDDEN.
-
-3. Mandatory Demo Credentials for Review
-   If your app requires user authentication, functional demo credentials (username + password) MUST be
-   provided in App Store Connect Reviewer Notes. Demo accounts MUST remain active during review.
-
-4. 7-Day Phased Release for Production Updates
-   All production version updates MUST enable Phased Release Over 7 Days (Day 1: 1%, Day 2: 2%, Day 3: 5%,
-   Day 4: 10%, Day 5: 20%, Day 6: 50%, Day 7: 100%) to mitigate unforeseen production crash spikes.
-
-5. Strict Alpha Transparency Exclusion
-   All screenshot assets uploaded to App Store Connect MUST have alpha transparency channels stripped.
-   Uploading PNG assets with an active alpha channel will trigger an instant `ITMS-90032` rejection.
-```
+- [ ] **Export compliance declared**: `Info.plist` includes `ITSAppUsesNonExemptEncryption` (set to `false` if the app only uses standard HTTPS encryption) — otherwise export compliance prompts block TestFlight processing.
+- [ ] **App Store Connect API Key authentication**: automated tools (EAS Submit, Fastlane Deliver) authenticate with an App Store Connect API Key (`.p8`), not password-based auth or the deprecated `altool`.
+- [ ] **Demo credentials provided for review**: if the app requires login, a working demo username/password is in App Store Connect's Reviewer Notes, and the demo account stays active for the duration of review.
+- [ ] **Phased release enabled**: production updates use Phased Release Over 7 Days (Day 1: 1%, Day 2: 2%, Day 3: 5%, Day 4: 10%, Day 5: 20%, Day 6: 50%, Day 7: 100%) rather than releasing to 100% immediately.
+- [ ] **No alpha channel in screenshots**: PNG assets uploaded to App Store Connect have alpha transparency stripped — an active alpha channel triggers an upload rejection.
 
 ---
 
-# 4. Related Repository Documentation
+# Related documentation
 
-- [Android Publishing Handbook](../android/README.md) - Google Play publishing.
-- [Cross-Platform Publishing Handbook](../cross-platform/README.md) - Unified EAS/Fastlane releases.
-- [Signing iOS Handbook](../../signing/ios/certificates.md) - Certificates & provisioning profiles.
+### Publishing (iOS)
+
+- `publishing/ios/app-review.md`
+- `publishing/ios/app-store-connect.md`
+- `publishing/ios/build-upload.md`
+- `publishing/ios/metadata.md`
+- `publishing/ios/production-release.md`
+- `publishing/ios/screenshots.md`
+- `publishing/ios/testflight.md`
+
+### Store accounts
+
+- `store-accounts/app-store-connect.md`
+
+### iOS signing
+
+- `signing/ios/README.md`
+- `signing/ios/distribution.md`
+
+### Store operations
+
+- `store-operations/app-review.md`
+- `store-operations/rejection-handling.md`
+
+### Checklists
+
+- `checklists/ios.md`
+
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
 
 ---
 
-# 5. Official Sources
+# Official sources
 
 - Apple App Store Connect Help: https://developer.apple.com/help/app-store-connect/
 - TestFlight Overview: https://developer.apple.com/testflight/
@@ -102,3 +102,4 @@ All iOS publishing implementations in this playbook must adhere to five mandator
 ---
 
 **Last verified:** August 14, 2026
+

@@ -113,3 +113,35 @@ Best regards,
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Templates
+
+- `templates/README.md`
+- `templates/app-store-description.md`
+- `templates/changelog.md`
+- `templates/incident-report.md`
+- `templates/play-store-description.md`
+- `templates/privacy-questionnaire.md`
+- `templates/release-checklist.md`
+- `templates/release-notes.md`
+- `templates/release-plan.md`
+
+### Store operations
+
+- `store-operations/README.md`
+
+### Checklists
+
+- `checklists/README.md`
+
+### Post-release
+
+- `post-release/incident-response.md`
+
+### Release strategy
+
+- `release-strategy/release-trains.md`

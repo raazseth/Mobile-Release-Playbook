@@ -1362,6 +1362,39 @@ The goal is to keep the application's dependency set:
 - maintainable
 - supportable in production
 
+
+---
+
+# Related documentation
+
+### Foundations
+
+- `foundations/README.md`
+- `foundations/device-support.md`
+- `foundations/identifiers.md`
+- `foundations/mobile-release-lifecycle.md`
+- `foundations/project-configuration.md`
+- `foundations/release-environments.md`
+- `foundations/versioning.md`
+
+### Pre-release
+
+- `pre-release/README.md`
+- `pre-release/release-readiness.md`
+
+### Release engineering
+
+- `release-engineering/README.md`
+- `release-engineering/release-configurations.md`
+
+### Testing
+
+- `testing/README.md`
+
+### Checklists
+
+- `checklists/first-release.md`
+
 ---
 
 # Official sources

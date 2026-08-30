@@ -177,3 +177,4 @@ All agents, prompts, and orchestration schemas in `ai/` implement standard repos
 ---
 
 **Last verified:** August 13, 2026
+

@@ -82,3 +82,19 @@ node scripts/release-audit/audit-release.js
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Release audit scripts
+
+- `scripts/release-audit/README.md`
+
+### Pre-release
+
+- `pre-release/release-readiness.md`
+
+### AI agents
+
+- `ai/agents/release-auditor.md`

@@ -64,3 +64,37 @@ end
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Release engineering
+
+- `release-engineering/README.md`
+- `release-engineering/app-store-connect-api.md`
+- `release-engineering/build-systems.md`
+- `release-engineering/environment-management.md`
+- `release-engineering/release-configurations.md`
+- `release-engineering/release-pipelines.md`
+
+### EAS
+
+- `release-engineering/eas/README.md`
+
+### Fastlane
+
+- `release-engineering/fastlane/README.md`
+
+### GitHub Actions
+
+- `release-engineering/github-actions/README.md`
+
+### Signing
+
+- `signing/README.md`
+
+### AI orchestration
+
+- `ai/orchestration/mcp.md`
+- `ai/orchestration/tool-permissions.md`

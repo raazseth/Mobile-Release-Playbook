@@ -83,3 +83,19 @@ node scripts/build-validation/validate-build.js
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Build validation scripts
+
+- `scripts/build-validation/README.md`
+
+### Pre-release
+
+- `pre-release/configuration-audit.md`
+
+### Foundations
+
+- `foundations/project-configuration.md`

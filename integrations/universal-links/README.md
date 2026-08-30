@@ -154,3 +154,4 @@ curl -v "https://app-site-association.cdn-apple.com/a/v1/example.com"
 ---
 
 **Last verified:** August 13, 2026
+

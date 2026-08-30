@@ -116,3 +116,4 @@ If the app targets children or is listed in the Google Play Families program, th
 ---
 
 **Last verified:** August 13, 2026
+

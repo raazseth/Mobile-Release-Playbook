@@ -41,3 +41,33 @@ Security guardrails protect AI agents from LLM01 Prompt Injection, LLM02 Sensiti
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### AI security
+
+- `ai/security/agent-permissions.md`
+- `ai/security/destructive-actions.md`
+- `ai/security/prompt-injection.md`
+- `ai/security/secret-protection.md`
+
+### Signing security
+
+- `signing/security/secret-storage.md`
+- `signing/security/access-control.md`
+
+### Orchestration
+
+- `ai/orchestration/human-approval.md`
+- `ai/orchestration/tool-permissions.md`
+- `ai/orchestration/bounded-autonomy.md`
+
+### Agents
+
+- `ai/agents/README.md`
+
+### Governance
+
+- `governance/documentation-style.md`

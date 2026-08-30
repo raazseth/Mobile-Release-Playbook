@@ -56,3 +56,19 @@ The pre-release audit toolchain runs a series of quality gate checks covering se
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Release audit scripts
+
+- `scripts/release-audit/audit-release.md`
+
+### Pre-release
+
+- `pre-release/release-readiness.md`
+
+### AI agents
+
+- `ai/agents/release-auditor.md`

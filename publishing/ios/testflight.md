@@ -1,8 +1,6 @@
 # TestFlight Beta Testing Tracks & Distribution
 
-This document details internal testing tracks (100 testers, zero review delay), external testing tracks (10,000 testers, Beta App Review), public testing links, crash feedback collection, and expiration rules for **TestFlight Beta Distribution** in Expo and React Native applications.
-
-Engineered in alignment with **2026 platform specifications**, it specifies how to distribute beta builds securely to internal QA teams and external beta testers.
+This document covers internal testing tracks (up to 100 testers, no review delay), external testing tracks (up to 10,000 testers, Beta App Review required), public testing links, crash feedback collection, and build expiration for **TestFlight Beta Distribution** in Expo and React Native applications — how to distribute beta builds to internal QA teams and external beta testers.
 
 This guide is **not**:
 
@@ -17,14 +15,13 @@ This guide is **not**:
 TestFlight provides two distinct beta testing channels with different review requirements and tester capacity limits.
 
 ```text
-                                TESTFLIGHT BETA TRACKS
-                                          │
-       ┌──────────────────────────────────┴──────────────────────────────────┐
-       ▼                                                                     ▼
-[ INTERNAL TESTING TRACK ]                                         [ EXTERNAL TESTING TRACK ]
-- Up to 100 Internal Testers                                       - Up to 10,000 External Testers
-- Zero App Review Delay (Instant availability)                      - Requires Beta App Review by Apple
-- Must be assigned App Store Connect team roles                     - Accessible via email or Public Link
+TestFlight beta tracks
+  ├─→ Internal testing track
+  │     - up to 100 testers, assigned App Store Connect team roles
+  │     - instant availability, no App Review delay
+  └─→ External testing track
+        - up to 10,000 testers, accessible via email or a public link
+        - requires Beta App Review by Apple
 ```
 
 ---
@@ -44,20 +41,13 @@ Internal Testing allows distributing builds instantly to team members added to y
 External Testing opens beta builds to external users via email invitation or a Public Link:
 
 ```text
-[ Upload Build to TestFlight ]
-               │
-               ▼
-[ Add Build to External Testing Group & Submit for Beta App Review ]
-               │
-               ▼
-┌────────────────────────────────────────────────────────┐
-│             BETA APP REVIEW BY APPLE REVIEW TEAM       │
-│  - Evaluates build stability & compliance              │
-│  - Review completes within 24 to 48 hours              │
-└──────────────────────────┬─────────────────────────────┘
-               │
-               ▼ (Approved)
-[ Distribute to External Testers via Email or Public Link ]
+Upload build to TestFlight
+        ↓
+Add build to external testing group, submit for Beta App Review
+        ↓
+Beta App Review (Apple evaluates build stability & compliance; typically 24-48 hours)
+        ↓ (approved)
+Distribute to external testers via email or public link
 ```
 
 > **NOTE ON BUILD UPDATES**: Once an external group is approved for a marketing version (e.g., `1.2.0`), subsequent build updates for the same marketing version (e.g., build `1.2.0.2`) usually do NOT require full Beta App Review.
@@ -81,18 +71,47 @@ External Testing opens beta builds to external users via email invitation or a P
 
 ---
 
-# 6. Related Documentation
+# Related documentation
 
-- [Build Upload Handbook](build-upload.md) - `.ipa` uploading.
-- [App Store Connect Handbook](app-store-connect.md) - Build management.
-- [Production Release Handbook](production-release.md) - Production releases.
+### Publishing (iOS)
+
+- `publishing/ios/README.md`
+- `publishing/ios/app-review.md`
+- `publishing/ios/app-store-connect.md`
+- `publishing/ios/build-upload.md`
+- `publishing/ios/metadata.md`
+- `publishing/ios/production-release.md`
+- `publishing/ios/screenshots.md`
+
+### Store accounts
+
+- `store-accounts/app-store-connect.md`
+
+### iOS signing
+
+- `signing/ios/README.md`
+- `signing/ios/distribution.md`
+
+### Store operations
+
+- `store-operations/app-review.md`
+- `store-operations/rejection-handling.md`
+
+### Checklists
+
+- `checklists/ios.md`
+
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
 
 ---
 
-# 7. Official Sources
+# Official sources
 
 - TestFlight Overview & Help: https://developer.apple.com/testflight/
 
 ---
 
 **Last verified:** August 14, 2026
+

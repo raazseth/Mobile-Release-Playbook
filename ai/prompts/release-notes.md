@@ -176,3 +176,4 @@ What's New in Version 2.1.0:
 ---
 
 **Last verified:** August 13, 2026
+

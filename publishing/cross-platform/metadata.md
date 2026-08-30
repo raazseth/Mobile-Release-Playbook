@@ -1,8 +1,6 @@
 # Cross-Platform Metadata Synchronization & Schemas
 
-This document details the shared metadata schemas, character limit reconciliation, automated Fastlane metadata directory structures, and synchronization protocols for **Cross-Platform Store Metadata** in Expo and React Native applications.
-
-Engineered in alignment with **2026 platform specifications**, it specifies how to maintain unified store listing metadata across Apple App Store Connect and Google Play Console without manual copy-paste errors.
+This document covers reconciling iOS and Android character limits into one schema, and syncing it into Fastlane's metadata directory structure, for **Cross-Platform Store Metadata** in Expo and React Native applications — how to maintain one source of truth for store listing text instead of copy-pasting between App Store Connect and Google Play Console.
 
 This guide is **not**:
 
@@ -17,21 +15,14 @@ This guide is **not**:
 Apple App Store Connect and Google Play Console enforce different character limits and field rules. A unified metadata strategy reconciles these differences into a master schema.
 
 ```text
-┌────────────────────────────────────────────────────────┐
-│             CROSS-PLATFORM MASTER METADATA             │
-│                                                        │
-│  - App Title: Must fit in 30 characters (iOS & Android)│
-│  - Subtitle (iOS 30c) vs Short Description (Android 80c)│
-│  - Long Description: Shared 4,000 characters text      │
-│  - Keywords: iOS 100c (Android uses in-description)    │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-             ┌─────────────┴─────────────┐
-             ▼                           ▼
-┌────────────────────────┐               ┌────────────────────────┐
-│  Fastlane Deliver      │               │  Fastlane Supply       │
-│  `metadata/ios/`       │               │  `metadata/android/`   │
-└────────────────────────┘               └────────────────────────┘
+Cross-platform master metadata
+  - app title: fits in 30 characters on both stores
+  - iOS subtitle (30c) vs Android short description (80c)
+  - long description: shared 4,000-character text
+  - keywords: iOS-only 100c field; Android relies on the description instead
+        │
+        ├─→ Fastlane Deliver → metadata/ios/
+        └─→ Fastlane Supply  → metadata/android/
 ```
 
 | Metadata Field | iOS Limit | Android Limit | Unified Master Strategy |
@@ -108,15 +99,34 @@ console.log('✅ Fastlane metadata directories successfully synchronized from ma
 
 ---
 
-# 5. Related Documentation
+# Related documentation
 
-- [Store Operations Metadata](../../store-operations/metadata.md) - Metadata limits.
-- [Localization Handbook](metadata.md) - Multi-region metadata.
-- [Metadata Agent](../../ai/agents/metadata-agent.md) - AI metadata audit.
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
+- `publishing/cross-platform/assets.md`
+- `publishing/cross-platform/release-notes.md`
+- `publishing/cross-platform/submission.md`
+
+### Publishing (iOS)
+
+- `publishing/ios/README.md`
+
+### Publishing (Android)
+
+- `publishing/android/README.md`
+
+### Checklists
+
+- `checklists/cross-platform.md`
+
+### Store operations
+
+- `store-operations/README.md`
 
 ---
 
-# 6. Official Sources
+# Official sources
 
 - Fastlane Deliver Metadata Docs: https://docs.fastlane.tools/actions/deliver/
 - Fastlane Supply Metadata Docs: https://docs.fastlane.tools/actions/supply/
@@ -124,3 +134,4 @@ console.log('✅ Fastlane metadata directories successfully synchronized from ma
 ---
 
 **Last verified:** August 14, 2026
+

@@ -53,3 +53,44 @@ To ensure broad hardware compatibility, testing MUST cover low-end, mid-range, a
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Testing
+
+- `testing/README.md`
+- `testing/accessibility.md`
+- `testing/android.md`
+- `testing/deep-links.md`
+- `testing/device-testing.md`
+- `testing/e2e.md`
+- `testing/integration.md`
+- `testing/ios.md`
+- `testing/localization.md`
+- `testing/network.md`
+- `testing/offline.md`
+- `testing/payments.md`
+- `testing/performance.md`
+- `testing/push-notifications.md`
+- `testing/release-smoke-tests.md`
+- `testing/unit.md`
+- `testing/upgrade-migrations.md`
+
+### Pre-release
+
+- `pre-release/README.md`
+- `pre-release/final-release-checklist.md`
+
+### Checklists
+
+- `checklists/pre-release.md`
+
+### Troubleshooting
+
+- `troubleshooting/README.md`
+
+### Release strategy
+
+- `release-strategy/beta-testing.md`

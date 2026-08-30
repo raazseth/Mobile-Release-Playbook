@@ -1,8 +1,6 @@
 # Android Production Track & Staged Rollout Administration
 
-This document details the production track publishing, Staged Rollout percentage increments (1%, 5%, 10%, 20%, 50%, 100%), rollout halting protocols, emergency rollbacks, and crash monitoring for **Android Production Releases** in Expo and React Native applications.
-
-Engineered in alignment with **2026 platform specifications**, it specifies how to deploy production updates safely to millions of Android devices without exposing the entire user base to unexpected production crashes.
+This document covers production track publishing, staged rollout percentages, halting a rollout, and crash monitoring for **Android Production Releases** in Expo and React Native applications — how to deploy a production update without exposing the entire user base to an unexpected crash at once.
 
 This guide is **not**:
 
@@ -17,19 +15,14 @@ This guide is **not**:
 Google Play Staged Rollouts allow developers to release a production update to a fractional percentage of users, monitoring stability metrics before expanding the release globally.
 
 ```text
-┌────────────────────────────────────────────────────────┐
-│             STAGED ROLLOUT PERCENTAGE LIFECYCLE        │
-│                                                        │
-│  Stage 1:  1% or 5% Rollout  ──→ Initial Health Check │
-│  Stage 2: 10% or 20% Rollout ──→ Scale Monitoring     │
-│  Stage 3: 50% Rollout        ──→ Final Stability Check│
-│  Stage 4: 100% Rollout       ──→ Full Global Release  │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-             ┌─────────────┴─────────────┐
-             ▼                           ▼
-    [ Crash Rate Stable ]      [ Crash Spike Detected ]
-    Increase Percentage        HALT ROLLOUT IMMEDIATELY
+Staged rollout lifecycle
+  Stage 1:  1% or 5%  → initial health check
+  Stage 2: 10% or 20% → scale monitoring
+  Stage 3: 50%        → final stability check
+  Stage 4: 100%       → full release
+        │
+        ├─→ crash rate stable    → increase percentage
+        └─→ crash spike detected → halt rollout immediately
 ```
 
 ---
@@ -38,10 +31,12 @@ Google Play Staged Rollouts allow developers to release a production update to a
 
 | Rollout Stage | Target User Percentage | Minimum Evaluation Window | Rollout Health Metrics to Inspect |
 |---|---|---|---|
-| **Stage 1** | **1% to 5%** | 24 Hours | ANR rate < 0.47%, Crash rate < 1.09%, zero critical payment crashes. |
-| **Stage 2** | **10% to 20%** | 24 Hours | Firebase Crashlytics crash-free users > 99.2%, Sentry error count stable. |
+| **Stage 1** | **1% to 5%** | 24 Hours | Below Google Play's published Android Vitals bad-behavior thresholds (ANR rate 0.47%, crash rate 1.09% — see Official Sources), zero critical payment crashes. |
+| **Stage 2** | **10% to 20%** | 24 Hours | Crash-free session rate stable in your crash reporter (Crashlytics/Sentry); no new error spikes. |
 | **Stage 3** | **50%** | 24 Hours | Play Console Android Vitals within acceptable thresholds. |
 | **Stage 4** | **100%** | Final Release | Complete rollout; close release ticket. |
+
+Google Play's Android Vitals bad-behavior thresholds are account-wide quality bars, not staged-rollout-specific gates — Google doesn't publish separate thresholds per rollout stage. Using them as a stage-1 checkpoint is this playbook's own heuristic, not an official Google requirement.
 
 ---
 
@@ -68,19 +63,50 @@ Google Play Console ──→ [ Production Track → Edit Release ] ──→ [ 
 
 ---
 
-# 5. Related Documentation
+# Related documentation
 
-- [App Bundle Handbook](app-bundle.md) - `.aab` compilation.
-- [Play Console Handbook](play-console.md) - Service accounts.
-- [Internal Testing Handbook](internal-testing.md) - Internal testing.
+### Publishing (Android)
+
+- `publishing/android/README.md`
+- `publishing/android/app-bundle.md`
+- `publishing/android/app-review.md`
+- `publishing/android/closed-testing.md`
+- `publishing/android/internal-testing.md`
+- `publishing/android/metadata.md`
+- `publishing/android/play-console.md`
+- `publishing/android/screenshots.md`
+
+### Store accounts
+
+- `store-accounts/google-play-console.md`
+
+### Android signing
+
+- `signing/android/README.md`
+- `signing/android/play-app-signing.md`
+
+### Store operations
+
+- `store-operations/app-review.md`
+- `store-operations/rejection-handling.md`
+
+### Checklists
+
+- `checklists/android.md`
+
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
 
 ---
 
-# 6. Official Sources
+# Official sources
 
 - Google Play Release Staged Rollout Guide: https://support.google.com/googleplay/android-developer/answer/6346149
 - Android Vitals Thresholds: https://developer.android.com/topic/performance/vitals
+- Android Vitals bad-behavior thresholds (crash/ANR rate): https://support.google.com/googleplay/android-developer/answer/9844486
 
 ---
 
 **Last verified:** August 14, 2026
+

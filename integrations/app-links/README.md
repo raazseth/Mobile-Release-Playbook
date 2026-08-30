@@ -148,3 +148,4 @@ adb shell am start -a android.intent.action.VIEW -c android.intent.category.BROW
 ---
 
 **Last verified:** August 13, 2026
+

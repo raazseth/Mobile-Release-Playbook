@@ -89,3 +89,19 @@ node scripts/version-bump/version-bump.js --minor
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Version bump scripts
+
+- `scripts/version-bump/README.md`
+
+### Foundations
+
+- `foundations/versioning.md`
+
+### Governance
+
+- `governance/versioning.md`

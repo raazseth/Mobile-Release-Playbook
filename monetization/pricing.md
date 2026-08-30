@@ -105,3 +105,4 @@ When setting up product pricing in store consoles:
 ---
 
 **Last verified:** August 14, 2026
+

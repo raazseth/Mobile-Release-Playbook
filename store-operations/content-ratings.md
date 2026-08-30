@@ -84,3 +84,4 @@ For apps distributed in South Korea:
 ---
 
 **Last verified:** August 14, 2026
+

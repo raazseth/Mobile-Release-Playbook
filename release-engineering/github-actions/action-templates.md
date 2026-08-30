@@ -66,3 +66,21 @@ runs:
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### GitHub Actions
+
+- `release-engineering/github-actions/README.md`
+- `release-engineering/github-actions/workflows.md`
+
+### Release engineering
+
+- `release-engineering/build-systems.md`
+- `release-engineering/environment-management.md`
+
+### Signing security
+
+- `signing/security/ci-secrets.md`

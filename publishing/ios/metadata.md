@@ -1,8 +1,6 @@
 # App Store Connect Text Metadata & Character Limits
 
-This document details the character limits, title optimization, subtitle rules, keyword formatting, promotional text updates, and store compliance rules for **iOS Store Metadata** in App Store Connect.
-
-Engineered in alignment with **2026 platform specifications**, it specifies how to construct App Store Connect text metadata for Expo and React Native applications.
+This document covers character limits, title/subtitle rules, keyword field formatting, and promotional text for **iOS Store Metadata** in App Store Connect — how to fill in App Store Connect's text metadata fields for an Expo or React Native app at submission time. For the full metadata policy and localization guidance, see `store-operations/metadata.md`.
 
 This guide is **not**:
 
@@ -32,15 +30,8 @@ App Store Connect strictly enforces character boundaries on text fields:
 Apple's 100-character keyword field requires strict formatting optimization:
 
 ```text
-┌────────────────────────────────────────────────────────┐
-│             APPLE KEYWORD FIELD OPTIMIZATION           │
-│                                                        │
-│  - CORRECT Format: Comma-separated without spaces      │
-│    `fitness,tracker,workout,gym,log,run,calorie,diet`  │
-│                                                        │
-│  - INCORRECT Format (Wastes Characters):               │
-│    `fitness, tracker, workout app, gym logger`         │
-└────────────────────────────────────────────────────────┘
+Correct   (comma-separated, no spaces):  fitness,tracker,workout,gym,log,run,calorie,diet
+Incorrect (wastes characters on spaces): fitness, tracker, workout app, gym logger
 ```
 
 ### What to EXCLUDE from Keywords
@@ -62,18 +53,47 @@ Apple's 100-character keyword field requires strict formatting optimization:
 
 ---
 
-# 4. Related Documentation
+# Related documentation
 
-- [Screenshots Handbook](screenshots.md) - iOS screenshots.
-- [Metadata Handbook](../../store-operations/metadata.md) - Metadata rules.
-- [App Store Connect Handbook](app-store-connect.md) - Console setup.
+### Publishing (iOS)
+
+- `publishing/ios/README.md`
+- `publishing/ios/app-review.md`
+- `publishing/ios/app-store-connect.md`
+- `publishing/ios/build-upload.md`
+- `publishing/ios/production-release.md`
+- `publishing/ios/screenshots.md`
+- `publishing/ios/testflight.md`
+
+### Store accounts
+
+- `store-accounts/app-store-connect.md`
+
+### iOS signing
+
+- `signing/ios/README.md`
+- `signing/ios/distribution.md`
+
+### Store operations
+
+- `store-operations/app-review.md`
+- `store-operations/rejection-handling.md`
+
+### Checklists
+
+- `checklists/ios.md`
+
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
 
 ---
 
-# 5. Official Sources
+# Official sources
 
 - Apple App Store Product Page Guidance: https://developer.apple.com/app-store/product-page/
 
 ---
 
 **Last verified:** August 14, 2026
+

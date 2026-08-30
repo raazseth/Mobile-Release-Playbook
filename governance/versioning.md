@@ -59,3 +59,19 @@ The Mobile Release Playbook uses **Semantic Versioning 2.0.0 (`MAJOR.MINOR.PATCH
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Governance
+
+- `governance/README.md`
+- `governance/contribution-guide.md`
+- `governance/documentation-style.md`
+- `governance/maintenance.md`
+- `governance/source-verification.md`
+
+### Sources
+
+- `sources/README.md`

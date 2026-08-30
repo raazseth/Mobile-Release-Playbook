@@ -749,6 +749,42 @@ Before closing the release:
 - [ ] Relevant documentation has been updated.
 - [ ] The release owner has closed the release.
 
+
+---
+
+# Related documentation
+
+### Checklists
+
+- `checklists/README.md`
+- `checklists/android.md`
+- `checklists/cross-platform.md`
+- `checklists/first-release.md`
+- `checklists/ios.md`
+- `checklists/pre-release.md`
+- `checklists/production.md`
+
+### Pre-release
+
+- `pre-release/final-release-checklist.md`
+- `pre-release/release-readiness.md`
+
+### Publishing (iOS)
+
+- `publishing/ios/README.md`
+
+### Publishing (Android)
+
+- `publishing/android/README.md`
+
+### Store operations
+
+- `store-operations/README.md`
+
+### Templates
+
+- `templates/release-checklist.md`
+
 ---
 
 # Official sources

@@ -1,8 +1,6 @@
 # Android Internal Testing Track Administration
 
-This document details the setup, tester distribution lists, instant deployment mechanics, automated CI/CD uploading, and QA feedback collection for the **Google Play Internal Testing Track**.
-
-Engineered in alignment with **2026 platform specifications**, it specifies how to rapidly distribute test builds to internal QA teams and developers without undergoing store review delays.
+This document covers setup, tester lists, and automated CI/CD uploading for the **Google Play Internal Testing Track** — how to distribute test builds to internal QA teams and developers without a store review delay.
 
 This guide is **not**:
 
@@ -17,18 +15,12 @@ This guide is **not**:
 The Internal Testing Track is Google Play's fastest distribution channel. Builds uploaded to the internal track bypass standard store review and become available to internal testers within minutes.
 
 ```text
-[ Developer / CI Tool Uploads `.aab` to Internal Track ]
-                          │
-                          ▼
-┌────────────────────────────────────────────────────────┐
-│             INSTANT DISTRIBUTION ENGINE                │
-│  - Zero App Review Delay (Instant availability)        │
-│  - Supports up to 100 Internal Testers per list        │
-│  - Testers access builds via Play Store opt-in link    │
-└──────────────────────────┬─────────────────────────────┘
-                          │
-                          ▼
-[ Internal QA & Developers Receive Immediate App Update ]
+Developer / CI tool uploads .aab to the internal track
+        ↓
+Instant distribution: no review delay, up to 100 testers per list,
+testers access the build via a Play Store opt-in link
+        ↓
+Internal QA and developers receive the update immediately
 ```
 
 ---
@@ -64,18 +56,48 @@ bundle exec fastlane supply --track internal --aab android/app/build/outputs/bun
 
 ---
 
-# 5. Related Documentation
+# Related documentation
 
-- [Closed Testing Handbook](closed-testing.md) - Closed testing gates.
-- [Play Console Handbook](play-console.md) - Service accounts.
-- [Production Release Handbook](production-release.md) - Staged rollouts.
+### Publishing (Android)
+
+- `publishing/android/README.md`
+- `publishing/android/app-bundle.md`
+- `publishing/android/app-review.md`
+- `publishing/android/closed-testing.md`
+- `publishing/android/metadata.md`
+- `publishing/android/play-console.md`
+- `publishing/android/production-release.md`
+- `publishing/android/screenshots.md`
+
+### Store accounts
+
+- `store-accounts/google-play-console.md`
+
+### Android signing
+
+- `signing/android/README.md`
+- `signing/android/play-app-signing.md`
+
+### Store operations
+
+- `store-operations/app-review.md`
+- `store-operations/rejection-handling.md`
+
+### Checklists
+
+- `checklists/android.md`
+
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
 
 ---
 
-# 6. Official Sources
+# Official sources
 
 - Google Play Internal Testing Guide: https://support.google.com/googleplay/android-developer/answer/9845334
 
 ---
 
 **Last verified:** August 14, 2026
+

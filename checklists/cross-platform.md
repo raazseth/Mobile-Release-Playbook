@@ -561,6 +561,42 @@ Human approved
 
 If a critical item cannot be verified, stop and investigate rather than assuming it is correct.
 
+
+---
+
+# Related documentation
+
+### Checklists
+
+- `checklists/README.md`
+- `checklists/android.md`
+- `checklists/first-release.md`
+- `checklists/ios.md`
+- `checklists/post-release.md`
+- `checklists/pre-release.md`
+- `checklists/production.md`
+
+### Pre-release
+
+- `pre-release/final-release-checklist.md`
+- `pre-release/release-readiness.md`
+
+### Publishing (iOS)
+
+- `publishing/ios/README.md`
+
+### Publishing (Android)
+
+- `publishing/android/README.md`
+
+### Store operations
+
+- `store-operations/README.md`
+
+### Templates
+
+- `templates/release-checklist.md`
+
 ---
 
 # Official sources

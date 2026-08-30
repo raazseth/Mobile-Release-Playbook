@@ -113,3 +113,4 @@ App Store Connect provides a **Promotional Text** field (170 characters max) tha
 ---
 
 **Last verified:** August 14, 2026
+

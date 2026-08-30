@@ -84,8 +84,8 @@ All pre-release audit implementations in this playbook must adhere to five manda
    MUST be promoted to production. Re-compiling source code invalidates all prior audit passes.
 
 5. Audit Log Archival
-   All audit reports, test execution logs, and sign-off records MUST be archived in repository root
-   under `.releases/v1.2.0/audit-report.md` for compliance auditing.
+   All audit reports, test execution logs, and sign-off records MUST be archived per release
+   (e.g. alongside the release notes generated from `templates/release-notes.md`) for compliance auditing.
 ```
 
 ---
@@ -106,3 +106,4 @@ All pre-release audit implementations in this playbook must adhere to five manda
 ---
 
 **Last verified:** August 14, 2026
+

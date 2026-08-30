@@ -55,3 +55,19 @@ Store validation executes pre-flight HTTP handshake calls to App Store Connect R
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Store validation scripts
+
+- `scripts/store-validation/validate-store.md`
+
+### Store operations
+
+- `store-operations/app-listing.md`
+
+### Pre-release
+
+- `pre-release/metadata-audit.md`

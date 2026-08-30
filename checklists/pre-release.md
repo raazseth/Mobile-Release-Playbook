@@ -661,6 +661,42 @@ If the evidence is incomplete:
 
 Investigate before submitting.
 
+
+---
+
+# Related documentation
+
+### Checklists
+
+- `checklists/README.md`
+- `checklists/android.md`
+- `checklists/cross-platform.md`
+- `checklists/first-release.md`
+- `checklists/ios.md`
+- `checklists/post-release.md`
+- `checklists/production.md`
+
+### Pre-release
+
+- `pre-release/final-release-checklist.md`
+- `pre-release/release-readiness.md`
+
+### Publishing (iOS)
+
+- `publishing/ios/README.md`
+
+### Publishing (Android)
+
+- `publishing/android/README.md`
+
+### Store operations
+
+- `store-operations/README.md`
+
+### Templates
+
+- `templates/release-checklist.md`
+
 ---
 
 # Official sources

@@ -1795,3 +1795,25 @@ Simple
 ```
 
 If AI does not make the system meaningfully better, **do not add it.**
+
+---
+
+# Related documentation
+
+### Getting started
+
+- `ai/getting-started/README.md`
+- `ai/getting-started/when-to-use-ai.md`
+
+### Agents
+
+- `ai/agents/README.md`
+
+### Tools
+
+- `ai/tools/claude-code.md`
+- `ai/tools/README.md`
+
+### AI security
+
+- `ai/security/README.md`

@@ -110,3 +110,4 @@ App Store Connect manages internal and external beta testing via TestFlight:
 ---
 
 **Last verified:** August 14, 2026
+

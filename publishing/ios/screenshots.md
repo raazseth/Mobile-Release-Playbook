@@ -1,8 +1,6 @@
 # iOS Visual Assets & Screenshot Specifications
 
-This document details the pixel resolution matrices, device display classes, alpha channel transparency stripping rules, and upload standards for **iOS Screenshots & App Icons** in App Store Connect.
-
-Engineered in alignment with **2026 platform specifications**—specifically including Apple's canonical **6.9-inch Super Retina XDR display class**—it specifies how to produce pixel-perfect, compliant screenshots for all iOS device classes.
+This document covers pixel resolutions, device display classes, alpha channel stripping, and upload rules for **iOS Screenshots & App Icons** in App Store Connect — how to produce compliant screenshots for each iOS display class, including Apple's largest current display class, 6.9-inch Super Retina XDR. Screen sizes shift as new devices ship; verify the current display class matrix against [Apple's screenshot specifications](https://developer.apple.com/help/app-store-connect/#/devd274dd925) before relying on the numbers below.
 
 This guide is **not**:
 
@@ -17,21 +15,12 @@ This guide is **not**:
 Apple requires screenshots for canonical device display classes. App Store Connect automatically scales down the 6.9-inch screenshot set for smaller iPhone models.
 
 ```text
-┌────────────────────────────────────────────────────────┐
-│             APPLE SCREENSHOT MATRIX (2026)             │
-│                                                        │
-│  - 6.9" Display (iPhone 16 Pro Max / 17 Pro Max):      │
-│    Portrait: 1320 x 2868 px | 1290 x 2796 px          │
-│                                                        │
-│  - 6.5" Display (iPhone 11 Pro Max / XS Max Fallback): │
-│    Portrait: 1242 x 2688 px | 1284 x 2778 px          │
-│                                                        │
-│  - 13" iPad Pro Display (iPad Pro 13-inch M4):         │
-│    Portrait: 2064 x 2752 px | 2048 x 2732 px          │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-                           ▼
-[ Upload Up to 10 Screenshots per Device Class in App Store Connect ]
+6.9" display (largest current class):   portrait 1320x2868 or 1290x2796
+6.5" display (legacy fallback bucket):  portrait 1242x2688 or 1284x2778
+13" iPad Pro display:                   portrait 2064x2752 or 2048x2732
+        │
+        ↓
+Upload up to 10 screenshots per device class in App Store Connect
 ```
 
 | Display Class | Portrait Dimensions (Pixels) | Landscape Dimensions (Pixels) | Max Screenshots | Alpha Channel Allowed? |
@@ -62,18 +51,47 @@ Apple requires screenshots for canonical device display classes. App Store Conne
 
 ---
 
-# 4. Related Documentation
+# Related documentation
 
-- [Metadata Handbook](metadata.md) - Listing text metadata.
-- [App Review Handbook](app-review.md) - Review submission.
-- [Store Operations Screenshots](../../store-operations/screenshots.md) - Screenshot specifications.
+### Publishing (iOS)
+
+- `publishing/ios/README.md`
+- `publishing/ios/app-review.md`
+- `publishing/ios/app-store-connect.md`
+- `publishing/ios/build-upload.md`
+- `publishing/ios/metadata.md`
+- `publishing/ios/production-release.md`
+- `publishing/ios/testflight.md`
+
+### Store accounts
+
+- `store-accounts/app-store-connect.md`
+
+### iOS signing
+
+- `signing/ios/README.md`
+- `signing/ios/distribution.md`
+
+### Store operations
+
+- `store-operations/app-review.md`
+- `store-operations/rejection-handling.md`
+
+### Checklists
+
+- `checklists/ios.md`
+
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
 
 ---
 
-# 5. Official Sources
+# Official sources
 
 - Apple App Store Screenshot Specifications: https://developer.apple.com/help/app-store-connect/#/devd274dd925
 
 ---
 
 **Last verified:** August 14, 2026
+

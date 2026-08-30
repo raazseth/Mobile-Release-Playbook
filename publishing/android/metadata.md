@@ -1,8 +1,6 @@
 # Google Play Store Metadata & Listing Text
 
-This document details the character limits, title optimization, short description guidelines, long description density rules, and policy compliance for **Google Play Metadata** in Expo and React Native applications.
-
-Engineered in alignment with **2026 platform specifications**, it specifies how to construct store listing text that maximizes Play Store discoverability while avoiding policy rejections.
+This document covers character limits, title rules, and prohibited text patterns for **Google Play Metadata** in Expo and React Native applications — how to fill in Play Store listing text at submission time without triggering a policy rejection. For the full metadata policy and localization guidance, see `store-operations/metadata.md`.
 
 This guide is **not**:
 
@@ -30,14 +28,11 @@ Google Play Console strictly enforces character boundaries on store listing text
 Google Play strictly prohibits manipulative text elements in store listings:
 
 ```text
-┌────────────────────────────────────────────────────────┐
-│             PROHIBITED TEXT ELEMENTS ON GOOGLE PLAY    │
-│                                                        │
-│  - No Price/Promotion Terms: "Free", "Sale", "50% Off" │
-│  - No Ranking Claims: "Top #1 App", "Best of 2026"     │
-│  - No Call-to-Action: "Download Now", "Install Today"  │
-│  - No Emoji Spam: Repeated emojis or CAPITAL CAPS SPAM │
-└────────────────────────────────────────────────────────┘
+Prohibited in Google Play title/short description:
+  - price or promotion terms: "Free", "Sale", "50% Off"
+  - ranking claims: "Top #1 App", "Best of 2026"
+  - calls to action: "Download Now", "Install Today"
+  - emoji spam or ALL-CAPS spam
 ```
 
 > **POLICY REJECTION RISK**: Including phrases like "Top Free App" or "Download Now!" in your Google Play Title or Short Description will trigger an immediate store listing rejection during review.
@@ -63,18 +58,48 @@ Google Play indexes the **Long Description** field for search queries:
 
 ---
 
-# 5. Related Documentation
+# Related documentation
 
-- [Screenshots Handbook](screenshots.md) - Asset specifications.
-- [Metadata Handbook](../../store-operations/metadata.md) - Store operations metadata.
-- [Play Console Handbook](play-console.md) - Console setup.
+### Publishing (Android)
+
+- `publishing/android/README.md`
+- `publishing/android/app-bundle.md`
+- `publishing/android/app-review.md`
+- `publishing/android/closed-testing.md`
+- `publishing/android/internal-testing.md`
+- `publishing/android/play-console.md`
+- `publishing/android/production-release.md`
+- `publishing/android/screenshots.md`
+
+### Store accounts
+
+- `store-accounts/google-play-console.md`
+
+### Android signing
+
+- `signing/android/README.md`
+- `signing/android/play-app-signing.md`
+
+### Store operations
+
+- `store-operations/app-review.md`
+- `store-operations/rejection-handling.md`
+
+### Checklists
+
+- `checklists/android.md`
+
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
 
 ---
 
-# 6. Official Sources
+# Official sources
 
 - Google Play Store Listing Assets Policy: https://support.google.com/googleplay/android-developer/answer/9866151
 
 ---
 
 **Last verified:** August 14, 2026
+

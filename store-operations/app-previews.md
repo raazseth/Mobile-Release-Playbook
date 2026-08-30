@@ -102,3 +102,4 @@ App Store Connect requires selecting a static **Poster Frame** from the uploaded
 ---
 
 **Last verified:** August 14, 2026
+

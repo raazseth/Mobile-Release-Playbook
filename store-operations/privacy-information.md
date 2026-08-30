@@ -95,3 +95,4 @@ Apple merges privacy manifests from your app binary and all compiled third-party
 ---
 
 **Last verified:** August 14, 2026
+

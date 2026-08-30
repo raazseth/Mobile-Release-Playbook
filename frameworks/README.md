@@ -63,3 +63,20 @@ Mobile frameworks provide the core JavaScript runtime, native bridge architectur
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Expo
+
+- `frameworks/expo/README.md`
+
+### React Native
+
+- `frameworks/react-native/README.md`
+
+### Community frameworks
+
+- `frameworks/community/README.md`
+- `frameworks/community/adding-a-framework.md`

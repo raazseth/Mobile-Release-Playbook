@@ -121,3 +121,4 @@ Claude Code automatically reads [CLAUDE.md](../../.claude/CLAUDE.md) at startup.
 ---
 
 **Last verified:** August 13, 2026
+

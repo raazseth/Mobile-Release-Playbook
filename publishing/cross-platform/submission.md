@@ -1,8 +1,6 @@
 # Cross-Platform Automated Submissions & CI/CD Pipelines
 
-This document details the automated cross-platform submission workflows, Expo Application Services (EAS Submit), Fastlane multi-platform automation, GitHub Actions CI/CD pipelines, and secret management for **Cross-Platform App Submissions** in Expo and React Native applications.
-
-Engineered in alignment with **2026 platform specifications**, it specifies how to orchestrate automated, reproducible build submission pipelines for both Apple App Store Connect and Google Play Console.
+This document covers automated submission workflows via EAS Submit, Fastlane, and GitHub Actions, plus secret management, for **Cross-Platform App Submissions** in Expo and React Native applications — how to build a reproducible submission pipeline for both App Store Connect and Google Play Console.
 
 This guide is **not**:
 
@@ -17,22 +15,12 @@ This guide is **not**:
 Automated submission tools accept compiled build artifacts (`.ipa` for iOS, `.aab` for Android) and upload them to store backends via authenticated store APIs.
 
 ```text
-┌────────────────────────────────────────────────────────┐
-│             COMPILED BUILD ARTIFACTS                   │
-│  - iOS: `build/output.ipa` (Signed with Distribution)  │
-│  - Android: `build/output.aab` (Signed with Upload Key)│
-└──────────────────────────┬─────────────────────────────┘
-                           │
-             ┌─────────────┴─────────────┐
-             ▼                           ▼
-┌────────────────────────┐               ┌────────────────────────┐
-│   EAS SUBMIT (iOS)     │               │  EAS SUBMIT (Android)  │
-│  App Store Connect API │               │  Play Developer API    │
-│  Key (`.p8`) Auth      │               │  Service Account JSON  │
-└───────────┬────────────┘               └───────────┬────────────┘
-            │                                        │
-            ▼                                        ▼
-[ App Store Connect TestFlight ]        [ Google Play Internal Track ]
+Compiled build artifacts
+  - iOS:     build/output.ipa (signed with Distribution Certificate)
+  - Android: build/output.aab (signed with the upload key)
+        │
+        ├─→ EAS Submit (iOS)     → App Store Connect API Key (.p8) → App Store Connect TestFlight
+        └─→ EAS Submit (Android) → Play Developer API service account JSON → Google Play internal track
 ```
 
 ---
@@ -134,15 +122,34 @@ jobs:
 
 ---
 
-# 5. Related Documentation
+# Related documentation
 
-- [iOS Publishing Handbook](../ios/README.md) - iOS publishing.
-- [Android Publishing Handbook](../android/README.md) - Android publishing.
-- [Secret Protection](../../ai/security/secret-protection.md) - Secret storage.
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
+- `publishing/cross-platform/assets.md`
+- `publishing/cross-platform/metadata.md`
+- `publishing/cross-platform/release-notes.md`
+
+### Publishing (iOS)
+
+- `publishing/ios/README.md`
+
+### Publishing (Android)
+
+- `publishing/android/README.md`
+
+### Checklists
+
+- `checklists/cross-platform.md`
+
+### Store operations
+
+- `store-operations/README.md`
 
 ---
 
-# 6. Official Sources
+# Official sources
 
 - Expo EAS Submit Guide: https://docs.expo.dev/submit/introduction/
 - Fastlane Multi-Platform Automation: https://docs.fastlane.tools/
@@ -150,3 +157,4 @@ jobs:
 ---
 
 **Last verified:** August 14, 2026
+

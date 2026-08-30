@@ -60,3 +60,19 @@ Every domain handbook in this repository MUST follow a standardized 5-part secti
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Governance
+
+- `governance/README.md`
+- `governance/contribution-guide.md`
+- `governance/maintenance.md`
+- `governance/source-verification.md`
+- `governance/versioning.md`
+
+### Sources
+
+- `sources/README.md`

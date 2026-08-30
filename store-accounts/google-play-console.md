@@ -108,3 +108,4 @@ Google Cloud Console ──→ [ Create Service Account ] ──→ [ Grant Serv
 ---
 
 **Last verified:** August 14, 2026
+

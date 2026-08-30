@@ -65,3 +65,31 @@ If a developer upload key is lost or compromised:
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Android signing
+
+- `signing/android/README.md`
+- `signing/android/key-rotation.md`
+- `signing/android/keystore.md`
+- `signing/android/play-app-signing.md`
+
+### iOS signing
+
+- `signing/ios/README.md`
+
+### Signing security
+
+- `signing/security/secret-storage.md`
+- `signing/security/recovery.md`
+
+### Store accounts
+
+- `store-accounts/google-play-console.md`
+
+### Troubleshooting
+
+- `troubleshooting/signing-fails.md`

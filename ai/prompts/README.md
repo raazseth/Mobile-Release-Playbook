@@ -42,3 +42,24 @@ Prompts use static system prompt caching, single-mount XML tag variable injectio
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Prompts
+
+- `ai/prompts/debugging.md`
+- `ai/prompts/metadata.md`
+- `ai/prompts/qa.md`
+- `ai/prompts/rejection-analysis.md`
+- `ai/prompts/release-audit.md`
+- `ai/prompts/release-notes.md`
+
+### Agents
+
+- `ai/agents/README.md`
+
+### Workflows
+
+- `ai/workflows/README.md`

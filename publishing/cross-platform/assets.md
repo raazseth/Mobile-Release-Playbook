@@ -1,8 +1,6 @@
 # Cross-Platform Visual Asset Pipelines & App Icons
 
-This document details the visual asset resolution matrices, Expo App Icon plugins, Android Adaptive Icon layers, Splash Screen configurations, and asset generation pipelines for **Cross-Platform Visual Assets** in Expo and React Native applications.
-
-Engineered in alignment with **2026 platform specifications**, it specifies how to generate pixel-perfect app icons, splash screens, and asset bundles for iOS and Android from a single source asset.
+This document covers visual asset resolutions, Android Adaptive Icon layers, and splash screen configuration for **Cross-Platform Visual Assets** in Expo and React Native applications — how to generate app icons and splash screens for both iOS and Android from a single source asset.
 
 This guide is **not**:
 
@@ -17,20 +15,15 @@ This guide is **not**:
 Expo and React Native manage visual assets using source master images processed automatically during native build compilation.
 
 ```text
-┌────────────────────────────────────────────────────────┐
-│             MASTER ASSET CREATION (`./assets/`)        │
-│  - App Icon Master: 1024 x 1024 px PNG (No Alpha)      │
-│  - Adaptive Foreground: 1024 x 1024 px Transparent PNG │
-│  - Splash Screen Master: 2048 x 2048 px PNG            │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-                           ▼ (Expo Config Prebuild Processor)
-┌────────────────────────────────────────────────────────┐
-│             NATIVE ASSET CODE GENERATION               │
-│  - iOS: Generates `AppIcon.appiconset` (@1x, @2x, @3x) │
-│  - Android: Generates `mipmap-hdpi`, `mipmap-xhdpi`... │
-│  - Android 13+: Generates Monochromatic Vector Icon    │
-└────────────────────────────────────────────────────────┘
+Master assets in ./assets/
+  - app icon:          1024x1024 px PNG, no alpha
+  - adaptive foreground: 1024x1024 px transparent PNG
+  - splash screen:     2048x2048 px PNG
+        │
+        ↓ (Expo prebuild processor)
+Native asset generation
+  - iOS: AppIcon.appiconset (@1x, @2x, @3x)
+  - Android: mipmap-hdpi, mipmap-xhdpi, ... plus a monochrome vector icon for Android 13+
 ```
 
 ---
@@ -110,15 +103,34 @@ export function AppRoot() {
 
 ---
 
-# 5. Related Documentation
+# Related documentation
 
-- [Screenshots Handbook](../android/screenshots.md) - Screenshot specifications.
-- [Store Operations Screenshots](../../store-operations/screenshots.md) - iOS/Android screenshots.
-- [Metadata Handbook](metadata.md) - Listing metadata.
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
+- `publishing/cross-platform/metadata.md`
+- `publishing/cross-platform/release-notes.md`
+- `publishing/cross-platform/submission.md`
+
+### Publishing (iOS)
+
+- `publishing/ios/README.md`
+
+### Publishing (Android)
+
+- `publishing/android/README.md`
+
+### Checklists
+
+- `checklists/cross-platform.md`
+
+### Store operations
+
+- `store-operations/README.md`
 
 ---
 
-# 6. Official Sources
+# Official sources
 
 - Expo App Icons Guide: https://docs.expo.dev/guides/app-icons/
 - Android Adaptive Icons Overview: https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive
@@ -126,3 +138,4 @@ export function AppRoot() {
 ---
 
 **Last verified:** August 14, 2026
+

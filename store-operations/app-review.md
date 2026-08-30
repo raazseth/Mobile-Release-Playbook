@@ -116,3 +116,4 @@ In App Store Connect under **App Review Information**:
 ---
 
 **Last verified:** August 14, 2026
+

@@ -57,3 +57,50 @@ Accessibility auditing ensures the application is usable by individuals with vis
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Pre-release
+
+- `pre-release/README.md`
+- `pre-release/asset-audit.md`
+- `pre-release/configuration-audit.md`
+- `pre-release/dependency-audit.md`
+- `pre-release/final-release-checklist.md`
+- `pre-release/metadata-audit.md`
+- `pre-release/performance-audit.md`
+- `pre-release/permissions-audit.md`
+- `pre-release/privacy-audit.md`
+- `pre-release/release-readiness.md`
+- `pre-release/security-audit.md`
+
+### Testing
+
+- `testing/release-smoke-tests.md`
+- `testing/README.md`
+
+### Checklists
+
+- `checklists/pre-release.md`
+- `checklists/production.md`
+
+### Store operations
+
+- `store-operations/app-review.md`
+
+### Privacy compliance
+
+- `privacy-compliance/README.md`
+
+### AI agents
+
+- `ai/agents/release-auditor.md`
+- `ai/agents/security-auditor.md`
+- `ai/agents/privacy-auditor.md`
+
+### Publishing
+
+- `publishing/ios/README.md`
+- `publishing/android/README.md`

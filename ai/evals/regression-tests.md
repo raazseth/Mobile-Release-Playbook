@@ -2324,3 +2324,28 @@ Workflow state stays correct
 +
 Agent behavior stays predictable
 ```
+
+---
+
+# Related documentation
+
+### Evals
+
+- `ai/evals/README.md`
+- `ai/evals/agent-evaluation.md`
+- `ai/evals/hallucination-tests.md`
+- `ai/evals/workflow-evaluation.md`
+
+### Agents
+
+- `ai/agents/README.md`
+- `ai/agents/release-auditor.md`
+
+### Orchestration
+
+- `ai/orchestration/agent-workflows.md`
+- `ai/orchestration/bounded-autonomy.md`
+
+### Context
+
+- `ai/context/repository-context.md`

@@ -58,3 +58,19 @@ When Apple or Google Play deprecate an API or submission rule (e.g., Apple depre
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Governance
+
+- `governance/README.md`
+- `governance/contribution-guide.md`
+- `governance/documentation-style.md`
+- `governance/source-verification.md`
+- `governance/versioning.md`
+
+### Sources
+
+- `sources/README.md`

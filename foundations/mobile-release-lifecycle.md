@@ -1559,7 +1559,7 @@ Use this guide as the map to the rest of the playbook.
 - `ai/workflows/ai-qa.md`
 - `ai/workflows/debugging.md`
 - `ai/orchestration/agent-workflows.md`
-- `ai/security/human-approval.md`
+- `ai/orchestration/human-approval.md`
 
 ---
 

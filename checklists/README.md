@@ -66,3 +66,38 @@ Checklists enforce strict operational rigor across every stage of the mobile app
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Checklists
+
+- `checklists/android.md`
+- `checklists/cross-platform.md`
+- `checklists/first-release.md`
+- `checklists/ios.md`
+- `checklists/post-release.md`
+- `checklists/pre-release.md`
+- `checklists/production.md`
+
+### Pre-release
+
+- `pre-release/final-release-checklist.md`
+- `pre-release/release-readiness.md`
+
+### Publishing (iOS)
+
+- `publishing/ios/README.md`
+
+### Publishing (Android)
+
+- `publishing/android/README.md`
+
+### Store operations
+
+- `store-operations/README.md`
+
+### Templates
+
+- `templates/release-checklist.md`

@@ -1,8 +1,6 @@
 # Android Graphic Assets & Screenshot Specifications
 
-This document details the pixel resolutions, aspect ratios, asset counts, Feature Graphic guidelines, and upload standards for **Android Screenshots & Visual Assets** in Google Play Console.
-
-Engineered in alignment with **2026 platform specifications**, it specifies how to produce compliant visual store assets for Android phones, 7-inch tablets, 10-inch tablets, Chromebooks, and Google Play Store features.
+This document covers pixel resolutions, aspect ratios, asset counts, and Feature Graphic rules for **Android Screenshots & Visual Assets** in Google Play Console — how to produce compliant visual assets for phones, 7-inch tablets, and 10-inch tablets.
 
 This guide is **not**:
 
@@ -17,17 +15,13 @@ This guide is **not**:
 Google Play Console mandates specific graphic assets for store listing publication:
 
 ```text
-┌────────────────────────────────────────────────────────┐
-│             GOOGLE PLAY GRAPHIC ASSETS MATRIX          │
-│                                                        │
-│  - App Icon: 512 x 512 px (32-bit PNG, max 1024 KB)    │
-│  - Feature Graphic: 1024 x 500 px (JPEG or 24-bit PNG)  │
-│  - Phone Screenshots: Min 2, Max 8 (320px - 3840px)    │
-│  - 7-inch & 10-inch Tablet Screenshots: Min 2 per size │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-                           ▼
-[ Published on Google Play Store App Details Page ]
+App icon:              512x512 px, 32-bit PNG, max 1024 KB
+Feature graphic:       1024x500 px, JPEG or 24-bit PNG
+Phone screenshots:     min 2, max 8, 320px-3840px per side
+Tablet screenshots:    min 2 per size class (7-inch, 10-inch)
+        │
+        ↓
+Published on the Google Play Store listing page
 ```
 
 | Asset Type | Required Dimensions (Pixels) | Aspect Ratio | Format / Max Size | Required Count |
@@ -60,18 +54,48 @@ The Feature Graphic appears at the top of your Google Play Store listing page an
 
 ---
 
-# 4. Related Documentation
+# Related documentation
 
-- [Metadata Handbook](metadata.md) - Listing text metadata.
-- [Play Console Handbook](play-console.md) - Console setup.
-- [Store Operations Screenshots](../../store-operations/screenshots.md) - iOS & Android screenshot matrices.
+### Publishing (Android)
+
+- `publishing/android/README.md`
+- `publishing/android/app-bundle.md`
+- `publishing/android/app-review.md`
+- `publishing/android/closed-testing.md`
+- `publishing/android/internal-testing.md`
+- `publishing/android/metadata.md`
+- `publishing/android/play-console.md`
+- `publishing/android/production-release.md`
+
+### Store accounts
+
+- `store-accounts/google-play-console.md`
+
+### Android signing
+
+- `signing/android/README.md`
+- `signing/android/play-app-signing.md`
+
+### Store operations
+
+- `store-operations/app-review.md`
+- `store-operations/rejection-handling.md`
+
+### Checklists
+
+- `checklists/android.md`
+
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
 
 ---
 
-# 5. Official Sources
+# Official sources
 
 - Google Play Graphic Assets Specifications: https://support.google.com/googleplay/android-developer/answer/9866151
 
 ---
 
 **Last verified:** August 14, 2026
+

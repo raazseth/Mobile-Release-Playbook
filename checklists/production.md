@@ -640,6 +640,42 @@ Use these together:
 - `checklists/cross-platform.md` — shared iOS + Android checks
 - `checklists/post-release.md` — detailed post-release monitoring
 
+
+---
+
+# Related documentation
+
+### Checklists
+
+- `checklists/README.md`
+- `checklists/android.md`
+- `checklists/cross-platform.md`
+- `checklists/first-release.md`
+- `checklists/ios.md`
+- `checklists/post-release.md`
+- `checklists/pre-release.md`
+
+### Pre-release
+
+- `pre-release/final-release-checklist.md`
+- `pre-release/release-readiness.md`
+
+### Publishing (iOS)
+
+- `publishing/ios/README.md`
+
+### Publishing (Android)
+
+- `publishing/android/README.md`
+
+### Store operations
+
+- `store-operations/README.md`
+
+### Templates
+
+- `templates/release-checklist.md`
+
 ---
 
 # Official sources

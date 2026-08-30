@@ -72,3 +72,19 @@ node scripts/store-validation/validate-store.js
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Store validation scripts
+
+- `scripts/store-validation/README.md`
+
+### Store operations
+
+- `store-operations/app-listing.md`
+
+### Pre-release
+
+- `pre-release/metadata-audit.md`

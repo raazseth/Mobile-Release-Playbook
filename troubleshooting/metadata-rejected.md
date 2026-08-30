@@ -58,3 +58,44 @@ keywords & subtitle fields          from App Title & Short Desc
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Troubleshooting
+
+- `troubleshooting/README.md`
+- `troubleshooting/app-not-visible.md`
+- `troubleshooting/archive-fails.md`
+- `troubleshooting/build-fails.md`
+- `troubleshooting/ci-fails.md`
+- `troubleshooting/crash-after-release.md`
+- `troubleshooting/deep-links-broken.md`
+- `troubleshooting/payments-broken.md`
+- `troubleshooting/privacy-rejected.md`
+- `troubleshooting/push-notifications-broken.md`
+- `troubleshooting/review-rejected.md`
+- `troubleshooting/signing-fails.md`
+- `troubleshooting/upload-fails.md`
+
+### Signing
+
+- `signing/README.md`
+
+### Publishing
+
+- `publishing/README.md`
+
+### Store operations
+
+- `store-operations/rejection-handling.md`
+
+### Post-release
+
+- `post-release/crash-analysis.md`
+- `post-release/monitoring.md`
+
+### Testing
+
+- `testing/README.md`

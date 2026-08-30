@@ -44,3 +44,30 @@ Orchestration manages context passing, subagent dispatching, and state synchroni
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Orchestration
+
+- `ai/orchestration/agent-workflows.md`
+- `ai/orchestration/bounded-autonomy.md`
+- `ai/orchestration/human-approval.md`
+- `ai/orchestration/mcp.md`
+- `ai/orchestration/subagents.md`
+- `ai/orchestration/tool-permissions.md`
+
+### Agents
+
+- `ai/agents/README.md`
+- `ai/agents/release-manager.md`
+
+### AI security
+
+- `ai/security/agent-permissions.md`
+- `ai/security/destructive-actions.md`
+
+### Context
+
+- `ai/context/repository-context.md`

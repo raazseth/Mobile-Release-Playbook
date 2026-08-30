@@ -3075,9 +3075,12 @@ Escalate to qualified legal/privacy review.
 ### Testing
 
 - `testing/device-testing.md`
-- `testing/permissions.md` where available
-- `testing/privacy.md` where available
 - `testing/release-smoke-tests.md`
+
+### Pre-release
+
+- `pre-release/permissions-audit.md`
+- `pre-release/privacy-audit.md`
 
 ---
 

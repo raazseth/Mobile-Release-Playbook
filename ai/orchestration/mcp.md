@@ -213,3 +213,4 @@ MCP clients consume standardized configuration files (e.g., `mcp-config.json`) d
 **Last verified:** August 13, 2026
 
 Model Context Protocol specifications, stateless server implementation SDKs, Expo EAS APIs, and App Store Connect API capabilities evolve. Re-verify current official documentation before updating MCP server configurations or transport schemas.
+

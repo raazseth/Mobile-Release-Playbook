@@ -54,3 +54,32 @@ App Store Connect API Keys (`AuthKey_[KEY_ID].p8`) utilize JWT token authenticat
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### iOS signing
+
+- `signing/ios/README.md`
+- `signing/ios/certificates.md`
+- `signing/ios/distribution.md`
+- `signing/ios/key-rotation.md`
+- `signing/ios/provisioning-profiles.md`
+
+### Android signing
+
+- `signing/android/README.md`
+
+### Signing security
+
+- `signing/security/secret-storage.md`
+- `signing/security/recovery.md`
+
+### Store accounts
+
+- `store-accounts/apple-developer.md`
+
+### Troubleshooting
+
+- `troubleshooting/signing-fails.md`

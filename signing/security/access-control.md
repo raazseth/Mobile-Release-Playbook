@@ -55,3 +55,29 @@ Access to code signing credentials and store consoles MUST be restricted using t
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Signing security
+
+- `signing/security/README.md`
+- `signing/security/ci-secrets.md`
+- `signing/security/recovery.md`
+- `signing/security/secret-storage.md`
+
+### iOS signing
+
+- `signing/ios/certificates.md`
+- `signing/ios/key-rotation.md`
+
+### Android signing
+
+- `signing/android/keystore.md`
+- `signing/android/key-rotation.md`
+
+### AI security
+
+- `ai/security/secret-protection.md`
+- `ai/security/agent-permissions.md`

@@ -305,3 +305,4 @@ For security guidelines, tool sandboxing standards, and platform safety standard
 **Last verified:** August 13, 2026
 
 Platform security guidelines, AI safety frameworks, CLI tool flags, and sandbox capabilities evolve. Re-verify current official documentation before adjusting agent autonomy boundaries or security policy rules.
+

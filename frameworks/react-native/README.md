@@ -1424,6 +1424,49 @@ verify them, submit them safely,
 and understand what to do when something fails."
 ```
 
+
+---
+
+# Related documentation
+
+### React Native
+
+- `frameworks/react-native/android-release.md`
+- `frameworks/react-native/common-failures.md`
+- `frameworks/react-native/eas.md`
+- `frameworks/react-native/fastlane.md`
+- `frameworks/react-native/ios-release.md`
+- `frameworks/react-native/signing.md`
+
+### Foundations
+
+- `foundations/mobile-release-lifecycle.md`
+- `foundations/project-configuration.md`
+
+### iOS signing
+
+- `signing/ios/README.md`
+- `signing/ios/certificates.md`
+
+### Android signing
+
+- `signing/android/README.md`
+- `signing/android/keystore.md`
+
+### Fastlane
+
+- `release-engineering/fastlane/fastfile.md`
+- `release-engineering/fastlane/appfile.md`
+
+### GitHub Actions
+
+- `release-engineering/github-actions/workflows.md`
+
+### Troubleshooting
+
+- `troubleshooting/build-fails.md`
+- `troubleshooting/signing-fails.md`
+
 ---
 
 # Official sources

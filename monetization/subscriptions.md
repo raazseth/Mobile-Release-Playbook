@@ -109,3 +109,4 @@ export async function upgradeSubscription(newPackage: PurchasesPackage) {
 ---
 
 **Last verified:** August 14, 2026
+

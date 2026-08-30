@@ -141,3 +141,4 @@ export async function requestNotificationPermission() {
 ---
 
 **Last verified:** August 13, 2026
+

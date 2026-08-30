@@ -86,3 +86,19 @@ node scripts/metadata-validation/validate-metadata.js
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Metadata validation scripts
+
+- `scripts/metadata-validation/README.md`
+
+### Pre-release
+
+- `pre-release/metadata-audit.md`
+
+### Store operations
+
+- `store-operations/metadata.md`

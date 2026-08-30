@@ -1,8 +1,6 @@
 # Cross-Platform Publishing Handbook & Toolchains
 
-This directory contains production handbook guides, automated submission pipelines, visual asset generation workflows, metadata synchronization schemas, and release changelog formatting standards for **Cross-Platform Publishing** in Expo and React Native applications.
-
-Engineered in alignment with **2026 platform specifications**—specifically Expo Application Services (EAS Build & EAS Submit), Fastlane multi-platform automation, and GitHub Actions CI/CD toolchains—it details how to orchestrate dual iOS and Android app store releases from a unified React Native codebase.
+This directory covers automated submission pipelines, visual asset generation, metadata synchronization, and release notes formatting for **Cross-Platform Publishing** in Expo and React Native applications — Expo Application Services (EAS Build & EAS Submit), Fastlane multi-platform automation, and GitHub Actions CI/CD, covering how to orchestrate iOS and Android store releases from a single codebase.
 
 This guide is **not**:
 
@@ -17,25 +15,11 @@ This guide is **not**:
 Cross-platform publishing unifies build compilation, secret management, asset generation, store metadata, and submission execution across both Apple App Store Connect and Google Play Console.
 
 ```text
-┌────────────────────────────────────────────────────────┐
-│             UNIFIED REACT NATIVE / EXPO CODEBASE       │
-│  (Single JS/TS source + Config Plugins + App Config)   │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-             [ Automated CI/CD Toolchain ]
-                           │
-    ┌──────────────────────┴──────────────────────┐
-    ▼                                             ▼
-┌────────────────────────┐               ┌────────────────────────┐
-│  EAS Build / Fastlane  │               │  EAS Build / Fastlane  │
-│  iOS Pipeline (.ipa)   │               │  Android Pipeline (.aab)│
-└───────────┬────────────┘               └───────────┬────────────┘
-            │                                        │
-            ▼ (App Store Connect API Key)            ▼ (GCP Service Account JSON)
-┌────────────────────────┐               ┌────────────────────────┐
-│ App Store Connect      │               │ Google Play Console    │
-│ (TestFlight & Store)   │               │ (Internal & Production)│
-└────────────────────────┘               └────────────────────────┘
+Single React Native / Expo codebase (JS/TS + config plugins + app config)
+        │
+        ↓ (CI/CD toolchain)
+        ├─→ EAS Build / Fastlane: iOS pipeline (.ipa)     ─→ App Store Connect API Key ─→ App Store Connect (TestFlight & Store)
+        └─→ EAS Build / Fastlane: Android pipeline (.aab) ─→ GCP Service Account JSON  ─→ Google Play Console (Internal & Production)
 ```
 
 ---
@@ -54,42 +38,44 @@ Cross-platform publishing unifies build compilation, secret management, asset ge
 
 # 3. Universal Cross-Platform Publishing Rules
 
-All cross-platform publishing implementations in this playbook must adhere to five mandatory engineering rules:
+Every guide in this directory assumes these five rules:
 
-```text
-1. Single Source of Truth Configuration
-   App versioning, bundle identifiers, display names, and asset paths MUST be managed from a
-   unified configuration file (e.g., Expo `app.json` / `app.config.ts`) rather than duplicated
-   in native Xcode and Android Studio projects.
-
-2. Secret Isolation in CI/CD Secret Vaults
-   App Store Connect API Keys (.p8) and Google Cloud Service Account JSON keys (.json) MUST be
-   stored in managed CI secret vaults (EAS Secrets, GitHub Secrets). Never commit keys to git.
-
-3. Automated Parallel Build Pipelines
-   iOS (.ipa) and Android (.aab) production builds MUST be compiled in parallel CI/CD runners
-   to ensure version alignment and prevent release skew between platforms.
-
-4. Platform-Specific Compliance Verification
-   Cross-platform deployment DOES NOT eliminate platform-specific compliance. iOS builds MUST
-   comply with Privacy Manifests and Guideline 3.1.1; Android builds MUST target API Level 36.
-
-5. Unified Staged Release Management
-   Production releases MUST execute coordinated phased rollouts on iOS (Phased Release over 7 days)
-   and Android (Staged Rollout starting at 1% or 5%) to maintain operational parity.
-```
+- [ ] **Single source of truth for configuration**: versioning, bundle identifiers, display names, and asset paths live in one config file (Expo `app.json` / `app.config.ts`), not duplicated across native Xcode and Android Studio projects.
+- [ ] **Secrets isolated in CI secret vaults**: App Store Connect API Keys (`.p8`) and Google Cloud Service Account JSON keys are stored in EAS Secrets or GitHub Secrets — never committed to git.
+- [ ] **iOS and Android builds run in parallel**, not sequentially, to keep both platforms on the same version and avoid release skew.
+- [ ] **Cross-platform tooling doesn't remove platform-specific compliance**: iOS builds still need Privacy Manifests and Guideline 3.1.1 compliance; Android builds still need to meet the current target API level.
+- [ ] **Rollouts are staged on both platforms**: iOS phased release over 7 days, Android staged rollout starting at 1% or 5% — not a direct-to-100% release on either store.
 
 ---
 
-# 4. Related Repository Documentation
+# Related documentation
 
-- [iOS Publishing Handbook](../ios/README.md) - App Store Connect publishing.
-- [Android Publishing Handbook](../android/README.md) - Google Play Console publishing.
-- [Release Engineering Subsystem](../../release-engineering/README.md) - CI/CD pipelines.
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/assets.md`
+- `publishing/cross-platform/metadata.md`
+- `publishing/cross-platform/release-notes.md`
+- `publishing/cross-platform/submission.md`
+
+### Publishing (iOS)
+
+- `publishing/ios/README.md`
+
+### Publishing (Android)
+
+- `publishing/android/README.md`
+
+### Checklists
+
+- `checklists/cross-platform.md`
+
+### Store operations
+
+- `store-operations/README.md`
 
 ---
 
-# 5. Official Sources
+# Official sources
 
 - Expo EAS Submit Documentation: https://docs.expo.dev/submit/introduction/
 - Fastlane Multi-Platform Documentation: https://docs.fastlane.tools/
@@ -97,3 +83,4 @@ All cross-platform publishing implementations in this playbook must adhere to fi
 ---
 
 **Last verified:** August 14, 2026
+

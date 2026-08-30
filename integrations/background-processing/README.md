@@ -139,3 +139,4 @@ export async function registerBackgroundSync() {
 ---
 
 **Last verified:** August 13, 2026
+

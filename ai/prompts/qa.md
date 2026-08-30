@@ -167,3 +167,4 @@ Skipped Test: `e2e/biometrics.spec.ts` (FaceID disabled in simulator).
 ---
 
 **Last verified:** August 13, 2026
+

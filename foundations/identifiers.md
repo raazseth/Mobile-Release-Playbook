@@ -1281,6 +1281,39 @@ The rule is simple:
 
 > **Choose production identifiers carefully, keep them stable, and verify the actual build before publishing.**
 
+
+---
+
+# Related documentation
+
+### Foundations
+
+- `foundations/README.md`
+- `foundations/dependency-management.md`
+- `foundations/device-support.md`
+- `foundations/mobile-release-lifecycle.md`
+- `foundations/project-configuration.md`
+- `foundations/release-environments.md`
+- `foundations/versioning.md`
+
+### Pre-release
+
+- `pre-release/README.md`
+- `pre-release/release-readiness.md`
+
+### Release engineering
+
+- `release-engineering/README.md`
+- `release-engineering/release-configurations.md`
+
+### Testing
+
+- `testing/README.md`
+
+### Checklists
+
+- `checklists/first-release.md`
+
 ---
 
 # Official sources

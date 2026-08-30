@@ -590,3 +590,4 @@ For platform-specific release rules, API capabilities, and tool capabilities, ve
 **Last verified:** August 13, 2026
 
 Platform requirements, store policies, SDK behavior, build CLI options, and AI tooling capabilities evolve. Re-verify current official documentation before altering production release pipelines or agent tool configurations.
+

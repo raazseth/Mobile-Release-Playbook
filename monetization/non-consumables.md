@@ -109,3 +109,4 @@ export async function handleRestorePurchases() {
 ---
 
 **Last verified:** August 14, 2026
+

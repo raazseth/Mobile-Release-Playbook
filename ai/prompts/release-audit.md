@@ -191,3 +191,4 @@ The release candidate PayFast v1.4.0 (140) is **NOT READY** for App Store submis
 ---
 
 **Last verified:** August 13, 2026
+

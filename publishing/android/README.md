@@ -1,8 +1,6 @@
 # Android Publishing Handbook & Track Administration
 
-This directory contains production handbook guides, build compilation standards, release track workflows, staged rollout protocols, and store review compliance rules for **Android App Publishing** in Expo and React Native applications.
-
-Engineered in alignment with **2026 platform specifications**—specifically target **Android 16 (API Level 36)** requirements, Android App Bundle (`.aab`) mandates, Google Play Billing 8.0/9.0+ gates, and Personal Account closed testing rules—it details how to compile, test, stage, and publish Android applications on the Google Play Store.
+This directory covers build compilation, release track workflows, staged rollout, and store review compliance for **Android App Publishing** in Expo and React Native applications — target API level requirements, the Android App Bundle (`.aab`) format, Google Play Billing, and closed testing rules for Personal developer accounts, covering how to compile, test, stage, and publish Android applications on Google Play.
 
 This guide is **not**:
 
@@ -17,29 +15,20 @@ This guide is **not**:
 Android application publishing follows a structured multi-track progression from local `.aab` compilation through automated testing pipelines to global production staged rollouts.
 
 ```text
-┌────────────────────────────────────────────────────────┐
-│           ANDROID APP BUNDLE (.aab) COMPILATION        │
-│  - Target API Level 36 (Android 16)                    │
-│  - R8 Code Obfuscation & Resource Shrinking           │
-│  - Signed with Upload Key (Play App Signing Active)    │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-                           ▼
-┌────────────────────────────────────────────────────────┐
-│             GOOGLE PLAY CONSOLE TRACK PIPELINE         │
-│                                                        │
-│  1. Internal Testing Track (Instant access; 100 testers)│
-│  2. Closed Testing Track (Alpha/Beta; 12-tester gate)  │
-│  3. Open Testing Track (Public beta testing)           │
-│  4. Production Track (Staged Rollout: 1% → 100%)       │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-                           ▼
-┌────────────────────────────────────────────────────────┐
-│             PRE-LAUNCH REPORT & AUTOMATED QA           │
-│  - Automated Firebase Test Lab device matrix scan      │
-│  - Crash monitoring & Accessibility checks             │
-└────────────────────────────────────────────────────────┘
+Android App Bundle (.aab) compiled
+  - targets current required API level, R8 obfuscation + resource shrinking
+  - signed with the upload key (Play App Signing active)
+        │
+        ↓
+Google Play Console track pipeline
+  1. Internal testing track    (instant access, up to 100 testers)
+  2. Closed testing track      (alpha/beta, minimum tester gate for Personal accounts)
+  3. Open testing track        (public beta)
+  4. Production track          (staged rollout: 1% → 100%)
+        │
+        ↓
+Pre-launch report (Firebase Test Lab device matrix scan)
+  - crash monitoring, accessibility checks
 ```
 
 ---
@@ -64,39 +53,52 @@ Android application publishing follows a structured multi-track progression from
 
 All Android publishing implementations in this playbook must adhere to five mandatory engineering rules:
 
-```text
-1. Target API Level 36 (Android 16) Compliance
-   All new Android App Bundles (.aab) submitted to Google Play MUST target Android 16 (API Level 36)
-   or higher to pass Google Play Console submission validation gates.
-
-2. Android App Bundle (.aab) Mandatory Format
-   App submissions MUST be compiled as Android App Bundles (.aab). Legacy APK files are strictly
-   rejected for Google Play Store distribution.
-
-3. Google Play App Signing Mandatory Integration
-   Production App Bundles MUST use Google Play App Signing. Developers sign builds with an Upload Key,
-   and Google Play signs the final delivered APKs with the master App Signing Key.
-
-4. Staged Rollouts for Production Releases
-   All production releases MUST be deployed using Google Play Staged Rollouts (starting at 1% or 5%).
-   Never deploy a new production version directly to 100% of users without staging.
-
-5. Pre-Launch Report Inspection Before Rollout
-   Release managers MUST inspect the Google Play Pre-Launch Report (Firebase Test Lab automated scan)
-   for crash spikes, accessibility warnings, or rendering regressions before expanding a rollout.
-```
+- [ ] **Target API level current**: new app bundles target Android 16 (API level 36) or higher — Google Play enforces this from August 31, 2026, with extensions available to November 1, 2026 for apps that request one. Existing apps need API level 35+ to stay visible to new users. Verify the current requirement against [Google's target API level page](https://support.google.com/googleplay/android-developer/answer/11926878) before relying on this number — it moves every year.
+- [ ] **`.aab` format only**: submissions are Android App Bundles, not legacy APKs — Google Play rejects raw APK uploads.
+- [ ] **Play App Signing enabled**: the developer signs builds with an upload key; Google Play re-signs the delivered APKs with the app signing key it holds.
+- [ ] **Staged rollout on every production release**: start at 1% or 5%, not 100% — see `production-release.md`.
+- [ ] **Pre-launch report checked before expanding a rollout**: the Firebase Test Lab automated scan is reviewed for crash spikes, accessibility warnings, or rendering regressions.
 
 ---
 
-# 4. Related Repository Documentation
+# Related documentation
 
-- [iOS Publishing Handbook](../ios/README.md) - App Store publishing.
-- [Cross-Platform Publishing Handbook](../cross-platform/README.md) - EAS Build & Submit.
-- [Signing Android Handbook](../../signing/android/keystore.md) - Keystores & upload keys.
+### Publishing (Android)
+
+- `publishing/android/app-bundle.md`
+- `publishing/android/app-review.md`
+- `publishing/android/closed-testing.md`
+- `publishing/android/internal-testing.md`
+- `publishing/android/metadata.md`
+- `publishing/android/play-console.md`
+- `publishing/android/production-release.md`
+- `publishing/android/screenshots.md`
+
+### Store accounts
+
+- `store-accounts/google-play-console.md`
+
+### Android signing
+
+- `signing/android/README.md`
+- `signing/android/play-app-signing.md`
+
+### Store operations
+
+- `store-operations/app-review.md`
+- `store-operations/rejection-handling.md`
+
+### Checklists
+
+- `checklists/android.md`
+
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
 
 ---
 
-# 5. Official Sources
+# Official sources
 
 - Google Play Console Release Management: https://support.google.com/googleplay/android-developer/answer/9859751
 - Android Target API Level Requirements: https://developer.android.com/google/play/requirements/target-sdk
@@ -105,3 +107,4 @@ All Android publishing implementations in this playbook must adhere to five mand
 ---
 
 **Last verified:** August 14, 2026
+

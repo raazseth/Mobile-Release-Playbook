@@ -1,8 +1,6 @@
 # Apple App Store Review Policies & Guidelines
 
-This document details the review policies, App Store Review Guidelines (Guidelines 2.1, 2.3, 3.1.1, 5.1.1), Reviewer Notes requirements, demo credential management, and appeal procedures for **Apple App Store Review**.
-
-Engineered in alignment with **2026 platform specifications**, it specifies how to prepare iOS applications to pass App Review inspection cleanly without rejection delays.
+This document covers the App Store Review Guidelines that most often trigger rejections (2.1, 2.3, 3.1.1, 5.1.1), Reviewer Notes, demo credential requirements, and export compliance for **Apple App Store Review** — how to prepare an iOS submission to pass review cleanly.
 
 This guide is **not**:
 
@@ -17,21 +15,10 @@ This guide is **not**:
 Apple App Review enforces rigorous checks across four primary guideline pillars:
 
 ```text
-┌────────────────────────────────────────────────────────┐
-│             APPLE APP REVIEW POLICY PILLARS            │
-│                                                        │
-│  - Guideline 2.1 (App Completeness):                   │
-│    App MUST NOT crash, fail to load, or lack demo auth.│
-│                                                        │
-│  - Guideline 2.3 (Accurate Metadata):                  │
-│    Metadata MUST accurately describe binary features.  │
-│                                                        │
-│  - Guideline 3.1.1 (In-App Purchase):                  │
-│    Digital goods/services MUST use StoreKit 2 IAP.     │
-│                                                        │
-│  - Guideline 5.1.1 (Data Collection & Storage):        │
-│    Privacy Manifests & Privacy Labels MUST align 100%. │
-└────────────────────────────────────────────────────────┘
+Guideline 2.1 (App Completeness)       → app must not crash, fail to load, or lack working demo auth
+Guideline 2.3 (Accurate Metadata)      → metadata must accurately describe what the binary does
+Guideline 3.1.1 (In-App Purchase)      → digital goods/services must use StoreKit In-App Purchase
+Guideline 5.1.1 (Data Collection)      → Privacy Manifests and Privacy Nutrition Labels must match
 ```
 
 ---
@@ -69,18 +56,47 @@ Include `ITSAppUsesNonExemptEncryption: false` in `Info.plist`:
 
 ---
 
-# 5. Related Documentation
+# Related documentation
 
-- [Production Release Handbook](production-release.md) - Production releases.
-- [Rejection Handling Handbook](../../store-operations/rejection-handling.md) - Rejection triage.
-- [App Store Connect Handbook](app-store-connect.md) - Build management.
+### Publishing (iOS)
+
+- `publishing/ios/README.md`
+- `publishing/ios/app-store-connect.md`
+- `publishing/ios/build-upload.md`
+- `publishing/ios/metadata.md`
+- `publishing/ios/production-release.md`
+- `publishing/ios/screenshots.md`
+- `publishing/ios/testflight.md`
+
+### Store accounts
+
+- `store-accounts/app-store-connect.md`
+
+### iOS signing
+
+- `signing/ios/README.md`
+- `signing/ios/distribution.md`
+
+### Store operations
+
+- `store-operations/app-review.md`
+- `store-operations/rejection-handling.md`
+
+### Checklists
+
+- `checklists/ios.md`
+
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
 
 ---
 
-# 6. Official Sources
+# Official sources
 
 - Apple App Store Review Guidelines: https://developer.apple.com/app-store/review/guidelines/
 
 ---
 
 **Last verified:** August 14, 2026
+

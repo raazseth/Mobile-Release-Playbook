@@ -2412,3 +2412,28 @@ reliable recovery
 ```
 
 that can be trusted in production.
+
+---
+
+# Related documentation
+
+### Evals
+
+- `ai/evals/README.md`
+- `ai/evals/agent-evaluation.md`
+- `ai/evals/hallucination-tests.md`
+- `ai/evals/regression-tests.md`
+
+### Agents
+
+- `ai/agents/README.md`
+- `ai/agents/release-auditor.md`
+
+### Orchestration
+
+- `ai/orchestration/agent-workflows.md`
+- `ai/orchestration/bounded-autonomy.md`
+
+### Context
+
+- `ai/context/repository-context.md`

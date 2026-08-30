@@ -67,3 +67,19 @@ Every Pull Request submitted to this repository MUST satisfy four mandatory qual
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Governance
+
+- `governance/README.md`
+- `governance/documentation-style.md`
+- `governance/maintenance.md`
+- `governance/source-verification.md`
+- `governance/versioning.md`
+
+### Sources
+
+- `sources/README.md`

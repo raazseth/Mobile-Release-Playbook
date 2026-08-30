@@ -73,3 +73,35 @@ Release Foundations establish the core technical building blocks required for sc
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Foundations
+
+- `foundations/dependency-management.md`
+- `foundations/device-support.md`
+- `foundations/identifiers.md`
+- `foundations/mobile-release-lifecycle.md`
+- `foundations/project-configuration.md`
+- `foundations/release-environments.md`
+- `foundations/versioning.md`
+
+### Pre-release
+
+- `pre-release/README.md`
+- `pre-release/release-readiness.md`
+
+### Release engineering
+
+- `release-engineering/README.md`
+- `release-engineering/release-configurations.md`
+
+### Testing
+
+- `testing/README.md`
+
+### Checklists
+
+- `checklists/first-release.md`

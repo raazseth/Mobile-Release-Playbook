@@ -108,3 +108,4 @@ For physical goods (e.g., e-commerce physical items, food delivery, physical ser
 ---
 
 **Last verified:** August 13, 2026
+

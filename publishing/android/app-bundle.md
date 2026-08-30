@@ -1,8 +1,6 @@
 # Android App Bundle (.aab), R8 Obfuscation & Target API 36
 
-This document details the compilation architecture, Android App Bundle (`.aab`) format, Target API Level 36 (Android 16) enforcement, R8/ProGuard code obfuscation, Play App Signing, and Gradle configuration for **Android Builds** in Expo and React Native applications.
-
-Engineered in alignment with **2026 platform specifications**, it specifies how to generate optimized, secure, production-ready `.aab` archives for Google Play Store distribution.
+This document covers the Android App Bundle (`.aab`) format, target API level enforcement, R8/ProGuard code obfuscation, Play App Signing, and Gradle configuration for **Android Builds** in Expo and React Native applications — how to generate optimized, production-ready `.aab` archives for Google Play distribution.
 
 This guide is **not**:
 
@@ -17,20 +15,13 @@ This guide is **not**:
 The Android App Bundle (`.aab`) is Google Play's mandatory publishing format. Unlike legacy APKs, an `.aab` defers final APK generation and signing to Google Play, which builds custom, optimized APKs tailored to each user's specific device architecture (arm64-v8a, armeabi-v7a, x86_64), screen density, and language.
 
 ```text
-┌────────────────────────────────────────────────────────┐
-│             DEVELOPER COMPILATION (`eas build`)        │
-│  - Compiles React Native Hermes JS + Native C++/Java   │
-│  - Targets Android 16 (API Level 36)                   │
-│  - Signs `.aab` archive with Upload Key Keystore      │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-                           ▼ (Upload `.aab` to Google Play)
-┌────────────────────────────────────────────────────────┐
-│             GOOGLE PLAY DYNAMIC DELIVERY               │
-│  - Generates Split APKs per device configuration       │
-│  - Signs delivered APKs with Master App Signing Key    │
-│  - Delivers tailored 30-50% smaller APK to end user   │
-└────────────────────────────────────────────────────────┘
+eas build → .aab signed with the upload key keystore, targeting the current required API level
+        │
+        ↓ (upload .aab to Google Play)
+Google Play dynamic delivery
+  - generates split APKs per device configuration
+  - re-signs delivered APKs with the app signing key
+  - delivers a smaller, device-tailored APK to each user
 ```
 
 ---
@@ -55,7 +46,7 @@ android {
 }
 ```
 
-> **PUBLISHING GATE**: As of August 31, 2026, Google Play Console rejects any new app or app update compiled with `targetSdkVersion` below **36**.
+> **Note:** From August 31, 2026, Google Play requires new apps and updates to target API level 36 (Android 16) or higher; existing apps need API level 35+ to stay visible to new users on newer devices. Developers can request an extension to November 1, 2026. This requirement moves every year — verify the current target level against [Google's target API level page](https://support.google.com/googleplay/android-developer/answer/11926878) before relying on the number `36` above.
 
 ---
 
@@ -115,20 +106,51 @@ keytool -genkey -v -keystore release-upload-key.keystore -alias upload-key-alias
 
 ---
 
-# 6. Related Documentation
+# Related documentation
 
-- [Play Console Handbook](play-console.md) - Play Console management.
-- [Production Release Handbook](production-release.md) - Staged rollouts.
-- [Signing Android Handbook](../../signing/android/keystore.md) - Keystore security.
+### Publishing (Android)
+
+- `publishing/android/README.md`
+- `publishing/android/app-review.md`
+- `publishing/android/closed-testing.md`
+- `publishing/android/internal-testing.md`
+- `publishing/android/metadata.md`
+- `publishing/android/play-console.md`
+- `publishing/android/production-release.md`
+- `publishing/android/screenshots.md`
+
+### Store accounts
+
+- `store-accounts/google-play-console.md`
+
+### Android signing
+
+- `signing/android/README.md`
+- `signing/android/play-app-signing.md`
+
+### Store operations
+
+- `store-operations/app-review.md`
+- `store-operations/rejection-handling.md`
+
+### Checklists
+
+- `checklists/android.md`
+
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
 
 ---
 
-# 7. Official Sources
+# Official sources
 
 - Android Target API Level Requirements: https://developer.android.com/google/play/requirements/target-sdk
+- Target API level requirements for Google Play apps: https://support.google.com/googleplay/android-developer/answer/11926878
 - Android App Bundle Documentation: https://developer.android.com/guide/app-bundle
 - Shrink, Obfuscate, and Optimize App: https://developer.android.com/build/shrink-code
 
 ---
 
 **Last verified:** August 14, 2026
+

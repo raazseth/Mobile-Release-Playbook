@@ -42,3 +42,28 @@ Context engineering maximizes LLM reasoning accuracy while minimizing API latenc
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Context
+
+- `ai/context/release-context.md`
+- `ai/context/repository-context.md`
+- `ai/context/store-context.md`
+
+### Agents
+
+- `ai/agents/release-auditor.md`
+- `ai/agents/README.md`
+
+### Orchestration
+
+- `ai/orchestration/agent-workflows.md`
+- `ai/orchestration/mcp.md`
+
+### AI security
+
+- `ai/security/agent-permissions.md`
+- `ai/security/prompt-injection.md`

@@ -2666,8 +2666,12 @@ Additional verification required
 - `testing/payments.md`
 - `testing/deep-links.md`
 - `testing/push-notifications.md`
-- `testing/permissions.md`
 - `testing/upgrade-migrations.md`
+
+### Privacy compliance
+
+- `privacy-compliance/permissions.md`
+- `privacy-compliance/data-collection.md`
 
 ### Troubleshooting
 

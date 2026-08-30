@@ -56,3 +56,19 @@ Build validation unpacks compiled `.ipa` and `.aab` artifacts to verify native b
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Build validation scripts
+
+- `scripts/build-validation/validate-build.md`
+
+### Pre-release
+
+- `pre-release/configuration-audit.md`
+
+### Foundations
+
+- `foundations/project-configuration.md`

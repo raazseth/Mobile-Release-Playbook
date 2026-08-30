@@ -104,3 +104,4 @@ Copilot-generated code (Fastlane scripts, native config edits, test suites) must
 ---
 
 **Last verified:** August 13, 2026
+

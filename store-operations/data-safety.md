@@ -83,3 +83,4 @@ Google Play mandates that any app allowing account creation MUST provide a clear
 ---
 
 **Last verified:** August 14, 2026
+

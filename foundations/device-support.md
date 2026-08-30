@@ -1055,6 +1055,39 @@ The goal is:
 
 > Know what you support, test the combinations that matter, and detect problems that production users reveal.
 
+
+---
+
+# Related documentation
+
+### Foundations
+
+- `foundations/README.md`
+- `foundations/dependency-management.md`
+- `foundations/identifiers.md`
+- `foundations/mobile-release-lifecycle.md`
+- `foundations/project-configuration.md`
+- `foundations/release-environments.md`
+- `foundations/versioning.md`
+
+### Pre-release
+
+- `pre-release/README.md`
+- `pre-release/release-readiness.md`
+
+### Release engineering
+
+- `release-engineering/README.md`
+- `release-engineering/release-configurations.md`
+
+### Testing
+
+- `testing/README.md`
+
+### Checklists
+
+- `checklists/first-release.md`
+
 ---
 
 # Official sources

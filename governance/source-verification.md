@@ -70,3 +70,19 @@ Contributors and automated agents MUST prioritize primary official sources over 
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Governance
+
+- `governance/README.md`
+- `governance/contribution-guide.md`
+- `governance/documentation-style.md`
+- `governance/maintenance.md`
+- `governance/versioning.md`
+
+### Sources
+
+- `sources/README.md`

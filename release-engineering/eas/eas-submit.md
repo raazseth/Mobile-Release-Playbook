@@ -68,3 +68,23 @@ EAS Submit automatically transfers compiled `.ipa` and `.aab` binaries from EAS 
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### EAS
+
+- `release-engineering/eas/README.md`
+- `release-engineering/eas/eas-build.md`
+- `release-engineering/eas/eas-update.md`
+
+### Expo
+
+- `frameworks/expo/eas.md`
+- `frameworks/expo/build.md`
+
+### Release engineering
+
+- `release-engineering/build-systems.md`
+- `release-engineering/environment-management.md`

@@ -112,3 +112,4 @@ Starting with Android 14 (API Level 34), apps requesting access to photos must s
 ---
 
 **Last verified:** August 13, 2026
+

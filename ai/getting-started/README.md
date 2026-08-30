@@ -43,3 +43,25 @@ Getting Started provides step-by-step onboarding for utilizing AI models (Claude
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Getting started
+
+- `ai/getting-started/when-not-to-use-ai.md`
+- `ai/getting-started/when-to-use-ai.md`
+
+### Agents
+
+- `ai/agents/README.md`
+
+### Tools
+
+- `ai/tools/claude-code.md`
+- `ai/tools/README.md`
+
+### AI security
+
+- `ai/security/README.md`

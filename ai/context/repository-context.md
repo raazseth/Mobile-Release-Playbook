@@ -2295,3 +2295,28 @@ More consistent engineering work
 The best Repository Context is not the largest one.
 
 It is the smallest accurate context that lets the agent understand the repository, respect its boundaries, and execute the current task safely.
+
+---
+
+# Related documentation
+
+### Context
+
+- `ai/context/README.md`
+- `ai/context/release-context.md`
+- `ai/context/store-context.md`
+
+### Agents
+
+- `ai/agents/release-auditor.md`
+- `ai/agents/README.md`
+
+### Orchestration
+
+- `ai/orchestration/agent-workflows.md`
+- `ai/orchestration/mcp.md`
+
+### AI security
+
+- `ai/security/agent-permissions.md`
+- `ai/security/prompt-injection.md`

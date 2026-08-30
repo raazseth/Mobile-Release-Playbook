@@ -379,3 +379,4 @@ For platform-specific release policies, store submission rules, and governance g
 **Last verified:** August 13, 2026
 
 Platform guidelines, store review rules, security requirements, and automation tooling capabilities evolve. Re-verify current official documentation before changing production approval policies or release gate workflows.
+

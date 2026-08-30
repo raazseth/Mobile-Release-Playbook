@@ -310,3 +310,4 @@ For agent architecture standards, context isolation guidelines, and LLM safety p
 **Last verified:** August 13, 2026
 
 AI agent frameworks, subagent orchestration patterns, and LLM tool-use APIs evolve rapidly. Re-verify official documentation before adjusting subagent context boundaries or delegation limits.
+

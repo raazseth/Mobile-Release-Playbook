@@ -54,3 +54,23 @@ EAS provides a unified cloud platform for compiling native binaries (EAS Build),
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### EAS
+
+- `release-engineering/eas/eas-build.md`
+- `release-engineering/eas/eas-submit.md`
+- `release-engineering/eas/eas-update.md`
+
+### Expo
+
+- `frameworks/expo/eas.md`
+- `frameworks/expo/build.md`
+
+### Release engineering
+
+- `release-engineering/build-systems.md`
+- `release-engineering/environment-management.md`

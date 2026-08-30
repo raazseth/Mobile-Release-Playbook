@@ -63,3 +63,23 @@ Native native module changes (e.g. adding a new native Bluetooth library) modify
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### EAS
+
+- `release-engineering/eas/README.md`
+- `release-engineering/eas/eas-build.md`
+- `release-engineering/eas/eas-submit.md`
+
+### Expo
+
+- `frameworks/expo/eas.md`
+- `frameworks/expo/build.md`
+
+### Release engineering
+
+- `release-engineering/build-systems.md`
+- `release-engineering/environment-management.md`

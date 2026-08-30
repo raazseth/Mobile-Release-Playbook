@@ -113,3 +113,4 @@ Before invoking the native Android location permission prompt, display a modal d
 ---
 
 **Last verified:** August 13, 2026
+

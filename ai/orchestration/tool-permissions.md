@@ -231,3 +231,4 @@ For tool permission standards, Model Context Protocol security, and AI safety gu
 **Last verified:** August 13, 2026
 
 MCP specifications, tool runner capabilities, and security sandboxing standards evolve. Re-verify current official documentation before altering tool permission matrices or elevation rules.
+

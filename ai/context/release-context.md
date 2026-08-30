@@ -2435,3 +2435,28 @@ If the context cannot answer those questions, improve the context before asking 
 The goal is not to give AI more information.
 
 The goal is to give it the **right verified information, at the right time, with the right permissions.**
+
+---
+
+# Related documentation
+
+### Context
+
+- `ai/context/README.md`
+- `ai/context/repository-context.md`
+- `ai/context/store-context.md`
+
+### Agents
+
+- `ai/agents/release-auditor.md`
+- `ai/agents/README.md`
+
+### Orchestration
+
+- `ai/orchestration/agent-workflows.md`
+- `ai/orchestration/mcp.md`
+
+### AI security
+
+- `ai/security/agent-permissions.md`
+- `ai/security/prompt-injection.md`

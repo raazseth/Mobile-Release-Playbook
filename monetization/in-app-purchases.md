@@ -116,3 +116,4 @@ export async function makePurchase(packageToPurchase: PurchasesPackage) {
 ---
 
 **Last verified:** August 14, 2026
+

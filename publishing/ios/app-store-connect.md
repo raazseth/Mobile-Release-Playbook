@@ -1,8 +1,6 @@
 # App Store Connect Build Management & Versioning
 
-This document details the build version mapping (`CFBundleShortVersionString` vs `CFBundleVersion`), export compliance declarations (`ITSAppUsesNonExemptEncryption`), build attachment procedures, and submission status tracking for **App Store Connect Build Management** in Expo and React Native applications.
-
-Engineered in alignment with **2026 platform specifications**, it specifies how to manage uploaded `.ipa` builds inside App Store Connect.
+This document covers build version mapping (`CFBundleShortVersionString` vs `CFBundleVersion`), export compliance declarations (`ITSAppUsesNonExemptEncryption`), and how to attach an uploaded build to a release version for **App Store Connect Build Management** in Expo and React Native applications.
 
 This guide is **not**:
 
@@ -17,16 +15,9 @@ This guide is **not**:
 iOS versioning requires two distinct version keys in `Info.plist`:
 
 ```text
-┌────────────────────────────────────────────────────────┐
-│             iOS VERSIONING KEY TAXONOMY                │
-│                                                        │
-│  - Marketing Version (`CFBundleShortVersionString`):   │
-│    Publicly visible version string (e.g., "1.2.0").    │
-│                                                        │
-│  - Build Number (`CFBundleVersion`):                   │
-│    Internal build iteration counter (e.g., "1.2.0.4"). │
-│    MUST increase monotonically with every upload.      │
-└────────────────────────────────────────────────────────┘
+Marketing version (CFBundleShortVersionString) → the publicly visible version string (e.g. "1.2.0")
+Build number (CFBundleVersion)                 → internal iteration counter (e.g. "1.2.0.4"), must
+                                                   increase with every upload
 ```
 
 ### Expo `app.json` Version Configuration
@@ -79,18 +70,47 @@ To attach a processed build to a store release draft:
 
 ---
 
-# 5. Related Documentation
+# Related documentation
 
-- [Build Upload Handbook](build-upload.md) - `.ipa` uploading.
-- [TestFlight Handbook](testflight.md) - Beta testing tracks.
-- [Versioning Handbook](../../foundations/versioning.md) - Versioning rules.
+### Publishing (iOS)
+
+- `publishing/ios/README.md`
+- `publishing/ios/app-review.md`
+- `publishing/ios/build-upload.md`
+- `publishing/ios/metadata.md`
+- `publishing/ios/production-release.md`
+- `publishing/ios/screenshots.md`
+- `publishing/ios/testflight.md`
+
+### Store accounts
+
+- `store-accounts/app-store-connect.md`
+
+### iOS signing
+
+- `signing/ios/README.md`
+- `signing/ios/distribution.md`
+
+### Store operations
+
+- `store-operations/app-review.md`
+- `store-operations/rejection-handling.md`
+
+### Checklists
+
+- `checklists/ios.md`
+
+### Publishing (cross-platform)
+
+- `publishing/cross-platform/README.md`
 
 ---
 
-# 6. Official Sources
+# Official sources
 
 - Apple App Store Connect Build Management: https://developer.apple.com/help/app-store-connect/#/dev8b49e0c52
 
 ---
 
 **Last verified:** August 14, 2026
+

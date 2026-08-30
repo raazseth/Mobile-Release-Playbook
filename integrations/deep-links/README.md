@@ -128,3 +128,4 @@ Custom URL schemes can be triggered by any installed app on a user's device. Fol
 ---
 
 **Last verified:** August 13, 2026
+

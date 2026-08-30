@@ -102,3 +102,4 @@ In App Store Connect under the rejected version:
 ---
 
 **Last verified:** August 14, 2026
+

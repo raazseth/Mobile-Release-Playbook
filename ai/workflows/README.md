@@ -42,3 +42,37 @@ AI workflows orchestrate sequential sub-tasks to automate release preparation, p
 ---
 
 **Last verified:** August 14, 2026
+
+---
+
+# Related documentation
+
+### Workflows
+
+- `ai/workflows/ai-qa.md`
+- `ai/workflows/debugging.md`
+- `ai/workflows/metadata-generation.md`
+- `ai/workflows/rejection-analysis.md`
+- `ai/workflows/release-audit.md`
+- `ai/workflows/release-notes.md`
+- `ai/workflows/release-preparation.md`
+
+### Agents
+
+- `ai/agents/README.md`
+
+### Prompts
+
+- `ai/prompts/README.md`
+
+### Orchestration
+
+- `ai/orchestration/agent-workflows.md`
+
+### Pre-release
+
+- `pre-release/release-readiness.md`
+
+### Post-release
+
+- `post-release/incident-response.md`

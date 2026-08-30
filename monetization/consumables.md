@@ -112,3 +112,4 @@ export async function processAndroidConsumable(purchase: RNIap.Purchase) {
 ---
 
 **Last verified:** August 14, 2026
+
