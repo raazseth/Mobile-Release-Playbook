@@ -1,31 +1,29 @@
-# App Store Production Release & Phased Release Protocols
+# App Store Production Release
 
-This document covers production release options, the Phased Release Over 7 Days schedule, pausing a rollout, release triggers, and crash monitoring for **App Store Production Releases** in Expo and React Native applications — how to release iOS updates to global users without exposing the entire user base to an unforeseen production crash at once.
+Once App Store Review approves a build, you still choose how it reaches users — all at once or gradually. This covers release triggers and Apple's phased release mechanism, which is the recommended way to catch a bad update before it hits everyone.
 
 This guide is **not**:
 
-- an authorization mechanism to release un-tested builds directly to 100% of users
-- a substitute for monitoring crash rates in Sentry during rollouts
+- an authorization mechanism to release an un-tested build straight to 100% of users
+- a substitute for watching crash rates in Sentry (or your crash reporter of choice) during a rollout
 - a guide to bypassing App Store Review approval
 
 ---
 
-# 1. App Store Production Release Triggers
+## 1. Choosing a release trigger
 
-When submitting an app version for App Store Review, select one of three production release execution methods:
+When you submit a version for review, you pick one of three ways it goes live afterward:
 
 ```text
 Production release triggers (pick one when submitting a version)
-  - Manually release this version   → release manager clicks "Release App" after approval (recommended)
-  - Automatically release           → releases immediately on App Review approval
-  - Automatically release on a date → releases at a specified date/time after approval
+  - Manually release this version   → you click "Release App" after approval (recommended)
+  - Automatically release           → releases immediately on approval
+  - Automatically release on a date → releases at a date/time you set, after approval
 ```
 
----
+## 2. Phased release over 7 days
 
-# 2. Phased Release Over 7 Days Schedule
-
-Apple's **Phased Release** mechanism deploys a version update to users who have automatic updates enabled over a 7-day period according to a fixed percentage schedule.
+Apple's **Phased Release** rolls a version out to users with automatic updates enabled, over 7 days, at a fixed schedule:
 
 ```text
 Phased release, 7-day schedule
@@ -37,35 +35,39 @@ Phased release, 7-day schedule
   Day 6: 50%
   Day 7: 100%
         │
-        ├─→ crash rate stable    → proceed through the schedule
-        └─→ crash spike detected → pause phased release (up to 30 cumulative days)
+        ├─→ crash rate stable    → the schedule proceeds automatically
+        └─→ crash spike detected → pause it (up to 30 cumulative days)
 ```
 
-> **IMPORTANT NOTE**: Users can still manually download the update directly from your App Store product page at any time during a Phased Release. Phased Release only controls *automatic background updates*.
+> **Note:** A phased release only controls *automatic background updates*. Users can still go to your App Store page and download the new version manually at any point during the rollout.
+
+## 3. Pausing a rollout
+
+If you spot a crash spike or a backend failure mid-rollout:
+
+1. In App Store Connect, open the version details and click **Pause Phased Release**.
+2. You can keep it paused for up to **30 cumulative days**.
+3. Fix the issue, bump the build number, upload a new build, and submit a new version — you'll start a fresh phased release at 1% or 5%.
+
+## 4. Before you release
+
+- [ ] Phased release is enabled for the production submission.
+- [ ] You picked "Manually Release This Version" so you control exact timing.
+- [ ] Crash-free rate is being watched daily during the 7-day window, not just checked once.
+- [ ] Whoever's on call knows how to pause the rollout if things go sideways.
+- [ ] Day 7 completion is confirmed before you close out the release.
 
 ---
 
-# 3. Pausing & Resuming a Phased Release
+## Official sources
 
-If a production crash spike or backend API failure occurs during a Phased Release:
+- Apple Phased Release help: https://developer.apple.com/help/app-store-connect/#/dev3e605e495
 
-1. **Pause Phased Release**: In App Store Connect under Version details -> Click **Pause Phased Release**.
-2. **30-Day Pause Limit**: You can pause a Phased Release for up to **30 cumulative days**.
-3. **Resubmit Fixed Build**: Compile a new build with an incremented build number (`buildNumber`), upload to App Store Connect, and submit a new version for review.
+**Last verified:** August 14, 2026
 
 ---
 
-# 4. Operational Verification Checklist
-
-- [ ] **Phased Release Enabled**: "Phased Release Over 7 Days" enabled for production version submission.
-- [ ] **Manual Release Selected**: "Manually Release This Version" selected to control exact release timing.
-- [ ] **Crashlytics / Sentry Monitored**: Crash-free user metric monitored daily during the 7-day rollout window.
-- [ ] **Pause Protocol Ready**: Release manager trained on pausing Phased Release if crash spike occurs.
-- [ ] **Day 7 Completion Verified**: 100% distribution verified on Day 7 of Phased Release.
-
----
-
-# Related documentation
+## Related documentation
 
 ### Publishing (iOS)
 
@@ -98,14 +100,3 @@ If a production crash spike or backend API failure occurs during a Phased Releas
 ### Publishing (cross-platform)
 
 - `publishing/cross-platform/README.md`
-
----
-
-# Official sources
-
-- Apple Phased Release Help: https://developer.apple.com/help/app-store-connect/#/dev3e605e495
-
----
-
-**Last verified:** August 14, 2026
-

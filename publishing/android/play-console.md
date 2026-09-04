@@ -1,21 +1,21 @@
-# Google Play Console Administration & Service Account Integration
+# Google Play Console: Service Accounts and Automated Deployment
 
-This document covers track administration, Google Cloud Service Account authentication, and automated deployment tools (Fastlane Supply, EAS Submit) for **Google Play Console** in Expo and React Native applications — how to connect a CI/CD pipeline to Google Play Console for automated `.aab` uploads and release management.
+This covers setting up a Google Cloud Service Account and connecting it to Play Console, so CI tools like EAS Submit and Fastlane Supply can upload `.aab` builds without a human clicking through the console every time.
 
 This guide is **not**:
 
-- an authorization mechanism to embed Service Account JSON keys in git repositories
-- a substitute for configuring developer account permissions (see [store-accounts/](../../store-accounts/google-play-console.md))
-- a manual-only upload guide (automated API deployments are recommended)
+- an authorization mechanism to commit a Service Account JSON key to a git repository
+- a substitute for setting up developer account permissions in the first place (see [store-accounts/google-play-console.md](../../store-accounts/google-play-console.md))
+- a manual-upload-only guide — automated API deployment is the standard path here
 
 ---
 
-# 1. Google Play Developer API Architecture
+## 1. How the pieces connect
 
-The Google Play Developer API allows CI/CD systems to automate build deployment, track updates, store listing text synchronization, and rollout management.
+The Google Play Developer API is what lets a CI pipeline push builds, manage tracks, and sync store listing text without a person in the loop.
 
 ```text
-Google Cloud Console: enable Google Play Android Developer API, create a service
+Google Cloud Console: enable the Google Play Android Developer API, create a service
 account, export its key (pc-api.json)
         │
         ↓ (grant access in Play Console)
@@ -26,25 +26,19 @@ CI/CD tool (EAS / Fastlane): authenticate with pc-api.json, deploy .aab to
 Internal / Closed / Production
 ```
 
----
+## 2. Generating a service account key
 
-# 2. Service Account Key Generation Step-by-Step
+1. In **Google Cloud Console**, go to API & Services → Create Service Account (name it something recognizable, like `fastlane-play-deploy`).
+2. Give it the **Service Account User** role.
+3. Create a key in **JSON** format and download it (`pc-api.json`).
+4. In **Google Play Console → Users & Permissions**, invite the service account's email (something like `fastlane-play-deploy@project-id.iam.gserviceaccount.com`) as a user.
+5. Grant it *Release to testing tracks*, *Manage testing tracks*, and *Edit store listings* — nothing broader than it needs.
 
-To set up automated deployment credentials:
+> **Important:** Never store `pc-api.json` in your repository's source code. Save it as an encrypted secret in EAS Secrets (`eas secret:create`) or GitHub Actions Secrets.
 
-1. **Google Cloud Console**: Navigate to API & Services -> Create Service Account (name: `fastlane-play-deploy`).
-2. **Assign Role**: Select **Service Account User**.
-3. **Export Key**: Create key in **JSON** format. Download the JSON key file (`pc-api.json`).
-4. **Google Play Console Users & Permissions**: Invite the Service Account email (e.g., `fastlane-play-deploy@project-id.iam.gserviceaccount.com`) as a user.
-5. **Set Permissions**: Grant *Release to testing tracks*, *Manage testing tracks*, and *Edit store listings*.
+## 3. Wiring it into EAS Submit or Fastlane Supply
 
-> **SECURITY MANDATE**: Never store `pc-api.json` inside repository source code. Save the JSON string as an encrypted secret in EAS Secrets (`eas secret:create`) or GitHub Actions Secrets.
-
----
-
-# 3. Expo EAS Submit & Fastlane Supply Setup
-
-### Expo `eas.json` Configuration
+**Expo `eas.json`:**
 
 ```json
 {
@@ -59,7 +53,7 @@ To set up automated deployment credentials:
 }
 ```
 
-### Fastlane `Appfile` & `Fastfile` Execution
+**Fastlane `Appfile` and `Fastfile`:**
 
 ```ruby
 # fastlane/Appfile
@@ -77,19 +71,28 @@ lane :upload_to_internal do
 end
 ```
 
+For the full `eas submit` command reference and submit-profile options, see [release-engineering/eas/eas-submit.md](../../release-engineering/eas/eas-submit.md) and [frameworks/expo/submit.md](../../frameworks/expo/submit.md).
+
+## 4. Before you automate
+
+- [ ] The Google Play Developer API is enabled on the Google Cloud project.
+- [ ] The service account's permissions are scoped to testing tracks and release management — not full admin.
+- [ ] `pc-api.json` lives only in an encrypted CI secret, never in git.
+- [ ] An `eas submit` or Fastlane Supply run completes without auth errors.
+- [ ] The first automated deploy targets the `internal` track, not production.
+
 ---
 
-# 4. Operational Verification Checklist
+## Official sources
 
-- [ ] **Google Play Developer API Enabled**: API enabled in Google Cloud Console project.
-- [ ] **Service Account Privileges Scoped**: Permissions restricted to testing tracks and release management.
-- [ ] **JSON Key Vaulted**: `pc-api.json` stored exclusively in encrypted CI secret storage.
-- [ ] **EAS Submit / Fastlane Verified**: Automated upload command executes successfully without auth errors.
-- [ ] **Track Configured**: Initial deployment targeted at `internal` testing track before production.
+- Google Play Developer API setup: https://developers.google.com/android-publisher/getting_started
+- Fastlane Supply documentation: https://docs.fastlane.tools/actions/supply/
+
+**Last verified:** August 14, 2026
 
 ---
 
-# Related documentation
+## Related documentation
 
 ### Publishing (Android)
 
@@ -116,6 +119,10 @@ end
 - `store-operations/app-review.md`
 - `store-operations/rejection-handling.md`
 
+### Release engineering
+
+- `release-engineering/eas/eas-submit.md`
+
 ### Checklists
 
 - `checklists/android.md`
@@ -123,15 +130,3 @@ end
 ### Publishing (cross-platform)
 
 - `publishing/cross-platform/README.md`
-
----
-
-# Official sources
-
-- Google Play Developer API Setup: https://developers.google.com/android-publisher/getting_started
-- Fastlane Supply Documentation: https://docs.fastlane.tools/actions/supply/
-
----
-
-**Last verified:** August 14, 2026
-

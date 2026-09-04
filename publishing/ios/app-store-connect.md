@@ -1,26 +1,26 @@
-# App Store Connect Build Management & Versioning
+# App Store Connect: Build Management and Versioning
 
-This document covers build version mapping (`CFBundleShortVersionString` vs `CFBundleVersion`), export compliance declarations (`ITSAppUsesNonExemptEncryption`), and how to attach an uploaded build to a release version for **App Store Connect Build Management** in Expo and React Native applications.
+This covers how App Store Connect maps version numbers, how export compliance declarations work, and how to attach an uploaded build to a release version.
 
 This guide is **not**:
 
-- an authorization mechanism to reuse duplicate build numbers (App Store Connect rejects duplicate build numbers)
-- a substitute for testing builds on TestFlight before attaching them to store releases
-- a guide to manual submission when automated submissions are configured
+- an authorization mechanism to reuse a duplicate build number — App Store Connect rejects duplicates
+- a substitute for testing a build on TestFlight before attaching it to a store release
+- a guide to manual submission when you already have automated submission set up
 
 ---
 
-# 1. Version Mapping Taxonomy (`CFBundleShortVersionString` vs `CFBundleVersion`)
+## 1. Two version numbers, not one
 
-iOS versioning requires two distinct version keys in `Info.plist`:
+iOS versioning uses two separate keys in `Info.plist`, and it's easy to mix them up:
 
 ```text
-Marketing version (CFBundleShortVersionString) → the publicly visible version string (e.g. "1.2.0")
-Build number (CFBundleVersion)                 → internal iteration counter (e.g. "1.2.0.4"), must
-                                                   increase with every upload
+Marketing version (CFBundleShortVersionString) → the version users see (e.g. "1.2.0")
+Build number (CFBundleVersion)                 → an internal counter (e.g. "1.2.0.4"), must
+                                                   go up with every single upload
 ```
 
-### Expo `app.json` Version Configuration
+In Expo's `app.json`:
 
 ```json
 {
@@ -33,44 +33,48 @@ Build number (CFBundleVersion)                 → internal iteration counter (e
 }
 ```
 
----
+## 2. Export compliance
 
-# 2. Export Compliance Declaration (`ITSAppUsesNonExemptEncryption`)
+When a new build finishes processing in App Store Connect, Apple asks for an **Export Compliance Declaration** before the build can go to TestFlight or be attached to a release.
 
-When a new build finishes processing in App Store Connect, Apple requires an **Export Compliance Declaration** before the build can be distributed on TestFlight or attached to a release.
-
-To automate this declaration and skip manual prompt dialogs in App Store Connect, include `ITSAppUsesNonExemptEncryption: false` in `Info.plist`:
+To skip the manual prompt every time, declare it up front in `Info.plist`:
 
 ```xml
 <key>ITSAppUsesNonExemptEncryption</key>
 <false/>
 ```
 
----
+Set this to `false` if your app only uses standard HTTPS/TLS. If you're using custom encryption beyond that, don't set it to `false` — check Apple's export compliance documentation for what applies to your app.
 
-# 3. Attaching Builds to an App Store Release Version
+## 3. Attaching a build to a release
 
-To attach a processed build to a store release draft:
+Once a build has finished processing:
 
-1. Log in to **App Store Connect** -> Select your app -> Select the target version draft (e.g., `1.2.0`).
+1. Log in to **App Store Connect**, select your app, and open the version draft you're releasing (e.g., `1.2.0`).
 2. Scroll to the **Build** section.
-3. Click **+ Add Build** (or hover over an existing build and click **Remove** to replace).
-4. Select the desired build number from the list of processed TestFlight builds.
-5. Save changes.
+3. Click **+ Add Build** (or, to replace an existing one, hover over it and click **Remove** first).
+4. Pick the build you want from the list of processed TestFlight builds.
+5. Save.
+
+## 4. Before you submit
+
+- [ ] `CFBundleShortVersionString` matches the version you intend to release.
+- [ ] `CFBundleVersion` is higher than every previous upload.
+- [ ] `ITSAppUsesNonExemptEncryption` is declared in `Info.plist`.
+- [ ] The right build is attached to the version draft.
+- [ ] The build shows *Ready to Submit* with no missing-asset warnings.
 
 ---
 
-# 4. Operational Verification Checklist
+## Official sources
 
-- [ ] **Marketing Version Matched**: `CFBundleShortVersionString` matches intended release tag.
-- [ ] **Build Number Monotonic**: `CFBundleVersion` incremented higher than all previous uploads.
-- [ ] **Export Compliance Automated**: `ITSAppUsesNonExemptEncryption` declared in `Info.plist`.
-- [ ] **Build Attached to Draft**: Desired build number attached in App Store Connect version draft.
-- [ ] **Build Status Ready**: Build status marked as *Ready to Submit* without missing asset warnings.
+- App Store Connect build management: https://developer.apple.com/help/app-store-connect/#/dev8b49e0c52
+
+**Last verified:** August 14, 2026
 
 ---
 
-# Related documentation
+## Related documentation
 
 ### Publishing (iOS)
 
@@ -103,14 +107,3 @@ To attach a processed build to a store release draft:
 ### Publishing (cross-platform)
 
 - `publishing/cross-platform/README.md`
-
----
-
-# Official sources
-
-- Apple App Store Connect Build Management: https://developer.apple.com/help/app-store-connect/#/dev8b49e0c52
-
----
-
-**Last verified:** August 14, 2026
-

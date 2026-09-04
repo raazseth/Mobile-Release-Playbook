@@ -1,18 +1,18 @@
-# Cross-Platform Automated Submissions & CI/CD Pipelines
+# Automated Cross-Platform Submission
 
-This document covers automated submission workflows via EAS Submit, Fastlane, and GitHub Actions, plus secret management, for **Cross-Platform App Submissions** in Expo and React Native applications — how to build a reproducible submission pipeline for both App Store Connect and Google Play Console.
+This covers building a submission pipeline that pushes both `.ipa` and `.aab` builds to their respective stores through EAS Submit, Fastlane, and GitHub Actions — so a tagged release goes out without anyone manually clicking through App Store Connect or Play Console.
 
 This guide is **not**:
 
-- an authorization mechanism to embed plain-text private keys in CI configuration scripts
-- a substitute for verifying that native builds compile cleanly before submitting
-- a manual-only submission guide (automated API submissions are standard practice)
+- an authorization mechanism to embed plain-text private keys in CI configuration
+- a substitute for verifying that the native build actually compiles cleanly before you try to submit it
+- a manual-only submission guide — automated API submission is the standard here
 
 ---
 
-# 1. Automated Submission Pipeline Architecture
+## 1. How a build gets from CI to a store
 
-Automated submission tools accept compiled build artifacts (`.ipa` for iOS, `.aab` for Android) and upload them to store backends via authenticated store APIs.
+Automated submission tools take a compiled build artifact and upload it to a store backend through an authenticated API.
 
 ```text
 Compiled build artifacts
@@ -23,11 +23,7 @@ Compiled build artifacts
         └─→ EAS Submit (Android) → Play Developer API service account JSON → Google Play internal track
 ```
 
----
-
-# 2. Expo EAS Submit Configuration (`eas.json`)
-
-Expo's `eas.json` provides a unified declarative configuration schema for automated submission across iOS and Android:
+## 2. `eas.json` for both platforms
 
 ```json
 {
@@ -57,18 +53,14 @@ Expo's `eas.json` provides a unified declarative configuration schema for automa
 }
 ```
 
-### EAS Command Execution
-
 ```bash
-# Submit compiled iOS and Android builds in parallel
+# Submit both compiled builds in parallel
 eas submit --platform all --profile production --non-interactive
 ```
 
----
+For the full submit-profile schema and every available flag, see [release-engineering/eas/eas-submit.md](../../release-engineering/eas/eas-submit.md).
 
-# 3. GitHub Actions Unified Matrix Workflow
-
-Automate cross-platform build and submission using GitHub Actions CI/CD pipelines:
+## 3. A GitHub Actions matrix build
 
 ```yaml
 name: Production Release Pipeline
@@ -85,10 +77,10 @@ jobs:
       matrix:
         platform: [ios, android]
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js & Bun
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -100,29 +92,36 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm ci
 
-      - name: Compile & Submit Build to Store
+      - name: Build and submit
         run: |
           eas build --platform ${{ matrix.platform }} --profile production --non-interactive --auto-submit
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 ```
 
----
+## 4. Before you wire this into CI
 
-# 4. Operational Verification Checklist
-
-- [ ] **EAS Config Validated**: `eas.json` schema validated for both `ios` and `android` platforms.
-- [ ] **App Store Connect Key Secret**: `.p8` API key stored in encrypted CI secrets (`ASC_API_KEY`).
-- [ ] **Play Service Account Secret**: Service account JSON stored in encrypted CI secrets (`PLAY_SERVICE_ACCOUNT`).
-- [ ] **Build Numbers Incremented**: Automated build number incrementing (`autoIncrement: true`) active.
-- [ ] **Parallel CI Execution**: GitHub Actions matrix compiles iOS and Android in parallel without blocking.
+- [ ] `eas.json` validates for both `ios` and `android` submit profiles.
+- [ ] The App Store Connect `.p8` key lives in an encrypted CI secret (e.g. `ASC_API_KEY`), not in the repo.
+- [ ] The Play service account JSON lives in an encrypted CI secret (e.g. `PLAY_SERVICE_ACCOUNT`), not in the repo.
+- [ ] `autoIncrement: true` is set so build numbers don't collide.
+- [ ] The GitHub Actions matrix builds iOS and Android in parallel, not one blocking the other.
 
 ---
 
-# Related documentation
+## Official sources
+
+- Expo EAS Submit guide: https://docs.expo.dev/submit/introduction/
+- Fastlane multi-platform automation: https://docs.fastlane.tools/
+
+**Last verified:** August 14, 2026
+
+---
+
+## Related documentation
 
 ### Publishing (cross-platform)
 
@@ -139,6 +138,15 @@ jobs:
 
 - `publishing/android/README.md`
 
+### Release engineering
+
+- `release-engineering/eas/eas-submit.md`
+
+### Troubleshooting
+
+- `troubleshooting/upload-fails.md`
+- `troubleshooting/ci-fails.md`
+
 ### Checklists
 
 - `checklists/cross-platform.md`
@@ -146,15 +154,3 @@ jobs:
 ### Store operations
 
 - `store-operations/README.md`
-
----
-
-# Official sources
-
-- Expo EAS Submit Guide: https://docs.expo.dev/submit/introduction/
-- Fastlane Multi-Platform Automation: https://docs.fastlane.tools/
-
----
-
-**Last verified:** August 14, 2026
-

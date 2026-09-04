@@ -1,18 +1,16 @@
-# Android Closed Testing Tracks & Personal Account Testing Gates
+# Android Closed Testing
 
-This document covers closed beta track administration, Alpha/Beta testing channels, and the mandatory Personal-account closed testing gate (12 opted-in testers for 14 continuous days) for **Google Play Closed Testing Tracks** — how to satisfy closed testing requirements before requesting production access.
+Closed Testing lets you distribute a pre-release build to a defined list of external testers before it reaches open testing or production. For Personal developer accounts, it's also a mandatory gate — you can't get to production without clearing it first.
 
 This guide is **not**:
 
 - an authorization mechanism to fake tester opt-ins
-- a substitute for conducting real user testing
-- an optional requirement for Personal developer accounts
+- a substitute for actually watching what real testers report
+- an optional step for Personal developer accounts
 
 ---
 
-# 1. Closed Testing Track Architecture
-
-Closed Testing Tracks allow developers to distribute pre-release App Bundles to designated lists of external beta testers or organization groups before deploying to open testing or production.
+## 1. What closed testing is for
 
 ```text
 Closed testing track (Alpha/Beta): access restricted to designated Google Groups
@@ -24,43 +22,42 @@ Mandatory testing gate: 12 opted-in testers, 14 continuous days opted-in,
 required before production track access is granted
 ```
 
----
+## 2. The Personal-account gate: 12 testers, 14 days
 
-# 2. Personal Developer Account Closed Testing Gate (12 Testers / 14 Days)
+Google Play Console requires Personal developer accounts created after November 2023 to clear this before they can publish to production:
 
-Google Play Console enforces mandatory testing requirements for Personal developer accounts created after November 2023:
+1. Recruit 12 testers who accept the closed testing invitation link.
+2. Keep them opted in for 14 continuous days — if someone opts out, they don't count toward the total for that stretch.
+3. Testers should actually download and use the app during that window, not just accept the invite and ignore it.
 
-```text
-1. Recruit 12 opted-in testers: they must accept the closed testing invitation link.
-2. 14 continuous days: testers stay opted-in without opting out for 14 consecutive days.
-3. Active engagement: testers should download and use the app during that window.
-        │
-        ↓
-Apply for production track access → manual Google review evaluation
-```
+Once that's done, apply for production track access, which triggers a manual review from Google.
 
-> **COMMERCIAL EXEMPTION**: Organization Developer Accounts (D-U-N-S verified) are **exempt** from this 14-day personal testing gate and have immediate access to production release tracks.
+> **Note:** Organization developer accounts (D-U-N-S verified) are exempt from this 14-day gate and get immediate access to production tracks.
 
----
+## 3. Managing the group and its feedback
 
-# 3. Managing Closed Testing Groups & Feedback
+- Link a Google Group (e.g., `beta-testers@googlegroups.com`) to automatically grant testing access to everyone in it, instead of adding testers one by one.
+- Play Store gives closed testers a private feedback channel, so bugs and crash reports come to you directly instead of landing as public reviews.
 
-1. **Google Groups Integration**: Link a Google Group (e.g., `beta-testers@googlegroups.com`) to automatically grant testing access to all group members.
-2. **Private Feedback Channel**: Play Store provides a private feedback mechanism allowing closed testers to report crashes and UI bugs directly to the developer without impacting public store ratings.
+## 4. Before you apply for production access
 
----
-
-# 4. Operational Verification Checklist
-
-- [ ] **Closed Track Created**: Alpha or Beta closed testing track created in Play Console.
-- [ ] **12+ Testers Opted-In**: Minimum 12 testers opted-in via closed testing link.
-- [ ] **14-Day Clock Tracked**: 14 continuous days monitored for Personal account requirements.
-- [ ] **Pre-Launch Report Clean**: Pre-launch report reviewed for crash spikes during closed testing.
-- [ ] **Feedback Monitored**: Private tester feedback reviewed and addressed before production release.
+- [ ] A closed (alpha or beta) track exists in Play Console.
+- [ ] At least 12 testers are opted in.
+- [ ] The 14-continuous-day clock has actually run its course for Personal accounts — don't cut it short.
+- [ ] The pre-launch report is clean of crash spikes during the closed testing window.
+- [ ] Tester feedback has been reviewed and, where it matters, addressed before you move on.
 
 ---
 
-# Related documentation
+## Official sources
+
+- Google Play closed testing requirements: https://support.google.com/googleplay/android-developer/answer/9845334
+
+**Last verified:** August 14, 2026
+
+---
+
+## Related documentation
 
 ### Publishing (Android)
 
@@ -94,14 +91,3 @@ Apply for production track access → manual Google review evaluation
 ### Publishing (cross-platform)
 
 - `publishing/cross-platform/README.md`
-
----
-
-# Official sources
-
-- Google Play Closed Testing Requirements: https://support.google.com/googleplay/android-developer/answer/9845334
-
----
-
-**Last verified:** August 14, 2026
-

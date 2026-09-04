@@ -1,24 +1,22 @@
-# Cross-Platform Visual Asset Pipelines & App Icons
+# Cross-Platform Visual Assets
 
-This document covers visual asset resolutions, Android Adaptive Icon layers, and splash screen configuration for **Cross-Platform Visual Assets** in Expo and React Native applications — how to generate app icons and splash screens for both iOS and Android from a single source asset.
+Expo and React Native generate all the native icon and splash-screen formats from a handful of source images. This covers what those source assets need to look like and how Android's adaptive icon system differs from iOS's single flat icon.
 
 This guide is **not**:
 
-- an authorization mechanism to embed un-optimized high-resolution PNG assets directly in the JS bundle
-- a guide to manual image editing across dozens of native resolution folders
-- a substitute for verifying Android Adaptive Icon background/foreground layering
+- an authorization mechanism to embed un-optimized, high-resolution PNGs directly in the JS bundle
+- a guide to manually editing images across dozens of native resolution folders
+- a substitute for verifying your Android adaptive icon's background/foreground layering actually looks right
 
 ---
 
-# 1. Cross-Platform Asset Architecture & Expo Image Engine
-
-Expo and React Native manage visual assets using source master images processed automatically during native build compilation.
+## 1. From one source image to every native format
 
 ```text
 Master assets in ./assets/
-  - app icon:          1024x1024 px PNG, no alpha
-  - adaptive foreground: 1024x1024 px transparent PNG
-  - splash screen:     2048x2048 px PNG
+  - app icon:            1024x1024 px PNG, no alpha
+  - adaptive foreground:  1024x1024 px transparent PNG
+  - splash screen:       2048x2048 px PNG
         │
         ↓ (Expo prebuild processor)
 Native asset generation
@@ -26,11 +24,9 @@ Native asset generation
   - Android: mipmap-hdpi, mipmap-xhdpi, ... plus a monochrome vector icon for Android 13+
 ```
 
----
+## 2. App icons and Android's adaptive icon
 
-# 2. App Icon & Android Adaptive Icon Specifications
-
-Android 8.0+ (API 26+) mandates **Adaptive Icons**, which split the icon into a background layer and a foreground vector/PNG layer. Android 13+ (API 33+) adds **Monochromatic Themed Icons**.
+Android 8.0+ (API 26+) requires **adaptive icons** — a background layer plus a foreground vector or PNG layer, instead of a single flat image. Android 13+ (API 33+) adds a **monochrome themed icon** on top of that.
 
 ```json
 {
@@ -51,20 +47,16 @@ Android 8.0+ (API 26+) mandates **Adaptive Icons**, which split the icon into a 
 }
 ```
 
-### Asset Dimension Requirements
-
-| Asset Type | Master Resolution (Pixels) | Format | Transparency (Alpha) | Notes |
+| Asset | Resolution | Format | Transparency | Notes |
 |---|---|---|---|---|
-| **iOS Master App Icon** | **1024 x 1024** | 24-bit PNG | **NO ALPHA ALLOWED** | Square without rounded corners (iOS applies radius automatically). |
-| **Android Adaptive Foreground** | **1024 x 1024** | 32-bit PNG | **Alpha Required** | Foreground element centered within 66dp inner safe zone. |
-| **Android Monochrome Icon** | **1024 x 1024** | Vector SVG / Flat PNG | **Alpha Required** | Monochromatic icon for Android 13+ material themed icons. |
-| **Universal Splash Screen** | **2048 x 2048** | PNG | Optional | Centered logo within 1024x1024 safe viewport. |
+| iOS master app icon | 1024×1024 | 24-bit PNG | Not allowed | A plain square — iOS applies the rounded corners itself |
+| Android adaptive foreground | 1024×1024 | 32-bit PNG | Required | Keep the foreground element inside the 66dp inner safe zone |
+| Android monochrome icon | 1024×1024 | Vector SVG or flat PNG | Required | For Android 13+ material themed icons |
+| Universal splash screen | 2048×2048 | PNG | Optional | Center the logo within a 1024×1024 safe viewport |
 
----
+## 3. Avoiding a white flash on launch
 
-# 3. Expo Splash Screen Configuration (`expo-splash-screen`)
-
-Prevent white screen flashes during app initialization using native splash screen locking:
+`expo-splash-screen` keeps the native splash visible while your JS bundle and resources load, instead of showing an un-styled white screen for a moment:
 
 ```typescript
 import * as SplashScreen from 'expo-splash-screen';
@@ -91,19 +83,26 @@ export function AppRoot() {
 }
 ```
 
----
+## 4. Before you ship
 
-# 4. Operational Verification Checklist
-
-- [ ] **1024x1024 Master Icon Clean**: Master iOS icon free of alpha transparency channels (`hasAlpha: NO`).
-- [ ] **Adaptive Icon Safe Zone Verified**: Foreground element remains visible when cropped to circle/squircle.
-- [ ] **Android Monochrome Icon Included**: Monochromatic vector icon provided for Android 13+ material themes.
-- [ ] **Splash Screen Lock Implemented**: Native splash screen prevented from auto-hiding during app boot.
-- [ ] **No White Flash on Launch**: Cold start launch verified smooth without un-styled white view flashes.
+- [ ] The master iOS icon has no alpha transparency.
+- [ ] The Android adaptive foreground still reads correctly when cropped to a circle or squircle.
+- [ ] A monochrome icon is provided for Android 13+ themed icons.
+- [ ] The splash screen is locked from auto-hiding until the app is actually ready.
+- [ ] Cold start doesn't show an un-styled white flash before the splash appears.
 
 ---
 
-# Related documentation
+## Official sources
+
+- Expo app icons guide: https://docs.expo.dev/guides/app-icons/
+- Android adaptive icons overview: https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive
+
+**Last verified:** August 14, 2026
+
+---
+
+## Related documentation
 
 ### Publishing (cross-platform)
 
@@ -114,11 +113,11 @@ export function AppRoot() {
 
 ### Publishing (iOS)
 
-- `publishing/ios/README.md`
+- `publishing/ios/screenshots.md`
 
 ### Publishing (Android)
 
-- `publishing/android/README.md`
+- `publishing/android/screenshots.md`
 
 ### Checklists
 
@@ -127,15 +126,3 @@ export function AppRoot() {
 ### Store operations
 
 - `store-operations/README.md`
-
----
-
-# Official sources
-
-- Expo App Icons Guide: https://docs.expo.dev/guides/app-icons/
-- Android Adaptive Icons Overview: https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive
-
----
-
-**Last verified:** August 14, 2026
-

@@ -1,18 +1,16 @@
-# Cross-Platform Metadata Synchronization & Schemas
+# Cross-Platform Metadata
 
-This document covers reconciling iOS and Android character limits into one schema, and syncing it into Fastlane's metadata directory structure, for **Cross-Platform Store Metadata** in Expo and React Native applications — how to maintain one source of truth for store listing text instead of copy-pasting between App Store Connect and Google Play Console.
+Apple and Google enforce different character limits and field rules for store listing text, which makes it tempting to just copy-paste between App Store Connect and Play Console and hope nothing gets cut off. This covers reconciling both into one schema you maintain once.
 
 This guide is **not**:
 
-- an authorization mechanism to ignore platform-specific metadata policies
+- an authorization mechanism to ignore either platform's metadata policy
 - a substitute for managing localized store metadata
 - a keyword-stuffing generator
 
 ---
 
-# 1. Metadata Reconciliation & Limit Comparison
-
-Apple App Store Connect and Google Play Console enforce different character limits and field rules. A unified metadata strategy reconciles these differences into a master schema.
+## 1. Reconciling two different limit sets
 
 ```text
 Cross-platform master metadata
@@ -25,18 +23,16 @@ Cross-platform master metadata
         └─→ Fastlane Supply  → metadata/android/
 ```
 
-| Metadata Field | iOS Limit | Android Limit | Unified Master Strategy |
+| Field | iOS limit | Android limit | Unified strategy |
 |---|---|---|---|
-| **App Title** | 30 chars | 30 chars | Use **identical 30-character title** across both platforms. |
-| **Subtitle / Short Desc** | 30 chars | 80 chars | Write a concise 30-char summary for iOS; expand to 80 chars for Android. |
-| **Long Description** | 4,000 chars | 4,000 chars | Share core description body text; include 2-3% keyword density for Android. |
-| **Keywords** | 100 chars | N/A | Dedicated comma-separated keywords file for iOS (`keywords.txt`). |
+| App Title | 30 chars | 30 chars | One identical 30-character title, used on both platforms |
+| Subtitle / Short Description | 30 chars | 80 chars | Write a tight 30-char version for iOS, then expand it to 80 chars for Android |
+| Long Description | 4,000 chars | 4,000 chars | Share the core description body; keep 2–3% keyword density for Android's benefit |
+| Keywords | 100 chars | N/A | A dedicated comma-separated `keywords.txt`, iOS-only |
 
----
+## 2. A single source-of-truth schema
 
-# 2. Unified Master Metadata JSON Schema (`store-metadata.json`)
-
-Maintain a single JSON source of truth for app store metadata in repository root:
+Keep one JSON file at the repo root instead of maintaining separate copies per store:
 
 ```json
 {
@@ -54,11 +50,9 @@ Maintain a single JSON source of truth for app store metadata in repository root
 }
 ```
 
----
+## 3. Splitting it into Fastlane's directory structure
 
-# 3. Fastlane Synchronization Script (`sync-metadata.js`)
-
-Automate splitting the master `store-metadata.json` into Fastlane Deliver (`ios/`) and Supply (`android/`) plain text files:
+A small script keeps `fastlane/metadata/ios/` and `fastlane/metadata/android/` in sync with the master file, so you're never editing two places by hand:
 
 ```javascript
 // scripts/sync-metadata.js
@@ -84,22 +78,29 @@ Object.entries(masterData.locales).forEach(([locale, data]) => {
   fs.writeFileSync(path.join(androidDir, 'full_description.txt'), data.description);
 });
 
-console.log('✅ Fastlane metadata directories successfully synchronized from master schema!');
+console.log('Fastlane metadata directories synchronized from the master schema.');
 ```
 
----
+## 4. Before you sync
 
-# 4. Operational Verification Checklist
-
-- [ ] **Master Schema Validated**: `store-metadata.json` Title fits within 30 characters for both platforms.
-- [ ] **Fastlane Directories Synced**: Script `sync-metadata.js` generates plain text files for `ios` and `android`.
-- [ ] **No Policy Terms in Title**: Words like "Free", "Sale", or "Top #1" absent from master title and subtitle.
-- [ ] **Keywords Clean**: iOS `keywords.txt` is comma-separated without spaces or duplicate words.
-- [ ] **Fastlane Deliver/Supply Tested**: Fastlane metadata sync command executes cleanly without store API errors.
+- [ ] The title in `store-metadata.json` fits within 30 characters on both platforms.
+- [ ] `sync-metadata.js` runs and produces plain text files for both `ios` and `android`.
+- [ ] Neither the title nor subtitle contains "Free," "Sale," or "Top #1."
+- [ ] `keywords.txt` is comma-separated, no spaces, no duplicate words.
+- [ ] A Fastlane Deliver/Supply dry run completes without a store API error.
 
 ---
 
-# Related documentation
+## Official sources
+
+- Fastlane Deliver metadata docs: https://docs.fastlane.tools/actions/deliver/
+- Fastlane Supply metadata docs: https://docs.fastlane.tools/actions/supply/
+
+**Last verified:** August 14, 2026
+
+---
+
+## Related documentation
 
 ### Publishing (cross-platform)
 
@@ -110,28 +111,21 @@ console.log('✅ Fastlane metadata directories successfully synchronized from ma
 
 ### Publishing (iOS)
 
-- `publishing/ios/README.md`
+- `publishing/ios/metadata.md`
 
 ### Publishing (Android)
 
-- `publishing/android/README.md`
-
-### Checklists
-
-- `checklists/cross-platform.md`
+- `publishing/android/metadata.md`
 
 ### Store operations
 
 - `store-operations/README.md`
+- `store-operations/metadata.md`
 
----
+### Troubleshooting
 
-# Official sources
+- `troubleshooting/metadata-rejected.md`
 
-- Fastlane Deliver Metadata Docs: https://docs.fastlane.tools/actions/deliver/
-- Fastlane Supply Metadata Docs: https://docs.fastlane.tools/actions/supply/
+### Checklists
 
----
-
-**Last verified:** August 14, 2026
-
+- `checklists/cross-platform.md`

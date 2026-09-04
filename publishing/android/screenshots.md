@@ -1,18 +1,16 @@
-# Android Graphic Assets & Screenshot Specifications
+# Android Screenshots and Graphic Assets
 
-This document covers pixel resolutions, aspect ratios, asset counts, and Feature Graphic rules for **Android Screenshots & Visual Assets** in Google Play Console — how to produce compliant visual assets for phones, 7-inch tablets, and 10-inch tablets.
+This covers the pixel dimensions, aspect ratios, and asset counts Google Play Console requires for phones, 7-inch and 10-inch tablets, and the Feature Graphic.
 
 This guide is **not**:
 
 - a graphic design tutorial
-- an authorization mechanism to upload screenshots containing alpha channel transparency or transparent backgrounds
-- a substitute for providing mandatory Feature Graphics (1024x500)
+- an authorization mechanism to upload screenshots with alpha-channel transparency or transparent backgrounds
+- a substitute for providing the mandatory Feature Graphic (1024×500)
 
 ---
 
-# 1. Google Play Visual Asset Specifications Matrix
-
-Google Play Console mandates specific graphic assets for store listing publication:
+## 1. What Google Play requires
 
 ```text
 App icon:              512x512 px, 32-bit PNG, max 1024 KB
@@ -24,37 +22,41 @@ Tablet screenshots:    min 2 per size class (7-inch, 10-inch)
 Published on the Google Play Store listing page
 ```
 
-| Asset Type | Required Dimensions (Pixels) | Aspect Ratio | Format / Max Size | Required Count |
+| Asset | Dimensions | Aspect ratio | Format / max size | Count |
 |---|---|---|---|---|
-| **App Icon** | **512 x 512** | 1:1 Square | 32-bit PNG, max 1024 KB | 1 Asset (Mandatory) |
-| **Feature Graphic** | **1024 x 500** | 16:9 Landscape | JPEG or 24-bit PNG, max 15 MB | 1 Asset (Mandatory) |
-| **Phone Screenshots** | Min side **320px**, Max side **3840px** | 16:9 or 9:16 recommended | JPEG or 24-bit PNG, max 8 MB | **Min 2, Max 8** (Mandatory) |
-| **7-inch Tablet** | Min side **320px**, Max side **3840px** | 16:9 or 9:16 | JPEG or 24-bit PNG | Min 2 (For Tablet Eligibility) |
-| **10-inch Tablet** | Min side **320px**, Max side **3840px** | 16:9 or 9:16 | JPEG or 24-bit PNG | Min 2 (For Tablet Eligibility) |
+| App icon | 512×512 | 1:1 | 32-bit PNG, max 1024 KB | 1, mandatory |
+| Feature graphic | 1024×500 | 16:9 | JPEG or 24-bit PNG, max 15 MB | 1, mandatory |
+| Phone screenshots | 320px–3840px per side | 16:9 or 9:16 recommended | JPEG or 24-bit PNG, max 8 MB | 2–8, mandatory |
+| 7-inch tablet | 320px–3840px per side | 16:9 or 9:16 | JPEG or 24-bit PNG | 2+, needed for tablet eligibility |
+| 10-inch tablet | 320px–3840px per side | 16:9 or 9:16 | JPEG or 24-bit PNG | 2+, needed for tablet eligibility |
+
+## 2. Getting the Feature Graphic right
+
+The Feature Graphic sits at the top of your listing and is used on store promotion cards across Google Play:
+
+- Skip "Download Now" or pricing text — it's not allowed here.
+- Keep logos and important text inside the center safe zone, since the graphic gets cropped differently on smaller screens.
+- Don't add an artificial border or frame around the 1024×500 canvas.
+
+## 3. Before you submit
+
+- [ ] The app icon is a 512×512, 32-bit PNG.
+- [ ] The Feature Graphic is exactly 1024×500.
+- [ ] At least 2 phone screenshots are uploaded, in 16:9 or 9:16.
+- [ ] Dedicated 7-inch and 10-inch tablet screenshots are provided if you want tablet eligibility.
+- [ ] PNG exports are checked for unnecessary alpha transparency.
 
 ---
 
-# 2. Feature Graphic (1024 x 500) Design Rules
+## Official sources
 
-The Feature Graphic appears at the top of your Google Play Store listing page and is used for store promotion cards across Google Play:
+- Google Play graphic assets specifications: https://support.google.com/googleplay/android-developer/answer/9866151
 
-- **No Call-To-Action Text**: Do not include text like "Download Now" or pricing information.
-- **Center Key Visuals**: Keep important brand logos and text within the center safe zone to avoid cutoff when rendered on smaller screen viewports.
-- **No Bordering**: Do not add artificial borders or frames to the 1024x500 canvas.
+**Last verified:** August 14, 2026
 
 ---
 
-# 3. Operational Verification Checklist
-
-- [ ] **App Icon 512x512 Uploaded**: High-resolution 512x512 32-bit PNG app icon provided.
-- [ ] **Feature Graphic 1024x500 Uploaded**: Feature graphic created at exact 1024x500 px dimensions.
-- [ ] **Phone Screenshots Set (Min 2)**: At least 2 phone screenshots provided (16:9 or 9:16 aspect ratio).
-- [ ] **Tablet Sets Provided**: Dedicated 7-inch and 10-inch tablet screenshots provided for tablet readiness.
-- [ ] **Alpha Transparency Stripped**: PNG exports verified free of un-needed alpha transparency.
-
----
-
-# Related documentation
+## Related documentation
 
 ### Publishing (Android)
 
@@ -88,14 +90,3 @@ The Feature Graphic appears at the top of your Google Play Store listing page an
 ### Publishing (cross-platform)
 
 - `publishing/cross-platform/README.md`
-
----
-
-# Official sources
-
-- Google Play Graphic Assets Specifications: https://support.google.com/googleplay/android-developer/answer/9866151
-
----
-
-**Last verified:** August 14, 2026
-

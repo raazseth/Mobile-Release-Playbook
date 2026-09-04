@@ -1,62 +1,62 @@
-# Apple App Store Review Policies & Guidelines
+# Apple App Store Review
 
-This document covers the App Store Review Guidelines that most often trigger rejections (2.1, 2.3, 3.1.1, 5.1.1), Reviewer Notes, demo credential requirements, and export compliance for **Apple App Store Review** — how to prepare an iOS submission to pass review cleanly.
+App Store Review is the human (and automated) check Apple runs on every submission. This covers the guidelines that most often trigger rejections, what reviewers need from you, and how to avoid the common trip-ups.
 
 This guide is **not**:
 
-- an authorization mechanism to obfuscate features from Apple reviewers (Guideline 2.3.1 strictly forbids hidden features)
-- a substitute for verifying Privacy Manifests (`PrivacyInfo.xcprivacy`)
-- a guide to bypassing Guideline 3.1.1 In-App Purchase requirements
+- an authorization mechanism to hide features from Apple reviewers — Guideline 2.3.1 strictly forbids this
+- a substitute for verifying your Privacy Manifest (`PrivacyInfo.xcprivacy`)
+- a guide to working around Guideline 3.1.1's In-App Purchase requirements
 
 ---
 
-# 1. App Store Review Core Policy Focus Areas (2026)
+## 1. The guidelines that trip people up most
 
-Apple App Review enforces rigorous checks across four primary guideline pillars:
+Four areas account for the bulk of rejections:
 
 ```text
 Guideline 2.1 (App Completeness)       → app must not crash, fail to load, or lack working demo auth
-Guideline 2.3 (Accurate Metadata)      → metadata must accurately describe what the binary does
+Guideline 2.3 (Accurate Metadata)      → metadata must actually describe what the binary does
 Guideline 3.1.1 (In-App Purchase)      → digital goods/services must use StoreKit In-App Purchase
-Guideline 5.1.1 (Data Collection)      → Privacy Manifests and Privacy Nutrition Labels must match
+Guideline 5.1.1 (Data Collection)      → your Privacy Manifest and Privacy Nutrition Label must match reality
 ```
 
----
+## 2. Demo credentials and reviewer notes
 
-# 2. Mandatory Demo Credentials & Reviewer Notes
+If your app requires a login and you don't provide working demo credentials, expect an immediate rejection under **Guideline 2.1**.
 
-Submitting an app requiring login without functional demo credentials will trigger an immediate rejection under **Guideline 2.1**:
+- Provide an active demo username and password in App Store Connect's **App Review Information**.
+- Make sure the demo account skips SMS or email 2FA — reviewers need to log in without waiting on a code.
+- Write reviewer notes that walk through how to reach your main features and any StoreKit 2 purchases.
 
-- **Demo Account Setup**: Provide an active demo username and password in App Store Connect under **App Review Information**.
-- **2FA Bypass**: Demo accounts MUST bypass SMS or email 2FA prompts so Apple reviewers can log in instantly.
-- **Reviewer Notes**: Detail step-by-step navigation instructions to test primary features and StoreKit 2 IAPs.
+## 3. Export compliance
 
----
-
-# 3. Export Compliance & Encryption Declarations
-
-To prevent build processing halts when submitting builds:
-
-Include `ITSAppUsesNonExemptEncryption: false` in `Info.plist`:
+To avoid a build processing halt at submission, declare export compliance in `Info.plist`:
 
 ```xml
 <key>ITSAppUsesNonExemptEncryption</key>
 <false/>
 ```
 
----
+## 4. Before you submit
 
-# 4. Operational Verification Checklist
-
-- [ ] **Demo Credentials Active**: Demo account credentials verified working on production backend servers.
-- [ ] **2FA Bypass Verified**: Reviewer demo account bypasses SMS/email 2FA prompts.
-- [ ] **Guideline 3.1.1 Compliant**: Digital purchases use StoreKit 2; zero external payment links for digital goods.
-- [ ] **Guideline 5.1.1 Compliant**: `PrivacyInfo.xcprivacy` manifests included for all compiled third-party SDKs.
-- [ ] **Reviewer Notes Detailed**: Reviewer notes provide step-by-step instructions for testing features.
+- [ ] Demo credentials work against production, not a staging environment reviewers can't reach.
+- [ ] The demo account skips 2FA.
+- [ ] Digital purchases go through StoreKit 2 — no external payment links for digital goods.
+- [ ] `PrivacyInfo.xcprivacy` is included for every third-party SDK compiled into the binary.
+- [ ] Reviewer notes actually explain how to test the app's main features, step by step.
 
 ---
 
-# Related documentation
+## Official sources
+
+- Apple App Store Review Guidelines: https://developer.apple.com/app-store/review/guidelines/
+
+**Last verified:** August 14, 2026
+
+---
+
+## Related documentation
 
 ### Publishing (iOS)
 
@@ -89,14 +89,3 @@ Include `ITSAppUsesNonExemptEncryption: false` in `Info.plist`:
 ### Publishing (cross-platform)
 
 - `publishing/cross-platform/README.md`
-
----
-
-# Official sources
-
-- Apple App Store Review Guidelines: https://developer.apple.com/app-store/review/guidelines/
-
----
-
-**Last verified:** August 14, 2026
-

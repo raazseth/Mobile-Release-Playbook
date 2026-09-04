@@ -1,70 +1,73 @@
-# iOS Build Compilation, Archive Upload & API Keys
+# Building and Uploading an iOS Archive
 
-This document covers the `.ipa` compilation pipeline, Xcode archive generation, App Store Connect API Key (`.p8`) authentication, and upload commands for **iOS Build Uploads** in Expo and React Native applications — how to compile and upload production-ready `.ipa` archives to App Store Connect without hitting upload rejections or credential failures.
+This covers compiling a signed `.ipa`, authenticating with App Store Connect, and uploading the archive — the steps between "I have a working build" and "the build shows up in TestFlight."
 
 This guide is **not**:
 
-- an authorization mechanism to embed `.p8` private keys in git repositories
-- a guide to using deprecated Xcode `altool` upload commands
-- a substitute for valid Apple Distribution Signing Certificates and Provisioning Profiles
+- an authorization mechanism to embed a `.p8` private key in a git repository
+- a guide to using the deprecated Xcode `altool` upload commands
+- a substitute for having a valid Apple Distribution Certificate and Provisioning Profile
 
 ---
 
-# 1. iOS Build Upload Pipeline
+## 1. The upload pipeline
 
-Compiling and uploading an iOS app involves building a signed `.ipa` distribution archive and transferring it to Apple's ingestion servers via the App Store Connect API.
+Building and uploading an iOS app means producing a signed `.ipa` archive and sending it to Apple's ingestion servers through the App Store Connect API.
 
 ```text
 eas build → signed .ipa (Apple Distribution Certificate & Provisioning Profile)
         │
-        ↓ (App Store Connect API Key .p8)
-Upload via Transporter / EAS Submit / Fastlane → App Store Connect binary validation & symbol ingestion
+        ↓ (App Store Connect API Key, .p8)
+Upload via Transporter / EAS Submit / Fastlane → App Store Connect binary validation
         │
         ↓
 Processing complete → build appears in TestFlight
 ```
 
----
+## 2. Setting up an App Store Connect API key
 
-# 2. App Store Connect API Key (`.p8`) Authentication Setup
+Apple has fully retired password-based authentication and the legacy `altool` commands. Automated build tools need an **App Store Connect API Key**:
 
-Apple has fully deprecated password-based authentication and legacy `altool` commands. Automated build tools MUST use **App Store Connect API Keys**:
+1. In App Store Connect, go to Users and Access → Keys → Generate API Key, and give it the **App Manager** or **Admin** role.
+2. Note the three values Apple gives you:
+   - **Key ID** — a 10-character string (e.g., `2X9R49336D`)
+   - **Issuer ID** — a 36-character UUID (e.g., `69a6de71-7034-47e3-e053-5b8c7c11a4d1`)
+   - **Private Key File** — `AuthKey_2X9R49336D.p8`
 
-1. **Generate Key**: Log in to App Store Connect -> Users and Access -> Keys -> Generate API Key (Role: **App Manager** or **Admin**).
-2. **Key Parameters**:
-   - **Key ID**: 10-character string (e.g., `2X9R49336D`).
-   - **Issuer ID**: 36-character UUID string (e.g., `69a6de71-7034-47e3-e053-5b8c7c11a4d1`).
-   - **Private Key File**: `AuthKey_2X9R49336D.p8`.
+> **Important:** Apple lets you download the `.p8` file exactly once. Store it in an encrypted CI secret (e.g., an `ASC_API_KEY` secret), and never commit it to git.
 
-> **SECURITY MANDATE**: Apple permits downloading the `.p8` key file **ONCE**. Store `.p8` files in an encrypted CI secret vault (`ASC_API_KEY`). Never commit `.p8` files to git repositories.
+## 3. Uploading with Transporter or Fastlane Pilot
 
----
-
-# 3. Transporter CLI & Fastlane Pilot Commands
-
-Upload compiled `.ipa` archives via **Transporter** (Apple's official upload app — install from the Mac App Store; its bundled CLI, `iTMSTransporter`, is being folded into the app and its flags have changed recently, so verify the exact invocation against current Apple documentation before scripting it) or **Fastlane Pilot**:
+Upload the compiled `.ipa` with **Transporter** (Apple's official upload app, available on the Mac App Store — its bundled CLI, `iTMSTransporter`, is being folded into the app and its flags have changed recently, so check the exact invocation against current Apple documentation before scripting it) or with **Fastlane Pilot**:
 
 ```bash
-# Upload .ipa archive using Fastlane Pilot with ASC API Key
+# Upload .ipa with Fastlane Pilot, using an App Store Connect API key
 bundle exec fastlane pilot upload \
   --api_key '{"key_id":"2X9R49336D","issuer_id":"69a6de71-7034-47e3-e053-5b8c7c11a4d1","key_filepath":"./credentials/AuthKey_2X9R49336D.p8"}' \
   --ipa "./build/output.ipa" \
   --skip_waiting_for_build_processing true
 ```
 
----
+## 4. Before you upload
 
-# 4. Operational Verification Checklist
-
-- [ ] **Distribution Profile Valid**: Signed with active Apple Distribution Certificate and Production Profile.
-- [ ] **`.p8` Key Authenticated**: App Store Connect API key verified functional with `App Manager` role.
-- [ ] **`ITSAppUsesNonExemptEncryption` Included**: `Info.plist` includes export compliance key.
-- [ ] **Build Number Incremented**: `CFBundleVersion` (`buildNumber`) strictly incremented over previous upload.
-- [ ] **Build Processing Complete**: Build transitions from *Processing* to *Ready to Test* in TestFlight.
+- [ ] The build is signed with a valid, current Apple Distribution Certificate and production Provisioning Profile.
+- [ ] The App Store Connect API key authenticates successfully and has the App Manager role.
+- [ ] `Info.plist` declares `ITSAppUsesNonExemptEncryption`.
+- [ ] `CFBundleVersion` (the build number) is higher than every previous upload for this app.
+- [ ] The build moves from *Processing* to *Ready to Test* in TestFlight without errors.
 
 ---
 
-# Related documentation
+## Official sources
+
+- App Store Connect API Keys: https://developer.apple.com/documentation/appstoreconnectapi/creating_api_keys_for_app_store_connect_api
+- Uploading builds with Transporter: https://developer.apple.com/help/app-store-connect/#/devb1c6762e2
+
+**Last verified:** August 14, 2026
+
+---
+
+## Related documentation
 
 ### Publishing (iOS)
 
@@ -97,15 +100,3 @@ bundle exec fastlane pilot upload \
 ### Publishing (cross-platform)
 
 - `publishing/cross-platform/README.md`
-
----
-
-# Official sources
-
-- App Store Connect API Keys: https://developer.apple.com/documentation/appstoreconnectapi/creating_api_keys_for_app_store_connect_api
-- Uploading Builds with Transporter: https://developer.apple.com/help/app-store-connect/#/devb1c6762e2
-
----
-
-**Last verified:** August 14, 2026
-

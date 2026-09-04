@@ -1,79 +1,68 @@
-# Publishing & Store Distribution Subsystem Handbook
+# Publishing
 
-This directory covers store submission procedures, metadata packaging, asset validation rules, and release automation pipelines for **Publishing** in Expo and React Native applications — the one-time-per-release mechanics of getting a build from a signed binary to a live store listing. It details how to deploy mobile app binaries to the Apple App Store, Google Play Store, and cross-platform distribution services.
+Publishing covers the mechanics of getting a signed build from your machine (or CI) onto the App Store and Google Play — uploading the binary, filling in store metadata, and rolling it out to users. It's the one-time-per-release work, as opposed to `store-operations/`, which covers what you do to a listing for as long as the app exists.
 
 This guide is **not**:
 
-- an authorization mechanism to upload un-audited build artifacts to production store tracks
-- a substitute for verifying platform-specific submission guidelines
-- a guide to bypassing store review requirements
+- an authorization mechanism to upload an un-audited build to a production store track
+- a substitute for reading the platform-specific submission guidelines linked throughout this directory
+- a guide to bypassing store review
 
 ---
 
-# 1. Architecture of Mobile Publishing
+## 1. How a release moves through this directory
 
-Publishing coordinates binary packaging, metadata assembly, asset validation, and store API delivery across iOS and Android platforms.
+A release starts as a signed build artifact and ends as a live store listing:
 
 ```text
 Signed build artifact (.ipa / .aab)
         │
         ↓
-[ ios/ ]              App Store Connect, TestFlight, .ipa uploads, phased releases
+ios/              App Store Connect, TestFlight, .ipa uploads, phased release
         │
         ↓
-[ android/ ]           Google Play Console, Play App Signing, .aab bundles, staged rollouts
+android/          Google Play Console, Play App Signing, .aab bundles, staged rollout
         │
         ↓
-[ cross-platform/ ]    EAS Submit / Fastlane pipelines spanning both stores, shared assets
+cross-platform/   EAS Submit / Fastlane pipelines that drive both stores at once
         │
         ↓
 Live store listing
 ```
 
----
+Most teams don't work through `ios/` and `android/` as separate manual processes — `cross-platform/` describes the tooling that runs both in parallel from a single CI pipeline. But the platform-specific docs are still the reference for what that tooling is actually doing under the hood.
 
-# 2. Subsystem Directory Taxonomy
+## 2. What's in this directory
 
-| Publishing Subsystem | Core Distribution Focus | Key Guides & Tools |
+| Directory | Covers | Start here |
 |---|---|---|
-| **[README.md](README.md)** | Subsystem parent index and publishing architecture. | High-level distribution overview. |
-| **[ios/](ios/README.md)** | iOS App Store distribution, TestFlight, `.ipa` archiving. | [build-upload.md](ios/build-upload.md), [testflight.md](ios/testflight.md), [screenshots.md](ios/screenshots.md). |
-| **[android/](android/README.md)** | Google Play Store distribution, `.aab` bundles, Staged Rollouts. | [app-bundle.md](android/app-bundle.md), [play-console.md](android/play-console.md), [screenshots.md](android/screenshots.md). |
-| **[cross-platform/](cross-platform/README.md)** | Multi-platform deployment, EAS Submit, Fastlane automation. | [submission.md](cross-platform/submission.md), [assets.md](cross-platform/assets.md), [metadata.md](cross-platform/metadata.md). |
+| [`ios/`](ios/README.md) | App Store Connect, TestFlight, `.ipa` uploads, phased release | [build-upload.md](ios/build-upload.md), [testflight.md](ios/testflight.md) |
+| [`android/`](android/README.md) | Google Play Console, `.aab` bundles, staged rollout | [app-bundle.md](android/app-bundle.md), [play-console.md](android/play-console.md) |
+| [`cross-platform/`](cross-platform/README.md) | EAS Submit / Fastlane pipelines spanning both stores, shared assets and metadata | [submission.md](cross-platform/submission.md) |
+
+## 3. Before you submit
+
+- [ ] You know which store (or both) you're publishing to, and which pipeline you're using to get there.
+- [ ] The binary uploads cleanly and shows up in the store's processing queue without errors.
+- [ ] Screenshots, icons, and store text are in place and meet each store's requirements.
 
 ---
 
-# 3. Operational Verification Checklist
-
-- [ ] **Target Platform Selected**: Publishing pathway chosen (iOS, Android, or Cross-Platform).
-- [ ] **Binary Upload Verified**: `.ipa` or `.aab` uploaded cleanly to store processing queue.
-- [ ] **Metadata & Assets Validated**: Screenshots, app icons, and descriptions meet store guidelines.
-
----
-
-# 4. Official Sources
+## Official sources
 
 - Apple App Store Connect Help: https://developer.apple.com/help/app-store-connect/
 - Google Play Console Help: https://support.google.com/googleplay/android-developer/
-
----
 
 **Last verified:** August 14, 2026
 
 ---
 
-# Related documentation
+## Related documentation
 
-### Publishing (iOS)
+### Publishing
 
 - `publishing/ios/README.md`
-
-### Publishing (Android)
-
 - `publishing/android/README.md`
-
-### Publishing (cross-platform)
-
 - `publishing/cross-platform/README.md`
 
 ### Store operations

@@ -1,18 +1,18 @@
-# Android Internal Testing Track Administration
+# Android Internal Testing Track
 
-This document covers setup, tester lists, and automated CI/CD uploading for the **Google Play Internal Testing Track** — how to distribute test builds to internal QA teams and developers without a store review delay.
+Internal Testing is Google Play's fastest distribution channel — a build uploaded here skips store review entirely and reaches testers within minutes. This covers setting it up and wiring it into CI.
 
 This guide is **not**:
 
-- an authorization mechanism to bypass production QA validation
-- a substitute for closed or open beta testing tracks
-- a public release channel (Internal Testing is restricted to designated internal email lists)
+- an authorization mechanism to skip production QA
+- a substitute for closed or open beta testing
+- a public release channel — Internal Testing is restricted to the email list you define
 
 ---
 
-# 1. Internal Testing Architecture & Delivery Speed
+## 1. Why it's fast
 
-The Internal Testing Track is Google Play's fastest distribution channel. Builds uploaded to the internal track bypass standard store review and become available to internal testers within minutes.
+Builds uploaded to the internal track skip standard store review and become available to internal testers within minutes.
 
 ```text
 Developer / CI tool uploads .aab to the internal track
@@ -23,40 +23,42 @@ testers access the build via a Play Store opt-in link
 Internal QA and developers receive the update immediately
 ```
 
----
+## 2. Setting up testers
 
-# 2. Tester List Management & Email Opt-In
+1. In Google Play Console → Testing → Internal testing → Testers tab, create an email list (e.g., `qa-team@company.com`).
+2. Add up to 100 Google account email addresses to that list.
+3. Share the **Opt-in URL** (`https://play.google.com/apps/internaltest/...`) with testers — each one needs to open it once on their Android device to accept the invitation. Without that step, the build just won't show up for them.
 
-To grant testers access to the Internal Testing track:
+## 3. Automating it in CI
 
-1. **Create Tester List**: In Google Play Console -> Testing -> Internal testing -> Testers tab, create an email list (e.g., `qa-team@company.com`).
-2. **Add Tester Emails**: Add up to 100 Google account email addresses per list.
-3. **Copy Join Link**: Share the official **Opt-in URL** (`https://play.google.com/apps/internaltest/...`) with testers. Testers MUST open this link once on their Android device to accept the internal testing invitation.
-
----
-
-# 3. Automated Continuous Integration Deployment
-
-Configure CI/CD toolchains to deploy every successful main-branch build to the Internal Testing track automatically:
+Wire every successful main-branch build to deploy to Internal Testing automatically:
 
 ```bash
-# Automated deployment to Internal Track via Fastlane Supply
+# Deploy to the internal track via Fastlane Supply
 bundle exec fastlane supply --track internal --aab android/app/build/outputs/bundle/release/app-release.aab
 ```
 
+Or with `eas submit --platform android --profile internal` if you're on EAS — see [release-engineering/eas/eas-submit.md](../../release-engineering/eas/eas-submit.md) for the full submit-profile setup.
+
+## 4. Before you rely on it
+
+- [ ] Testers have actually clicked the opt-in URL — invites don't take effect until they do.
+- [ ] The internal tester list is current in Play Console.
+- [ ] A newly uploaded build shows up in the Play Store app for testers within 15 minutes.
+- [ ] Testers know they can submit feedback directly through the Play Store app.
+- [ ] Merging to `main` (or your release branch) triggers an automatic `.aab` upload to internal testing.
+
 ---
 
-# 4. Operational Verification Checklist
+## Official sources
 
-- [ ] **Opt-In Link Shared**: Internal testers clicked the opt-in URL on their Android devices.
-- [ ] **Tester Emails Added**: Internal tester list configured in Play Console.
-- [ ] **Instant Delivery Verified**: Updated builds appear in Play Store for internal testers within 15 minutes.
-- [ ] **In-App Feedback Enabled**: Internal testers can submit feedback directly through Play Store.
-- [ ] **CI Pipeline Automated**: Merge to `main` automatically uploads `.aab` to internal testing.
+- Google Play internal testing guide: https://support.google.com/googleplay/android-developer/answer/9845334
+
+**Last verified:** August 14, 2026
 
 ---
 
-# Related documentation
+## Related documentation
 
 ### Publishing (Android)
 
@@ -90,14 +92,3 @@ bundle exec fastlane supply --track internal --aab android/app/build/outputs/bun
 ### Publishing (cross-platform)
 
 - `publishing/cross-platform/README.md`
-
----
-
-# Official sources
-
-- Google Play Internal Testing Guide: https://support.google.com/googleplay/android-developer/answer/9845334
-
----
-
-**Last verified:** August 14, 2026
-

@@ -1,18 +1,18 @@
-# Android App Bundle (.aab), R8 Obfuscation & Target API 36
+# Android App Bundle, R8, and the Target API Level
 
-This document covers the Android App Bundle (`.aab`) format, target API level enforcement, R8/ProGuard code obfuscation, Play App Signing, and Gradle configuration for **Android Builds** in Expo and React Native applications — how to generate optimized, production-ready `.aab` archives for Google Play distribution.
+This covers the `.aab` format, R8/ProGuard obfuscation, Play App Signing, and the Gradle config you need to produce a production-ready Android App Bundle.
 
 This guide is **not**:
 
-- an authorization mechanism to upload raw `.apk` binaries to Google Play Console
-- a guide to disabling R8 code obfuscation on production builds
-- a substitute for configuring Google Play App Signing upload keys
+- an authorization mechanism to upload a raw `.apk` to Google Play Console
+- a guide to disabling R8 obfuscation on production builds
+- a substitute for setting up Google Play App Signing upload keys
 
 ---
 
-# 1. Android App Bundle (.aab) Architecture
+## 1. Why `.aab` instead of `.apk`
 
-The Android App Bundle (`.aab`) is Google Play's mandatory publishing format. Unlike legacy APKs, an `.aab` defers final APK generation and signing to Google Play, which builds custom, optimized APKs tailored to each user's specific device architecture (arm64-v8a, armeabi-v7a, x86_64), screen density, and language.
+The Android App Bundle (`.aab`) is Google Play's required publishing format. Unlike a legacy APK, an `.aab` doesn't contain a finished, installable app — it defers final APK generation and signing to Google Play, which builds a custom, optimized APK for each user's specific device architecture (arm64-v8a, armeabi-v7a, x86_64), screen density, and language.
 
 ```text
 eas build → .aab signed with the upload key keystore, targeting the current required API level
@@ -24,11 +24,9 @@ Google Play dynamic delivery
   - delivers a smaller, device-tailored APK to each user
 ```
 
----
+## 2. Target API level
 
-# 2. Target SDK API Level 36 (Android 16) Enforcement
-
-Google Play Console enforces a mandatory annual Target SDK requirement:
+Google Play enforces a mandatory annual target SDK bump:
 
 ```groovy
 // android/app/build.gradle
@@ -46,13 +44,11 @@ android {
 }
 ```
 
-> **Note:** From August 31, 2026, Google Play requires new apps and updates to target API level 36 (Android 16) or higher; existing apps need API level 35+ to stay visible to new users on newer devices. Developers can request an extension to November 1, 2026. This requirement moves every year — verify the current target level against [Google's target API level page](https://support.google.com/googleplay/android-developer/answer/11926878) before relying on the number `36` above.
+> **Note:** From August 31, 2026, Google Play requires new apps and updates to target API level 36 (Android 16) or higher; existing apps need API level 35+ to stay visible to new users on newer devices. You can request an extension to November 1, 2026. This requirement moves every year — check the current target level against [Google's target API level page](https://support.google.com/googleplay/android-developer/answer/11926878) before relying on the number `36` above.
 
----
+## 3. R8 obfuscation and resource shrinking
 
-# 3. R8 / ProGuard Code Obfuscation & Resource Shrinking
-
-R8 is Android's default code optimizer and obfuscator. It converts human-readable Java/Kotlin class and method names into short, obfuscated identifiers while removing unused code and resources.
+R8 is Android's default code optimizer and obfuscator. It turns readable Java/Kotlin class and method names into short, obfuscated identifiers, and strips out unused code and resources along the way.
 
 ```groovy
 // android/app/build.gradle
@@ -68,7 +64,7 @@ android {
 }
 ```
 
-### React Native & Hermes ProGuard Preservations (`proguard-rules.pro`)
+React Native and Hermes need a few things kept from being obfuscated away, in `proguard-rules.pro`:
 
 ```proguard
 # Preserve React Native Native Modules
@@ -80,33 +76,40 @@ android {
 -keep class com.facebook.jni.** { *; }
 ```
 
----
+## 4. Play App Signing and the upload key
 
-# 4. Google Play App Signing & Upload Key Setup
+Google Play App Signing splits key management into two keys:
 
-Google Play App Signing separates key management into two distinct cryptographic keys:
-
-1. **Upload Key**: Generated locally by the developer to sign the `.aab` archive. If lost, the Upload Key can be reset by submitting a request to Google Play Support.
-2. **App Signing Key**: Stored securely in Google's high-security infrastructure. Used by Google Play to sign the final split APKs delivered to end users.
+1. **Upload key** — you generate this locally to sign the `.aab`. If you lose it, you can request a reset from Google Play Support.
+2. **App signing key** — Google holds this in its own secure infrastructure and uses it to sign the final split APKs delivered to users.
 
 ```bash
-# Generate Release Upload Key Keystore via CLI
+# Generate a release upload key keystore
 keytool -genkey -v -keystore release-upload-key.keystore -alias upload-key-alias -keyalg RSA -keysize 2048 -validity 10000
 ```
 
----
+## 5. Before you ship
 
-# 5. Operational Verification Checklist
-
-- [ ] **Target SDK API 36 Set**: `targetSdkVersion 36` configured in `build.gradle` / `app.json`.
-- [ ] **`.aab` Format Exported**: Build artifact generated as `.aab` file, not `.apk`.
-- [ ] **R8 Minification Active**: `minifyEnabled true` and `shrinkResources true` enabled for release build type.
-- [ ] **ProGuard Rules Verified**: `proguard-rules.pro` includes Hermes and React Native preservation rules.
-- [ ] **Mapping File Exported**: R8 `mapping.txt` uploaded to Sentry / Firebase Crashlytics for symbolication.
+- [ ] `targetSdkVersion` is set to the current required level in `build.gradle` / `app.json`.
+- [ ] The build output is an `.aab`, not an `.apk`.
+- [ ] `minifyEnabled true` and `shrinkResources true` are set for the release build type.
+- [ ] `proguard-rules.pro` keeps Hermes and React Native's native module classes.
+- [ ] The R8 `mapping.txt` file is uploaded to your crash reporter (Sentry / Firebase Crashlytics) so stack traces symbolicate correctly.
 
 ---
 
-# Related documentation
+## Official sources
+
+- Android target API level requirements: https://developer.android.com/google/play/requirements/target-sdk
+- Target API level requirements for Google Play apps: https://support.google.com/googleplay/android-developer/answer/11926878
+- Android App Bundle documentation: https://developer.android.com/guide/app-bundle
+- Shrink, obfuscate, and optimize your app: https://developer.android.com/build/shrink-code
+
+**Last verified:** August 14, 2026
+
+---
+
+## Related documentation
 
 ### Publishing (Android)
 
@@ -140,17 +143,3 @@ keytool -genkey -v -keystore release-upload-key.keystore -alias upload-key-alias
 ### Publishing (cross-platform)
 
 - `publishing/cross-platform/README.md`
-
----
-
-# Official sources
-
-- Android Target API Level Requirements: https://developer.android.com/google/play/requirements/target-sdk
-- Target API level requirements for Google Play apps: https://support.google.com/googleplay/android-developer/answer/11926878
-- Android App Bundle Documentation: https://developer.android.com/guide/app-bundle
-- Shrink, Obfuscate, and Optimize App: https://developer.android.com/build/shrink-code
-
----
-
-**Last verified:** August 14, 2026
-

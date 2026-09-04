@@ -1,18 +1,16 @@
-# Google Play App Review Policies & Pre-Launch Reports
+# Google Play App Review
 
-This document covers the Pre-Launch Report (Firebase Test Lab), the policy areas Google Play checks most often, and appeal procedures for **Google Play App Review** — how to navigate Google Play's review scans and resolve policy warnings before publishing.
+Every `.aab` you submit to Google Play goes through an automated pre-launch scan and a policy check. This covers what those checks look for and what to do if Google flags a violation.
 
 This guide is **not**:
 
-- an authorization mechanism to ignore Google Play Developer Policy Center notices
-- a substitute for inspecting automated Firebase Test Lab crash reports
-- a guide to bypassing policy violation strikes
+- an authorization mechanism to ignore a Google Play Developer Policy Center notice
+- a substitute for actually reading your automated Firebase Test Lab crash reports
+- a guide to working around a policy violation strike
 
 ---
 
-# 1. Google Play Review & Automated Inspection Pipeline
-
-Every App Bundle (`.aab`) submitted to Google Play Console undergoes dual inspection: automated static/dynamic security analysis (Firebase Test Lab) followed by policy review.
+## 1. What happens after you upload
 
 ```text
 Upload .aab to Google Play Console
@@ -20,47 +18,48 @@ Upload .aab to Google Play Console
 Automated pre-launch report scan
   - runs the app on physical Android devices
   - scans for startup crashes, ANRs, rendering bugs
-  - checks accessibility and security vulnerabilities
+  - checks accessibility and security issues
         ↓
 Google Play policy inspection
   - Data Safety form checked against requested permissions
   - target API level compliance checked
 ```
 
----
+## 2. Where reviews most often get flagged
 
-# 2. Key Google Play Review Policy Focus Areas (2026)
+1. **Target API level.** Every submission needs to target the current required API level (Android 16 / API 36 as of this writing) — see [app-bundle.md](app-bundle.md) for the exact requirement and its yearly deadline.
+2. **Data Safety form mismatches.** What you declare has to match what `AndroidManifest.xml` actually requests (location, contacts, `AD_ID`, etc.). This is one of the most common causes of a rejection that otherwise looks like a healthy app.
+3. **Billing policy.** Digital goods need to go through Google Play Billing Library 8.0/9.0+, not an external payment flow.
+4. **Account deletion.** If your app lets users create an account, you need both an in-app and a web account-deletion path.
 
-Google Play Review enforces strict checks across several core policy areas:
+## 3. Handling a rejection, warning, or removal notice
 
-1. **Target API Level 36 Enforcement**: All submissions MUST target Android 16 (API 36) or higher.
-2. **Data Safety Form Alignment**: Declared data collection MUST match permissions requested in `AndroidManifest.xml` (e.g., location, contacts, `AD_ID`).
-3. **Billing Policy Compliance**: Digital goods MUST use Google Play Billing Library 8.0/9.0+.
-4. **Account Deletion Link**: Apps allowing account creation MUST provide an in-app and web deletion URL.
+1. Read the Play Console inbox notification carefully — it names the specific policy clause (Impersonation, Deceptive Behavior, Unapproved Permissions, etc.), and that wording is what you're actually responding to.
+2. Fix the underlying cause: update `AndroidManifest.xml`, drop permissions you don't need, or fix the store listing text.
+3. If you think the violation was issued in error, file a formal appeal through the **Google Play Policy Appeal Form** with concrete technical evidence — a vague appeal rarely goes anywhere.
 
----
+For the broader rejection-handling workflow across both stores, see [store-operations/rejection-handling.md](../../store-operations/rejection-handling.md).
 
-# 3. Handling Policy Violation Notices & Appeals
+## 4. Before you submit
 
-If Google Play issues a **Rejection**, **Warning**, or **Removal Notice**:
-
-1. **Identify Specific Violation**: Read the Play Console inbox notification detailing the exact policy clause (e.g., *Impersonation*, *Deceptive Behavior*, *Unapproved Permissions*).
-2. **Fix Code or Store Listing**: Update `AndroidManifest.xml`, strip un-needed permissions, or update store text.
-3. **Submit Appeal**: If the violation was issued in error, submit a formal appeal via the **Google Play Policy Appeal Form** with technical evidence.
-
----
-
-# 4. Operational Verification Checklist
-
-- [ ] **Pre-Launch Report Clean**: Pre-launch report inspected; zero startup crashes or ANRs.
-- [ ] **Data Safety Aligned**: Data Safety declarations match `AndroidManifest.xml` permissions.
-- [ ] **Account Deletion Link Active**: Web-based account deletion URL verified live.
-- [ ] **Target API 36 Set**: `targetSdkVersion 36` confirmed in build configuration.
-- [ ] **No High-Risk Permissions**: High-risk permissions (`SMS`, `CALL_LOG`, `QUERY_ALL_PACKAGES`) justified or removed.
+- [ ] The pre-launch report is clean — no startup crashes or ANRs.
+- [ ] Data Safety declarations match `AndroidManifest.xml` permissions exactly.
+- [ ] The web-based account deletion URL actually works.
+- [ ] `targetSdkVersion` matches the current requirement.
+- [ ] High-risk permissions (`SMS`, `CALL_LOG`, `QUERY_ALL_PACKAGES`) are either justified in your submission notes or removed.
 
 ---
 
-# Related documentation
+## Official sources
+
+- Google Play Policy Center: https://play.google.com/about/developer-content-policy/
+- Google Play pre-launch report guide: https://support.google.com/googleplay/android-developer/answer/9842757
+
+**Last verified:** August 14, 2026
+
+---
+
+## Related documentation
 
 ### Publishing (Android)
 
@@ -87,6 +86,10 @@ If Google Play issues a **Rejection**, **Warning**, or **Removal Notice**:
 - `store-operations/app-review.md`
 - `store-operations/rejection-handling.md`
 
+### Troubleshooting
+
+- `troubleshooting/review-rejected.md`
+
 ### Checklists
 
 - `checklists/android.md`
@@ -94,15 +97,3 @@ If Google Play issues a **Rejection**, **Warning**, or **Removal Notice**:
 ### Publishing (cross-platform)
 
 - `publishing/cross-platform/README.md`
-
----
-
-# Official sources
-
-- Google Play Policy Center: https://play.google.com/about/developer-content-policy/
-- Google Play Pre-Launch Report Guide: https://support.google.com/googleplay/android-developer/answer/9842757
-
----
-
-**Last verified:** August 14, 2026
-

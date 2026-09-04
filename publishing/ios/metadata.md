@@ -1,59 +1,63 @@
-# App Store Connect Text Metadata & Character Limits
+# App Store Connect Metadata
 
-This document covers character limits, title/subtitle rules, keyword field formatting, and promotional text for **iOS Store Metadata** in App Store Connect — how to fill in App Store Connect's text metadata fields for an Expo or React Native app at submission time. For the full metadata policy and localization guidance, see `store-operations/metadata.md`.
+This covers the text fields App Store Connect asks for at submission time — title, subtitle, keywords, description — and their character limits. For the broader metadata policy and localization guidance, see `store-operations/metadata.md`.
 
 This guide is **not**:
 
-- an authorization mechanism to include competitor brand names in keywords
-- a keyword stuffing strategy
-- a substitute for localizing metadata across target global markets
+- an authorization mechanism to include competitor brand names in your keywords
+- a keyword-stuffing strategy
+- a substitute for localizing your metadata for the markets you actually target
 
 ---
 
-# 1. App Store Connect Metadata Character Limit Matrix
+## 1. Character limits
 
-App Store Connect strictly enforces character boundaries on text fields:
+App Store Connect enforces hard limits on every text field:
 
-| Metadata Field | Character Limit | Search Indexing Weight | Key Compliance Rules |
+| Field | Limit | How much it affects search | Watch out for |
 |---|---|---|---|
-| **App Name (Title)** | **30 characters max** | **Highest** | Must be unique; no price references ("Free", "Sale"); no competitor names. |
-| **Subtitle** | **30 characters max** | **High** | Summarize core value proposition; no competitor names or CTA badges. |
-| **Keywords** | **100 characters max** | **Medium** | Comma-separated without spaces; no duplicate words; no special characters. |
-| **Description** | **4,000 characters max** | Not Indexed | Plain text / formatted copy; describe app features accurately. |
-| **Promotional Text** | **170 characters max** | Not Indexed | Appears above description; editable anytime without build submission. |
-| **What's New (Changelog)** | **4,000 characters max** | Not Indexed | Clear summary of new features or bug fixes for the current release. |
+| App Name (Title) | 30 characters | Highest | Must be unique; no "Free"/"Sale"; no competitor names |
+| Subtitle | 30 characters | High | Summarize the core value; no competitor names or fake CTA badges |
+| Keywords | 100 characters | Medium | Comma-separated, no spaces, no duplicate words, no special characters |
+| Description | 4,000 characters | Not indexed | Describe what the app actually does |
+| Promotional Text | 170 characters | Not indexed | Shown above the description; you can edit it anytime without a new build |
+| What's New (Changelog) | 4,000 characters | Not indexed | Clear summary of what changed in this release |
 
----
+## 2. Formatting keywords correctly
 
-# 2. Keyword Field Optimization (Guideline 2.3.7)
-
-Apple's 100-character keyword field requires strict formatting optimization:
+Apple's 100-character keyword field is easy to waste on formatting mistakes:
 
 ```text
 Correct   (comma-separated, no spaces):  fitness,tracker,workout,gym,log,run,calorie,diet
 Incorrect (wastes characters on spaces): fitness, tracker, workout app, gym logger
 ```
 
-### What to EXCLUDE from Keywords
+Skip these when writing keywords:
 
-1. Words already present in your **App Name** or **Subtitle**.
-2. Category names (e.g., "Health", "Fitness").
-3. The word "app".
-4. Competitor brand names (Guideline 2.3.7 rejection trigger).
+1. Words already in your App Name or Subtitle — they're indexed automatically.
+2. Category names like "Health" or "Fitness."
+3. The word "app."
+4. Competitor brand names — this is a Guideline 2.3.7 rejection trigger.
 
----
+## 3. Before you submit
 
-# 3. Operational Verification Checklist
-
-- [ ] **App Name Verified**: App Name ≤ 30 characters.
-- [ ] **Subtitle Verified**: Subtitle ≤ 30 characters.
-- [ ] **Keywords Formatted**: Keywords ≤ 100 characters, comma-separated without spaces.
-- [ ] **No Competitor Trademarks**: Verified zero competitor brand names in keywords or subtitle.
-- [ ] **Promotional Text Ready**: Promotional text configured for marketing announcements.
+- [ ] App Name is 30 characters or fewer.
+- [ ] Subtitle is 30 characters or fewer.
+- [ ] Keywords are 100 characters or fewer, comma-separated, no spaces.
+- [ ] No competitor trademarks anywhere in keywords or subtitle.
+- [ ] Promotional text is ready if you're planning a launch announcement.
 
 ---
 
-# Related documentation
+## Official sources
+
+- Apple App Store product page guidance: https://developer.apple.com/app-store/product-page/
+
+**Last verified:** August 14, 2026
+
+---
+
+## Related documentation
 
 ### Publishing (iOS)
 
@@ -86,14 +90,3 @@ Incorrect (wastes characters on spaces): fitness, tracker, workout app, gym logg
 ### Publishing (cross-platform)
 
 - `publishing/cross-platform/README.md`
-
----
-
-# Official sources
-
-- Apple App Store Product Page Guidance: https://developer.apple.com/app-store/product-page/
-
----
-
-**Last verified:** August 14, 2026
-

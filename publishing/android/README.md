@@ -1,67 +1,68 @@
-# Android Publishing Handbook & Track Administration
+# Android Publishing
 
-This directory covers build compilation, release track workflows, staged rollout, and store review compliance for **Android App Publishing** in Expo and React Native applications — target API level requirements, the Android App Bundle (`.aab`) format, Google Play Billing, and closed testing rules for Personal developer accounts, covering how to compile, test, stage, and publish Android applications on Google Play.
+This directory covers building an `.aab`, moving it through Google Play's testing tracks, getting past review, and rolling a release out gradually with a staged rollout — target API levels, the Android App Bundle format, Google Play Billing, and the closed-testing requirements Personal developer accounts have to satisfy.
 
 This guide is **not**:
 
-- an authorization mechanism to upload raw APK files to the Google Play Store (`.aab` format is mandatory)
-- a substitute for performing pre-launch automated testing on Google Cloud test matrices
-- a guide to bypassing Google Play Developer Distribution Agreements (DDA)
+- an authorization mechanism to upload a raw APK to Google Play — the `.aab` format is mandatory
+- a substitute for running pre-launch automated tests on Google's device matrix
+- a guide to working around the Google Play Developer Distribution Agreement
 
 ---
 
-# 1. Architecture of Android Release Pipelines
-
-Android application publishing follows a structured multi-track progression from local `.aab` compilation through automated testing pipelines to global production staged rollouts.
+## 1. The pipeline, end to end
 
 ```text
 Android App Bundle (.aab) compiled
-  - targets current required API level, R8 obfuscation + resource shrinking
+  - targets the current required API level, R8 obfuscation + resource shrinking
   - signed with the upload key (Play App Signing active)
         │
         ↓
 Google Play Console track pipeline
-  1. Internal testing track    (instant access, up to 100 testers)
-  2. Closed testing track      (alpha/beta, minimum tester gate for Personal accounts)
-  3. Open testing track        (public beta)
-  4. Production track          (staged rollout: 1% → 100%)
+  1. Internal testing    (instant access, up to 100 testers)
+  2. Closed testing      (alpha/beta, minimum tester gate for Personal accounts)
+  3. Open testing        (public beta)
+  4. Production          (staged rollout: 1% → 100%)
         │
         ↓
 Pre-launch report (Firebase Test Lab device matrix scan)
   - crash monitoring, accessibility checks
 ```
 
----
+## 2. What's in this directory
 
-# 2. Subsystem Directory Taxonomy
+| Guide | Covers |
+|---|---|
+| [app-bundle.md](app-bundle.md) | `.aab` compilation, R8 obfuscation, current target API level |
+| [play-console.md](play-console.md) | Play Console administration, service account keys, API access |
+| [internal-testing.md](internal-testing.md) | Internal Testing Track setup and instant distribution |
+| [closed-testing.md](closed-testing.md) | Closed testing tracks, and the Personal-account testing gate |
+| [production-release.md](production-release.md) | Staged rollout, halting a rollout, monitoring during release |
+| [app-review.md](app-review.md) | Play policy review, pre-launch reports, appeals |
+| [metadata.md](metadata.md) | Store listing text and character limits |
+| [screenshots.md](screenshots.md) | Phone, tablet, and Feature Graphic specs |
 
-| Handbook File | Core Purpose & Scope | Key Platform & Store Rules |
-|---|---|---|
-| **[README.md](README.md)** | Subsystem index, Android release architecture, and universal publishing rules. | High-level Android release pipeline, 2026 platform rules. |
-| **[app-bundle.md](app-bundle.md)** | Android App Bundle (`.aab`) compilation, R8 obfuscation, and Target API Level 36. | Target API 36 (Android 16), `.aab` format, Play App Signing. |
-| **[play-console.md](play-console.md)** | Google Play Console administration, service account deployment keys, and API access. | Service Account JSON keys, Fastlane Supply, EAS Submit setup. |
-| **[internal-testing.md](internal-testing.md)** | Internal Testing Track setup, rapid iteration, and instant build distribution. | Up to 100 internal testers, instant availability, zero review delays. |
-| **[closed-testing.md](closed-testing.md)** | Closed Testing Tracks (Alpha/Beta) and Personal account closed testing requirements. | Mandatory 12 opted-in testers for 14 continuous days for Personal accounts. |
-| **[production-release.md](production-release.md)** | Staged rollouts (1% to 100%), rollout halting, emergency rollbacks, and releases. | Staged rollout percentages (1% → 5% → 10% → 20% → 50% → 100%). |
-| **[app-review.md](app-review.md)** | Google Play App Review policies, automated pre-launch reports, and policy appeals. | Pre-launch Firebase Test Lab scans, policy triage, appeal forms. |
-| **[metadata.md](metadata.md)** | Google Play Store listing text metadata (Title 30c, Short Desc 80c, Long Desc 4000c). | Title 30c, Short Desc 80c, keyword density 2-3%, policy compliance. |
-| **[screenshots.md](screenshots.md)** | Android phone, 7-inch tablet, 10-inch tablet, and Feature Graphic (1024x500) specs. | Min 2 max 8 phone screenshots, 1024x500 feature graphic, tablet sets. |
+## 3. Rules that apply to every guide in this directory
 
----
-
-# 3. Universal Android Publishing Rules
-
-All Android publishing implementations in this playbook must adhere to five mandatory engineering rules:
-
-- [ ] **Target API level current**: new app bundles target Android 16 (API level 36) or higher — Google Play enforces this from August 31, 2026, with extensions available to November 1, 2026 for apps that request one. Existing apps need API level 35+ to stay visible to new users. Verify the current requirement against [Google's target API level page](https://support.google.com/googleplay/android-developer/answer/11926878) before relying on this number — it moves every year.
-- [ ] **`.aab` format only**: submissions are Android App Bundles, not legacy APKs — Google Play rejects raw APK uploads.
-- [ ] **Play App Signing enabled**: the developer signs builds with an upload key; Google Play re-signs the delivered APKs with the app signing key it holds.
-- [ ] **Staged rollout on every production release**: start at 1% or 5%, not 100% — see `production-release.md`.
-- [ ] **Pre-launch report checked before expanding a rollout**: the Firebase Test Lab automated scan is reviewed for crash spikes, accessibility warnings, or rendering regressions.
+- **Keep the target API level current.** New app bundles need to target Android 16 (API level 36) or higher — Google Play enforces this from August 31, 2026, with extensions available to November 1, 2026 for apps that request one. Existing apps need API level 35+ to stay visible to new users. Check [Google's target API level page](https://support.google.com/googleplay/android-developer/answer/11926878) before relying on this number — it moves every year.
+- **Submit `.aab`, not `.apk`.** Google Play rejects raw APK uploads.
+- **Turn on Play App Signing.** You sign builds with an upload key; Google re-signs the delivered APKs with the app signing key it holds.
+- **Stage every production release.** Start at 1% or 5%, not 100% — see [production-release.md](production-release.md).
+- **Check the pre-launch report before expanding a rollout.** It's Firebase Test Lab's automated scan for crash spikes, accessibility warnings, and rendering regressions.
 
 ---
 
-# Related documentation
+## Official sources
+
+- Google Play Console release management: https://support.google.com/googleplay/android-developer/answer/9859751
+- Android target API level requirements: https://developer.android.com/google/play/requirements/target-sdk
+- Android App Bundle documentation: https://developer.android.com/guide/app-bundle
+
+**Last verified:** August 14, 2026
+
+---
+
+## Related documentation
 
 ### Publishing (Android)
 
@@ -95,16 +96,3 @@ All Android publishing implementations in this playbook must adhere to five mand
 ### Publishing (cross-platform)
 
 - `publishing/cross-platform/README.md`
-
----
-
-# Official sources
-
-- Google Play Console Release Management: https://support.google.com/googleplay/android-developer/answer/9859751
-- Android Target API Level Requirements: https://developer.android.com/google/play/requirements/target-sdk
-- Android App Bundle Documentation: https://developer.android.com/guide/app-bundle
-
----
-
-**Last verified:** August 14, 2026
-

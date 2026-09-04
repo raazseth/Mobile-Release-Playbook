@@ -1,18 +1,16 @@
-# Cross-Platform Release Notes & Changelogs
+# Cross-Platform Release Notes
 
-This document covers Keep a Changelog formatting, generating release notes from git commits, and the character limits for both stores' "what's new" fields, for **Cross-Platform Release Notes** in Expo and React Native applications — how to write clear, user-facing release notes for App Store Connect and Google Play Console.
+Release notes are what users actually read before deciding whether to update. This covers writing them well, keeping them within each store's character limit, and generating a first draft from your git history instead of starting from a blank page every time.
 
 This guide is **not**:
 
-- an authorization mechanism to submit generic "Bug fixes and performance improvements" notes repeatedly
-- a substitute for documenting major breaking changes or user-facing feature additions
-- a developer commit dump (git commit hashes and internal refactors must be filtered out for public store releases)
+- an authorization mechanism to ship "Bug fixes and performance improvements" release after release
+- a substitute for documenting a genuinely breaking change or a real feature addition
+- a place for a raw commit dump — internal refactors and commit hashes don't belong in front of users
 
 ---
 
-# 1. Release Notes Architecture & Parsing Pipeline
-
-Public release notes inform end users about new features, UI improvements, and bug fixes included in the current release.
+## 1. From commits to store text
 
 ```text
 Git commit log (Conventional Commits: feat:, fix:)
@@ -24,20 +22,16 @@ changes into New Features / Improvements / Bug Fixes, format per Keep a Changelo
         └─→ Google Play release notes (max 500 characters)
 ```
 
----
+## 2. Character limits by store
 
-# 2. Store Changelog Character Limits & Guidelines
-
-| Platform | Character Limit | Formatting Rules | Best Practice |
+| Platform | Limit | Formatting | Practical advice |
 |---|---|---|---|
-| **Apple App Store** | **4,000 characters max** | Plain text, line breaks, bullet points | Clear category headers (`- New:`, `- Fixed:`); highlight key features first. |
-| **Google Play Store** | **500 characters max** | Plain text, line breaks | Concise bulleted summary fitting within 500 characters. |
+| Apple App Store | 4,000 characters | Plain text, line breaks, bullets | Lead with the feature users will actually notice, not the fix that only mattered internally |
+| Google Play | 500 characters | Plain text, line breaks | You have room for maybe 3–4 short bullets — pick the ones that matter most |
 
----
+## 3. A format worth following
 
-# 3. Keep a Changelog Standard Template
-
-Follow the Keep a Changelog standard format for user-facing release notes:
+Keep a Changelog's structure works well for release notes too — it groups changes so a reader can scan them in seconds:
 
 ```text
 # Version 1.2.0 Release Notes
@@ -55,18 +49,16 @@ Follow the Keep a Changelog standard format for user-facing release notes:
 - Resolved crash on Android when exporting CSV workout logs.
 ```
 
----
+## 4. Generating a first draft from git
 
-# 4. Automated Release Notes Generation Script
-
-Use Node.js scripts to generate formatted release notes from git commits:
+This won't replace someone editing for tone, but it saves you from starting from nothing:
 
 ```javascript
 // scripts/generate-release-notes.js
 const { execSync } = require('child_process');
 const fs = require('fs');
 
-// Fetch git commits since last release tag
+// Fetch git commits since the last release tag
 const rawCommits = execSync('git log $(git describe --tags --abbrev=0)..HEAD --oneline').toString();
 const lines = rawCommits.split('\n').filter(Boolean);
 
@@ -89,25 +81,34 @@ ${fixes.join('\n') || '• Stability improvements.'}
 
 // Write to iOS and Android release notes plain text files
 fs.writeFileSync('./fastlane/metadata/ios/en-US/release_notes.txt', releaseNotes);
-// Truncate to 500 chars for Android release notes limit
+// Truncate to 500 chars for Android's release notes limit
 fs.writeFileSync('./fastlane/metadata/android/en-US/changelogs/143.txt', releaseNotes.slice(0, 490));
 
-console.log('✅ Generated cross-platform release notes!');
+console.log('Generated cross-platform release notes.');
 ```
 
+Treat this as a starting draft, not a final copy — a script can't tell which fix actually mattered to users and which was invisible to everyone but the team.
+
+## 5. Before you publish
+
+- [ ] The notes describe something specific, not just "bug fixes."
+- [ ] The Google Play text is strictly under 500 characters — it gets truncated silently otherwise.
+- [ ] Refactoring, CI, and internal test commits are filtered out.
+- [ ] Bullets and headers make the notes scannable, not a wall of text.
+- [ ] `release_notes.txt` and the versioned `changelogs/<code>.txt` file are both updated.
+
 ---
 
-# 5. Operational Verification Checklist
+## Official sources
 
-- [ ] **No Generic Text Only**: Release notes detail specific features/fixes beyond generic "Bug fixes".
-- [ ] **Android 500-Char Limit Checked**: Play Store changelog text is strictly ≤ 500 characters.
-- [ ] **Internal Commits Filtered**: Refactoring, CI pipeline, and internal test commits excluded.
-- [ ] **Clear Formatting**: Release notes use bullet points and clean category headings.
-- [ ] **Fastlane Directories Updated**: Release notes written to `release_notes.txt` and `changelogs/143.txt`.
+- Keep a Changelog standard: https://keepachangelog.com/
+- Apple release notes guidelines: https://developer.apple.com/help/app-store-connect/#/dev8b49e0c52
+
+**Last verified:** August 14, 2026
 
 ---
 
-# Related documentation
+## Related documentation
 
 ### Publishing (cross-platform)
 
@@ -124,6 +125,10 @@ console.log('✅ Generated cross-platform release notes!');
 
 - `publishing/android/README.md`
 
+### Templates
+
+- `templates/release-notes.md`
+
 ### Checklists
 
 - `checklists/cross-platform.md`
@@ -131,15 +136,3 @@ console.log('✅ Generated cross-platform release notes!');
 ### Store operations
 
 - `store-operations/README.md`
-
----
-
-# Official sources
-
-- Keep a Changelog Standard: https://keepachangelog.com/
-- Apple Release Notes Guidelines: https://developer.apple.com/help/app-store-connect/#/dev8b49e0c52
-
----
-
-**Last verified:** August 14, 2026
-
