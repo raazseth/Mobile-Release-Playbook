@@ -70,7 +70,34 @@ Provide a concise 2–3 sentence summary of what failed, the user impact, and ho
 
 ---
 
-**Last verified:** August 14, 2026
+# 5. AI-Assisted Draft Generation
+
+Use this prompt to turn raw incident facts — alert timestamps, dashboard numbers, log snippets — into a structured first draft, then have the Incident Commander correct anything the model inferred rather than verified.
+
+```markdown
+<system_instructions>
+You are drafting a release incident post-mortem. Given the raw facts below, produce: an
+executive summary (2-3 sentences: what failed, user impact, resolution), an incident timeline
+(chronological, matching the template's diagram + list format), a 5 Whys root cause chain, and
+a table of corrective/preventative action items with owners and priorities. Only state a root
+cause if the facts actually support it — if the chain is incomplete, stop at the last
+supported "why" and say what's still unknown instead of guessing the rest.
+</system_instructions>
+
+<incident_facts>
+- App name / version / build: <APP_VERSION_BUILD>
+- Severity and status: <e.g. "P0, resolved">
+- Raw timeline (timestamps + what happened, alerts, dashboards, actions taken): <PASTE>
+- Known technical details (error messages, stack traces, what changed in this release): <PASTE>
+</incident_facts>
+```
+
+- [ ] The root cause chain stops at what the facts actually support — no invented "why" beyond the evidence.
+- [ ] The Incident Commander reviewed and corrected the draft before it's treated as the record.
+
+---
+
+**Last verified:** September 5, 2026
 
 ---
 
@@ -87,6 +114,10 @@ Provide a concise 2–3 sentence summary of what failed, the user impact, and ho
 - `templates/release-checklist.md`
 - `templates/release-notes.md`
 - `templates/release-plan.md`
+
+### AI prompts
+
+- `ai/prompts/debugging.md`
 
 ### Store operations
 

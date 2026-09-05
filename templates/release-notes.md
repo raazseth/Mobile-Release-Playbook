@@ -65,13 +65,19 @@ Version [1.2.1] Maintenance Release:
 
 ---
 
-# 5. Official Sources
+# 5. AI-Assisted Draft Generation
+
+Don't draft this from scratch — [`ai/prompts/release-notes.md`](../ai/prompts/release-notes.md) already covers turning a raw commit log or PR list into exactly this format (iOS "What's New", Android release notes, and a `CHANGELOG.md` entry), with a worked example. Use it, then drop the result into the templates above. The rule that still applies: nothing gets in unless a real user would notice it — internal refactors and dependency bumps stay out.
+
+---
+
+# 6. Official Sources
 
 - Keep a Changelog Standard: https://keepachangelog.com/
 
 ---
 
-**Last verified:** August 14, 2026
+**Last verified:** September 5, 2026
 
 ---
 
@@ -88,6 +94,10 @@ Version [1.2.1] Maintenance Release:
 - `templates/rejection-response.md`
 - `templates/release-checklist.md`
 - `templates/release-plan.md`
+
+### AI prompts
+
+- `ai/prompts/release-notes.md`
 
 ### Store operations
 

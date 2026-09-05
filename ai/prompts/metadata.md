@@ -7,7 +7,7 @@ Engineered following 2026 Context Engineering standards, it incorporates prompt 
 This guide is **not**:
 
 - an automated listing updater (metadata changes must be uploaded via EAS Submit, Fastlane Supply/Deliver, or store consoles)
-- a marketing copywriting generator (focus is on store policy compliance, accuracy, and review safety)
+- a marketing copywriting generator (focus is on store policy compliance, accuracy, and review safety — for keyword/conversion optimization, see [aso-optimization.md](aso-optimization.md))
 - a substitute for verifying store screenshot asset resolutions
 
 ---
@@ -156,6 +156,7 @@ Release Notes: Bug fixes.
 
 # 5. Related Documentation
 
+- [ASO Optimization Prompt](aso-optimization.md) - Keyword and conversion optimization, run before this compliance audit.
 - [Metadata Agent Definition](../agents/metadata-agent.md) - Metadata agent role.
 - [Store Metadata Workflow](../workflows/metadata-generation.md) - Metadata workflow.
 - [Store Operations](../../store-operations/README.md) - Playbook store listing operations.

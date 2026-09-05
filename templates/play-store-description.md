@@ -51,13 +51,19 @@ Account Deletion: https://example.com/delete-account
 
 ---
 
+# AI-Assisted Draft Generation
+
+Don't draft this from scratch — use [`ai/prompts/aso-optimization.md`](../ai/prompts/aso-optimization.md) to generate keyword-optimized copy for the fields below, then run the result through [`ai/prompts/metadata.md`](../ai/prompts/metadata.md) to catch character-limit and policy violations before it goes anywhere near Play Console.
+
+---
+
 # Official Sources
 
 - Google Play Store Listing Assets Policy: https://support.google.com/googleplay/android-developer/answer/9866151
 
 ---
 
-**Last verified:** August 14, 2026
+**Last verified:** September 5, 2026
 
 ---
 
@@ -74,6 +80,11 @@ Account Deletion: https://example.com/delete-account
 - `templates/release-checklist.md`
 - `templates/release-notes.md`
 - `templates/release-plan.md`
+
+### AI prompts
+
+- `ai/prompts/aso-optimization.md`
+- `ai/prompts/metadata.md`
 
 ### Store operations
 

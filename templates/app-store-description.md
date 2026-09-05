@@ -61,13 +61,19 @@ Terms of Use (EULA): https://example.com/terms
 
 ---
 
+# AI-Assisted Draft Generation
+
+Don't draft this from scratch — use [`ai/prompts/aso-optimization.md`](../ai/prompts/aso-optimization.md) to generate keyword-optimized copy for the fields below, then run the result through [`ai/prompts/metadata.md`](../ai/prompts/metadata.md) to catch character-limit and policy violations before it goes anywhere near App Store Connect.
+
+---
+
 # Official Sources
 
 - Apple Product Page Guidance: https://developer.apple.com/app-store/product-page/
 
 ---
 
-**Last verified:** August 14, 2026
+**Last verified:** September 5, 2026
 
 ---
 
@@ -84,6 +90,11 @@ Terms of Use (EULA): https://example.com/terms
 - `templates/release-checklist.md`
 - `templates/release-notes.md`
 - `templates/release-plan.md`
+
+### AI prompts
+
+- `ai/prompts/aso-optimization.md`
+- `ai/prompts/metadata.md`
 
 ### Store operations
 

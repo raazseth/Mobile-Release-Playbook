@@ -83,7 +83,35 @@ EMERGENCY ACTION PROTOCOL:
 
 ---
 
-**Last verified:** August 14, 2026
+# 4. AI-Assisted Draft Generation
+
+Use this prompt to turn raw release facts into a first-draft plan, then have the Lead Release Engineer and QA Lead review it — the Human Approval Sign-Off Boundary in Section 3 still applies to whatever the AI produces.
+
+```markdown
+<system_instructions>
+You are a release engineering assistant. Given the release facts below, fill in the Master
+Release Plan template: the Release Overview table, a Release Milestone Timeline (diagram +
+table), and a Risk Matrix with realistic mitigations and rollback triggers for the stated risk
+items. Match the template's existing section structure. Flag any milestone date that looks
+unrealistic (e.g. store review scheduled with less than 24-48 hours of buffer).
+</system_instructions>
+
+<release_facts>
+- App name: <APP_NAME>
+- Target version / build numbers: <VERSION_AND_BUILD_NUMBERS>
+- Target release date: <DATE>
+- Key changes in this release: <LIST>
+- Known risk items (new SDKs, API/target changes, payment or auth changes): <LIST>
+- Team: Lead Release Engineer <NAME>, QA Lead <NAME>
+</release_facts>
+```
+
+- [ ] The proposed dates and risk mitigations were actually reviewed, not just copy-pasted in.
+- [ ] Section 3's sign-off is completed by a real person before this plan is treated as final.
+
+---
+
+**Last verified:** September 5, 2026
 
 ---
 
@@ -100,6 +128,10 @@ EMERGENCY ACTION PROTOCOL:
 - `templates/rejection-response.md`
 - `templates/release-checklist.md`
 - `templates/release-notes.md`
+
+### AI prompts
+
+- `ai/prompts/release-audit.md`
 
 ### Store operations
 

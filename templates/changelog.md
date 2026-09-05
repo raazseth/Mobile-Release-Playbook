@@ -70,6 +70,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+# AI-Assisted Draft Generation
+
+Don't draft this from scratch — [`ai/prompts/release-notes.md`](../ai/prompts/release-notes.md) already covers turning a raw commit log or PR list into a Keep a Changelog-formatted entry (it's one of the two outputs that prompt produces, alongside the store-facing release notes). Use it, then drop the changelog half into the format above.
+
+---
+
 # Official Sources
 
 - Keep a Changelog Standard: https://keepachangelog.com/
@@ -77,7 +83,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-**Last verified:** August 14, 2026
+**Last verified:** September 5, 2026
 
 ---
 
@@ -94,6 +100,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `templates/release-checklist.md`
 - `templates/release-notes.md`
 - `templates/release-plan.md`
+
+### AI prompts
+
+- `ai/prompts/release-notes.md`
 
 ### Store operations
 

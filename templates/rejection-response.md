@@ -106,13 +106,19 @@ Best regards,
 
 ---
 
-# 6. Official Sources
+# 6. AI-Assisted Draft Generation
+
+Don't draft this from scratch — [`ai/prompts/rejection-analysis.md`](../ai/prompts/rejection-analysis.md) already covers parsing a rejection notice and drafting the remediation response, in more depth than would fit here. Use it, then paste the result into whichever template above matches your guideline. The one rule that still applies regardless of which prompt you use: never let the draft claim a fix was made that wasn't actually verified.
+
+---
+
+# 7. Official Sources
 
 - Apple App Review Guidelines: https://developer.apple.com/app-store/review/guidelines/
 
 ---
 
-**Last verified:** August 14, 2026
+**Last verified:** September 5, 2026
 
 ---
 
@@ -129,6 +135,10 @@ Best regards,
 - `templates/release-checklist.md`
 - `templates/release-notes.md`
 - `templates/release-plan.md`
+
+### AI prompts
+
+- `ai/prompts/rejection-analysis.md`
 
 ### Store operations
 

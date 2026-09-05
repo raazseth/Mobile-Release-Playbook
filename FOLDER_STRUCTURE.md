@@ -298,6 +298,7 @@ mobile-release-playbook/
 │   │   ├── qa.md                      # QA & Test Automation Prompt Template
 │   │   ├── debugging.md               # Crash Debugging Prompt Template
 │   │   ├── metadata.md                # Metadata Generation Prompt Template
+│   │   ├── aso-optimization.md        # App Store Optimization (Keywords, Copy, A/B Variants)
 │   │   ├── rejection-analysis.md      # Store Rejection Analysis Prompt Template
 │   │   └── release-notes.md           # Release Notes Prompt Template
 │   ├── context/                       # Static Prompt Caching & Context Layouts

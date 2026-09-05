@@ -32,6 +32,7 @@ Prompts use static system prompt caching, single-mount XML tag variable injectio
 # 2. Key Prompt Templates
 
 - [release-audit.md](release-audit.md) - Pre-release quality audit prompt template.
+- [aso-optimization.md](aso-optimization.md) - App Store Optimization prompt for store listing keywords, copy, and A/B test variants.
 
 ---
 
@@ -49,6 +50,7 @@ Prompts use static system prompt caching, single-mount XML tag variable injectio
 
 ### Prompts
 
+- `ai/prompts/aso-optimization.md`
 - `ai/prompts/debugging.md`
 - `ai/prompts/metadata.md`
 - `ai/prompts/qa.md`

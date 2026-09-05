@@ -88,10 +88,15 @@ All operational templates in this playbook must adhere to five mandatory rules:
 
 ---
 
+Every template in this directory now includes an **AI-Assisted Draft Generation** section — a prompt (or a pointer to the matching prompt in `ai/prompts/` where one already exists) that turns raw release facts into a first draft of that template. None of them replace the human sign-off sections already built into these templates; they just remove the blank-page problem.
+
+---
+
 # 4. Related Repository Documentation
 
 - [Release Preparation Workflow](../ai/workflows/release-preparation.md) - Automated release prep.
 - [Release Engineering Subsystem](../release-engineering/README.md) - Release pipelines.
+- [AI Prompts Index](../ai/prompts/README.md) - Standalone prompts several templates draft from.
 - [CHANGELOG.md](../CHANGELOG.md) - Repository changelog.
 
 ---
@@ -103,5 +108,5 @@ All operational templates in this playbook must adhere to five mandatory rules:
 
 ---
 
-**Last verified:** August 14, 2026
+**Last verified:** September 5, 2026
 

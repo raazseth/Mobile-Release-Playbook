@@ -67,7 +67,35 @@ Map data collection practices to Google Play Console Data Safety questionnaire c
 
 ---
 
-**Last verified:** August 14, 2026
+# 4. AI-Assisted Draft Generation
+
+Use this prompt to build a first-draft SDK data inventory from your actual dependencies, then have the Privacy Lead verify every row before it's used to fill out Apple's or Google's privacy questionnaire — this output is a starting point, never the declaration itself.
+
+```markdown
+<system_instructions>
+You are auditing third-party SDKs for data collection behavior. Given the dependency list
+below, produce a Data Inventory table (SDK name, purpose, data collected, linked to user
+identity?, shared with third parties?) matching this template's format, based on each SDK's
+publicly documented data collection behavior. For any SDK where you're not confident about its
+actual data practices, say "UNKNOWN — verify against the SDK's own privacy documentation"
+instead of guessing. Do not mark anything as "No" data collection unless the SDK's own
+documentation actually states that.
+</system_instructions>
+
+<dependencies>
+- App name / version: <APP_NAME_VERSION>
+- Installed SDKs (package name + version): <LIST — e.g. "@sentry/react-native 5.x, react-native-firebase/analytics 19.x">
+</dependencies>
+```
+
+> **Important:** Privacy declarations are legally binding statements to Apple and Google, not documentation prose. Treat every row this produces as `UNKNOWN` until a human actually confirms it against the SDK's own privacy documentation or source — this is exactly the kind of AI output that must never be submitted unverified.
+
+- [ ] Every "UNKNOWN" row was actually resolved by a human before this went into a real submission — not left as a guess.
+- [ ] The Privacy Lead, not the AI, is the one who signed off above.
+
+---
+
+**Last verified:** September 5, 2026
 
 ---
 
@@ -84,6 +112,10 @@ Map data collection practices to Google Play Console Data Safety questionnaire c
 - `templates/release-checklist.md`
 - `templates/release-notes.md`
 - `templates/release-plan.md`
+
+### AI prompts and agents
+
+- `ai/agents/privacy-auditor.md`
 
 ### Store operations
 

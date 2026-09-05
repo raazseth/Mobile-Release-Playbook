@@ -72,7 +72,32 @@ Use this operational checklist to execute pre-release audits, binary compilation
 
 ---
 
-**Last verified:** August 14, 2026
+# 6. AI-Assisted Draft Generation
+
+Use this prompt to generate a checklist scoped to what this specific release actually touches — a release with no native dependency changes doesn't need the same items as one that upgrades the Android target API. Have QA confirm the scoped list still covers everything before treating it as final.
+
+```markdown
+<system_instructions>
+You are a release engineering assistant. Given the release scope below, produce a scoped
+version of the Master Pre-Release & Execution Checklist: keep every item from the template
+that applies, drop items that clearly don't apply given the stated scope, and add any item
+the scope implies that the template doesn't already cover (e.g. a new push notification
+provider implies checking APNs/FCM credentials). Explain briefly why anything was dropped.
+</system_instructions>
+
+<release_scope>
+- App name / version / build numbers: <APP_NAME_VERSION_BUILDS>
+- What changed in this release: <LIST — e.g. "new payment SDK, no native dependency changes, no target API bump">
+- Platforms affected: <iOS | Android | Both>
+</release_scope>
+```
+
+- [ ] Anything the AI dropped from the checklist was actually verified as not applicable, not just trusted.
+- [ ] QA Lead reviewed the scoped checklist before it replaces the full one for this release.
+
+---
+
+**Last verified:** September 5, 2026
 
 ---
 
@@ -89,6 +114,11 @@ Use this operational checklist to execute pre-release audits, binary compilation
 - `templates/rejection-response.md`
 - `templates/release-notes.md`
 - `templates/release-plan.md`
+
+### AI prompts
+
+- `ai/prompts/release-audit.md`
+- `ai/prompts/qa.md`
 
 ### Store operations
 
