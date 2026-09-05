@@ -27,6 +27,8 @@ Account holder ignores it → builds get blocked, TestFlight halts, listing edit
 
 This is exclusive to the **Account Holder / Owner** role — a full Admin cannot click "I Agree" on an updated DPLA or DDA, no matter how much other access they have. If your account holder is slow to check email, that's a real release risk, not just an inconvenience.
 
+In App Store Connect, the account holder accepts from the homepage: **Business → Agreements tab → find the Paid Apps (or relevant) row → View and Agree to Terms → Agree.** In Play Console, it's a banner on the dashboard or under **Setup → Developer account details**, prompting the account owner directly.
+
 ## 3. What gets blocked if it's ignored
 
 - External TestFlight builds can't be submitted for Beta App Review.

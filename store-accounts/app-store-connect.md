@@ -45,7 +45,7 @@ App Store Connect is also where TestFlight lives — internal testing for your o
 - [ ] `.p8` keys live only in CI secrets, never in a repo commit.
 - [ ] CI keys use App Manager rather than full Admin where that's enough.
 - [ ] `ITSAppUsesNonExemptEncryption` is declared in `Info.plist` so TestFlight doesn't prompt for export compliance on every build.
-- [ ] Sandbox testers exist for testing in-app purchases.
+- [ ] Sandbox testers exist for testing in-app purchases (**Users and Access → Sandbox tab → + → Create Test Accounts**; use an email that's never been used as a real Apple Account, and note you can't edit the name/email/password after creation).
 - [ ] Everyone invited to the team has 2FA enabled on their Apple Account.
 
 ---

@@ -38,6 +38,8 @@ Both platforms require a US tax form to determine how much (if any) US withholdi
 
 > **Important:** Skip this form, or get it wrong, and Apple and Google will withhold **24%** of your US storefront revenue automatically. This is the single most common way developers unexpectedly lose a chunk of their payout.
 
+In App Store Connect, both the Paid Applications Agreement and the tax form live in the same place: **Business (homepage) → Agreements tab → sign the Paid Apps agreement first, then find the Tax Forms section → Add Tax Info** next to the form you need. Apple asks a few questions to route you to the right W-8 variant (BEN, BEN-E, or ECI) automatically — you don't pick the form yourself. Once submitted, you can't edit it in App Store Connect; you'd need to file a correction instead.
+
 ## 3. Banking details
 
 - Your bank account name has to match your legal entity name exactly — a personal account won't work for a corporate payout.
