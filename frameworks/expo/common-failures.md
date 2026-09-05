@@ -2056,6 +2056,7 @@ Fix
 
 ### Expo
 
+- `frameworks/expo/local-setup.md`
 - `frameworks/expo/app-config.md`
 - `frameworks/expo/build.md`
 - `frameworks/expo/ci-cd.md`

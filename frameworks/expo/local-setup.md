@@ -1,0 +1,420 @@
+# Expo Local Environment Setup
+
+This guide covers what a machine needs for Expo release work — and, just as importantly, what it *doesn't* need, since Expo's whole point is to let most of that work happen without a fully installed native toolchain.
+
+This is **not** an Expo onboarding tutorial.
+
+```text
+"How do I write an Expo app?"
+    → docs.expo.dev, not this guide
+
+"Do I need Xcode installed to build my Expo app for the App Store?"
+    → this guide
+```
+
+It covers:
+
+```text
+The minimum setup needed for any Expo project
+When native tooling is actually required, and when it isn't
+Installing Android and iOS native tooling for local builds
+Verifying your setup
+Keeping local builds consistent with EAS cloud builds
+```
+
+---
+
+# 1. The core distinction: local builds vs. cloud builds
+
+This is the first thing to get right, because it determines how much of this guide actually applies to you.
+
+```text
+EAS Build (cloud)
+→ Expo's servers compile your app
+→ your machine needs Node and the EAS CLI — nothing native
+
+Local build (npx expo run:android / run:ios, or eas build --local)
+→ your machine compiles the app
+→ your machine needs the full native toolchain for that platform
+```
+
+Most Expo teams use EAS cloud builds for anything that leaves a developer's machine — CI, TestFlight, App Store, Play Store — and reserve local native builds for development and native debugging. If that's your project's setup, most of this guide is optional: read §2 and skip to §12 (verifying your setup) and §13 (EAS local builds), and come back to the native-tooling sections only if you actually need to run a local build.
+
+---
+
+# 2. What every Expo project needs, no matter what
+
+```text
+Node.js
+A package manager (npm / yarn / pnpm — whatever the project uses)
+The Expo CLI, invoked via npx (no separate global install needed)
+The EAS CLI, if the project uses EAS Build/Submit/Update
+```
+
+```bash
+node --version
+npx expo --version
+npx eas --version
+```
+
+Expo's CLI is designed to be run through `npx` rather than installed globally, so it always resolves to the version pinned in the project's dependencies. Don't install `expo-cli` globally — that package is deprecated; use `npx expo`.
+
+If the project uses EAS, install the EAS CLI:
+
+```bash
+npm install -g eas-cli
+```
+
+or run it via `npx eas-cli` without a global install.
+
+---
+
+# 3. Watchman (recommended)
+
+Same as plain React Native — Watchman speeds up Metro's file watching, especially on larger projects and on macOS.
+
+```bash
+brew install watchman
+```
+
+Not required, but its absence is a common cause of slow or missed file-change detection.
+
+---
+
+# 4. When you actually need native tooling
+
+```text
+You need Android Studio + Android SDK if you:
+  - run `npx expo run:android`
+  - run `eas build --local --platform android`
+  - debug a native Android build failure directly
+
+You need Xcode + CocoaPods if you:
+  - run `npx expo run:ios`
+  - run `eas build --local --platform ios`
+  - debug a native iOS build failure directly
+
+You need neither if you:
+  - only use Expo Go or a pre-built development client for development
+  - only use EAS cloud builds for release artifacts
+```
+
+Installing the full native toolchain "just in case" isn't necessary for most contributors on a well-configured Expo project. Install it when you actually hit one of the cases above.
+
+---
+
+# 5. Android native tooling
+
+Same requirements as plain React Native: JDK, Android Studio (or the command-line SDK tools), the Android SDK, and `ANDROID_HOME` set correctly.
+
+```bash
+java -version
+adb --version
+```
+
+See `frameworks/react-native/local-setup.md` §5–§7 for the full walkthrough — it applies unchanged to Expo projects, since Expo still produces a real native Android project under the hood (via `expo prebuild` or CNG).
+
+---
+
+# 6. iOS native tooling (macOS only)
+
+Same requirements as plain React Native: Xcode, Xcode Command Line Tools, CocoaPods, and Ruby (via a version manager, not the system Ruby).
+
+```bash
+xcodebuild -version
+pod --version
+```
+
+See `frameworks/react-native/local-setup.md` §8–§9 for the full walkthrough.
+
+> **Important:** iOS local builds still require macOS. If your team develops on Windows or Linux, EAS Build's cloud iOS compilation is the practical way to produce iOS artifacts without a Mac.
+
+---
+
+# 7. Apple Silicon considerations
+
+Native dependencies pulled in through Expo's config plugins can still hit the same Apple Silicon/Rosetta issues as any React Native native module.
+
+```bash
+softwareupdate --install-rosetta
+```
+
+Check this before assuming a `pod install` failure on an M-series Mac is a CocoaPods problem — see `frameworks/react-native/local-setup.md` §11.
+
+---
+
+# 8. Continuous Native Generation (CNG) and `ios/` / `android/`
+
+Whether you need to think about native tooling at all partly depends on how the project manages its native projects.
+
+```text
+Continuous Native Generation (CNG)
+→ ios/ and android/ are generated by `expo prebuild`, not committed
+→ native tooling only matters when you actually run prebuild or a local build
+
+Native projects committed to the repo
+→ ios/ and android/ exist as regular native projects
+→ treat native tooling as required, same as plain React Native
+```
+
+Check whether `ios/` and `android/` are in the project's `.gitignore` before assuming either model. Editing a generated native directory by hand, when the project uses CNG, gets silently overwritten on the next `prebuild` — see `frameworks/expo/app-config.md` for how config plugins produce the native project.
+
+---
+
+# 9. `expo prebuild`
+
+If the project uses CNG and you need native directories locally:
+
+```bash
+npx expo prebuild
+```
+
+This generates `ios/` and `android/` from `app.json` / `app.config.*` and installed config plugins. Expo's build tooling (`npx expo run:android` / `run:ios`) runs this automatically when the native directories don't exist, so you usually don't need to run it manually before a first local build.
+
+Do not hand-edit a generated native project and expect those edits to survive the next `prebuild` — put the change in a config plugin instead.
+
+---
+
+# 10. Local development build vs. local production build
+
+```text
+npx expo run:android / run:ios
+→ builds a development build (includes expo-dev-client)
+→ connects to Metro
+→ not a release artifact
+
+eas build --local --platform <platform>
+→ builds using the profile's actual configuration (development/preview/production)
+→ can produce a real release artifact, built on your machine instead of EAS's servers
+```
+
+See `frameworks/expo/development-builds.md` for the full development-build workflow, and `frameworks/expo/build.md` for release build profiles.
+
+---
+
+# 11. EAS local builds
+
+`eas build --local` runs the same build EAS's cloud servers would run, but on your machine — useful for debugging a build failure without waiting on a cloud queue, or for producing an artifact without sending source to Expo's infrastructure.
+
+```bash
+eas build --local --platform android --profile production
+```
+
+```bash
+eas build --local --platform ios --profile production
+```
+
+This still requires the full native toolchain for the platform you're building — a local build is not exempt from needing Xcode or the Android SDK. What it removes is the EAS Build cloud queue, not the native tooling requirement.
+
+---
+
+# 12. Verifying your setup
+
+```bash
+npx expo-doctor
+```
+
+`expo-doctor` checks your project's configuration and dependencies for common issues — mismatched package versions against the installed Expo SDK, missing config, and similar problems. It's a project-configuration check, not a full machine-environment check.
+
+For the underlying native toolchain (Node, Watchman, JDK, Android SDK, Xcode, CocoaPods), run the React Native environment checker, which still applies to Expo projects:
+
+```bash
+npx react-native doctor
+```
+
+Run both before debugging a confusing local build failure.
+
+---
+
+# 13. Keeping local builds consistent with EAS
+
+If both local and EAS cloud builds are used for the same project, keep the configuration they both read from in sync:
+
+```text
+eas.json build profiles
+    ↓
+same profile → same expected output, whether built locally or in the cloud
+
+app.json / app.config.*
+    ↓
+same resolved configuration regardless of where the build runs
+```
+
+A build profile behaving differently locally than in EAS's cloud environment is almost always an environment difference (Node/Xcode/Android SDK version, or a locally-set environment variable that doesn't exist in EAS's build environment), not a bug in the profile itself. See `frameworks/expo/eas.md` for build profile configuration and `frameworks/react-native/local-setup.md` §14 for the general local-vs-CI comparison approach.
+
+---
+
+# 14. Monorepo considerations
+
+If the Expo project lives inside a monorepo (Yarn/npm/pnpm workspaces, Nx, Turborepo), the same considerations from `frameworks/react-native/local-setup.md` §16 apply, plus:
+
+```text
+Does EAS Build know which package is the Expo project?
+  → eas.json / project root configuration
+Are workspace-hoisted dependencies visible to expo prebuild
+  and the generated native projects?
+```
+
+Expo's EAS Build documentation covers monorepo-specific configuration — check it before assuming a monorepo build failure is a generic Expo problem.
+
+---
+
+# 15. Security: keep local credentials out of the repository
+
+Local Expo development often touches real credentials — an Expo account login, EAS-managed signing credentials, or locally-stored keystores and provisioning profiles if you manage credentials manually instead of letting EAS manage them.
+
+```text
+Never commit:
+  keystores
+  provisioning profiles with embedded private keys
+  App Store Connect API keys (.p8)
+  Google Play service account JSON
+  .env files containing real secrets
+```
+
+See `frameworks/expo/credentials.md` and `ai/security/secret-protection.md` for how credentials should be stored, and prefer EAS-managed credentials over local ones unless there's a specific reason not to.
+
+---
+
+# 16. AI-assisted environment audit
+
+A useful prompt when your local Expo setup isn't behaving as expected:
+
+```text
+Help me verify my local Expo development environment.
+
+My setup:
+- OS: <macOS / Windows / Linux, version>
+- Node: <output of `node --version`>
+- Package manager: <npm / yarn / pnpm, version>
+- Expo CLI: <output of `npx expo --version`>
+- EAS CLI: <output of `npx eas --version`>
+- Does the project use CNG (ios/ and android/ gitignored) or committed native projects?
+- `npx expo-doctor` output: <paste>
+- `npx react-native doctor` output: <paste>
+- (if relevant) JDK / Xcode / CocoaPods versions
+
+What I'm trying to do:
+<npx expo run:android / run:ios, or eas build --local, or debugging a specific error>
+
+Identify:
+1. Whether this needs native tooling at all, or is solvable without it
+2. Any version mismatch against what the project expects
+3. The most likely cause of the specific failure
+4. What to check next, in order
+
+Rules:
+- Do not ask me to paste secrets, credentials, or keystore contents.
+- Separate confirmed facts from guesses.
+- Recommend the current official Expo/EAS documentation for anything
+  version-specific, since these requirements change over time.
+```
+
+AI output is a hypothesis to verify against the actual official documentation and your actual command output — not a fix to apply blindly.
+
+---
+
+# 17. What this guide doesn't cover
+
+```text
+App name, package name / Bundle ID, and app icons
+→ foundations/identifiers.md
+→ foundations/project-configuration.md (§5 app name/slug, §19 app icons)
+→ frameworks/expo/app-config.md (name, ios.bundleIdentifier, android.package, icon in app.json)
+→ publishing/cross-platform/assets.md (icon/splash pixel specs)
+
+Writing an Expo application
+→ docs.expo.dev
+
+App configuration and config plugins
+→ frameworks/expo/app-config.md
+
+Development builds
+→ frameworks/expo/development-builds.md
+
+EAS Build profiles and cloud builds
+→ frameworks/expo/eas.md, frameworks/expo/build.md
+
+Credentials and signing
+→ frameworks/expo/credentials.md, signing/
+
+Store submission
+→ frameworks/expo/submit.md, publishing/
+
+Diagnosing a build that's already failing
+→ frameworks/expo/common-failures.md
+```
+
+---
+
+# Related documentation
+
+### Expo
+
+- `frameworks/expo/README.md`
+- `frameworks/expo/app-config.md`
+- `frameworks/expo/development-builds.md`
+- `frameworks/expo/eas.md`
+- `frameworks/expo/build.md`
+- `frameworks/expo/credentials.md`
+- `frameworks/expo/common-failures.md`
+
+### React Native
+
+- `frameworks/react-native/local-setup.md`
+
+### Signing
+
+- `signing/ios/`
+- `signing/android/`
+- `signing/security/`
+
+### Troubleshooting
+
+- `troubleshooting/build-fails.md`
+- `troubleshooting/ci-fails.md`
+- `troubleshooting/signing-fails.md`
+
+### Foundations
+
+- `foundations/identifiers.md`
+- `foundations/project-configuration.md`
+- `foundations/dependency-management.md`
+- `foundations/release-environments.md`
+
+### Publishing
+
+- `publishing/cross-platform/assets.md`
+
+---
+
+# Official sources
+
+## Expo
+
+- Set up your environment: https://docs.expo.dev/get-started/set-up-your-environment/
+- Local app development: https://docs.expo.dev/guides/local-app-development/
+- `expo-doctor`: https://docs.expo.dev/more/expo-cli/#doctor
+- EAS Build local builds: https://docs.expo.dev/build-reference/local-builds/
+- EAS CLI: https://docs.expo.dev/eas/cli/
+- Prebuild: https://docs.expo.dev/workflow/prebuild/
+- Monorepos: https://docs.expo.dev/guides/monorepos/
+
+## React Native
+
+- Set up your environment: https://reactnative.dev/docs/set-up-your-environment
+
+## Android
+
+- Install Android Studio: https://developer.android.com/studio/install
+
+## Apple
+
+- Xcode: https://developer.apple.com/xcode/
+- CocoaPods: https://cocoapods.org/
+
+---
+
+**Last verified:** September 4, 2026
+
+Expo CLI behavior, EAS CLI commands, and native tooling requirements change over time. Verify current requirements against the official documentation above and the specific Expo SDK version the project uses before trusting a version number in this guide.

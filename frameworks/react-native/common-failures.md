@@ -155,6 +155,8 @@ git rev-parse HEAD
 
 Do not guess which version is being used when the failure depends on the toolchain.
 
+See `frameworks/react-native/local-setup.md` for how to install and verify this toolchain in the first place, and for the checklist to run before trusting a local release build.
+
 ---
 
 # 4. Failure: `npm install` or dependency installation fails
@@ -2484,6 +2486,7 @@ the release artifact is valid, and the affected user path works."
 ### React Native
 
 - `frameworks/react-native/README.md`
+- `frameworks/react-native/local-setup.md`
 - `frameworks/react-native/android-release.md`
 - `frameworks/react-native/ios-release.md`
 - `frameworks/react-native/signing.md`

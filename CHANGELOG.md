@@ -34,6 +34,9 @@ Changes currently being developed and not yet included in a published release.
 
 ### Added
 
+- New guide `frameworks/react-native/local-setup.md`: local machine setup for producing a React Native *release* build (not a development tutorial) — Node/Watchman, JDK, Android SDK and environment variables, Xcode/CocoaPods/Ruby, Apple Silicon notes, verifying the environment with `react-native doctor`, and matching a local toolchain to CI.
+- New guide `frameworks/expo/local-setup.md`: the Expo equivalent, framed around the local-build-vs-EAS-cloud-build distinction — when native tooling is actually required, CNG vs. committed native projects, `expo-doctor`, and `eas build --local`.
+- Cross-linked both new guides into `frameworks/react-native/README.md`, `frameworks/expo/README.md`, `frameworks/expo/development-builds.md`, `frameworks/react-native/common-failures.md`, and `frameworks/expo/common-failures.md`.
 - Initial Mobile Release Playbook structure.
 - Core release lifecycle documentation.
 - Store account guidance for Apple Developer, App Store Connect, and Google Play Console.

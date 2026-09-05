@@ -322,6 +322,7 @@ mobile-release-playbook/
 │   ├── README.md                      # Subsystem Parent Index & Architecture Overview
 │   ├── react-native/                  # React Native CLI Native Toolchain
 │   │   ├── README.md                  # React Native Subsystem Index
+│   │   ├── local-setup.md             # Local Machine Setup for Release Builds
 │   │   ├── ios-release.md             # Native iOS Release Configuration
 │   │   ├── android-release.md         # Native Android Gradle Release Config
 │   │   ├── signing.md                 # Native Xcode & Gradle Signing Setups
@@ -330,6 +331,7 @@ mobile-release-playbook/
 │   │   └── common-failures.md         # Native Compilation Failure Triage
 │   ├── expo/                          # Expo Framework & Managed Workflows
 │   │   ├── README.md                  # Expo Subsystem Index
+│   │   ├── local-setup.md             # Local Machine Setup: EAS Cloud vs. Local Builds
 │   │   ├── development-builds.md      # Expo Development Client Build Setup
 │   │   ├── build.md                   # Local & Cloud EAS Build Executions
 │   │   ├── submit.md                  # EAS Submit Store Upload Setup

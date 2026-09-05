@@ -226,6 +226,8 @@ iPhone
 
 Expo documents local development builds as compiling the application with Expo CLI and the native development tools installed on your machine.
 
+See `frameworks/expo/local-setup.md` for the full machine-setup walkthrough (environment variables, verifying your install, Apple Silicon notes, and more).
+
 ---
 
 # 8. Build locally
@@ -1906,6 +1908,7 @@ The goal is to make the development runtime match the application you are actual
 
 ### Expo
 
+- `frameworks/expo/local-setup.md`
 - `frameworks/expo/app-config.md`
 - `frameworks/expo/build.md`
 - `frameworks/expo/ci-cd.md`

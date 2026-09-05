@@ -34,6 +34,7 @@ It focuses on the parts that become important when a React Native application ne
 
 ```text
 React Native
+├── Local environment setup
 ├── Android release
 ├── iOS release
 ├── Signing
@@ -252,6 +253,7 @@ The React Native framework section is intentionally small.
 frameworks/
 └── react-native/
     ├── README.md
+    ├── local-setup.md
     ├── android-release.md
     ├── common-failures.md
     ├── eas.md
@@ -274,6 +276,18 @@ Release model
 Tool choices
 Navigation
 Core principles
+```
+
+### `local-setup.md`
+
+Covers:
+
+```text
+Machine setup for producing a local release build
+Node, Watchman, JDK, Android SDK, Xcode, CocoaPods
+Environment variables
+Verifying your setup (react-native doctor)
+Matching your machine to CI
 ```
 
 ### `android-release.md`
@@ -1431,6 +1445,7 @@ and understand what to do when something fails."
 
 ### React Native
 
+- `frameworks/react-native/local-setup.md`
 - `frameworks/react-native/android-release.md`
 - `frameworks/react-native/common-failures.md`
 - `frameworks/react-native/eas.md`

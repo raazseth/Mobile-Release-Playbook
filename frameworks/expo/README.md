@@ -34,6 +34,7 @@ Post-release operation
 
 It also covers:
 
+- local environment setup
 - Expo configuration
 - EAS Build
 - EAS Submit
@@ -54,21 +55,23 @@ It also covers:
 If you are new to Expo releases, follow this order:
 
 ```text
-1. app-config.md
+1. local-setup.md
        ↓
-2. development-builds.md
+2. app-config.md
        ↓
-3. eas.md
+3. development-builds.md
        ↓
-4. credentials.md
+4. eas.md
        ↓
-5. build.md
+5. credentials.md
        ↓
-6. ci-cd.md
+6. build.md
        ↓
-7. submit.md
+7. ci-cd.md
        ↓
-8. common-failures.md
+8. submit.md
+       ↓
+9. common-failures.md
 ```
 
 For a first production release, also use the shared checklists:
@@ -82,6 +85,25 @@ checklists/production.md
 ---
 
 ## Guides
+
+### `local-setup.md`
+
+Explains what a machine actually needs for Expo release work, and what it doesn't.
+
+Use it for:
+
+- the Expo CLI and EAS CLI
+- when native tooling (Xcode, Android Studio) is actually required
+- Continuous Native Generation vs. committed native projects
+- `expo-doctor` and `react-native doctor`
+- EAS local builds (`eas build --local`)
+- keeping a local build consistent with EAS cloud builds
+
+Core principle:
+
+> **Most Expo work needs Node and the EAS CLI, not a full native toolchain. Install native tooling when you actually need to run a local build, not by default.**
+
+---
 
 ### `app-config.md`
 
@@ -1173,6 +1195,7 @@ checklists/post-release.md
 
 ### Expo
 
+- `frameworks/expo/local-setup.md`
 - `frameworks/expo/app-config.md`
 - `frameworks/expo/development-builds.md`
 - `frameworks/expo/eas.md`
@@ -1185,6 +1208,7 @@ checklists/post-release.md
 ### React Native
 
 - `frameworks/react-native/`
+- `frameworks/react-native/local-setup.md`
 
 ### Signing
 
