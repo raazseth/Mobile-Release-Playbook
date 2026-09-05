@@ -1,83 +1,59 @@
-# Developer License Agreements & Amendments
+# Developer Agreements
 
-This document details the lifecycle management, agreement monitoring, amendment acceptances, and store block prevention rules for **Apple Developer Program License Agreements (DPLA)** and **Google Play Developer Distribution Agreements (DDA)**.
-
-Engineered in alignment with **2026 platform specifications**, it specifies how to monitor, review, and accept updated store agreements without triggering build release blocks, TestFlight halts, or store removal notices.
+Apple and Google periodically update their developer agreements — the Apple Developer Program License Agreement (DPLA) and the Google Play Developer Distribution Agreement (DDA). This covers what happens when they do, and why letting one sit unaccepted blocks releases.
 
 This guide is **not**:
 
-- an authorization mechanism to auto-accept legal agreements without human review
-- formal legal counsel (consult corporate legal counsel when reviewing agreement amendments)
-- a task that can be delegated to standard Admin or Developer team roles
+- an argument for auto-accepting legal agreements without anyone actually reading them
+- legal advice — have counsel review anything substantive
+- something you can delegate to a regular Admin or Developer role
 
 ---
 
-# 1. Developer Agreement Lifecycle & Impact
+## 1. What happens when an agreement updates
 
-Apple and Google periodically update their Developer Program License Agreements to reflect new privacy legislation, platform APIs, regional regulatory mandates (e.g., EU Digital Markets Act DMA, regional billing choices), and store fee structures.
+Apple and Google update these agreements to reflect new regulation (the EU's Digital Markets Act, regional billing rules), new platform capabilities, or fee changes.
 
 ```text
-[ Apple / Google Issues Updated Developer Agreement ]
-                         │
-                         ▼
-┌────────────────────────────────────────────────────────┐
-│            STORE BANNER ALERT & EXPIRE NOTICE          │
-│  - App Store Connect / Play Console displays banner    │
-│  - Email dispatched to Account Holder (Owner)          │
-└────────────────────────┬───────────────────────────────┘
-                         │
-         ┌───────────────┴───────────────┐
-         ▼                               ▼
- [ Account Holder Accepts ]      [ Agreement Ignored / Un-accepted ]
- Account Status Remains Clear.   - Build Submissions BLOCKED
- App Updates Proceed Normal.     - TestFlight Distribution HALTED
-                                 - Store Listing Updates BLOCKED
+Apple/Google publishes an updated agreement
+        ↓
+App Store Connect / Play Console shows a banner, and emails the account holder
+        ↓
+Account holder accepts → nothing changes, releases continue normally
+Account holder ignores it → builds get blocked, TestFlight halts, listing edits fail
 ```
 
----
+## 2. Only the account holder can accept it
 
-# 2. Exclusive Account Holder Agreement Authority
+This is exclusive to the **Account Holder / Owner** role — a full Admin cannot click "I Agree" on an updated DPLA or DDA, no matter how much other access they have. If your account holder is slow to check email, that's a real release risk, not just an inconvenience.
 
-Accepting updated legal agreements is an exclusive privilege reserved for the **Account Holder (Owner)**:
+## 3. What gets blocked if it's ignored
 
-- **Admins Cannot Accept Agreements**: Even full Admin users cannot click "I Agree" on updated Apple DPLAs or Google Play DDAs.
-- **Account Holder Sign-Off Protocol**: When an updated agreement is published, the Account Holder MUST log in using their primary corporate Apple Account / Google Account and accept the terms.
+- External TestFlight builds can't be submitted for Beta App Review.
+- Binary submissions to production tracks on either store fail outright.
+- Store listing edits — pricing, descriptions, screenshots — get rejected.
 
----
+## 4. Before you consider this done
 
-# 3. Store Block Prevention Checklist
-
-Failing to accept updated agreements promptly creates severe release engineering bottlenecks:
-
-1. **TestFlight External Testing Halted**: New TestFlight builds cannot be submitted for Beta App Review.
-2. **App Store Submissions Blocked**: Binary submissions to App Store Connect or Google Play production tracks fail immediately.
-3. **Metadata Updates Locked**: Price changes, store listing edits, and changelog updates are rejected.
+- [ ] Someone is actually monitoring the account holder's email for agreement notices, not just assuming they'll see it.
+- [ ] Updated agreements get reviewed and accepted within a few business days.
+- [ ] App Store Connect's Agreements, Tax, and Banking page shows "Active" for everything.
+- [ ] Your CI/CD pipeline isn't silently failing on an agreement-related error nobody's noticed.
 
 ---
 
-# 4. Operational Verification Checklist
-
-- [ ] **Account Holder Monitored**: Account Holder email monitored daily for agreement update notices.
-- [ ] **Prompt Sign-Off**: Updated agreements reviewed and accepted within 5 business days of issuance.
-- [ ] **Pending Agreements Clear**: App Store Connect -> Agreements, Tax, and Banking shows "Active" for all agreements.
-- [ ] **Build Pipeline Unblocked**: CI/CD pipelines verified free of agreement-related submission errors.
-
----
-
-# 5. Related Documentation
-
-- [Apple Developer Handbook](apple-developer.md) - Program setup.
-- [Google Play Console Handbook](google-play-console.md) - Play Console setup.
-- [Roles & Permissions Handbook](roles-and-permissions.md) - Role RBAC matrices.
-
----
-
-# 6. Official Sources
+## Official sources
 
 - Apple Developer Program License Agreement: https://developer.apple.com/terms/
 - Google Play Developer Distribution Agreement: https://play.google.com/about/developer-distribution-agreement.html
 
+**Last verified:** September 5, 2026
+
 ---
 
-**Last verified:** August 14, 2026
+## Related documentation
 
+- `store-accounts/README.md`
+- `store-accounts/apple-developer.md`
+- `store-accounts/google-play-console.md`
+- `store-accounts/roles-and-permissions.md`

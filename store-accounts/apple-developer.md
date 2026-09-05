@@ -1,110 +1,71 @@
-# Apple Developer Program Enrollment & Administration
+# Apple Developer Program
 
-This document details the enrollment procedure, Account Holder setup, D-U-N-S® business identity verification, two-factor authentication (2FA) enforcement, and annual renewal management for the **Apple Developer Program**.
-
-Engineered in alignment with **2026 platform requirements**, it specifies how to set up and maintain an Apple Developer Organization account ($99 USD/year) to enable app publishing, TestFlight distribution, Apple Push Notification service (APNs), and StoreKit 2 monetization.
+This covers enrolling in the Apple Developer Program as an organization: what you need before you start, how the verification call works, and what to watch for on renewal.
 
 This guide is **not**:
 
-- an App Store Connect portal management guide (see [app-store-connect.md](app-store-connect.md))
-- a guide to signing certificate generation (see [signing/](../signing/README.md))
-- a substitute for verifying official Apple legal entity documentation
+- an App Store Connect administration guide (see [app-store-connect.md](app-store-connect.md))
+- a guide to generating signing certificates (see [signing/](../signing/README.md))
+- a substitute for reading Apple's own legal entity documentation
 
 ---
 
-# 1. Apple Developer Program Structure & Fees
+## 1. What the program gets you
 
-The Apple Developer Program grants access to iOS, iPadOS, macOS, watchOS, and tvOS SDKs, beta software, App Store Connect, and native capabilities (Associated Domains, Sign in with Apple, HealthKit, Push Notifications).
+Apple Developer Program membership costs $99/year and gives you access to the iOS, iPadOS, macOS, watchOS, and tvOS SDKs, beta software, App Store Connect, and native capabilities like Associated Domains, Sign in with Apple, HealthKit, and push notifications. For anything beyond a personal side project, enroll as an **organization**, not an individual — it verifies your business rather than a person, and it's what lets you add teammates with different roles later (see [roles-and-permissions.md](roles-and-permissions.md)).
+
+## 2. Before you start enrollment
+
+You'll need all of this in place before Apple will approve an organization account:
+
+1. **A corporate Apple Account with 2FA enabled** — use a company email address (e.g. `apple-developer@company.com`), not a personal one, and turn on two-factor authentication.
+2. **A D-U-N-S number** — a 9-digit business identifier from Dun & Bradstreet, tied to your actual legal entity (corporation, LLC, etc.). Apple rejects DBAs, trade names, and branch offices — it has to be the entity itself.
+3. **Legal entity status** — the company has to be able to legally enter into contracts with Apple.
+4. **Legal signing authority** — whoever enrolls needs to actually be the owner, an executive, or have explicit authority delegated by one. Apple verifies this by phone.
+5. **A public company website**, hosted on a domain that matches your company name.
+
+## 3. How the verification actually happens
 
 ```text
-┌────────────────────────────────────────────────────────┐
-│               APPLE DEVELOPER PROGRAM                  │
-│                                                        │
-│  - Annual Membership Fee: $99 USD / year (recurring)   │
-│  - Account Type: Organization (Verified Legal Entity)  │
-│  - Enrollment Requirements: D-U-N-S® Number + 2FA      │
-│  - Authority: Account Holder (Legal Binding Authority) │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-    ┌──────────────────────┴──────────────────────┐
-    ▼                                             ▼
-┌────────────────────────┐               ┌────────────────────────┐
-│ App Store Distribution │               │ Native Capabilities    │
-│ (TestFlight & Store)   │               │ (APNs, Push, IAP, AASA)│
-└────────────────────────┘               └────────────────────────┘
+Submit enrollment (Developer app or web)
+        ↓
+Apple checks your legal entity name and address against Dun & Bradstreet
+        ↓
+Apple calls the phone number on file in D-U-N-S
+  to confirm the person enrolling has legal authority
+        ↓
+Approved → pay the $99 annual fee → access granted
 ```
 
----
+If the phone number Apple has on file for your D-U-N-S record is disconnected or unreachable, this is where enrollment usually stalls — worth checking before you submit.
 
-# 2. Prerequisites for Organization Enrollment
+## 4. Renewal
 
-Before initiating Apple Developer Program enrollment for an organization:
+Membership renews annually at $99. If it lapses, your App Store listings drop out of search, TestFlight builds stop working, and push notifications fail — so it's worth turning on auto-renewal in App Store Connect (Account → Membership) against a card that won't expire unexpectedly.
 
-1. **Corporate Apple Account with 2FA**: Create an Apple Account using a corporate email address (e.g., `apple-developer@company.com`). Enable Two-Factor Authentication (2FA) using hardware security keys or corporate Apple devices.
-2. **D-U-N-S® Number**: Obtain a valid 9-digit D-U-N-S Number from Dun & Bradstreet representing your legal business entity (e.g., Corporation, LLC). DBAs, fictitious names, trade names, and branch offices are **strictly rejected** by Apple.
-3. **Legal Entity Status**: The company must be a recognized legal entity capable of entering into binding contracts with Apple.
-4. **Legal Binding Authority**: The person completing enrollment must be the owner/founder, executive officer, or have explicit legal authority granted by an executive. Apple conducts phone calls to verify authority.
-5. **Public Corporate Website**: The company must maintain an active, publicly accessible website hosted on a domain associated with the company name.
+## 5. Before you consider this done
 
----
-
-# 3. Enrollment Verification Flow
-
-```text
-[ Submit Enrollment Request via Developer App / Web ]
-                           │
-                           ▼
-┌────────────────────────────────────────────────────────┐
-│              DUN & BRADSTREET DATA MATCH               │
-│  - Apple cross-references Legal Entity Name & Address  │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-                           ▼
-┌────────────────────────────────────────────────────────┐
-│            APPLE IDENTITY VERIFICATION CALL            │
-│  - Apple representative calls D-U-N-S listed phone     │
-│  - Confirms Account Holder legal binding authority     │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-                           ▼
-[ Enrollment Approved → Pay $99 Annual Fee → Access Granted ]
-```
+- [ ] Account holder uses a company-owned email address, not a personal one.
+- [ ] 2FA is enabled on the account holder's credentials.
+- [ ] The company name entered matches the Dun & Bradstreet record exactly.
+- [ ] Auto-renewal is turned on with an active card behind it.
+- [ ] There's a documented plan for transferring account holder status if that person leaves — see [account-recovery.md](account-recovery.md).
 
 ---
 
-# 4. Annual Renewal & Auto-Renewal Policy
+## Official sources
 
-The Apple Developer Program membership MUST be renewed annually ($99 USD/year):
+- Apple Developer Program enrollment: https://developer.apple.com/programs/enroll/
+- D-U-N-S lookup tool: https://developer.apple.com/account/#!/dunsLookup
 
-- **Expiration Risk**: If membership expires, active App Store listings are **removed from search**, TestFlight builds stop functioning, and push notifications fail.
-- **Auto-Renewal Setup**: Enable Auto-Renewal in App Store Connect under Account -> Membership, backed by a corporate credit card.
-
----
-
-# 5. Operational Verification Checklist
-
-- [ ] **Corporate Apple Account Used**: Account Holder uses a company-owned domain email address (`apple-developer@company.com`).
-- [ ] **2FA Enabled**: Two-Factor Authentication active on Account Holder credentials.
-- [ ] **Legal Name Exact Match**: Company name in enrollment matches Dun & Bradstreet record identically.
-- [ ] **Auto-Renewal Active**: Annual membership auto-renewal enabled with active corporate card.
-- [ ] **Account Holder Backups**: Successor Account Holder transfer procedure documented (see [account-recovery.md](account-recovery.md)).
+**Last verified:** September 5, 2026
 
 ---
 
-# 6. Related Documentation
+## Related documentation
 
-- [App Store Connect Handbook](app-store-connect.md) - Portal setup & API keys.
-- [Organization Accounts Handbook](organization-accounts.md) - Legal entity setup.
-- [Agreements Handbook](agreements.md) - DPLA license agreements.
-
----
-
-# 7. Official Sources
-
-- Apple Developer Program Enrollment: https://developer.apple.com/programs/enroll/
-- Apple D-U-N-S Lookup Tool: https://developer.apple.com/account/#!/dunsLookup
-
----
-
-**Last verified:** August 14, 2026
-
+- `store-accounts/README.md`
+- `store-accounts/app-store-connect.md`
+- `store-accounts/organization-accounts.md`
+- `store-accounts/agreements.md`
+- `store-accounts/account-recovery.md`
